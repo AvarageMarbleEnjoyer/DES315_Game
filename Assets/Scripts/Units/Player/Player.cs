@@ -201,11 +201,18 @@ public class Player : Unit
     }
 
     /// <summary>
-    /// Spend a number of coins (0 = free)
+    /// Spend a number of coins (0 = free).
+    /// When the infinite coins cheat is active the deduction is skipped but the
+    /// call still succeeds so all ability/movement logic works normally.
     /// </summary>
     public bool SpendCoins(int cost)
     {
         if (cost <= 0) return true;
+        if (CheatManager.Instance != null && CheatManager.Instance.InfiniteCoins)
+        {
+            if (debugMode) Debug.Log($"[Player] Coin spend of {cost} bypassed by Infinite Coins cheat.");
+            return true;
+        }
         if (currentCoins < cost) return false;
 
         currentCoins -= cost;
@@ -218,13 +225,24 @@ public class Player : Unit
     }
 
     /// <summary>
-    /// Spend the movement coin for this turn (only costs 1 coin for the entire turn's movement)
+    /// Spend the movement coin for this turn (only costs 1 coin for the entire turn's movement).
+    /// When the infinite coins cheat is active the deduction is skipped.
     /// </summary>
     public bool SpendMovementCoin()
     {
         if (hasSpentMovementCoin)
         {
             // Already spent movement coin this turn, movement is free
+            return true;
+        }
+
+        // Infinite coins cheat: skip deduction but mark movement coin as spent
+        // so the rest of the movement logic (distance tracking etc.) still works.
+        if (CheatManager.Instance != null && CheatManager.Instance.InfiniteCoins)
+        {
+            hasSpentMovementCoin = true;
+            if (debugMode) Debug.Log("[Player] Movement coin bypassed by Infinite Coins cheat.");
+            OnMovementCoinSpent?.Invoke();
             return true;
         }
 
@@ -374,6 +392,20 @@ public class Player : Unit
         }
 
         return success;
+    }
+
+    /// <summary>
+    /// Override TakeDamage to support the infinite health cheat.
+    /// When active, all incoming damage is silently ignored.
+    /// </summary>
+    public override void TakeDamage(float amount)
+    {
+        if (CheatManager.Instance != null && CheatManager.Instance.InfiniteHealth)
+        {
+            if (debugMode) Debug.Log("[Player] TakeDamage blocked by Infinite Health cheat.");
+            return;
+        }
+        base.TakeDamage(amount);
     }
 
     protected override void Die()
