@@ -17,6 +17,16 @@ public class DungeonGenerator : MonoBehaviour
     [Tooltip("Number of different room types available")]
     public int roomTypeCount = 4;
 
+    [Header("Seed Settings")]
+    [Tooltip("Enable to use a specific seed for reproducible generation")]
+    public bool useRandomSeed = true;
+
+    [Tooltip("Seed value for dungeon generation (ignored if useRandomSeed is true)")]
+    public int seed = 0;
+
+    [Tooltip("The seed used in the last generation - read this to recreate the dungeon")]
+    [HideInInspector] public string lastSeedUsed = "";
+
     [Tooltip("Chance (0-1) a new cell inherits a neighbour's type instead of rolling randomly - higher values cluster same-type cells together producing more 2x2 merges")]
     [Range(0f, 1f)]
     //0.0 fully random, 0.65 default increase in 2x2, 0.85 heavy clustering, 1.0 every cell inherits a neighbour//
@@ -42,6 +52,21 @@ public class DungeonGenerator : MonoBehaviour
     //Main dungeon generation entry point - EM//
     public void GenerateDungeon()
     {
+        //Seed setup//
+        if(useRandomSeed)
+        {
+            //Random seed based on time//
+            seed = System.Environment.TickCount;
+        }
+
+        Random.InitState(seed);
+        lastSeedUsed = seed.ToString();
+
+        if(showDebugLogs)
+        {
+            Debug.Log($"[DungeonGenerator] Using seed: {lastSeedUsed}");
+        }
+
         InitialiseGrid();
         GrowDungeon();
         MergeRooms();
@@ -316,6 +341,33 @@ public class DungeonGenerator : MonoBehaviour
         return null;
     }
 
+    //Test generate with current seed value in inspector -EM//
+    [ContextMenu("Generate With Current Seed")]
+    private void TestGenerateWithSeed()
+    {
+        useRandomSeed = false;
+        GenerateDungeon();
+
+        //Also rebuild rooms if RoomBuilder is present//
+        RoomBuilder rb = GetComponent<RoomBuilder>();
+        if (rb != null) rb.BuildRooms();
+
+        Debug.Log($"[DungeonGenerator] Generated with seed: {seed}");
+    }
+
+    //Test generate a fresh random dungeo0n and print the seed -EM//
+    [ContextMenu("Generate Random and Print Seed")]
+    private void TestGenerateRandom()
+    {
+        useRandomSeed = true;
+        GenerateDungeon();
+
+        RoomBuilder rb = GetComponent<RoomBuilder>();
+        if(rb != null) rb.BuildRooms();
+
+        Debug.Log($"[DungeonGenerator] Random seed was: {seed} - copy this int 'Seed' field to recreate");
+    }
+
     //Get the generated rooms (for external use) -EM//
     public List<Room> GetRooms()
     {
@@ -326,5 +378,19 @@ public class DungeonGenerator : MonoBehaviour
     public CellData[,] GetGrid()
     {
         return grid;
+    }
+
+    //Retursn the seed used in the last generation -EM//
+    public int GetLastSeed()
+    {
+        return seed;
+    }
+
+    //Feed a known seed and regenerate -EM//
+    public void GenerateWithSeed(int knownSeed)
+    {
+        useRandomSeed = false;
+        seed = knownSeed;
+        GenerateDungeon();
     }
 }
