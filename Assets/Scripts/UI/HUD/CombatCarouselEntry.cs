@@ -11,7 +11,6 @@ public class CombatCarouselEntry : MonoBehaviour, IPointerEnterHandler, IPointer
     [SerializeField] private HealthUI healthUI;
 
     private Unit unit;
-    private bool isInitialized;
     private bool isHovering;
 
     private void Awake()
@@ -38,7 +37,6 @@ public class CombatCarouselEntry : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void Initialize(Unit targetUnit)
     {
-        isInitialized = true;
         SetUnit(targetUnit);
     }
 

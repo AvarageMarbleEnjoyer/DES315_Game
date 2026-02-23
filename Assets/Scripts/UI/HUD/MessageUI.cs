@@ -1,20 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Combat log implementation of the message system.
+/// Each call to <see cref="EnqueueMessage"/> spawns a new log entry prefab inside
+/// the <see cref="logContainer"/> layout group. Entries fade out and self-destruct
+/// after the configured durations defined on <see cref="CombatLogEntry"/>.
+///
+/// Drop-in replacement for the old MessageUI — all callers using
+/// <c>MessageUI.Instance?.EnqueueMessage(...)</c> require no changes.
+/// </summary>
 public class MessageUI : MonoBehaviour
 {
     public static MessageUI Instance { get; private set; }
 
-    [Header("UI")]
-    [SerializeField] private TextMeshProUGUI messageText;
+    [Header("References")]
+    [Tooltip("The VerticalLayoutGroup GameObject that entries are parented to.")]
+    [SerializeField] private Transform logContainer;
 
-    [Header("Timing")]
-    [SerializeField] private float messageDuration;
+    [Tooltip("Prefab that has a CombatLogEntry component and a TextMeshProUGUI child.")]
+    [SerializeField] private CombatLogEntry entryPrefab;
 
-    private readonly Queue<string> messageQueue = new Queue<string>();
-    private Coroutine displayCoroutine;
+    [Header("Timing (applied to every spawned entry)")]
+    [Tooltip("Seconds an entry stays fully visible before fading.")]
+    [SerializeField] private float displayDuration = 3f;
+
+    [Tooltip("Seconds the alpha lerp takes to reach zero.")]
+    [SerializeField] private float fadeDuration = 1f;
+
+    [Header("Capacity")]
+    [Tooltip("Maximum number of entries visible at once. Oldest entry is destroyed when the limit is exceeded. 0 = unlimited.")]
+    [SerializeField] private int maxEntries = 8;
+
+    // Tracks live entries so we can enforce the cap
+    private readonly System.Collections.Generic.Queue<CombatLogEntry> activeEntries =
+        new System.Collections.Generic.Queue<CombatLogEntry>();
 
     private void Awake()
     {
@@ -25,68 +44,52 @@ public class MessageUI : MonoBehaviour
         }
 
         Instance = this;
-
-        if (messageText != null)
-        {
-            messageText.text = string.Empty;
-            messageText.enabled = false;
-        }
     }
 
     public void EnqueueMessage(string message)
     {
         if (string.IsNullOrWhiteSpace(message))
+            return;
+
+        if (entryPrefab == null || logContainer == null)
         {
+            Debug.LogWarning("[MessageUI] entryPrefab or logContainer is not assigned.");
             return;
         }
 
-        messageQueue.Enqueue(message);
-
-        if (displayCoroutine == null)
+        // Enforce the entry cap
+        if (maxEntries > 0)
         {
-            displayCoroutine = StartCoroutine(DisplayMessages());
-        }
-    }
-
-    private IEnumerator DisplayMessages()
-    {
-        while (messageQueue.Count > 0)
-        {
-            string nextMessage = messageQueue.Dequeue();
-
-            if (messageText != null)
+            while (activeEntries.Count >= maxEntries)
             {
-                messageText.text = nextMessage;
-                messageText.enabled = true;
+                CombatLogEntry oldest = activeEntries.Dequeue();
+                if (oldest != null)
+                    Destroy(oldest.gameObject);
             }
-
-            float duration = Mathf.Max(0.1f, messageDuration);
-            yield return new WaitForSeconds(duration);
         }
 
-        if (messageText != null)
-        {
-            messageText.text = string.Empty;
-            messageText.enabled = false;
-        }
+        // Spawn the new entry
+        CombatLogEntry entry = Instantiate(entryPrefab, logContainer);
+        entry.Initialize(message, displayDuration, fadeDuration);
 
-        displayCoroutine = null;
+        // Track so we can prune if needed
+        activeEntries.Enqueue(entry);
+
+        // Also clean up any entries that have already destroyed themselves
+        // (harmless null check keeps the queue tidy)
+        while (activeEntries.Count > 0 && activeEntries.Peek() == null)
+            activeEntries.Dequeue();
     }
 
     private void OnDisable()
     {
-        if (displayCoroutine != null)
+        // Destroy any remaining entries when the UI is disabled / scene changes
+        foreach (CombatLogEntry entry in activeEntries)
         {
-            StopCoroutine(displayCoroutine);
-            displayCoroutine = null;
+            if (entry != null)
+                Destroy(entry.gameObject);
         }
 
-        messageQueue.Clear();
-
-        if (messageText != null)
-        {
-            messageText.text = string.Empty;
-            messageText.enabled = false;
-        }
+        activeEntries.Clear();
     }
 }
