@@ -201,11 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentRoom: {fileID: 0}
-  player: {fileID: 0}
-  rooms:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  player: {fileID: 1462424578}
 --- !u!1 &54605153
 GameObject:
   m_ObjectHideFlags: 0
@@ -3135,7 +3131,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: sgegsegsegseg
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
