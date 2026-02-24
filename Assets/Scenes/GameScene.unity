@@ -1606,8 +1606,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19448036bee130e4288b6edef2d8bf94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageText: {fileID: 1075981722}
-  messageDuration: 2
+  logContainer: {fileID: 1075981721}
+  entryPrefab: {fileID: 3904227497198597351, guid: 9005bfae781e4e04dac8de2b10a5ffc2, type: 3}
+  displayDuration: 5
+  fadeDuration: 3
+  maxEntries: 10
 --- !u!1 &708861072
 GameObject:
   m_ObjectHideFlags: 0
@@ -5942,6 +5945,9 @@ MonoBehaviour:
   gridSize: 6
   occupationPercentage: 0.6
   roomTypeCount: 4
+  useRandomSeed: 1
+  seed: 0
+  lastSeedUsed: 
   typeClusterChance: 0.5
   generateOnStart: 1
   showDebugLogs: 0
