@@ -1379,7 +1379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4b156005c7c1d44bd749b164e9ee81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorPrefabToTest: {fileID: 6362005581660989287, guid: 5dd297793fff0524e87198bb046c3754, type: 3}
+  floorPrefabToTest: {fileID: 5187754965267167289, guid: bc5884341cfe6d5458ecbf9742e299c0, type: 3}
   testCellSize: 5
   test1x1: 1
   test2x1: 1
