@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class DeathScreen : MonoBehaviour
 {
-    [SerializeField] private Player player;
+    private Player player;
 
     private Animator animator;
     void Start()
