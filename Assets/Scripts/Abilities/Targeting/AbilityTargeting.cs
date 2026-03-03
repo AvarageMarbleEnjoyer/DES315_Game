@@ -51,6 +51,10 @@ public class AbilityTargeting : MonoBehaviour
     private AOECircleVisualizer aoeVisualizer;
     private TargetHighlighter targetHighlighter;
 
+    [Header("Aim Rotation")]
+    [Tooltip("Degrees per second to rotate toward aim direction. 0 = instant.")]
+    [SerializeField] private float aimRotationSpeed = 720f;
+
     [Header("Debug")]
     [SerializeField] private bool debugMode = false;
     [SerializeField] private bool isTargeting = false;
@@ -372,7 +376,6 @@ public class AbilityTargeting : MonoBehaviour
 
                 if (isValidTarget)
                 {
-                    // Valid target - highlight it
                     if (hoveredUnit != unit)
                     {
                         hoveredUnit = unit;
@@ -383,6 +386,13 @@ public class AbilityTargeting : MonoBehaviour
                         {
                             Debug.Log($"[AbilityTargeting] Hovering valid target: {unit.name} (distance: {distance:F1})");
                         }
+                    }
+
+                    Vector3 toUnit = unit.transform.position - currentCaster.transform.position;
+                    toUnit.y = 0f;
+                    if (toUnit.sqrMagnitude > 0.0001f)
+                    {
+                        RotateCasterToward(toUnit.normalized);
                     }
                 }
                 else
@@ -436,6 +446,7 @@ public class AbilityTargeting : MonoBehaviour
             if (direction != Vector3.zero)
             {
                 coneVisualizer.UpdateDirection(casterPos, direction);
+                RotateCasterToward(direction);
 
                 List<Unit> targets = GetUnitsInCone(casterPos, direction, currentAbilityRange, currentAbilityConeAngle, currentAbilityAoeHeight);
                 SetHighlightsForUnits(targets);
@@ -498,6 +509,13 @@ public class AbilityTargeting : MonoBehaviour
             }
 
             aoeVisualizer.UpdatePosition(targetPoint);
+
+            Vector3 toAoeTarget = targetPoint - currentCaster.transform.position;
+            toAoeTarget.y = 0f;
+            if (toAoeTarget.sqrMagnitude > 0.0001f)
+            {
+                RotateCasterToward(toAoeTarget.normalized);
+            }
 
             if (!HasLineOfSightToPoint(currentCaster.transform.position, targetPoint))
             {
@@ -657,6 +675,29 @@ public class AbilityTargeting : MonoBehaviour
         if (targetHighlighter != null)
         {
             targetHighlighter.SetHighlightColor(highlightColor);
+        }
+    }
+
+    /// <summary>
+    /// Rotates the caster to face the given flat (XZ) direction, respecting aimRotationSpeed.
+    /// </summary>
+    private void RotateCasterToward(Vector3 direction)
+    {
+        if (currentCaster == null || direction == Vector3.zero) return;
+
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+        if (aimRotationSpeed <= 0f)
+        {
+            currentCaster.transform.rotation = targetRotation;
+        }
+        else
+        {
+            currentCaster.transform.rotation = Quaternion.RotateTowards(
+                currentCaster.transform.rotation,
+                targetRotation,
+                aimRotationSpeed * Time.deltaTime
+            );
         }
     }
 
