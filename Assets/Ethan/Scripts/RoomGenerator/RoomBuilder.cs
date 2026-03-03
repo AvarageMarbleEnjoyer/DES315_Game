@@ -76,6 +76,7 @@ public class RoomBuilder : MonoBehaviour
     [Header("Player Spawn")]
     [Tooltip("The player to teleport to the lobby center on start")]
     public Transform playerTransform;
+    public Transform cameraTransform;
 
     [Header("Organisation")]
     [Tooltip("Parent object for all room geometry")]
@@ -425,6 +426,7 @@ public class RoomBuilder : MonoBehaviour
         {
             playerTransform.position = centerPos;
         }
+        cameraTransform.position = centerPos + new Vector3(0f, 6f, 5f);
 
         if (showDebugLogs) Debug.Log($"[RoomBuilder] Player spawned at lobby center: {centerPos}");
     }

@@ -4066,7 +4066,7 @@ MonoBehaviour:
   moveSpeed: 8
   fastMoveMultiplier: 2
   rotateSpeed: 0.3
-  player: {fileID: 0}
+  player: {fileID: 1530810335}
   maxDistanceFromPlayer: 15
   roomManager: {fileID: 51621939}
   roomClampPadding: 1
@@ -4372,6 +4372,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1530810335 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8598696227221657001, guid: 1dca0b6704c4fba4a8d88e3bd9d75dbe, type: 3}
+  m_PrefabInstance: {fileID: 458790865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1564228205
 GameObject:
   m_ObjectHideFlags: 0
@@ -5813,6 +5818,8 @@ MonoBehaviour:
   excludePlayerAndEnemyLayers: 1
   autoGenerateAndBuildOnStart: 1
   autoSpawnDoorsOnStart: 1
+  playerTransform: {fileID: 1530810335}
+  cameraTransform: {fileID: 1437648970}
   roomsParent: {fileID: 285508514}
   doorSpawner: {fileID: 1829371482}
   showDebugLogs: 0
