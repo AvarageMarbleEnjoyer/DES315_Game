@@ -73,6 +73,10 @@ public class RoomBuilder : MonoBehaviour
     [Tooltip("Automatically spawn doors after rooms are built")]
     public bool autoSpawnDoorsOnStart = true;
 
+    [Header("Player Spawn")]
+    [Tooltip("The player to teleport to the lobby center on start")]
+    public Transform playerTransform;
+
     [Header("Organisation")]
     [Tooltip("Parent object for all room geometry")]
     public Transform roomsParent;
@@ -205,18 +209,22 @@ public class RoomBuilder : MonoBehaviour
             return;
         }
 
-        //Get the bottom-left grid cell of this room for world placement//
         room.GetBounds(out int minX, out int minY, out int maxX, out int maxY);
         Vector3 placementPos = GridToWorldPosition(minX, minY);
+
+        //Offset to center//
+        float roomWidth = (maxX - minX + 1) * cellSize;
+        float roomDepth = (maxY - minY + 1) * cellSize;
+        Vector3 centerPos = placementPos + new Vector3(roomWidth * 0.5f, 0f, roomDepth * 0.5f);
 
         //Create a container to keep the hierarchy tidy//
         string roomLabel = room.isLobby ? "Lobby" : $"Type{room.roomType}";
         GameObject roomContainer = new GameObject($"Room_{roomLabel}_{sizeLabel}_{minX}_{minY}");
         roomContainer.transform.SetParent(roomsParent);
-        roomContainer.transform.position = placementPos;
+        roomContainer.transform.position = centerPos;
 
         //Instantiate prefab at 1:1 scale//
-        GameObject roomInstance = Instantiate(prefab, placementPos, Quaternion.identity, roomContainer.transform);
+        GameObject roomInstance = Instantiate(prefab, centerPos, Quaternion.identity, roomContainer.transform);
         roomInstance.name = $"Prefab_{roomLabel}_{sizeLabel}";
 
         if(showDebugLogs)
@@ -324,6 +332,7 @@ public class RoomBuilder : MonoBehaviour
             generator.GenerateDungeon();
         }
         BuildRooms();
+        SpawnPlayerAtLobby();
     }
 
     #endregion
@@ -383,5 +392,40 @@ public class RoomBuilder : MonoBehaviour
         }
 
         disabledAgents.Clear();
+    }
+
+    private void SpawnPlayerAtLobby()
+    {
+        if (playerTransform == null) return;
+
+        List<Room> rooms = generator.GetRooms();
+        if(rooms == null) return;
+
+        Room lobby = rooms.Find(r => r.isLobby);
+        if (lobby == null)
+        {
+            if (showDebugLogs) Debug.LogWarning("[RoomBuilder] No lobby room found for player spawn!");
+            return;
+        }
+
+        lobby.GetBounds(out int minX, out int minY, out int maxX, out int maxY);
+        Vector3 placementPos = GridToWorldPosition(minX, minY);
+
+        float roomWidth = (maxX - minX + 1) * cellSize;
+        float roomDepth = (maxY - minY + 1) * cellSize;
+        Vector3 centerPos = placementPos + new Vector3(roomWidth * 0.5f, 0f, roomDepth * 0.5f);
+
+        //use NavMeshAgent.warp if available, otherwise direct position//
+        NavMeshAgent agent = playerTransform.GetComponent<NavMeshAgent>();
+        if(agent != null)
+        {
+            agent.Warp(centerPos);
+        }
+        else
+        {
+            playerTransform.position = centerPos;
+        }
+
+        if (showDebugLogs) Debug.Log($"[RoomBuilder] Player spawned at lobby center: {centerPos}");
     }
 }
