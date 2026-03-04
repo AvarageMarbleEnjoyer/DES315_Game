@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 4023876818927459606}
-  particleCount: 1028
+  particleCount: 2056
   particleSize: 0.2
   particleColor: {r: 0.19595744, g: 0.18903525, b: 0.2264151, a: 0.48235294}
   spawnHeightMin: 0.1
