@@ -22,9 +22,12 @@ public class Enemy : Unit
     [SerializeField] private float revealDistance = 3f;
     [Tooltip("Seconds between visibility checks (0 = every frame).")]
     [SerializeField] private float visibilityCheckInterval = 0.1f;
+    [Tooltip("Material applied to all renderer slots when the enemy is in shadow.")]
+    [SerializeField] private Material shadowMaterial;
 
     private PlayerController playerController;
     private Renderer[] modelRenderers;
+    private Material[][] originalMaterials;
     private bool isModelVisible = true;
     private float visibilityTimer;
     private bool forceRevealUntilTurnEnd;
@@ -121,19 +124,25 @@ public class Enemy : Unit
         if (modelRoot != null)
         {
             modelRenderers = modelRoot.GetComponentsInChildren<Renderer>(true);
-            return;
         }
-
-        Renderer[] renderers = GetComponentsInChildren<Renderer>(true);
-        List<Renderer> filtered = new List<Renderer>(renderers.Length);
-        foreach (Renderer renderer in renderers)
+        else
         {
-            if (renderer == null) continue;
-            if (renderer.GetComponentInParent<EnemyVisionCone>() != null) continue;
-            filtered.Add(renderer);
+            Renderer[] renderers = GetComponentsInChildren<Renderer>(true);
+            List<Renderer> filtered = new List<Renderer>(renderers.Length);
+            foreach (Renderer renderer in renderers)
+            {
+                if (renderer == null) continue;
+                if (renderer.GetComponentInParent<EnemyVisionCone>() != null) continue;
+                filtered.Add(renderer);
+            }
+            modelRenderers = filtered.ToArray();
         }
 
-        modelRenderers = filtered.ToArray();
+        originalMaterials = new Material[modelRenderers.Length][];
+        for (int i = 0; i < modelRenderers.Length; i++)
+        {
+            originalMaterials[i] = modelRenderers[i].sharedMaterials;
+        }
     }
 
     private void UpdateModelVisibility()
@@ -185,22 +194,25 @@ public class Enemy : Unit
 
         isModelVisible = visible;
 
-        if (modelRoot != null)
-        {
-            modelRoot.SetActive(visible);
-            return;
-        }
-
         if (modelRenderers == null || modelRenderers.Length == 0)
         {
             return;
         }
 
-        foreach (Renderer renderer in modelRenderers)
+        for (int i = 0; i < modelRenderers.Length; i++)
         {
-            if (renderer != null)
+            Renderer r = modelRenderers[i];
+            if (r == null) continue;
+
+            if (!visible && shadowMaterial != null)
             {
-                renderer.enabled = visible;
+                Material[] slots = new Material[r.sharedMaterials.Length];
+                for (int s = 0; s < slots.Length; s++) slots[s] = shadowMaterial;
+                r.materials = slots;
+            }
+            else
+            {
+                r.materials = originalMaterials[i];
             }
         }
     }
