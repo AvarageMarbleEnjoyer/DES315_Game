@@ -84,7 +84,7 @@ MonoBehaviour:
   lightCheckOffset: {x: 0, y: 1, z: 0}
   revealDistance: 3.14159
   visibilityCheckInterval: 0.1
-  shadowMaterial: {fileID: 2100000, guid: 1aed8e9ffce8e7d4bb19bfde88fce898, type: 2}
+  shadowMaterial: {fileID: 2100000, guid: 25d3368d6f9590643a2bdb4414b72ea1, type: 2}
 --- !u!114 &7482744618502037130
 MonoBehaviour:
   m_ObjectHideFlags: 0

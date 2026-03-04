@@ -70,8 +70,10 @@ public class RoomLA : MonoBehaviour
     {
         foreach (var light in roomLights)
         {
-            if (light != null)
-                light.transform.parent.gameObject.SetActive(active);
+            if (light == null) continue;
+            Light unityLight = light.GetLight();
+            if (unityLight != null)
+                unityLight.enabled = active;
         }
     }
 
