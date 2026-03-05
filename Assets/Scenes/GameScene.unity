@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -156.2, y: 250}
+  m_AnchoredPosition: {x: -156.20312, y: 250}
   m_SizeDelta: {x: 282.40002, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &51621937
@@ -1484,7 +1484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 514.9, y: -33.7}
+  m_AnchoredPosition: {x: 514.90625, y: -33.69995}
   m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &484774878
@@ -4648,7 +4648,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 85.24, y: -21.3}
+  m_AnchoredPosition: {x: 85.234375, y: -21.300049}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1643991290
@@ -5718,11 +5718,11 @@ MonoBehaviour:
   gridSize: 6
   occupationPercentage: 0.6
   roomTypeCount: 4
-  useRandomSeed: 0
+  useRandomSeed: 1
   seed: 31565265
   lastSeedUsed: 
   typeClusterChance: 0.5
-  generateOnStart: 1
+  generateOnStart: 0
   showDebugLogs: 0
 --- !u!4 &1829371480
 Transform:
@@ -5780,7 +5780,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 1437648970}
   roomsParent: {fileID: 285508514}
   doorSpawner: {fileID: 1829371482}
-  showDebugLogs: 0
+  showDebugLogs: 1
 --- !u!114 &1829371482
 MonoBehaviour:
   m_ObjectHideFlags: 0
