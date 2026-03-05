@@ -6,4 +6,5 @@ public class CellData
     public bool isOccupied = false;
     public int roomType = 0; //0 = Lobby, 1-4 = placeholder//
     public bool isLobby = false;
+    public bool isFinalRoom = false;
 }

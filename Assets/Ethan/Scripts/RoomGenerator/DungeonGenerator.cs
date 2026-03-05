@@ -69,6 +69,7 @@ public class DungeonGenerator : MonoBehaviour
 
         InitialiseGrid();
         GrowDungeon();
+        ReserveFinalRoomCells();
         MergeRooms();
         CalculateConnections();
 
@@ -236,7 +237,8 @@ public class DungeonGenerator : MonoBehaviour
                         proccessed[cell.x, cell.y] = true;
                     }
 
-                    rooms.Add(new Room(cells, roomType, false));
+                    bool isFinal = grid[x, y].isFinalRoom;
+                    rooms.Add(new Room(cells, roomType, false, isFinal));
                 }
             }
         }
@@ -265,6 +267,60 @@ public class DungeonGenerator : MonoBehaviour
             }
         Debug.Log($"[DungeonGenerator ]Room merging complete: {rooms.Count} rooms ({count2x2} x 2x2, {count1x1} x 1x1)");
         }
+    }
+
+    //Find the best occupied 2x2 block far from the lobby and stamp is as the final room//
+    //Called before MergeRooms so the forced same-type block is guaranteed to merge -EM//
+    private void ReserveFinalRoomCells()
+    {
+        Vector2 lobbyCentre = new Vector2(startPosition.x, startPosition.y);
+
+        Vector2Int bestOrigin = new Vector2Int(-1, -1);
+        float bestDist = -1f;
+
+        //Scan every possible 2x2 origin//
+        for(int x = 0; x < gridSize - 1; x++)
+        {
+            for(int y = 0; y < gridSize - 1; y++)
+            {
+                //All four cells must be occupied and none can be the lobby//
+                if (!grid[x,y].isOccupied || grid[x,y].isLobby) continue;
+                if (!grid[x + 1, y].isOccupied || grid[x + 1, y].isLobby) continue;
+                if (!grid[x,y+1].isOccupied || grid[x, y+1].isLobby) continue;
+                if (!grid[x + 1, y + 1].isOccupied || grid[x + 1, y + 1].isLobby) continue;
+
+                Vector2 centre = new Vector2(x + 0.5f, y + 0.5f);
+                float dist = Vector2.Distance(centre, lobbyCentre);
+
+                if (dist > bestDist)
+                {
+                    bestDist = dist;
+                    bestOrigin = new Vector2Int(x, y);
+                }
+            }
+        }
+
+        if(bestOrigin.x == -1)
+        {
+            if (showDebugLogs) Debug.LogWarning("[DungeonGenerator] Could not find any valid 2x2 blocki for the final room - dungeon may be too sparse");
+            return;
+        }
+
+        //Force all four cells to be the same type so CanMerge will always succeed//
+        int sharedType = grid[bestOrigin.x, bestOrigin.y].roomType;
+        if (sharedType == 0) sharedType = 1; //Avoid lobby type 0;//
+
+        for(int dx = 0; dx < 2; dx++)
+        {
+            for(int dy = 0; dy < 2; dy++)
+            {
+                CellData cell = grid[bestOrigin.x + dx, bestOrigin.y + dy];
+                cell.roomType = sharedType;
+                cell.isFinalRoom = true;
+            }
+        }
+
+        if (showDebugLogs) Debug.Log($"[DungeonGenerator] Final room reserved at grid ({bestOrigin.x}, {bestOrigin.y}), distance {bestDist:F1} from lobby");
     }
 
     //Check if we can merge a width x height block starting at (x,y) - EM//

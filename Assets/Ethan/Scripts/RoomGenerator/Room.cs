@@ -7,13 +7,15 @@ public class Room
     public List<Vector2Int> gridCells;
     public int roomType;
     public bool isLobby;
+    public bool isFinalRoom;
     public List<Room> connections;
 
-    public Room(List<Vector2Int> cells, int type, bool lobby)
+    public Room(List<Vector2Int> cells, int type, bool lobby, bool finalRoom = false)
     {
         gridCells = cells;
         roomType = type;
         isLobby = lobby;
+        isFinalRoom = finalRoom;
         connections = new List<Room>();
     }
 

@@ -219,7 +219,7 @@ public class RoomBuilder : MonoBehaviour
         Vector3 centerPos = placementPos + new Vector3(roomWidth * 0.5f, 0f, roomDepth * 0.5f);
 
         //Create a container to keep the hierarchy tidy//
-        string roomLabel = room.isLobby ? "Lobby" : $"Type{room.roomType}";
+        string roomLabel = room.isLobby ? "Lobby" : room.isFinalRoom ? "FinalRoom" : $"Type{room.roomType}";
         GameObject roomContainer = new GameObject($"Room_{roomLabel}_{sizeLabel}_{minX}_{minY}");
         roomContainer.transform.SetParent(roomsParent);
         roomContainer.transform.position = centerPos;
@@ -237,6 +237,12 @@ public class RoomBuilder : MonoBehaviour
     //Retrun the correct prefab for a room based on type and size -EM//
     private GameObject GetRoomPrefab(Room room, bool is2x2)
     {
+        //Final room always uses the lobby 2x2 prefab//
+        if(room.isFinalRoom)
+        {
+            return lobby2x2Prefab;
+        }
+
         if(room.isLobby)
         {
             return is2x2 ? lobby2x2Prefab : lobby1x1Prefab;
