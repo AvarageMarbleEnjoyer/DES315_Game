@@ -47,6 +47,7 @@ public class RoomManager : MonoBehaviour
         RoomLA previousRoom = CurrentRoom;
         currentRoom = newRoom;
         RoomChanged?.Invoke(previousRoom, CurrentRoom);
+        AlertEnemiesInRoom(newRoom);
 
         if (CombatManager.Instance != null && CombatManager.Instance.InCombat)
         {
@@ -79,5 +80,22 @@ public class RoomManager : MonoBehaviour
             if (room.Contains(position)) return room;
         }
         return null;
+    }
+
+    //Alert all enemies in a room when the player enters it//
+    private void AlertEnemiesInRoom(RoomLA room)
+    {
+        if(room == null) return;
+
+        EnemyAI[] allEnemies = FindObjectsByType<EnemyAI>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+
+        foreach(EnemyAI enemy in allEnemies)
+        {
+            //Only alert enemies whose position is inside the room the player just entered//
+            if(room.Contains(enemy.transform.position))
+            {
+                enemy.SetAlerted();
+            }
+        }
     }
 }

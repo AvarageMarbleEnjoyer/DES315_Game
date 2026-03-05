@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using UnityEditor.Search;
+using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Video;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Enemy))]
@@ -18,6 +20,21 @@ public class EnemyAI : MonoBehaviour
     [Tooltip("Maxiumum time to wait at each destination")]
     public float maxIdleTime = 5f;
 
+    [Header("Alert Settings")]
+    [Tooltip("Roam radius while alert - smaller so enemy lingers nearby")]
+    public float alertRoamRadius = 4f;
+
+    [Tooltip("Max idle time while alert - shorter so enemy keeps moving")]
+    public float alertMaxIdleTime = 1.5f;
+
+    [Header("Chase Settings")]
+    [Tooltip("How close the enemy needs to get to the player to trigger combat")]
+    public float combatEngageRange = 1.5f;
+
+    [Tooltip("How long the enemy chases before giving up if it loses player")]
+    public float chaseTimeout = 6f;
+
+
     [Header("Debug")]
     [SerializeField] private bool debugMode = true;
     [SerializeField] private AIState currentState;
@@ -30,25 +47,31 @@ public class EnemyAI : MonoBehaviour
     private Vector3 combatStartPosition;
     private Quaternion combatStartRotation;
     private bool hasCombatStartTransform;
+    private EnemyVisionCone visionCone;
+    private Transform playerTransform;
+    private float chaseTimer;
 
     //Can add more when combat is defined//
     private enum AIState
     {
         Idle,
         Roaming,
-        Returning
+        Returning,
+        Alert,
+        Chasing
     }
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         enemy = GetComponent<Enemy>();
+        visionCone = GetComponent<EnemyVisionCone>();
     }
 
     
     private void Start()
     {
-        //Subsribe to combat events to pause/resume wandering//
+        //Subsrcibe to combat events to pause/resume wandering//
         if(CombatManager.Instance != null)
         {
             CombatManager.Instance.OnCombatStarted += HandleCombatStarted;
@@ -63,6 +86,14 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
+        if (visionCone != null)
+        {
+            visionCone.OnPlayerDetected += HandlePlayerSpotted;
+        }
+        else
+        {
+            if (debugMode) Debug.LogWarning($"{gameObject.name}: No EnemyVisionCone found in children!");
+        }
         InitializeAI();
     }
 
@@ -72,6 +103,10 @@ public class EnemyAI : MonoBehaviour
         {
             CombatManager.Instance.OnCombatStarted -= HandleCombatStarted;
             CombatManager.Instance.OnCombatEnded -= HandleCombatEnded;
+        }
+        if (visionCone != null)
+        {
+            visionCone.OnPlayerDetected -= HandlePlayerSpotted;
         }
     }
 
@@ -176,6 +211,12 @@ public class EnemyAI : MonoBehaviour
             case AIState.Returning:
                 HandleReturningState();
                 break;
+            case AIState.Alert:
+                HandleAlertState();
+                break;
+            case AIState.Chasing:
+                HandleChasingState();
+                break;
         }
     }
 
@@ -218,18 +259,58 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    private void HandleAlertState()
+    {
+        //Behaves like roaming but with tighter radius and shorter idles//
+        if (!ValidateAgent()) return;
+
+        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        {
+            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+            {
+                StartIdling();
+            }
+        }
+    }
+    private void HandleChasingState()
+    {
+        if (!ValidateAgent()) return;
+        if (playerTransform == null) return;
+
+        //Keep updating destination toward player//
+        agent.SetDestination(playerTransform.position);
+
+        //Close enough to engage combat//
+        if (Vector3.Distance(transform.position, playerTransform.position) <= combatEngageRange)
+        {
+            if (debugMode) Debug.Log($"{gameObject.name}: Engaging combat!");
+            CombatManager.Instance?.StartCombatFromEnemy(enemy);
+            return;
+        }
+
+        //Chase timeout - give up if taking too long//
+        chaseTimer -= Time.deltaTime;
+        if (chaseTimer <= 0f)
+        {
+            if (debugMode) Debug.Log($"{gameObject.name}: Lost the player, returning to alert.");
+            SetAlerted(); //Drop back to alert rather than fully resetting//
+        }
+    }
+
     //State transitions -EM//
     private void StartRoaming()
     {
         if (!ValidateAgent()) return;
 
+        //use tighter radius when alert//
+        float radius = (currentState == AIState.Alert) ? alertRoamRadius : roamRadius;
         Vector3 randomDestination = GetRandomNavMeshPoint();
 
         if(randomDestination != Vector3.zero)
         {
             agent.SetDestination(randomDestination);
             currentDestination = randomDestination;
-            currentState = AIState.Roaming;
+            currentState = (currentState == AIState.Alert) ? AIState.Alert : AIState.Roaming;
 
             if (debugMode) Debug.Log($"{gameObject.name} roaming to {randomDestination}");
         }
@@ -244,8 +325,16 @@ public class EnemyAI : MonoBehaviour
     {
         if (!ValidateAgent()) return;
 
-        currentState = AIState.Idle;
-        idleTimer = Random.Range(minIdleTime,maxIdleTime);
+        //Shorter idle when alert so enemy keeps looking around//
+        float maxIdle = (currentState == AIState.Alert) ? alertMaxIdleTime : maxIdleTime;
+        idleTimer = Random.Range(minIdleTime, maxIdle);
+        currentState = (currentState == AIState.Chasing) ? AIState.Idle : currentState;
+
+        //Preserve alert state through idle//
+        if(currentState != AIState.Alert)
+        {
+            currentState = AIState.Idle;
+        }
 
         if (debugMode) Debug.Log($"{gameObject.name} idling for {idleTimer:F1} seconds");
     }
@@ -275,17 +364,56 @@ public class EnemyAI : MonoBehaviour
         StartIdling();
     }
 
+    //Called by RoomManager when the player enters this enemy's room//
+    public void SetAlerted()
+    {
+        if (currentState == AIState.Chasing) return; //Don't downgrade a chasing enemy//
+        if (!isInitialized || !ValidateAgent()) return;
+
+        currentState = AIState.Alert;
+        //Pick a nearby wander point iwth the tigher alert radius//
+        Vector3 alertDestination = GetRandomNavMeshPointWithRadius(alertRoamRadius);
+        if(alertDestination != Vector3.zero)
+        {
+            agent.SetDestination(alertDestination);
+        }
+
+        if (debugMode) Debug.Log($"{gameObject.name}: Alerted - player is in room.");
+    }
+
+    //Called by EnemyVisionCone when this specific enemy spots the player//
+    private void HandlePlayerSpotted()
+    {
+        if(currentState == AIState.Chasing) return;
+        if (CombatManager.Instance != null && CombatManager.Instance.InCombat) return;
+
+        //Find the player transform via the vision cone's cached referecne//
+        Player p = FindAnyObjectByType<Player>();
+        if (p != null) playerTransform = p.transform;
+
+        currentState = AIState.Chasing;
+        chaseTimer = chaseTimeout;
+        agent.isStopped = false;
+
+        if (debugMode) Debug.Log($"{gameObject.name}: Spotted player - chasing!");
+    }
+
     //Utility -EM//
+
     private Vector3 GetRandomNavMeshPoint()
+    {
+        return GetRandomNavMeshPointWithRadius(roamRadius);
+    }
+    private Vector3 GetRandomNavMeshPointWithRadius(float radius)
     {
         //Try to find a random point on the NavMesh within roam radius//
         for (int i = 0; i < 30; i++) //Try up to 30x//
         {
-            Vector3 randomDirection = Random.insideUnitSphere * roamRadius;
+            Vector3 randomDirection = Random.insideUnitSphere * radius;
             randomDirection += transform.position;
 
             NavMeshHit hit;
-            if (NavMesh.SamplePosition(randomDirection, out hit, roamRadius, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(randomDirection, out hit, radius, NavMesh.AllAreas))
             {
                 return hit.position;
             }
