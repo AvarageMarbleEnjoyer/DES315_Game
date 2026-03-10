@@ -251,7 +251,7 @@ public class DungeonGenerator : MonoBehaviour
                 if (!grid[x,y].isOccupied || proccessed[x,y]) continue;
 
                 proccessed[x, y] = true;
-                rooms.Add(new Room(new List<Vector2Int> { new Vector2Int(x, y) }, grid[x, y].roomType, grid[x, y].isLobby));
+                rooms.Add(new Room(new List<Vector2Int> { new Vector2Int(x, y) }, grid[x, y].roomType, grid[x, y].isLobby, grid[x, y].isFinalRoom));
             }
         }
 
@@ -386,13 +386,23 @@ public class DungeonGenerator : MonoBehaviour
         }
     }
 
-    //Find whcih room contains a specific grid cell - EM//
+    //Find which room contains a specific grid cell - EM//
     private Room FindRoomContainingCell(Vector2Int cell)
     {
         foreach (Room room in rooms)
         {
             if (room.gridCells.Contains(cell))
                 return room;
+        }
+        return null;
+    }
+
+    //Returns the room tagges as the final room, or null if not yet generated -EM//
+    public Room GetFinalRoom()
+    {
+        foreach(Room room in rooms)
+        {
+            if (room.isFinalRoom) return room;
         }
         return null;
     }

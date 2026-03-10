@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Dynamic;
 using UnityEngine;
 
 //A room made up of one or more merged grid cells - EM//
@@ -34,5 +35,12 @@ public class Room
             maxX = Mathf.Max(maxX, cell.x);
             maxY = Mathf.Max(maxY, cell.y);
         }
+    }
+
+    //Returns the centre cell of this room in grid coordinates//
+    public Vector2Int GetCentreCell()
+    {
+        GetBounds(out int minX, out int minY, out int maxX, out int maxY);
+        return new Vector2Int((minX + maxX) / 2, (minY + maxY) / 2);
     }
 }
