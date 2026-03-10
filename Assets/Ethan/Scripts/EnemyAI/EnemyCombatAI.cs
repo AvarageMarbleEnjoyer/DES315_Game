@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -28,11 +29,22 @@ public class EnemyCombatAI : MonoBehaviour
     public float gruntMaxHealth = 40f;
     [Tooltip("Damage dealt per succesful Grunt Attack")]
     public float gruntAttackDamage = 8f;
-    [Tooltip("Attack range for a Grunt")]
-    public float gruntAttackRange = 2f;
     [Tooltip("Starting coin-flip chancefor a Grunt (0-100)")]
     [Range(0f, 100f)]
     public float gruntFlipChance = 65f;
+
+    [Header("Grunt Range Settings")]
+    [Tooltip("Minimum distance the Grunt tries to keep from the player")]
+    public float gruntMinRange = 4f;
+    [Tooltip("Maximum distance the Grunt can attack from")]
+    public float gruntMaxRange = 7f;
+    [Tooltip("How close the player must get before the Grunt actively retreats")]
+    public float gruntRetreatRange = 3f;
+
+    [Header("Grunt Shadow Settings")]
+    [Tooltip("Flat reduction to flip chance when the Grunt attacks from light instad of shadow")]
+    [Range(0f, 50f)]
+    public float gruntLightPenalty = 20f;
 
     [Header("Brute Settings (only used if type = Brute")]
     [Tooltip("Max Health for a Brute")]
@@ -146,42 +158,9 @@ public class EnemyCombatAI : MonoBehaviour
 
         yield return new WaitForSeconds(thinkTime);
 
-        //Get the stats for this type//
-        float damage = GetAttackDamage();
-        float range = GetAttackRange();
-        string attackName = enemyType == EnemyType.Grunt ? "Strike" : "Slam";
-
-        //Move into range if needed//
-        if(!IsInRange(player, range))
-        {
-            yield return MoveIntoRange(player, range);
-        }
-
-        //Check range once more after movement//
-        if(!IsInRange(player, range))
-        {
-            if (debugMode) Debug.LogWarning($"[EnemyCombatAI] {gameObject.name} could not reach the player");
-            MessageUI.Instance?.EnqueueMessage($"{gameObject.name} couldn't reach you!");
-        }
-        else
-        {
-            //Coin flip//
-            bool success = PerformFlip();
-            lastFlipResult = success;
-
-            if(success)
-            {
-                player.TakeDamage(damage);
-                MessageUI.Instance?.EnqueueMessage($"{gameObject.name} used {attackName} and dealt {damage:0} damage!");
-                if (debugMode) Debug.Log($"[EnemyCombatAI] {gameObject.name} HIT for {damage}");
-            }
-            else
-            {
-                MessageUI.Instance?.EnqueueMessage($"{gameObject.name} used {attackName} but missed!");
-                if (debugMode) Debug.Log($"[EnemyCombatAI] {gameObject.name} Missed");
-
-            }
-        }
+        //Branch to the correct behaviour for this type//
+        if (enemyType == EnemyType.Grunt) yield return ExecuteGruntTurn(player);
+        else yield return ExecuteBruteTurn(player);
 
         yield return new WaitForSeconds(postActionDelay);
 
@@ -189,20 +168,149 @@ public class EnemyCombatAI : MonoBehaviour
         CombatManager.Instance?.EndCurrentTurn();
     }
 
-
-    //Coin flip (mirrors player coin flip) -EM//
-
-    private bool PerformFlip()
+    private IEnumerator ExecuteGruntTurn(Player player)
     {
-   
-        float roll = Random.Range(0f, 100f);
-        float chanceUsed = currentFlipChance;
-        bool success = roll < currentFlipChance;
+        //Step 1: reposition into preffered range band//
+        yield return RepositionGrunt(player);
+
+        //Step 2: Check we are within attack range after repositioning//
+        float distToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        if(distToPlayer > gruntMaxRange + rangeTolerance)
+        {
+            if (debugMode) Debug.LogWarning($"[EnemyCombatAI] {gameObject.name} Grunt could not reach attack range");
+            MessageUI.Instance?.EnqueueMessage($"{gameObject.name} couldn't get into position!");
+            yield break;
+        }
+
+        //Step 3: Check light and calculate effective flip chance//
+        bool isInLight = LightDetectionManager.Instance != null && LightDetectionManager.Instance.IsPointInLight(transform.position);
+
+        float effectiveFlipChance = currentFlipChance;
+        if(isInLight)
+        {
+            effectiveFlipChance = Mathf.Max(MIN_FLIP, currentFlipChance - gruntLightPenalty);
+            if (debugMode) Debug.Log($"[EnemyCombatAI] {gameObject.name} in LIGHT - flip {currentFlipChance:F0}% -> {effectiveFlipChance:F0}%");
+            MessageUI.Instance?.EnqueueMessage($"{gameObject.name} is exposed in the light!");
+        }
+        else
+        {
+            if (debugMode) Debug.Log($"[EnemyCombatAI] {gameObject.name} in SHADOW - no penalty");
+        }
+
+        //Step 4: Attack//
+        bool success = PerformFlip(effectiveFlipChance);
+        lastFlipResult = success;
 
         if(success)
         {
+            player.TakeDamage(gruntAttackDamage);
+            MessageUI.Instance?.EnqueueMessage($"{gameObject.name} used Strike and dealth {gruntAttackDamage:0} damage!");
+            if (debugMode) Debug.Log($"[EnemyCombatAI] {gameObject.name} Grunt HIT for {gruntAttackDamage}");
+        }
+        else
+        {
+            MessageUI.Instance?.EnqueueMessage($"{gameObject.name} used Strike but missed!");
+            if (debugMode) Debug.Log($"[EnemyCombatAI] {gameObject.name} Grunt Missed");
+        }
+    }
+
+    //Reposition the Grunt into its prteffered range band -EM//
+    //Too close: retreat away from player. Too far: advance toward player. in band: stay put//
+    private IEnumerator RepositionGrunt(Player player)
+    {
+        if(agent == null || !agent.isOnNavMesh || !agent.isActiveAndEnabled) yield break;
+
+        float dist = Vector3.Distance(transform.position, player.transform.position);
+
+        //Already in preffered badn - no movement needed//
+        if(dist >= gruntMinRange && dist <= gruntMaxRange)
+        {
+            if (debugMode) Debug.Log($"[EnemyCombatAI] {gameObject.name} Grunt already in range band ({dist:F1})");
+            yield break;
+        }
+
+        Vector3 targetPos;
+
+        if(dist < gruntRetreatRange)
+        {
+            //Too close - retreat directly away from the player//
+            Vector3 awayDir = (transform.position - player.transform.position).normalized;
+            targetPos = transform.position + awayDir * (gruntMinRange - dist);
+            if (debugMode) Debug.Log($"[EnemyCombatAI] {gameObject.name} Grunt retreating ({dist:F1})");
+        }
+        else
+        {
+            //Too far - retreat directly away from the player//
+            Vector3 toPlayer = (player.transform.position - transform.position).normalized;
+            float midRange = gruntMinRange + (gruntMaxRange - dist);
+            targetPos = transform.position - toPlayer * midRange;
+            if (debugMode) Debug.Log($"[EnemyCombatAI] {gameObject.name} Grunt advancing to range band (dist {dist:F1})");
+        }
+
+        //Snap target to NavMesh//
+        if(NavMesh.SamplePosition(targetPos, out NavMeshHit hit, 3f, NavMesh.AllAreas))
+        {
+            agent.isStopped = false;
+            agent.stoppingDistance = 0.1f;
+            agent.SetDestination(hit.position);
+
+            float timer = 0f;
+            while(timer < maxMoveTime)
+            {
+                if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance + rangeTolerance) break;
+                timer += Time.deltaTime;
+                yield return null;
+            }
+
+            agent.isStopped = true;
+            agent.ResetPath();
+            agent.stoppingDistance = originalStoppingDistance;
+        }
+    }
+
+    //Brute turn: close in and slam -EM//
+    private IEnumerator ExecuteBruteTurn(Player player)
+    {
+        if(!IsInRange(player, bruteAttackRange)) yield return MoveIntoRange(player, bruteAttackRange);
+
+        if(!IsInRange(player, bruteAttackRange))
+        {
+            if (debugMode) Debug.LogWarning($"[EnemyCombatAI] {gameObject.name} Brute could not reach the player.");
+            MessageUI.Instance?.EnqueueMessage($"{gameObject.name} couldn't reach you!");
+            yield break;
+        }
+
+        bool success = PerformFlip(currentFlipChance);
+        lastFlipResult = success;
+
+        if(success)
+        {
+            player.TakeDamage(bruteAttackDamage);
+            MessageUI.Instance?.EnqueueMessage($"{gameObject.name} used Slam and dealt {bruteAttackDamage:0} damage!");
+            if (debugMode) Debug.Log($"[EnemyCombatAI] {gameObject.name} Brute HIT for {bruteAttackDamage}");
+        }
+        else
+        {
+            MessageUI.Instance?.EnqueueMessage($"{gameObject.name} used Slam but missed!");
+            if (debugMode) Debug.Log($"[EnemyCombatAI] {gameObject.name} Brute MISSED");
+        }
+    }
+
+    //Coin flip (mirrors player coin flip) -EM//
+
+    private bool PerformFlip(float chance)
+    {
+   
+        float roll = Random.Range(0f, 100f);
+        float chanceUsed = chance;
+        bool success = roll < chance;
+
+        float startingChance = GetStartingFlipChance();
+
+        if (success)
+        {
             //Coming off a fail streak: rest; otherwise decrease;
-            float startingChance = GetStartingFlipChance();
+            
             if (currentFlipChance > startingChance)
             {
                 currentFlipChance = startingChance;
@@ -214,7 +322,6 @@ public class EnemyCombatAI : MonoBehaviour
         }
         else
         {
-            float startingChance = GetStartingFlipChance();
             if (currentFlipChance < startingChance)
             {
                 currentFlipChance = startingChance;
@@ -229,15 +336,6 @@ public class EnemyCombatAI : MonoBehaviour
     }
 
     //Per type helpers -EM//
-    private float GetAttackDamage()
-    {
-        return enemyType == EnemyType.Grunt ? gruntAttackDamage : bruteAttackDamage;
-    }
-
-    private float GetAttackRange()
-    {
-        return enemyType == EnemyType.Grunt ? gruntAttackRange : bruteAttackRange;
-    }
 
     private float GetStartingFlipChance()
     {
