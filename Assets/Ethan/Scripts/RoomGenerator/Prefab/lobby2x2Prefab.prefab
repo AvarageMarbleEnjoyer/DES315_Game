@@ -305,12 +305,13 @@ MonoBehaviour:
     m_Bits: 64
   winSceneName: 
   winScreenPanel: {fileID: 0}
-  interactPrompt: {fileID: 0}
+  interactPrompt: {fileID: 5049945136160162019, guid: bc6c47929cba2fb45828dc6b810a8397, type: 3}
   roomMarkerPrefab: {fileID: 3409133938075062286, guid: 1335855b5fce9e84fbc53d842792081d, type: 3}
   markerOffset: {x: 0, y: 0, z: 0}
   doPulse: 1
   pulseSpeed: 1.5
   pulseHeight: 0.15
+  inputActions: {fileID: -944628639613478452, guid: 102f2d70ec95fd1498234180cf7b19b5, type: 3}
   debugMode: 1
 --- !u!1 &6124441453428598158
 GameObject:
