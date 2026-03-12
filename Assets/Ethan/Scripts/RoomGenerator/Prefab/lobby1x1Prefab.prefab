@@ -2718,6 +2718,14 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 37642b4cb52cf494db6e7aa056090a79, type: 3}
+    - target: {fileID: 8925485147563509332, guid: f86f5be42942aa04bb2dfb0fd3f506ef, type: 3}
+      propertyPath: bruteMaxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925485147563509332, guid: f86f5be42942aa04bb2dfb0fd3f506ef, type: 3}
+      propertyPath: bruteAttackDamage
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 57031756967108135, guid: f86f5be42942aa04bb2dfb0fd3f506ef, type: 3}
     m_RemovedGameObjects:

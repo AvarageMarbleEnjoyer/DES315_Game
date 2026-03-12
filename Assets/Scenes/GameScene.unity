@@ -5705,9 +5705,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc66a2964d04d8e4a8fc4d433acb0701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
-  currentBlock: 0
+  maxHealth: 60
+  currentHealth: 60
+  currentBlock: 3
   debugMode: 0
   icon: {fileID: 21300000, guid: 7c656770274e5414093c3b375495542f, type: 3}
   isInCombat: 0
@@ -9745,8 +9745,8 @@ MonoBehaviour:
   gridSize: 6
   occupationPercentage: 0.6
   roomTypeCount: 4
-  useRandomSeed: 1
-  seed: 31565265
+  useRandomSeed: 0
+  seed: 29632656
   lastSeedUsed: 
   typeClusterChance: 0.5
   generateOnStart: 0
