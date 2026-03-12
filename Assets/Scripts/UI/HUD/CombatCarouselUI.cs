@@ -13,9 +13,11 @@ public class CombatCarouselUI : MonoBehaviour
 
     private void Awake()
     {
-        if (root == null)
+        if (root == null || root == gameObject)
         {
-            root = gameObject;
+            Debug.LogError("[CombatCarouselUI] Root must be assigned to a child GameObject, not this object itself. Carousel will not function.");
+            root = null;
+            return;
         }
 
         if (entryContainer == null)
@@ -23,16 +25,10 @@ public class CombatCarouselUI : MonoBehaviour
             entryContainer = transform;
         }
 
-        if (root == gameObject)
-        {
-            Debug.LogWarning("[CombatCarouselUI] Root is set to the same GameObject as this script. " +
-                             "Disable/enable will also disable this script, so assign a child root instead.");
-        }
-
         SetRootActive(false);
     }
 
-    private void OnEnable()
+    private void Start()
     {
         combatManager = CombatManager.Instance;
         if (combatManager != null)
@@ -47,6 +43,10 @@ public class CombatCarouselUI : MonoBehaviour
                 BuildCarousel(combatManager.TurnOrder);
                 SetRootActive(true);
             }
+        }
+        else
+        {
+            Debug.LogError("[CombatCarouselUI] CombatManager instance not found.");
         }
     }
 
