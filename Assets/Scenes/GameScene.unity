@@ -5709,7 +5709,7 @@ MonoBehaviour:
   currentHealth: 100
   currentBlock: 0
   debugMode: 0
-  icon: {fileID: 21300000, guid: 224e646b79ad4b1478409d150d68d9e5, type: 3}
+  icon: {fileID: 21300000, guid: 7c656770274e5414093c3b375495542f, type: 3}
   isInCombat: 0
   currentCoins: 5
   bonusCoinsNextTurn: 0
