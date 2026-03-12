@@ -16,10 +16,7 @@ public class TargetHighlighter : MonoBehaviour
     public Shader outlineShader;
 
     private HashSet<GameObject> currentTargets = new HashSet<GameObject>();
-    private Dictionary<GameObject, Renderer[]> targetRenderers = new Dictionary<GameObject, Renderer[]>();
-    private Dictionary<Renderer, Material[]> originalMaterials = new Dictionary<Renderer, Material[]>();
-    private Dictionary<Renderer, Material> outlineMaterials = new Dictionary<Renderer, Material>();
-    private Dictionary<Renderer, int> rendererRefCounts = new Dictionary<Renderer, int>();
+    private Dictionary<GameObject, List<GameObject>> outlineObjects = new Dictionary<GameObject, List<GameObject>>();
 
     private void Awake()
     {
@@ -114,90 +111,68 @@ public class TargetHighlighter : MonoBehaviour
     private void ApplyHighlight(GameObject target)
     {
         Renderer[] renderers = target.GetComponentsInChildren<Renderer>();
-        List<Renderer> appliedRenderers = new List<Renderer>();
+        List<GameObject> spawnedObjects = new List<GameObject>();
 
         foreach (Renderer renderer in renderers)
         {
-            // Skip non-mesh renderers
             if (renderer is ParticleSystemRenderer) continue;
             if (renderer.GetComponentInParent<EnemyVisionCone>() != null) continue;
 
-            appliedRenderers.Add(renderer);
+            MeshFilter meshFilter = renderer.GetComponent<MeshFilter>();
+            if (meshFilter == null || meshFilter.sharedMesh == null) continue;
 
-            if (!rendererRefCounts.TryGetValue(renderer, out int refCount))
+            int subMeshCount = meshFilter.sharedMesh.subMeshCount;
+
+            Material[] outlineMats = new Material[subMeshCount];
+            for (int i = 0; i < subMeshCount; i++)
             {
-                originalMaterials[renderer] = renderer.materials;
-
-                // Create a new material array with outline materials added
-                Material[] newMaterials = new Material[renderer.materials.Length + 1];
-
-                // Copy original materials
-                for (int i = 0; i < renderer.materials.Length; i++)
-                {
-                    newMaterials[i] = renderer.materials[i];
-                }
-
-                // Add outline material
-                Material outlineMat = CreateOutlineMaterial();
-                outlineMaterials[renderer] = outlineMat;
-                newMaterials[newMaterials.Length - 1] = outlineMat;
-
-                renderer.materials = newMaterials;
-                rendererRefCounts[renderer] = 1;
+                outlineMats[i] = CreateOutlineMaterial();
             }
-            else
-            {
-                rendererRefCounts[renderer] = refCount + 1;
-            }
+
+            GameObject outlineObj = new GameObject("_OutlinePass");
+            outlineObj.transform.SetParent(renderer.transform, false);
+            outlineObj.transform.localPosition = Vector3.zero;
+            outlineObj.transform.localRotation = Quaternion.identity;
+            outlineObj.transform.localScale = Vector3.one;
+
+            MeshFilter outlineMF = outlineObj.AddComponent<MeshFilter>();
+            outlineMF.sharedMesh = meshFilter.sharedMesh;
+
+            MeshRenderer outlineMR = outlineObj.AddComponent<MeshRenderer>();
+            outlineMR.materials = outlineMats;
+            outlineMR.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            outlineMR.receiveShadows = false;
+
+            spawnedObjects.Add(outlineObj);
         }
 
-        targetRenderers[target] = appliedRenderers.ToArray();
+        outlineObjects[target] = spawnedObjects;
         currentTargets.Add(target);
     }
 
     private void RemoveHighlight(GameObject target)
     {
-        if (!targetRenderers.TryGetValue(target, out Renderer[] renderers))
+        if (outlineObjects.TryGetValue(target, out List<GameObject> spawnedObjects))
         {
-            currentTargets.Remove(target);
-            return;
-        }
-
-        for (int i = 0; i < renderers.Length; i++)
-        {
-            Renderer renderer = renderers[i];
-            if (renderer == null) continue;
-
-            if (rendererRefCounts.TryGetValue(renderer, out int refCount))
+            for (int i = 0; i < spawnedObjects.Count; i++)
             {
-                refCount--;
-                if (refCount <= 0)
-                {
-                    if (originalMaterials.TryGetValue(renderer, out Material[] original))
-                    {
-                        renderer.materials = original;
-                    }
+                if (spawnedObjects[i] == null) continue;
 
-                    if (outlineMaterials.TryGetValue(renderer, out Material outline))
-                    {
-                        if (outline != null)
-                        {
-                            Destroy(outline);
-                        }
-                    }
-
-                    originalMaterials.Remove(renderer);
-                    outlineMaterials.Remove(renderer);
-                    rendererRefCounts.Remove(renderer);
-                }
-                else
+                MeshRenderer mr = spawnedObjects[i].GetComponent<MeshRenderer>();
+                if (mr != null)
                 {
-                    rendererRefCounts[renderer] = refCount;
+                    foreach (Material mat in mr.materials)
+                    {
+                        if (mat != null) Destroy(mat);
+                    }
                 }
+
+                Destroy(spawnedObjects[i]);
             }
+
+            outlineObjects.Remove(target);
         }
 
-        targetRenderers.Remove(target);
         currentTargets.Remove(target);
     }
 
@@ -238,17 +213,26 @@ public class TargetHighlighter : MonoBehaviour
     {
         highlightColor = color;
 
-        foreach (Material mat in outlineMaterials.Values)
+        foreach (List<GameObject> spawnedObjects in outlineObjects.Values)
         {
-            if (mat != null)
+            for (int i = 0; i < spawnedObjects.Count; i++)
             {
-                if (outlineShader != null)
+                if (spawnedObjects[i] == null) continue;
+
+                MeshRenderer mr = spawnedObjects[i].GetComponent<MeshRenderer>();
+                if (mr == null) continue;
+
+                foreach (Material mat in mr.materials)
                 {
-                    mat.SetColor("_OutlineColor", color);
-                }
-                else
-                {
-                    mat.SetColor("_BaseColor", new Color(color.r, color.g, color.b, 0.3f));
+                    if (mat == null) continue;
+                    if (outlineShader != null)
+                    {
+                        mat.SetColor("_OutlineColor", color);
+                    }
+                    else
+                    {
+                        mat.SetColor("_BaseColor", new Color(color.r, color.g, color.b, 0.3f));
+                    }
                 }
             }
         }
