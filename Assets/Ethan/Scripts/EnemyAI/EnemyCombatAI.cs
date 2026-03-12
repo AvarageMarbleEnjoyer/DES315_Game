@@ -87,6 +87,7 @@ public class EnemyCombatAI : MonoBehaviour
     private NavMeshAgent agent;
     private bool isTakingTurn = false;
     private float originalStoppingDistance;
+    private Brute_AnimController animController;
 
     //Lifecycle -EM//
 
@@ -94,7 +95,8 @@ public class EnemyCombatAI : MonoBehaviour
     {
        enemy = GetComponent<Enemy>();
        agent = GetComponent<NavMeshAgent>();
-       if (agent != null)
+        animController = GetComponent<Brute_AnimController>();
+        if (agent != null)
        {
            originalStoppingDistance = agent.stoppingDistance;
        }
@@ -283,7 +285,7 @@ public class EnemyCombatAI : MonoBehaviour
         bool success = PerformFlip(currentFlipChance);
         lastFlipResult = success;
 
-        if(success)
+        if (success)
         {
             player.TakeDamage(bruteAttackDamage);
             MessageUI.Instance?.EnqueueMessage($"{gameObject.name} used Slam and dealt {bruteAttackDamage:0} damage!");
