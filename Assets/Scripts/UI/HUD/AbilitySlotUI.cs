@@ -17,6 +17,11 @@ public class AbilitySlotUI : MonoBehaviour
     [Header("Description")]
     [SerializeField] private TextMeshProUGUI descriptionText;
 
+    [Header("Ability Icons")]
+    [SerializeField] private Image slot1Icon;
+    [SerializeField] private Image slot2Icon;
+    [SerializeField] private Image slot3Icon;
+
     [Header("Active Slot Highlight")]
     [SerializeField] private Color activeColor = new Color(1f, 0.8f, 0f, 1f);
     [SerializeField] private Color normalColor = Color.white;
@@ -24,6 +29,7 @@ public class AbilitySlotUI : MonoBehaviour
     [SerializeField] private GameObject background;
     
     private Button[] buttons;
+    private Image[] slotIcons;
 
     private void Awake()
     {
@@ -31,6 +37,7 @@ public class AbilitySlotUI : MonoBehaviour
             abilityManager = FindFirstObjectByType<PlayerAbilityManager>();
 
         buttons = new Button[] { slot1Button, slot2Button, slot3Button };
+        slotIcons = new Image[] { slot1Icon, slot2Icon, slot3Icon };
     }
 
     private void OnEnable()
@@ -100,11 +107,11 @@ public class AbilitySlotUI : MonoBehaviour
     {
         if (abilityManager == null) return;
 
-        for (int i = 0; i < buttons.Length; i++)
+        for (int i = 0; i < slotIcons.Length; i++)
         {
-            if (buttons[i] == null) continue;
+            if (slotIcons[i] == null) continue;
             Ability ability = i < abilityManager.equippedAbilities.Length ? abilityManager.equippedAbilities[i] : null;
-            buttons[i].image.sprite = ability != null ? ability.icon : null;
+            slotIcons[i].sprite = ability != null ? ability.icon : null;
         }
     }
 
@@ -126,9 +133,7 @@ public class AbilitySlotUI : MonoBehaviour
         for (int i = 0; i < buttons.Length; i++)
         {
             if (buttons[i] == null) continue;
-            ColorBlock colors = buttons[i].colors;
-            colors.normalColor = activeSlot.HasValue && activeSlot.Value == i ? activeColor : normalColor;
-            buttons[i].colors = colors;
+            buttons[i].image.color = activeSlot.HasValue && activeSlot.Value == i ? activeColor : normalColor;
         }
     }
 
