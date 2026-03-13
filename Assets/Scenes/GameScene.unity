@@ -5488,7 +5488,7 @@ GameObject:
   - component: {fileID: 1107796535}
   - component: {fileID: 1107796534}
   m_Layer: 6
-  m_Name: Player (1)
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5665,8 +5665,8 @@ MonoBehaviour:
   aimRotationSpeed: 720
   debugMode: 0
   isTargeting: 0
-  flipVisualizerColor: {r: 0.6, g: 0.2, b: 1, a: 0.3}
-  flipHighlightColor: {r: 0.6, g: 0.2, b: 1, a: 1}
+  defaultHighlightColor: {r: 0.471, g: 0.059, b: 0.055, a: 0.5}
+  flipHighlightColor: {r: 0.6, g: 0.2, b: 1, a: 0.6}
 --- !u!114 &1107796541
 MonoBehaviour:
   m_ObjectHideFlags: 0
