@@ -204,7 +204,14 @@ public class TreasureChest : MonoBehaviour
         int itemCount = itemChoiceCount - abilityCount;
 
         //Pick abilities//
+        PlayerAbilityManager abilityManager = FindAnyObjectByType<PlayerAbilityManager>();
         List<Ability> availableAbilities = new List<Ability>(abilityPool);
+        if (abilityManager != null)
+        {
+            availableAbilities.RemoveAll(a =>
+                System.Array.IndexOf(abilityManager.equippedAbilities, a) >= 0 ||
+                abilityManager.inventoryAbilities.Contains(a));
+        }
         for (int i = 0; i < abilityCount && availableAbilities.Count > 0; i++)
         {
             int idx = UnityEngine.Random.Range(0, availableAbilities.Count);
@@ -233,8 +240,6 @@ public class TreasureChest : MonoBehaviour
 
     }
 
-    private Ability pendingAbility;
-
     //Called when player selects an item from the UI//
     private void OnRewardSelected(ChestReward reward)
     {
@@ -261,47 +266,18 @@ public class TreasureChest : MonoBehaviour
             PlayerAbilityManager abilityManager = FindAnyObjectByType<PlayerAbilityManager>();
             if (abilityManager == null)
             {
-                Debug.LogError("[ReasureChest] No PlayerAbilityManager found!");
+                Debug.LogError("[TreasureChest] No PlayerAbilityManager found!");
                 isOpen = false;
                 return;
             }
-            
-            //Try to find an empty slot first//
-            for(int i = 0; i < abilityManager.equippedAbilities.Length; i++)
-            {
-                if (abilityManager.equippedAbilities[i] == null)
-                {
-                    abilityManager.equippedAbilities[i] = reward.ability;
-                    if (debugMode) Debug.Log($"[TreasureChest] Ability '{reward.ability.abilityName}' equipped to slot {i}");
-                    isOpen = false;
-                    return;
-                }
-            }
 
-            //All slots full - show replace prompt//
-            if (debugMode) Debug.Log("[TreasureChest] All slots full, prompting replace choice");
-            pendingAbility = reward.ability;
-            chestUI.ShowReplacePrompt(abilityManager.equippedAbilities, OnReplaceSlotSelected);
-            //IsOpen stays true until the replace choice is made//
+            abilityManager.AddAbilityToInventory(reward.ability);
+
+            InventoryUI inventoryUI = FindAnyObjectByType<InventoryUI>();
+            inventoryUI?.Refresh();
+
+            isOpen = false;
         }
-    }
-
-    //Called when palyer pick which slot to replace -EM//
-    private void OnReplaceSlotSelected(int slotIndex)
-    {
-        PlayerAbilityManager abilityManager = FindAnyObjectByType<PlayerAbilityManager>();
-        if(abilityManager != null && pendingAbility != null)
-        {
-            if (debugMode) Debug.Log($"[TreasureChest] Replacing slot {slotIndex} with '{pendingAbility.abilityName}'");
-            abilityManager.equippedAbilities[slotIndex] = pendingAbility;
-
-            //Refresh the ability slot UI so the hotbar updates//
-            AbilitySlotUI slotUI = FindAnyObjectByType<AbilitySlotUI>();
-            if (slotUI != null) slotUI.RefreshIcons();
-        }
-
-        pendingAbility = null;
-        isOpen = false;
     }
 
     //Force open the chest (for testing) -EM//

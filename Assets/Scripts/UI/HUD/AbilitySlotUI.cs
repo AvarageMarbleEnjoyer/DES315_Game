@@ -14,13 +14,13 @@ public class AbilitySlotUI : MonoBehaviour
     [SerializeField] private Button slot2Button;
     [SerializeField] private Button slot3Button;
 
-    [Header("Description")]
-    [SerializeField] private TextMeshProUGUI descriptionText;
-
-    [Header("Ability Icons")]
+    [Header("Slot Icon Images")]
     [SerializeField] private Image slot1Icon;
     [SerializeField] private Image slot2Icon;
     [SerializeField] private Image slot3Icon;
+
+    [Header("Description")]
+    [SerializeField] private TextMeshProUGUI descriptionText;
 
     [Header("Active Slot Highlight")]
     [SerializeField] private Color activeColor = new Color(1f, 0.8f, 0f, 1f);
@@ -30,6 +30,8 @@ public class AbilitySlotUI : MonoBehaviour
     
     private Button[] buttons;
     private Image[] slotIcons;
+    private bool inSwapMode = false;
+    private System.Action<int> swapCallback = null;
 
     private void Awake()
     {
@@ -46,7 +48,7 @@ public class AbilitySlotUI : MonoBehaviour
         {
             if (buttons[i] == null) continue;
             int index = i;
-            buttons[i].onClick.AddListener(() => abilityManager?.ActivateAbilitySlot(index));
+            buttons[i].onClick.AddListener(() => HandleSlotButtonClicked(index));
             AddHoverEvents(buttons[i], index);
         }
 
@@ -107,19 +109,53 @@ public class AbilitySlotUI : MonoBehaviour
     {
         if (abilityManager == null) return;
 
-        for (int i = 0; i < slotIcons.Length; i++)
+        for (int i = 0; i < buttons.Length; i++)
         {
-            if (slotIcons[i] == null) continue;
+            if (buttons[i] == null) continue;
             Ability ability = i < abilityManager.equippedAbilities.Length ? abilityManager.equippedAbilities[i] : null;
-            slotIcons[i].sprite = ability != null ? ability.icon : null;
+            Sprite icon = ability != null ? ability.icon : null;
+
+            if (slotIcons[i] != null)
+                slotIcons[i].sprite = icon;
+            else
+                buttons[i].image.sprite = icon;
         }
     }
 
     private void ShowDescription(int slotIndex)
     {
+        if (inSwapMode) return;
         if (descriptionText == null || abilityManager == null) return;
         Ability ability = slotIndex < abilityManager.equippedAbilities.Length ? abilityManager.equippedAbilities[slotIndex] : null;
         descriptionText.text = ability != null ? ability.description : string.Empty;
+    }
+
+    private void HandleSlotButtonClicked(int index)
+    {
+        if (inSwapMode)
+        {
+            swapCallback?.Invoke(index);
+            ExitSwapMode();
+        }
+        else
+        {
+            abilityManager?.ActivateAbilitySlot(index);
+        }
+    }
+
+    public void EnterSwapMode(Ability incomingAbility, System.Action<int> onSlotSelected)
+    {
+        inSwapMode = true;
+        swapCallback = onSlotSelected;
+        if (descriptionText != null)
+            descriptionText.text = "Select an ability to swap out...";
+    }
+
+    private void ExitSwapMode()
+    {
+        inSwapMode = false;
+        swapCallback = null;
+        ClearDescription();
     }
 
     private void ClearDescription()
@@ -133,7 +169,9 @@ public class AbilitySlotUI : MonoBehaviour
         for (int i = 0; i < buttons.Length; i++)
         {
             if (buttons[i] == null) continue;
-            buttons[i].image.color = activeSlot.HasValue && activeSlot.Value == i ? activeColor : normalColor;
+            ColorBlock colors = buttons[i].colors;
+            colors.normalColor = activeSlot.HasValue && activeSlot.Value == i ? activeColor : normalColor;
+            buttons[i].colors = colors;
         }
     }
 

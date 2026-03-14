@@ -5920,6 +5920,7 @@ MonoBehaviour:
   - 3
   - 3
   - 3
+  inventoryAbilities: []
 --- !u!114 &1107796542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8250,10 +8251,10 @@ MonoBehaviour:
   slot1Button: {fileID: 12948676}
   slot2Button: {fileID: 233535452}
   slot3Button: {fileID: 901216652}
-  descriptionText: {fileID: 1738874199}
   slot1Icon: {fileID: 1408235300}
   slot2Icon: {fileID: 974409446}
   slot3Icon: {fileID: 884371316}
+  descriptionText: {fileID: 1738874199}
   activeColor: {r: 1, g: 0.8, b: 0, a: 0.050980393}
   normalColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.101960786}
   background: {fileID: 8657052}
@@ -10901,6 +10902,7 @@ MonoBehaviour:
   uiRoot: {fileID: 320559540}
   cardContainer: {fileID: 161554549}
   cardPrefab: {fileID: 7496308736789289923, guid: 2169d626a610b8b42909658b5da503b0, type: 3}
+  replacePromptLabel: {fileID: 0}
   cardSpawnDelay: 0.15
   debugMode: 1
 --- !u!1001 &1902963185
@@ -11675,9 +11677,10 @@ MonoBehaviour:
   root: {fileID: 929272531}
   contentRoot: {fileID: 708861073}
   itemPrefab: {fileID: 1482560410135912450, guid: c8674ceca78084a41b280353c0fce0a7, type: 3}
-  openInventoryButton: {fileID: 108388429}
   inputActions: {fileID: -944628639613478452, guid: 102f2d70ec95fd1498234180cf7b19b5, type: 3}
   itemManager: {fileID: 1576573009}
+  abilityManager: {fileID: 0}
+  abilitySlotUI: {fileID: 0}
 --- !u!1 &1995918379
 GameObject:
   m_ObjectHideFlags: 0
