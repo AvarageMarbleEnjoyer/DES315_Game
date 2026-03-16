@@ -268,16 +268,6 @@ public class PlayerController : MonoBehaviour
                     if (debugMode) Debug.Log($"[PlayerController] Click too far! Requested: {requestedDistance:F2}, Remaining: {remainingDistance:F2}");
                     return;
                 }
-
-                // Spend movement coin if not already spent
-                if (!player.HasSpentMovementCoin)
-                {
-                    if (!player.SpendMovementCoin())
-                    {
-                        if (debugMode) Debug.Log("[PlayerController] Failed to spend movement coin");
-                        return;
-                    }
-                }
             }
 
             // Validate NavMesh position

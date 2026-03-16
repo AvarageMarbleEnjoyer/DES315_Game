@@ -27,7 +27,6 @@ public class Player : Unit
     [SerializeField] private const float MAX_FLIP_CHANCE = 100f;
 
     [Header("Movement")]
-    [SerializeField] private bool hasSpentMovementCoin = false;
     [SerializeField] private float distanceMovedThisTurn = 0f;
     [SerializeField] private float baseCombatMoveDistance = 5f;
 
@@ -50,7 +49,6 @@ public class Player : Unit
     public int BaseCoins => GetBaseCoins();
     public int CurrentCoins => currentCoins;
     public float CurrentFlipChance => currentFlipChance;
-    public bool HasSpentMovementCoin => hasSpentMovementCoin;
     public float DistanceMovedThisTurn => distanceMovedThisTurn;
     public float RemainingMoveDistance => MaxCombatMoveDistance - distanceMovedThisTurn;
     public float MaxCombatMoveDistance => GetMaxCombatMoveDistance();
@@ -122,7 +120,6 @@ public class Player : Unit
             ClearBlock();
             currentFlipChance = BASE_FLIP_CHANCE;
             bonusCoinsNextTurn = 0;
-            hasSpentMovementCoin = false;
             distanceMovedThisTurn = 0f;
             if (debugMode) Debug.Log("[Player] Exited combat");
             OnCombatStateChanged?.Invoke(false);
@@ -148,7 +145,6 @@ public class Player : Unit
         bonusCoinsNextTurn = 0;
         
         // Reset movement tracking for new turn
-        hasSpentMovementCoin = false;
         distanceMovedThisTurn = 0f;
 
         OnCoinsChanged?.Invoke(currentCoins, GetBaseCoins());
@@ -221,50 +217,6 @@ public class Player : Unit
             Debug.Log($"[Player] Spent {cost} coin(s). Remaining: {currentCoins}");
         }
         OnCoinsChanged?.Invoke(currentCoins, GetBaseCoins());
-        return true;
-    }
-
-    /// <summary>
-    /// Spend the movement coin for this turn (only costs 1 coin for the entire turn's movement).
-    /// When the infinite coins cheat is active the deduction is skipped.
-    /// </summary>
-    public bool SpendMovementCoin()
-    {
-        if (hasSpentMovementCoin)
-        {
-            // Already spent movement coin this turn, movement is free
-            return true;
-        }
-
-        // Infinite coins cheat: skip deduction but mark movement coin as spent
-        // so the rest of the movement logic (distance tracking etc.) still works.
-        if (CheatManager.Instance != null && CheatManager.Instance.InfiniteCoins)
-        {
-            hasSpentMovementCoin = true;
-            if (debugMode) Debug.Log("[Player] Movement coin bypassed by Infinite Coins cheat.");
-            OnMovementCoinSpent?.Invoke();
-            return true;
-        }
-
-        if (currentCoins < 1)
-        {
-            if (debugMode)
-            {
-                Debug.Log("[Player] Cannot move - no coins available!");
-            }
-            return false;
-        }
-
-        currentCoins--;
-        hasSpentMovementCoin = true;
-        
-        if (debugMode)
-        {
-            Debug.Log($"[Player] Spent movement coin. Remaining coins: {currentCoins}");
-        }
-        
-        OnCoinsChanged?.Invoke(currentCoins, GetBaseCoins());
-        OnMovementCoinSpent?.Invoke();
         return true;
     }
 
