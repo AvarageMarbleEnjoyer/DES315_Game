@@ -13,7 +13,7 @@ public class CharacterMoodTool : EditorWindow
     private float _fresnelIntensity = 0.5f;
     private Color _rimColour = Color.white;
     private float _specularHardness = 0.5f;
-    private bool _toolEnabled = true;
+    private bool _toolEnabled = false;
 
     [MenuItem("Tools/Character Mood Tool")]
     public static void Open()
