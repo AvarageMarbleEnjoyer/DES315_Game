@@ -115,7 +115,6 @@ public class CombatManager : MonoBehaviour
         player.EnterCombat();
 
         MessageUI.Instance?.EnqueueMessage("Combat Start!");
-        TutorialManager.Instance?.Trigger("first_combat");
 
         //Fire event//
         OnCombatStarted?.Invoke(enemies);
@@ -132,6 +131,7 @@ public class CombatManager : MonoBehaviour
         if (initiatingEnemy == null) return;
 
         List<Enemy> enemies = GetEnemiesInCurrentRoom(initiatingEnemy);
+        TutorialManager.Instance?.Trigger("first_spotted");
         StartCombat(enemies, initiatingEnemy);
     }
 
@@ -212,6 +212,10 @@ public class CombatManager : MonoBehaviour
         }
 
         MessageUI.Instance?.EnqueueMessage($"{currentUnit.name}'s turn.");
+        if (IsPlayerTurn)
+        {
+            TutorialManager.Instance?.Trigger("first_combat");
+        }
 
         OnTurnStarted?.Invoke(currentUnit);
 
