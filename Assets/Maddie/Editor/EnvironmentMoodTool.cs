@@ -3,8 +3,6 @@ using UnityEditor;
 
 public class EnvironmentMoodTool : EditorWindow
 {
-    private bool _toolEnabled = false;
-
     // ── Values the artist controls ──
     private Color _shadowTint = new Color(0.20f, 0.20f, 0.40f, 1f);
     private Color _highlightTint = new Color(1.00f, 0.95f, 0.80f, 1f);
@@ -15,7 +13,7 @@ public class EnvironmentMoodTool : EditorWindow
     private float _fresnelIntensity = 0.5f;
     private Color _rimColour = Color.white;
     private float _specularHardness = 0.5f;
-    
+    private bool _toolEnabled = true;
 
     [MenuItem("Tools/Environment Mood Tool")]
     public static void Open()
@@ -30,7 +28,9 @@ public class EnvironmentMoodTool : EditorWindow
 
     void OnGUI()
     {
+        EditorGUI.BeginChangeCheck();
         _toolEnabled = EditorGUILayout.Toggle("Enable Tool", _toolEnabled);
+        if (EditorGUI.EndChangeCheck()) ApplyToScene();
         EditorGUILayout.Space(5);
 
         GUILayout.Label("Colour Palette", EditorStyles.boldLabel);
@@ -55,12 +55,23 @@ public class EnvironmentMoodTool : EditorWindow
         _rimColour = EditorGUILayout.ColorField("Rim Light Colour", _rimColour);
         _specularHardness = EditorGUILayout.Slider("Specular Hardness", _specularHardness, 0f, 1f);
         if (EditorGUI.EndChangeCheck()) ApplyToScene();
-
     }
 
     void ApplyToScene()
     {
-        if (!_toolEnabled) return;
+        if (!_toolEnabled)
+        {
+            Shader.SetGlobalColor("_Env_ShadowTint", Color.white);
+            Shader.SetGlobalColor("_Env_HighlightTint", Color.white);
+            Shader.SetGlobalFloat("_Env_Saturation", 1f);
+            Shader.SetGlobalFloat("_Env_PulseSpeed", 0f);
+            Shader.SetGlobalFloat("_Env_EmissionMultiplier", 1f);
+            Shader.SetGlobalInt("_Env_ToonSteps", 8);
+            Shader.SetGlobalFloat("_Env_FresnelIntensity", 0f);
+            Shader.SetGlobalColor("_Env_RimColour", Color.black);
+            Shader.SetGlobalFloat("_Env_SpecularHardness", 1f);
+            return;
+        }
 
         Shader.SetGlobalColor("_Env_ShadowTint", _shadowTint);
         Shader.SetGlobalColor("_Env_HighlightTint", _highlightTint);

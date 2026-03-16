@@ -28,7 +28,9 @@ public class CharacterMoodTool : EditorWindow
 
     void OnGUI()
     {
+        EditorGUI.BeginChangeCheck();
         _toolEnabled = EditorGUILayout.Toggle("Enable Tool", _toolEnabled);
+        if (EditorGUI.EndChangeCheck()) ApplyToScene();
         EditorGUILayout.Space(5);
 
         GUILayout.Label("Colour Palette", EditorStyles.boldLabel);
@@ -58,7 +60,20 @@ public class CharacterMoodTool : EditorWindow
 
     void ApplyToScene()
     {
-        if (!_toolEnabled) return;
+        if (!_toolEnabled)
+        {
+            Shader.SetGlobalColor("_Char_ShadowTint", Color.white);
+            Shader.SetGlobalColor("_Char_HighlightTint", Color.white);
+            Shader.SetGlobalFloat("_Char_Saturation", 1f);
+            Shader.SetGlobalFloat("_Char_PulseSpeed", 0f);
+            Shader.SetGlobalFloat("_Char_EmissionMultiplier", 1f);
+            Shader.SetGlobalInt("_Char_ToonSteps", 8);
+            Shader.SetGlobalFloat("_Char_FresnelIntensity", 0f);
+            Shader.SetGlobalColor("_Char_RimColour", Color.black);
+            Shader.SetGlobalFloat("_Char_SpecularHardness", 1f);
+            return;
+        }
+        
 
         Shader.SetGlobalColor("_Char_ShadowTint", _shadowTint);
         Shader.SetGlobalColor("_Char_HighlightTint", _highlightTint);
