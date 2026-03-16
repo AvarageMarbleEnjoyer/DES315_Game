@@ -9,6 +9,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private GameObject root;
     [SerializeField] private Transform contentRoot;
     [SerializeField] private InventoryItemButton itemPrefab;
+    [SerializeField] private GameObject inventoryButton;
 
     [Header("Input")]
     [SerializeField] private InputActionAsset inputActions;
@@ -178,5 +179,7 @@ public class InventoryUI : MonoBehaviour
     private void SetUIActive(bool isActive)
     {
         if (root != null) root.SetActive(isActive);
+        if (inventoryButton != null) inventoryButton.SetActive(!isActive);
+        Debug.Log("Inventory UI active: " + inventoryButton.activeSelf);
     }
 }

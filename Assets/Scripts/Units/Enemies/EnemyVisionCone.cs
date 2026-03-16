@@ -253,6 +253,7 @@ public class EnemyVisionCone : MonoBehaviour
                     playerDetected = true;
                     if (debugMode) Debug.Log($"[EnemyVisionCone] Player detected by {transform.parent?.name ?? name}!");
                     OnPlayerDetected?.Invoke();
+                    TutorialManager.Instance?.Trigger("first_spotted");
                 }
                 return;
             }

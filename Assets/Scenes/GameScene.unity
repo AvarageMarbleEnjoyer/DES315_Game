@@ -11677,10 +11677,11 @@ MonoBehaviour:
   root: {fileID: 929272531}
   contentRoot: {fileID: 708861073}
   itemPrefab: {fileID: 1482560410135912450, guid: c8674ceca78084a41b280353c0fce0a7, type: 3}
+  inventoryButton: {fileID: 108388427}
   inputActions: {fileID: -944628639613478452, guid: 102f2d70ec95fd1498234180cf7b19b5, type: 3}
   itemManager: {fileID: 1576573009}
-  abilityManager: {fileID: 0}
-  abilitySlotUI: {fileID: 0}
+  abilityManager: {fileID: 1107796541}
+  abilitySlotUI: {fileID: 1487256901}
 --- !u!1 &1995918379
 GameObject:
   m_ObjectHideFlags: 0

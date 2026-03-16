@@ -115,6 +115,7 @@ public class CombatManager : MonoBehaviour
         player.EnterCombat();
 
         MessageUI.Instance?.EnqueueMessage("Combat Start!");
+        TutorialManager.Instance?.Trigger("first_combat");
 
         //Fire event//
         OnCombatStarted?.Invoke(enemies);
