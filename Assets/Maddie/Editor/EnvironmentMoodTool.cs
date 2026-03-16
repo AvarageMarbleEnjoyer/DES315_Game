@@ -3,6 +3,8 @@ using UnityEditor;
 
 public class EnvironmentMoodTool : EditorWindow
 {
+    private bool _toolEnabled = false;
+
     // ── Values the artist controls ──
     private Color _shadowTint = new Color(0.20f, 0.20f, 0.40f, 1f);
     private Color _highlightTint = new Color(1.00f, 0.95f, 0.80f, 1f);
@@ -13,6 +15,7 @@ public class EnvironmentMoodTool : EditorWindow
     private float _fresnelIntensity = 0.5f;
     private Color _rimColour = Color.white;
     private float _specularHardness = 0.5f;
+    
 
     [MenuItem("Tools/Environment Mood Tool")]
     public static void Open()
@@ -27,6 +30,9 @@ public class EnvironmentMoodTool : EditorWindow
 
     void OnGUI()
     {
+        _toolEnabled = EditorGUILayout.Toggle("Enable Tool", _toolEnabled);
+        EditorGUILayout.Space(5);
+
         GUILayout.Label("Colour Palette", EditorStyles.boldLabel);
         EditorGUI.BeginChangeCheck();
         _shadowTint = EditorGUILayout.ColorField("Shadow Tint", _shadowTint);
@@ -49,10 +55,13 @@ public class EnvironmentMoodTool : EditorWindow
         _rimColour = EditorGUILayout.ColorField("Rim Light Colour", _rimColour);
         _specularHardness = EditorGUILayout.Slider("Specular Hardness", _specularHardness, 0f, 1f);
         if (EditorGUI.EndChangeCheck()) ApplyToScene();
+
     }
 
     void ApplyToScene()
     {
+        if (!_toolEnabled) return;
+
         Shader.SetGlobalColor("_Env_ShadowTint", _shadowTint);
         Shader.SetGlobalColor("_Env_HighlightTint", _highlightTint);
         Shader.SetGlobalFloat("_Env_Saturation", _saturation);

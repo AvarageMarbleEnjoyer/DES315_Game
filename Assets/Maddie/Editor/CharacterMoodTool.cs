@@ -13,6 +13,7 @@ public class CharacterMoodTool : EditorWindow
     private float _fresnelIntensity = 0.5f;
     private Color _rimColour = Color.white;
     private float _specularHardness = 0.5f;
+    private bool _toolEnabled = true;
 
     [MenuItem("Tools/Character Mood Tool")]
     public static void Open()
@@ -27,6 +28,9 @@ public class CharacterMoodTool : EditorWindow
 
     void OnGUI()
     {
+        _toolEnabled = EditorGUILayout.Toggle("Enable Tool", _toolEnabled);
+        EditorGUILayout.Space(5);
+
         GUILayout.Label("Colour Palette", EditorStyles.boldLabel);
         EditorGUI.BeginChangeCheck();
         _shadowTint = EditorGUILayout.ColorField("Shadow Tint", _shadowTint);
@@ -49,10 +53,13 @@ public class CharacterMoodTool : EditorWindow
         _rimColour = EditorGUILayout.ColorField("Rim Light Colour", _rimColour);
         _specularHardness = EditorGUILayout.Slider("Specular Hardness", _specularHardness, 0f, 1f);
         if (EditorGUI.EndChangeCheck()) ApplyToScene();
+
     }
 
     void ApplyToScene()
     {
+        if (!_toolEnabled) return;
+
         Shader.SetGlobalColor("_Char_ShadowTint", _shadowTint);
         Shader.SetGlobalColor("_Char_HighlightTint", _highlightTint);
         Shader.SetGlobalFloat("_Char_Saturation", _saturation);
