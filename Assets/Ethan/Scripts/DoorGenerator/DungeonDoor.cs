@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -42,7 +43,8 @@ public class DungeonDoor : MonoBehaviour
     private static int lastTeleportFrame = -999;
     private static float globalLastTeleportTime = -999f;
     private CameraController cameraController;
-
+    
+    private bool isTeleporting = false;
 
     private InputAction interactionAction;
 
@@ -187,9 +189,26 @@ public class DungeonDoor : MonoBehaviour
     private void OnInteract(InputAction.CallbackContext context)
     {
         if (!playerInRange) return;
-        if (Time.time <= globalLastTeleportTime) return;
+        if (isTeleporting) return;
+        if (Time.time < globalLastTeleportTime + teleportCooldown) return;
         if (Time.frameCount == lastTeleportFrame) return;
+        StartCoroutine(TeleportWithFade());
+    }
+
+    private IEnumerator TeleportWithFade()
+    {
+        isTeleporting = true;
+
+        DoorTransitionManager dtm = DoorTransitionManager.Instance;
+        if (dtm != null)
+            yield return StartCoroutine(dtm.FadeToBlack(0.5f));
+
         TeleportPlayer();
+
+        if (dtm != null)
+            yield return StartCoroutine(dtm.FadeFromBlack(0.5f));
+
+        isTeleporting = false;
     }
 
     private void SetupInteractionAction()
