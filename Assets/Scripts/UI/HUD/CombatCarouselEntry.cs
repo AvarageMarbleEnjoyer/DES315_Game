@@ -29,6 +29,14 @@ public class CombatCarouselEntry : MonoBehaviour, IPointerEnterHandler, IPointer
         SetTurnIndicatorActive(false);
     }
 
+    private void OnEnable()
+    {
+        if (unit == null) return;
+        Unsubscribe();
+        Subscribe();
+        UpdateUI(unit.CurrentHealth, unit.MaxHealth);
+    }
+
     private void OnDisable()
     {
         ClearHoverOverride();

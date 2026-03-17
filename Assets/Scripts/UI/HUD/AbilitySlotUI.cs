@@ -14,6 +14,11 @@ public class AbilitySlotUI : MonoBehaviour
     [SerializeField] private Button slot2Button;
     [SerializeField] private Button slot3Button;
 
+    [Header("Slot Icon Images")]
+    [SerializeField] private Image slot1Icon;
+    [SerializeField] private Image slot2Icon;
+    [SerializeField] private Image slot3Icon;
+
     [Header("Description")]
     [SerializeField] private TextMeshProUGUI descriptionText;
 
@@ -24,6 +29,9 @@ public class AbilitySlotUI : MonoBehaviour
     [SerializeField] private GameObject background;
     
     private Button[] buttons;
+    private Image[] slotIcons;
+    private bool inSwapMode = false;
+    private System.Action<int> swapCallback = null;
 
     private void Awake()
     {
@@ -31,6 +39,7 @@ public class AbilitySlotUI : MonoBehaviour
             abilityManager = FindFirstObjectByType<PlayerAbilityManager>();
 
         buttons = new Button[] { slot1Button, slot2Button, slot3Button };
+        slotIcons = new Image[] { slot1Icon, slot2Icon, slot3Icon };
     }
 
     private void OnEnable()
@@ -39,7 +48,7 @@ public class AbilitySlotUI : MonoBehaviour
         {
             if (buttons[i] == null) continue;
             int index = i;
-            buttons[i].onClick.AddListener(() => abilityManager?.ActivateAbilitySlot(index));
+            buttons[i].onClick.AddListener(() => HandleSlotButtonClicked(index));
             AddHoverEvents(buttons[i], index);
         }
 
@@ -104,15 +113,49 @@ public class AbilitySlotUI : MonoBehaviour
         {
             if (buttons[i] == null) continue;
             Ability ability = i < abilityManager.equippedAbilities.Length ? abilityManager.equippedAbilities[i] : null;
-            buttons[i].image.sprite = ability != null ? ability.icon : null;
+            Sprite icon = ability != null ? ability.icon : null;
+
+            if (slotIcons[i] != null)
+                slotIcons[i].sprite = icon;
+            else
+                buttons[i].image.sprite = icon;
         }
     }
 
     private void ShowDescription(int slotIndex)
     {
+        if (inSwapMode) return;
         if (descriptionText == null || abilityManager == null) return;
         Ability ability = slotIndex < abilityManager.equippedAbilities.Length ? abilityManager.equippedAbilities[slotIndex] : null;
         descriptionText.text = ability != null ? ability.description : string.Empty;
+    }
+
+    private void HandleSlotButtonClicked(int index)
+    {
+        if (inSwapMode)
+        {
+            swapCallback?.Invoke(index);
+            ExitSwapMode();
+        }
+        else
+        {
+            abilityManager?.ActivateAbilitySlot(index);
+        }
+    }
+
+    public void EnterSwapMode(Ability incomingAbility, System.Action<int> onSlotSelected)
+    {
+        inSwapMode = true;
+        swapCallback = onSlotSelected;
+        if (descriptionText != null)
+            descriptionText.text = "Select an ability to swap out...";
+    }
+
+    private void ExitSwapMode()
+    {
+        inSwapMode = false;
+        swapCallback = null;
+        ClearDescription();
     }
 
     private void ClearDescription()

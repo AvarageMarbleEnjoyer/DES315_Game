@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Click Settings")]
     public LayerMask walkableMask = ~0;
+    [Tooltip("Objects on these layers block movement clicks — clicks landing on them are ignored")]
+    public LayerMask occluderMask;
 
     [Header("Light Detection")]
     public Vector3 lightCheckOffset = new Vector3(0f, 1f, 0f);
@@ -15,9 +17,6 @@ public class PlayerController : MonoBehaviour
     public float lightCheckRadius = 0.3f;
 
     [Header("Movement Range")]
-    [Tooltip("Maximum distance the player can move in a single click (outside combat)")]
-    public float maxMoveDistance = 20f;
-    [Tooltip("Minimum distance the player can move in a single click")]
     public float minMoveDistance = 0.3f;
 
     //Input system updated - EM//
@@ -221,6 +220,13 @@ public class PlayerController : MonoBehaviour
         Vector2 pointerPos = pointerPositionAction.ReadValue<Vector2>();
         Ray ray = mainCamera.ScreenPointToRay(pointerPos);
 
+        if (occluderMask.value != 0 && Physics.Raycast(ray, out RaycastHit occluderHit, 100f, occluderMask))
+        {
+            bool hasWalkableHit = Physics.Raycast(ray, out RaycastHit walkablePrecheck, 100f, walkableMask);
+            if (!hasWalkableHit || occluderHit.distance <= walkablePrecheck.distance)
+                return;
+        }
+
         if (Physics.Raycast(ray, out RaycastHit hit, 100f, walkableMask))
         {
             Vector3 targetPoint = hit.point;
@@ -262,24 +268,6 @@ public class PlayerController : MonoBehaviour
                     if (debugMode) Debug.Log($"[PlayerController] Click too far! Requested: {requestedDistance:F2}, Remaining: {remainingDistance:F2}");
                     return;
                 }
-
-                // Spend movement coin if not already spent
-                if (!player.HasSpentMovementCoin)
-                {
-                    if (!player.SpendMovementCoin())
-                    {
-                        if (debugMode) Debug.Log("[PlayerController] Failed to spend movement coin");
-                        return;
-                    }
-                }
-            }
-            else
-            {
-                // Outside combat - use normal max distance
-                if (requestedDistance > maxMoveDistance)
-                {
-                    return;
-                }
             }
 
             // Validate NavMesh position
@@ -289,6 +277,7 @@ public class PlayerController : MonoBehaviour
                 agent.SetDestination(navHit.position);
                 lowVelocityTimer = 0f;
                 ShowDestinationIndicator(navHit.position);
+                TutorialManager.Instance?.Trigger("first_move");
             }
         }
     }
@@ -506,6 +495,3 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
-
-
-

@@ -10,9 +10,10 @@ public class EnvironmentMoodTool : EditorWindow
     private float _pulseSpeed = 1f;
     private float _emissionMultiplier = 1f;
     private int _toonSteps = 4;
-    private float _fresnelIntensity = 0.5f;
+    private float _fresnelIntensity = 0f;
     private Color _rimColour = Color.white;
-    private float _specularHardness = 0.5f;
+    private float _specularHardness = 0f;
+    private bool _toolEnabled = false;
 
     [MenuItem("Tools/Environment Mood Tool")]
     public static void Open()
@@ -27,6 +28,11 @@ public class EnvironmentMoodTool : EditorWindow
 
     void OnGUI()
     {
+        EditorGUI.BeginChangeCheck();
+        _toolEnabled = EditorGUILayout.Toggle("Enable Tool", _toolEnabled);
+        if (EditorGUI.EndChangeCheck()) ApplyToScene();
+        EditorGUILayout.Space(5);
+
         GUILayout.Label("Colour Palette", EditorStyles.boldLabel);
         EditorGUI.BeginChangeCheck();
         _shadowTint = EditorGUILayout.ColorField("Shadow Tint", _shadowTint);
@@ -53,6 +59,20 @@ public class EnvironmentMoodTool : EditorWindow
 
     void ApplyToScene()
     {
+        if (!_toolEnabled)
+        {
+            Shader.SetGlobalColor("_Env_ShadowTint", Color.white);
+            Shader.SetGlobalColor("_Env_HighlightTint", Color.white);
+            Shader.SetGlobalFloat("_Env_Saturation", 1f);
+            Shader.SetGlobalFloat("_Env_PulseSpeed", 0f);
+            Shader.SetGlobalFloat("_Env_EmissionMultiplier", 1f);
+            Shader.SetGlobalInt("_Env_ToonSteps", 8);
+            Shader.SetGlobalFloat("_Env_FresnelIntensity", 0f);
+            Shader.SetGlobalColor("_Env_RimColour", Color.black);
+            Shader.SetGlobalFloat("_Env_SpecularHardness", 1f);
+            return;
+        }
+
         Shader.SetGlobalColor("_Env_ShadowTint", _shadowTint);
         Shader.SetGlobalColor("_Env_HighlightTint", _highlightTint);
         Shader.SetGlobalFloat("_Env_Saturation", _saturation);

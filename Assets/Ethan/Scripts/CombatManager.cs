@@ -131,6 +131,7 @@ public class CombatManager : MonoBehaviour
         if (initiatingEnemy == null) return;
 
         List<Enemy> enemies = GetEnemiesInCurrentRoom(initiatingEnemy);
+        TutorialManager.Instance?.Trigger("first_spotted");
         StartCombat(enemies, initiatingEnemy);
     }
 
@@ -211,6 +212,10 @@ public class CombatManager : MonoBehaviour
         }
 
         MessageUI.Instance?.EnqueueMessage($"{currentUnit.name}'s turn.");
+        if (IsPlayerTurn)
+        {
+            TutorialManager.Instance?.Trigger("first_combat");
+        }
 
         OnTurnStarted?.Invoke(currentUnit);
 
@@ -343,6 +348,11 @@ public class CombatManager : MonoBehaviour
         {
             float lethalDamage = player.CurrentHealth + player.CurrentBlock + 1f;
             player.TakeDamage(lethalDamage);
+        }
+
+        if (outcome == CombatOutcome.PlayerWon)
+        {
+            TutorialManager.Instance?.Trigger("first_combat_win");
         }
 
         MessageUI.Instance?.EnqueueMessage("Combat Ended!");

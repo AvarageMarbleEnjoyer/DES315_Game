@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -42,13 +43,8 @@ public class PlayerAbilityManager : MonoBehaviour
     private int? activeAbilitySlot
     {
         get => _activeAbilitySlot;
-        set
-        {
-            _activeAbilitySlot = value;
-            OnActiveSlotChanged?.Invoke(value);
-        }
+        set { _activeAbilitySlot = value; OnActiveSlotChanged?.Invoke(value); }
     }
-
     private bool flipSelected = false;
 
     public bool IsTargeting => activeAbilitySlot.HasValue;
@@ -606,6 +602,21 @@ public class PlayerAbilityManager : MonoBehaviour
         }
         
         return target.gameObject.name.IndexOf("torch", System.StringComparison.OrdinalIgnoreCase) >= 0;
+    }
+
+    [Header("Ability Inventory")]
+    public List<Ability> inventoryAbilities = new List<Ability>();
+
+    public void AddAbilityToInventory(Ability ability)
+    {
+        if (ability == null) return;
+        inventoryAbilities.Add(ability);
+        if (debugMode) Debug.Log($"[AbilityManager] Added '{ability.abilityName}' to ability inventory");
+    }
+
+    public bool RemoveAbilityFromInventory(Ability ability)
+    {
+        return inventoryAbilities.Remove(ability);
     }
 
     //Test the Abilities -EM//

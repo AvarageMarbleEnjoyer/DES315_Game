@@ -11,30 +11,30 @@ public class InventoryItemButton : MonoBehaviour
     [SerializeField] private Image iconImage;
 
     private ItemDefinition item;
+    private Ability ability;
     private string baseName;
     private bool isEquipped;
     private Action<InventoryItemButton> onClicked;
 
     public ItemDefinition Item => item;
+    public Ability AbilityItem => ability;
+    public bool IsAbility => ability != null;
     public bool IsEquipped => isEquipped;
 
     public void Setup(ItemDefinition itemDefinition, bool equipped, Action<InventoryItemButton> clicked)
     {
         item = itemDefinition;
+        ability = null;
         onClicked = clicked;
         baseName = itemDefinition != null ? itemDefinition.itemName : string.Empty;
 
         SetEquipped(equipped);
 
         if (descriptionText != null)
-        {
             descriptionText.text = itemDefinition != null ? itemDefinition.description : string.Empty;
-        }
 
         if (button == null)
-        {
             button = GetComponent<Button>();
-        }
 
         if (button != null)
         {
@@ -44,14 +44,36 @@ public class InventoryItemButton : MonoBehaviour
 
         if (itemDefinition != null && itemDefinition.icon != null)
         {
-            if (iconImage != null)
-            {
-                iconImage.sprite = itemDefinition.icon;
-            }
-            else if (button != null && button.image != null)
-            {
-                button.image.sprite = itemDefinition.icon;
-            }
+            if (iconImage != null) iconImage.sprite = itemDefinition.icon;
+            else if (button != null && button.image != null) button.image.sprite = itemDefinition.icon;
+        }
+    }
+
+    public void SetupAbility(Ability abilityDef, Action<InventoryItemButton> clicked)
+    {
+        ability = abilityDef;
+        item = null;
+        onClicked = clicked;
+        baseName = abilityDef != null ? abilityDef.abilityName : string.Empty;
+
+        isEquipped = false;
+        if (nameText != null) nameText.text = baseName;
+
+        if (descriptionText != null)
+            descriptionText.text = abilityDef != null ? abilityDef.description : string.Empty;
+
+        if (button == null) button = GetComponent<Button>();
+        if (button != null)
+        {
+            button.onClick.RemoveListener(HandleClicked);
+            button.onClick.AddListener(HandleClicked);
+        }
+
+        Sprite icon = abilityDef != null ? abilityDef.icon : null;
+        if (icon != null)
+        {
+            if (iconImage != null) iconImage.sprite = icon;
+            else if (button != null && button.image != null) button.image.sprite = icon;
         }
     }
 
@@ -59,9 +81,7 @@ public class InventoryItemButton : MonoBehaviour
     {
         isEquipped = equipped;
         if (nameText != null)
-        {
             nameText.text = GetDisplayName(equipped);
-        }
     }
 
     private void HandleClicked()
@@ -72,9 +92,7 @@ public class InventoryItemButton : MonoBehaviour
     private string GetDisplayName(bool equipped)
     {
         if (string.IsNullOrEmpty(baseName))
-        {
             return equipped ? "(EQUIPPED)" : string.Empty;
-        }
 
         return equipped ? $"{baseName} (EQUIPPED)" : baseName;
     }
@@ -82,8 +100,6 @@ public class InventoryItemButton : MonoBehaviour
     private void OnDestroy()
     {
         if (button != null)
-        {
             button.onClick.RemoveListener(HandleClicked);
-        }
     }
 }

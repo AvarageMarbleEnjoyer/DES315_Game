@@ -3700,6 +3700,7 @@ MonoBehaviour:
   debugMode: 0
   icon: {fileID: 21300000, guid: 224e646b79ad4b1478409d150d68d9e5, type: 3}
   isInCombat: 0
+  baseCoins: 5
   currentCoins: 5
   bonusCoinsNextTurn: 0
   baseCarryoverCoins: 1
@@ -3840,7 +3841,7 @@ MonoBehaviour:
   aimRotationSpeed: 720
   debugMode: 0
   isTargeting: 0
-  flipVisualizerColor: {r: 0.6, g: 0.2, b: 1, a: 0.3}
+  defaultHighlightColor: {r: 0.471, g: 0.059, b: 0.055, a: 0.5}
   flipHighlightColor: {r: 0.6, g: 0.2, b: 1, a: 1}
 --- !u!114 &419527963
 MonoBehaviour:
@@ -3868,6 +3869,7 @@ MonoBehaviour:
   - 3
   - 3
   - 3
+  inventoryAbilities: []
 --- !u!4 &419527964
 Transform:
   m_ObjectHideFlags: 0
@@ -4567,6 +4569,7 @@ MonoBehaviour:
   uiRoot: {fileID: 1693411529}
   cardContainer: {fileID: 1477182068}
   cardPrefab: {fileID: 7496308736789289923, guid: 2169d626a610b8b42909658b5da503b0, type: 3}
+  replacePromptLabel: {fileID: 0}
   cardSpawnDelay: 0.15
   debugMode: 1
 --- !u!4 &500495492 stripped
@@ -4708,7 +4711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 629f7d8361193294d8640ade16817f8f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4216
+      value: 1.427
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 629f7d8361193294d8640ade16817f8f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5880,9 +5883,11 @@ MonoBehaviour:
   root: {fileID: 1356188301}
   contentRoot: {fileID: 1567831215}
   itemPrefab: {fileID: 1482560410135912450, guid: c8674ceca78084a41b280353c0fce0a7, type: 3}
-  openInventoryButton: {fileID: 0}
+  inventoryButton: {fileID: 0}
   inputActions: {fileID: -944628639613478452, guid: 102f2d70ec95fd1498234180cf7b19b5, type: 3}
   itemManager: {fileID: 467200676}
+  abilityManager: {fileID: 0}
+  abilitySlotUI: {fileID: 0}
 --- !u!1 &669107384
 GameObject:
   m_ObjectHideFlags: 0
@@ -18756,9 +18761,13 @@ MonoBehaviour:
   slot1Button: {fileID: 122863262}
   slot2Button: {fileID: 1988908375}
   slot3Button: {fileID: 1422119280}
+  slot1Icon: {fileID: 0}
+  slot2Icon: {fileID: 0}
+  slot3Icon: {fileID: 0}
   descriptionText: {fileID: 0}
   activeColor: {r: 1, g: 0.8, b: 0, a: 1}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
+  background: {fileID: 0}
 --- !u!1 &1937367647
 GameObject:
   m_ObjectHideFlags: 0
@@ -19224,15 +19233,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 419527958}
-  statusText: {fileID: 1189424919}
-  statusIndicator: {fileID: 1139398466}
   shadowOverlay: {fileID: 38154857}
-  lightColor: {r: 1, g: 0.9, b: 0.5, a: 1}
-  shadowColor: {r: 0.2, g: 0.2, b: 0.4, a: 1}
-  colorTransitionSpeed: 5
+  shadowBorder: {fileID: 0}
   overlayTransitionSpeed: 2
-  maxShadowAlpha: 0.55
-  initialOverlayFadeDuration: 3
+  maxOverlayAlpha: 0.7
+  overlayLightScale: 2
+  borderTransitionSpeed: 3
+  maxBorderAlpha: 1
 --- !u!1 &1974255449
 GameObject:
   m_ObjectHideFlags: 0

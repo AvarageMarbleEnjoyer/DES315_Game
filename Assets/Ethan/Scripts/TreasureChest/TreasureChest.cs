@@ -21,6 +21,14 @@ public class TreasureChest : MonoBehaviour
     [Tooltip("All possible items that can appear in this chest")]
     public List<ItemDefinition> itemPool = new List<ItemDefinition>();
 
+    [Header("Ability Pool")]
+    [Tooltip("All possible abilites that can appear in this chest")]
+    public List<Ability> abilityPool = new List<Ability>();
+
+    [Tooltip("How many of the cards should be abilities (rest are items), Randomised each open.")]
+    public int minAbilityCards = 1;
+    public int maxAbilityCards = 2;
+
     [Tooltip("Number of item cards to show (default 3)")]
     public int itemChoiceCount = 3;
 
@@ -151,6 +159,8 @@ public class TreasureChest : MonoBehaviour
         hasBeenOpened = true;
 
         if (debugMode) Debug.Log("[TreasureChest] Opening Chest!");
+        
+        TutorialManager.Instance?.Trigger("first_chest_open");
 
         //Hide interaction prompt//
         if(interactionPrompt != null)
@@ -171,12 +181,12 @@ public class TreasureChest : MonoBehaviour
         }
 
         //Generatre random item choices//
-        List<ItemDefinition> itemChoices = GenerateItemChoices();
+        List <ChestReward> rewards = GenerateRewards();
 
         //Show UI with choices//
         if (chestUI != null)
         {
-            chestUI.ShowItemSelection(itemChoices, OnItemSelected);
+            chestUI.ShowRewards(rewards, OnRewardSelected);
         }
         else
         {
@@ -185,58 +195,89 @@ public class TreasureChest : MonoBehaviour
     }
 
     //Generate random items from the item pool -EM//
-    private List<ItemDefinition> GenerateItemChoices()
+    private List<ChestReward> GenerateRewards()
     {
-        List<ItemDefinition> choices = new List<ItemDefinition>();
+        List<ChestReward> rewards = new List<ChestReward>();
 
-        if(itemPool.Count == 0)
+        //Pick how many ability cards to show this open (random between min and max)//
+        int abilityCount = UnityEngine.Random.Range(minAbilityCards, Mathf.Min(maxAbilityCards, abilityPool.Count) + 1);
+        int itemCount = itemChoiceCount - abilityCount;
+
+        //Pick abilities//
+        PlayerAbilityManager abilityManager = FindAnyObjectByType<PlayerAbilityManager>();
+        List<Ability> availableAbilities = new List<Ability>(abilityPool);
+        if (abilityManager != null)
         {
-            Debug.LogWarning("[TreasureChest] Item pool is empty!");
-            return choices;
+            availableAbilities.RemoveAll(a =>
+                System.Array.IndexOf(abilityManager.equippedAbilities, a) >= 0 ||
+                abilityManager.inventoryAbilities.Contains(a));
+        }
+        for (int i = 0; i < abilityCount && availableAbilities.Count > 0; i++)
+        {
+            int idx = UnityEngine.Random.Range(0, availableAbilities.Count);
+            rewards.Add(new ChestReward { type = ChestRewardType.Ability, ability = availableAbilities[idx] });
+            availableAbilities.RemoveAt(idx);
         }
 
-        //Create a copy of the pool to avoid picking duplicates//
+        //Pick items//
         List<ItemDefinition> availableItems = new List<ItemDefinition>(itemPool);
-
-        //Pick random items//
-        int count = Mathf.Min(itemChoiceCount, availableItems.Count);
-        for(int i = 0; i < count; i++)
+        for (int i = 0; i < itemCount && availableItems.Count > 0; i++)
         {
-            int randomIndex = Random.Range(0, availableItems.Count);
-            choices.Add(availableItems[randomIndex]);
-            availableItems.RemoveAt(randomIndex);
+            int idx = UnityEngine.Random.Range(0, availableItems.Count);
+            rewards.Add(new ChestReward { type = ChestRewardType.Item, item = availableItems[idx] });
+            availableItems.RemoveAt(idx);
         }
 
-        if(debugMode)
+        //Shuffle so abilities aren't always first//
+        for (int i = rewards.Count - 1; i > 0; i--)
         {
-            Debug.Log($"[TreasureChest] Generated {choices.Count} item choices");
+            int j = UnityEngine.Random.Range(0, i + 1);
+            (rewards[i], rewards[j]) = (rewards[j], rewards[i]);
         }
 
-        return choices;
+        if (debugMode) Debug.Log($"[TreasureChest] Generated {itemCount} item(s) and {abilityCount} ability card(s)");
+        return rewards;
+
     }
 
-    //Called when player selects an item from the UI -EM//
-    private void OnItemSelected(ItemDefinition selectedItem)
+    //Called when player selects an item from the UI//
+    private void OnRewardSelected(ChestReward reward)
     {
-        if (selectedItem == null) return;
-
-        if(debugMode)
+        if (reward.type == ChestRewardType.Item && reward.item != null)
         {
-            Debug.Log($"[TreasureChest] Player selected: {selectedItem.itemName}");
-        }
+            if (debugMode) Debug.Log($"[TreasureChest] Player selected item: {reward.item.itemName}");
 
-        //Add item to player's inventory//
-        ItemManager itemManager = FindAnyObjectByType<ItemManager>();
-        if(itemManager != null)
-        {
-            itemManager.AddItem(selectedItem);  
-        }
-        else
-        {
-            Debug.LogError("[TreasureChest] No ItemManager found!");
-        }
+            ItemManager itemManager = FindAnyObjectByType<ItemManager>();
+            if (itemManager != null)
+            {
+                itemManager.AddItem(reward.item);
+            }
+            else
+            {
+                Debug.LogError("[TreasureChest] No ItemManager found!");
+            }
 
-        isOpen = false;
+            isOpen = false;
+        }
+        else if (reward.type == ChestRewardType.Ability && reward.ability != null)
+        {
+            if (debugMode) Debug.Log($"[TreasureChest] Player selected ability: {reward.ability.abilityName}");
+
+            PlayerAbilityManager abilityManager = FindAnyObjectByType<PlayerAbilityManager>();
+            if (abilityManager == null)
+            {
+                Debug.LogError("[TreasureChest] No PlayerAbilityManager found!");
+                isOpen = false;
+                return;
+            }
+
+            abilityManager.AddAbilityToInventory(reward.ability);
+
+            InventoryUI inventoryUI = FindAnyObjectByType<InventoryUI>();
+            inventoryUI?.Refresh();
+
+            isOpen = false;
+        }
     }
 
     //Force open the chest (for testing) -EM//

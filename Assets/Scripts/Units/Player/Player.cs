@@ -12,7 +12,8 @@ public class Player : Unit
     [SerializeField] private bool isInCombat = false;
 
     [Header("Coin System")]
-    [SerializeField] private int currentCoins = 3;
+    [SerializeField] private int baseCoins = 5;
+    [SerializeField] private int currentCoins = 5;
     [SerializeField] private int bonusCoinsNextTurn = 0;
     [SerializeField] private int baseCarryoverCoins = 1;
 
@@ -26,7 +27,6 @@ public class Player : Unit
     [SerializeField] private const float MAX_FLIP_CHANCE = 100f;
 
     [Header("Movement")]
-    [SerializeField] private bool hasSpentMovementCoin = false;
     [SerializeField] private float distanceMovedThisTurn = 0f;
     [SerializeField] private float baseCombatMoveDistance = 5f;
 
@@ -49,7 +49,6 @@ public class Player : Unit
     public int BaseCoins => GetBaseCoins();
     public int CurrentCoins => currentCoins;
     public float CurrentFlipChance => currentFlipChance;
-    public bool HasSpentMovementCoin => hasSpentMovementCoin;
     public float DistanceMovedThisTurn => distanceMovedThisTurn;
     public float RemainingMoveDistance => MaxCombatMoveDistance - distanceMovedThisTurn;
     public float MaxCombatMoveDistance => GetMaxCombatMoveDistance();
@@ -121,7 +120,6 @@ public class Player : Unit
             ClearBlock();
             currentFlipChance = BASE_FLIP_CHANCE;
             bonusCoinsNextTurn = 0;
-            hasSpentMovementCoin = false;
             distanceMovedThisTurn = 0f;
             if (debugMode) Debug.Log("[Player] Exited combat");
             OnCombatStateChanged?.Invoke(false);
@@ -147,7 +145,6 @@ public class Player : Unit
         bonusCoinsNextTurn = 0;
         
         // Reset movement tracking for new turn
-        hasSpentMovementCoin = false;
         distanceMovedThisTurn = 0f;
 
         OnCoinsChanged?.Invoke(currentCoins, GetBaseCoins());
@@ -223,19 +220,14 @@ public class Player : Unit
         return true;
     }
 
-    public bool SpendMovementCoin()
-    {
-        if (hasSpentMovementCoin) return true;
-
-        hasSpentMovementCoin = true;
-        if (debugMode) Debug.Log("[Player] Movement started (no coin cost).");
-        OnMovementCoinSpent?.Invoke();
-        return true;
-    }
-
+    /// <summary>
+    /// Check if player can still move (has distance remaining)
+    /// </summary>
     public bool CanMove()
     {
         if (!isInCombat) return true;
+        
+        // Check if there's distance remaining
         return distanceMovedThisTurn < MaxCombatMoveDistance;
     }
 
@@ -359,7 +351,12 @@ public class Player : Unit
             if (debugMode) Debug.Log("[Player] TakeDamage blocked by Infinite Health cheat.");
             return;
         }
+        float healthBefore = currentHealth;
         base.TakeDamage(amount);
+        if (currentHealth < healthBefore)
+        {
+            TutorialManager.Instance?.Trigger("first_damage_taken");
+        }
     }
 
     protected override void Die()
@@ -385,6 +382,11 @@ public class Player : Unit
 
     private int GetBaseCoins()
     {
+        if (StatsManager.Instance == null)
+        {
+            return baseCoins;
+        }
+
         return StatsManager.Instance.GetBaseCoins();
     }
 
