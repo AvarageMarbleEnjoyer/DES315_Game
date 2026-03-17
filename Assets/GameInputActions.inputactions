@@ -60,6 +60,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "CancelAbility",
+                    "type": "Button",
+                    "id": "9a30d5f7-de60-434d-ace5-4591009ef9c5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Tap",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "ConfirmTarget",
                     "type": "Button",
                     "id": "250d17f6-a980-48e9-b7c8-78b664ea581d",
@@ -224,6 +233,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "FlipCoinForAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bd318ab7-4070-4a5c-9456-0f728ba74676",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CancelAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
