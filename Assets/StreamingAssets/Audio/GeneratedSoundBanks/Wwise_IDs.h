@@ -20,8 +20,7 @@ namespace AK
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID BLOODSTORM = 2566684358U;
-        static const AkUniqueID TORCHBREAK = 717429066U;
+        static const AkUniqueID MAIN = 3161908922U;
     } // namespace BANKS
 
     namespace BUSSES

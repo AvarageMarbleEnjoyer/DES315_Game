@@ -14,6 +14,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="TorchBreak" ID="{8CA9EF57-14CF-43F3-A51E-29FA1E74CB7A}">
+					<ChildrenList>
+						<Action Name="" ID="{5CA2F28E-EEC6-484A-BA1F-6975DEC78F4E}" ShortID="649112430">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="TorchBreakShort" ID="{D5BDA56C-9FD6-4B24-BDC2-DD7253566E15}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
