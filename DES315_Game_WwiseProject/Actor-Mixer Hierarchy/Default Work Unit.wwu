@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{7959C9E0-BA15-4686-B24C-87E196EF1927}" SchemaVersion="110">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{7959C9E0-BA15-4686-B24C-87E196EF1927}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{7959C9E0-BA15-4686-B24C-87E196EF1927}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="Blood storm" ID="{8ED32DD7-AF31-4A77-B954-BA85E586ACC6}" ShortID="954156918">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Blood storm" ID="{C57A5960-43D9-4A3E-8E7A-D647862CD978}">
+							<Language>SFX</Language>
+							<AudioFile>Blood storm.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="549072123"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Blood storm" ID="{C57A5960-43D9-4A3E-8E7A-D647862CD978}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>

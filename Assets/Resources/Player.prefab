@@ -996,11 +996,11 @@ MonoBehaviour:
   debugMode: 0
   icon: {fileID: 21300000, guid: 224e646b79ad4b1478409d150d68d9e5, type: 3}
   isInCombat: 0
+  baseCoins: 5
   currentCoins: 0
   bonusCoinsNextTurn: 0
   baseCarryoverCoins: 1
   currentFlipChance: 60
-  hasSpentMovementCoin: 0
   distanceMovedThisTurn: 0
   baseCombatMoveDistance: 5
 --- !u!114 &5730069245732350810
@@ -1018,9 +1018,11 @@ MonoBehaviour:
   walkableMask:
     serializedVersion: 2
     m_Bits: 128
+  occluderMask:
+    serializedVersion: 2
+    m_Bits: 0
   lightCheckOffset: {x: 0, y: 0.1, z: 0}
   lightCheckRadius: 0.3
-  maxMoveDistance: 14
   minMoveDistance: 0.67
   inputActions: {fileID: -944628639613478452, guid: 102f2d70ec95fd1498234180cf7b19b5, type: 3}
   movementLockSeconds: 1.67
@@ -1062,6 +1064,7 @@ MonoBehaviour:
   - 3
   - 3
   - 3
+  inventoryAbilities: []
 --- !u!114 &675714618294221328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1090,7 +1093,7 @@ MonoBehaviour:
   aimRotationSpeed: 720
   debugMode: 0
   isTargeting: 0
-  flipVisualizerColor: {r: 0.6, g: 0.2, b: 1, a: 0.3}
+  defaultHighlightColor: {r: 0.471, g: 0.059, b: 0.055, a: 0.5}
   flipHighlightColor: {r: 0.6, g: 0.2, b: 1, a: 1}
 --- !u!136 &3851179637143903197
 CapsuleCollider:
@@ -2428,6 +2431,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6704808795155191306}
   - component: {fileID: 5258908322689513735}
+  - component: {fileID: 1485083991767629607}
+  - component: {fileID: 8207030000678160855}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -2474,6 +2479,57 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1485083991767629607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8835247721745202719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a62b75398863341868ec694927b4a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &8207030000678160855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8835247721745202719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5fc7d426c72d8a47adae205b8ecb44c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  useCallbacks: 0
+  Callbacks: []
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  eventIdInternal: 0
+  valueGuidInternal: 
+  m_callbackDataInternal: {fileID: 0}
 --- !u!1 &8965495282370725684
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{506BD1DC-F745-43B5-AA1B-29726E8D04C5}" SchemaVersion="110">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{506BD1DC-F745-43B5-AA1B-29726E8D04C5}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{506BD1DC-F745-43B5-AA1B-29726E8D04C5}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Bloodstorm" ID="{12E7723E-5AD8-4AD5-B9C8-66B7F7C23FF3}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Bloodstorm" ID="{8DB008DD-5B92-476C-8E08-1E32C11AFEE0}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>
