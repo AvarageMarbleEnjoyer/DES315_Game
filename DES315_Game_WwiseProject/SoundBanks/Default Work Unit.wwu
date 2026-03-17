@@ -7,6 +7,7 @@
 					<ObjectInclusionList>
 						<ObjectRef Name="TorchBreak" ID="{8CA9EF57-14CF-43F3-A51E-29FA1E74CB7A}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Bloodstorm" ID="{8DB008DD-5B92-476C-8E08-1E32C11AFEE0}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="FireFlintlock" ID="{A3083A63-FB00-4EEC-8F28-3376CB136756}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

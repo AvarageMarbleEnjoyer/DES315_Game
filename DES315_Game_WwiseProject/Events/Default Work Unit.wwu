@@ -25,6 +25,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="FireFlintlock" ID="{A3083A63-FB00-4EEC-8F28-3376CB136756}">
+					<ChildrenList>
+						<Action Name="" ID="{4B88EFA7-039E-4D54-BAE6-2DB53E58CE6F}" ShortID="332789314">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Flintlock" ID="{6893F140-04D5-410C-8EF2-DD52D3342239}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

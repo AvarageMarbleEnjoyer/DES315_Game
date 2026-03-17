@@ -1,8 +1,13 @@
 Event	ID	Name			Wwise Object Path	Notes
 	717429066	TorchBreak			\Default Work Unit\TorchBreak	
+	1820443583	FireFlintlock			\Default Work Unit\FireFlintlock	
 	2566684358	Bloodstorm			\Default Work Unit\Bloodstorm	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	143551498	Flintlock	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\Flintlock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Flintlock\Flintlock		941680
+	529643543	Flintlock 4	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\Flintlock 4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Flintlock\Flintlock 4		941680
 	549072123	Blood storm	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\Blood storm_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Blood storm		1408116
 	686190957	TorchBreakShort	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\TorchBreakShort_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\TorchBreakShort		299072
+	695088713	Flintlock 2	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\Flintlock 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Flintlock\Flintlock 2		941680
+	849152164	Flintlock 3	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\Flintlock 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Flintlock\Flintlock 3		941680
 

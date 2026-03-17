@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID BLOODSTORM = 2566684358U;
+        static const AkUniqueID FIREFLINTLOCK = 1820443583U;
         static const AkUniqueID TORCHBREAK = 717429066U;
     } // namespace EVENTS
 

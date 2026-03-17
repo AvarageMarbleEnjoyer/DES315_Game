@@ -22,10 +22,18 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{789005E5-42E9-E8D6-D680-BF5FCE1A18D8}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{2153A701-10DC-165B-4773-9BEE2E808266}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
+				<File Id="143551498" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Flintlock.wav</ShortName>
+					<CachePath>SFX/Flintlock_10C4C929.wem</CachePath>
+				</File>
+				<File Id="529643543" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Flintlock 4.wav</ShortName>
+					<CachePath>SFX/Flintlock 4_10C4C929.wem</CachePath>
+				</File>
 				<File Id="549072123" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Blood storm.wav</ShortName>
 					<CachePath>SFX/Blood storm_10C4C929.wem</CachePath>
@@ -34,11 +42,27 @@
 					<ShortName>TorchBreakShort.wav</ShortName>
 					<CachePath>SFX/TorchBreakShort_10C4C929.wem</CachePath>
 				</File>
+				<File Id="695088713" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Flintlock 2.wav</ShortName>
+					<CachePath>SFX/Flintlock 2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="849152164" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Flintlock 3.wav</ShortName>
+					<CachePath>SFX/Flintlock 3_10C4C929.wem</CachePath>
+				</File>
 			</Media>
 			<Events>
 				<Event Id="2566684358" Name="Bloodstorm" DurationType="OneShot" DurationMin="7.3334374" DurationMax="7.3334374">
 					<MediaRefs>
 						<MediaRef Id="549072123"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1820443583" Name="FireFlintlock" DurationType="OneShot" DurationMin="4.9040833" DurationMax="4.9040833">
+					<MediaRefs>
+						<MediaRef Id="143551498"/>
+						<MediaRef Id="529643543"/>
+						<MediaRef Id="695088713"/>
+						<MediaRef Id="849152164"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="717429066" Name="TorchBreak" DurationType="OneShot" DurationMin="1.6948752" DurationMax="1.6948752">
@@ -49,5 +73,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{D78D2B32-107B-15B4-A76F-02F217BA7E95}</FileHash>
+	<FileHash>{9BB52253-3707-2066-51E5-B0094DF8C2C8}</FileHash>
 </SoundBanksInfo>
