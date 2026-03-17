@@ -105,14 +105,10 @@ public class RoomBuilder : MonoBehaviour
             roomsParent = parent.transform;
         }
 
-        //Get or create NavMeshSurface//
+        //Get agentTypeID from existing surface if present, otherwise use default//
         navMeshSurface = GetComponent<NavMeshSurface>();
-        if(navMeshSurface == null)
-        {
-            navMeshSurface = gameObject.AddComponent<NavMeshSurface>();
-        }
 
-        ConfigureNavMeshSurface();
+        
 
         if(agentEnableMask == 0)
         {
@@ -234,6 +230,7 @@ public class RoomBuilder : MonoBehaviour
         //Bake a navMeshSurface isolated to this room's children//
         NavMeshSurface roomSurface = roomInstance.AddComponent<NavMeshSurface>();
         roomSurface.agentTypeID = navMeshSurface != null ? navMeshSurface.agentTypeID : 0;
+        roomSurface.collectObjects = CollectObjects.Children;
         roomSurface.useGeometry = NavMeshCollectGeometry.PhysicsColliders;
         int mask = navMeshLayerMask;
         if(excludePlayerAndEnemyLayers)
@@ -246,7 +243,10 @@ public class RoomBuilder : MonoBehaviour
         roomSurface.layerMask = mask;
         roomSurface.BuildNavMesh();
 
-        if(showDebugLogs)
+        if (showDebugLogs) Debug.Log($"[RoomBuilder] NavMesh baked for {roomInstance.name}, data null: {roomSurface.navMeshData == null}");
+
+
+        if (showDebugLogs)
         {
             Debug.Log($"[RoomBuilder] Placed {sizeLabel} {roomLabel} prefab at grid ({minX},{minY}) -> world {placementPos}");
         }

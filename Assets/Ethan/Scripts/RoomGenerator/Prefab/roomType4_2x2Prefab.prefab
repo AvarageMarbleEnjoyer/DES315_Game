@@ -300,6 +300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1380933595077440347}
+  - component: {fileID: 7700902443059969933}
   m_Layer: 0
   m_Name: DOORS VERY IMPORTANT
   m_TagString: Untagged
@@ -330,6 +331,26 @@ Transform:
   - {fileID: 5001544243922007598}
   m_Father: {fileID: 2435395910092744855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7700902443059969933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531357062662389693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &1570729779099078278
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +634,8 @@ GameObject:
   - component: {fileID: 2435395910092744855}
   - component: {fileID: 1216615632869616803}
   - component: {fileID: 2518508391334972944}
-  m_Layer: 0
+  - component: {fileID: 6188650021674162647}
+  m_Layer: 7
   m_Name: roomType4_2x2Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -675,6 +697,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 34, y: 9, z: 34}
   m_Center: {x: 0, y: 4, z: 0}
+--- !u!114 &6188650021674162647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3705893967017727234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &4567999546590327005
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,6 +978,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 714366165912044798}
+  - component: {fileID: 114611118710782933}
   m_Layer: 3
   m_Name: Walls Extended
   m_TagString: Untagged
@@ -979,6 +1022,26 @@ Transform:
   - {fileID: 8200794022359754751}
   m_Father: {fileID: 2435395910092744855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114611118710782933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6223249752362041227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &6800868711373553001
 GameObject:
   m_ObjectHideFlags: 0

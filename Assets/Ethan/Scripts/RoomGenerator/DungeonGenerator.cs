@@ -212,6 +212,39 @@ public class DungeonGenerator : MonoBehaviour
     {
         bool[,] proccessed = new bool[gridSize, gridSize];
 
+        for (int x = 0; x < gridSize - 1; x++)
+        {
+            for (int y = 0; y < gridSize - 1; y++)
+            {
+                if (!grid[x, y].isFinalRoom) continue;
+
+                //Check all 4 cells are final room and unprocessed -EM//
+                if (!grid[x, y].isOccupied || proccessed[x, y]) continue;
+                if (!grid[x + 1, y].isOccupied || proccessed[x + 1, y]) continue;
+                if (!grid[x, y + 1].isOccupied || proccessed[x, y + 1]) continue;
+                if (!grid[x + 1, y + 1].isOccupied || proccessed[x + 1, y + 1]) continue;
+
+                if (!grid[x + 1, y].isFinalRoom) continue;
+                if (!grid[x, y + 1].isFinalRoom) continue;
+                if (!grid[x + 1, y + 1].isFinalRoom) continue;
+
+                List<Vector2Int> cells = new List<Vector2Int>
+            {
+                new Vector2Int(x, y),
+                new Vector2Int(x + 1, y),
+                new Vector2Int(x, y + 1),
+                new Vector2Int(x + 1, y + 1)
+            };
+
+                foreach (Vector2Int cell in cells)
+                    proccessed[cell.x, cell.y] = true;
+
+                rooms.Add(new Room(cells, grid[x, y].roomType, false, true));
+                if (showDebugLogs) Debug.Log($"[DungeonGenerator] Final room claimed as 2x2 at ({x},{y})");
+                break;
+            }
+        }
+
         //Pass 1: find and claim all valid 2x2 merges//
         for (int x = 0; x < gridSize; x++)
         {

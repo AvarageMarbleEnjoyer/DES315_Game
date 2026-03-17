@@ -13,10 +13,10 @@ public class TeleportEffect : AbilityEffect
     public int maxSearchAttempts = 50;
 
     [Tooltip("Max distance to search for a valid NavMesh position at each candidate point")]
-    public float navMeshSampleDistance = 0.5f;
+    public float navMeshSampleDistance = 2f;
 
     [Tooltip("Minimum distance from the player the teleport destination must be")]
-    public float minTeleportDistance = 2f;
+    public float minTeleportDistance = 3f;
 
     [Tooltip("How high above the candidate to start the floor raycast")]
     public float raycastStartHeight = 10f;
@@ -163,29 +163,37 @@ public class TeleportEffect : AbilityEffect
             }
 
             //Must be on the navMesh//
-            if (!NavMesh.SamplePosition(floorPosition, out NavMeshHit navHit, navMeshSampleDistance, NavMesh.AllAreas))
+            //Vector3 sampleOrigin = floorPosition + Vector3.up * 0.5f;
+
+            NavMeshHit navHit;
+            NavMesh.SamplePosition(floorPosition + Vector3.up * 0.5f, out navHit, navMeshSampleDistance, NavMesh.AllAreas);
+            Vector3 teleportPos = navHit.hit ? navHit.position : floorPosition; 
+
+            if (float.IsInfinity(teleportPos.x) || float.IsInfinity(teleportPos.z))
             {
                 failedNavMesh++;
                 continue;
             }
 
-            //Check proximity to wall//
-            if(Physics.CheckSphere(navHit.position + Vector3.up * 0.5f, wallClearance, ~0))
-            {
-                failedWall++;
-                continue;
-            }
+            ////Check proximity to wall//
+            //int groundLayer = LayerMask.NameToLayer("Ground");
+            //int wallCheskMask = ~(1 << groundLayer); //Exclude ground so floor doesn't block the check//
+            //if(Physics.CheckSphere(navHit.position + Vector3.up * 1.5f, wallClearance, ~0))
+            //{
+            //    failedWall++;
+            //    continue;
+            //}
 
             //Must be in the shadow//
-            if (LightDetectionManager.Instance != null && LightDetectionManager.Instance.IsPointInLight(navHit.position))
+            if (LightDetectionManager.Instance != null && LightDetectionManager.Instance.IsPointInLight(teleportPos))
             {
                 failedLight++;
                 continue;
             }
 
             //All checks passed//
-            Debug.Log($"[TeleportEffect] Found shadow point at {navHit.position} after {i + 1} attempts");
-            result = navHit.position;
+            Debug.Log($"[TeleportEffect] Found shadow point at {teleportPos} after {i + 1} attempts");
+            result = teleportPos;
             return true;
         }
         Debug.Log($"[TeleportEffect] Search failed after {maxSearchAttempts} attempts - " + $"Contains:{failedContains} Floor:{failedFloor} Distance:{failedDistance} NavMesh:{failedNavMesh} Wall:{failedWall} Light:{failedLight}");
