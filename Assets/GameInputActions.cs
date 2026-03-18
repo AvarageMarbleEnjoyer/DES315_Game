@@ -97,7 +97,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""id"": ""b806dfac-dde5-437d-b7f8-268ece5e8b1a"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -106,7 +106,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""id"": ""90993881-b309-4809-82e6-3d36abe0cf7e"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -346,7 +346,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""51ced9cb-0bd1-46a5-94f8-46a03f451097"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""HoldMove"",

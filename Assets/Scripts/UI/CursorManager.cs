@@ -1,107 +1,78 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class CursorManager : MonoBehaviour
 {
-    public static CursorManager Instance { get; private set; }
-
     [Header("Sprites")]
-    [SerializeField] private Sprite defaultSprite;
-    [SerializeField] private Sprite hoverSprite;
+    public Sprite defaultSprite;
+    public Sprite hoverSprite;
 
     [Header("References")]
-    [SerializeField] private Image cursorImage;
+    public Image cursorImage;
 
-    [Header("Settings")]
-    [Tooltip("Pixel offset of the hotspot (click point) from the top-left of the sprite")]
-    [SerializeField] private Vector2 hotspot = Vector2.zero;
-
-    private PointerEventData _pointerEventData;
-    private readonly List<RaycastResult> _raycastResults = new List<RaycastResult>();
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-        Cursor.visible = false;
-    }
+    private Canvas canvas;
+    private RectTransform canvasRect;
+    private RectTransform cursorRect;
+    private readonly List<RaycastResult> raycastResults = new List<RaycastResult>();
 
     private void Start()
     {
-        if (EventSystem.current != null)
-        {
-            _pointerEventData = new PointerEventData(EventSystem.current);
-        }
-    }
+        canvas = cursorImage.canvas;
+        canvasRect = canvas.GetComponent<RectTransform>();
+        cursorRect = cursorImage.rectTransform;
+        cursorRect.pivot = new Vector2(0f, 1f);
 
-    private void OnDestroy()
-    {
-        Cursor.visible = true;
+        Cursor.visible = false;
+        cursorImage.sprite = defaultSprite;
+
+        if (canvas == null)
+            Debug.LogError("CursorManager: canvas is null. Check that cursorImage is assigned and is inside a Canvas.");
     }
 
     private void Update()
     {
-        UpdatePosition();
-        UpdateSprite();
-    }
+        if (canvas == null || canvasRect == null) return;
 
-    private void UpdatePosition()
-    {
-        if (cursorImage == null) return;
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
 
-        Vector2 mousePos = Mouse.current != null
-            ? Mouse.current.position.ReadValue()
-            : (Vector2)Input.mousePosition;
-
-        cursorImage.rectTransform.position = new Vector3(
-            mousePos.x - hotspot.x,
-            mousePos.y + hotspot.y,
-            0f
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvasRect,
+            mousePosition,
+            canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera,
+            out Vector2 localPoint
         );
-    }
 
-    private void UpdateSprite()
-    {
-        if (cursorImage == null) return;
+        cursorRect.localPosition = localPoint;
 
-        cursorImage.sprite = IsHoveringInteractable() ? hoverSprite : defaultSprite;
+        cursorImage.sprite = IsHoveringTarget(mousePosition) ? hoverSprite : defaultSprite;
     }
 
     /// <summary>
-    /// Raycasts through the EventSystem to check whether the cursor is over any Selectable UI element (Button, Toggle, etc).
+    /// Returns true if any UI element under the cursor has a HoverTarget component on it.
     /// </summary>
-    private bool IsHoveringInteractable()
+    private bool IsHoveringTarget(Vector2 screenPosition)
     {
         if (EventSystem.current == null) return false;
 
-        if (_pointerEventData == null)
+        PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = screenPosition };
+        raycastResults.Clear();
+        EventSystem.current.RaycastAll(pointerData, raycastResults);
+
+        foreach (RaycastResult result in raycastResults)
         {
-            _pointerEventData = new PointerEventData(EventSystem.current);
-        }
-
-        Vector2 mousePos = Mouse.current != null
-            ? Mouse.current.position.ReadValue()
-            : (Vector2)Input.mousePosition;
-
-        _pointerEventData.position = mousePos;
-        _raycastResults.Clear();
-        EventSystem.current.RaycastAll(_pointerEventData, _raycastResults);
-
-        foreach (RaycastResult result in _raycastResults)
-        {
-            if (result.gameObject.GetComponentInParent<Selectable>() != null)
+            if (result.gameObject.GetComponent<HoverTarget>() != null)
                 return true;
         }
 
         return false;
     }
+
+    public void SetHoverCursor() => cursorImage.sprite = hoverSprite;
+    public void SetDefaultCursor() => cursorImage.sprite = defaultSprite;
+
+    private void OnEnable() => Cursor.visible = false;
+    private void OnDisable() => Cursor.visible = true;
 }

@@ -383,6 +383,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnHoldMoveCanceled(InputAction.CallbackContext context)
     {
+        if (!isHoldMoving) return;
         isHoldMoving = false;
         agent.speed = agentBaseSpeed;
         StopMovement();
