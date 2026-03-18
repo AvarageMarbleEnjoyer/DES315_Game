@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 /// <summary>
@@ -91,6 +90,7 @@ public class AbilityTargeting : MonoBehaviour
     // Tracking
     private Unit hoveredUnit;
     private bool hoveredUnitInRange;
+    private Unit carouselHoverUnit;
 
     public bool IsTargeting => isTargeting;
 
@@ -246,6 +246,7 @@ public class AbilityTargeting : MonoBehaviour
         ClearHighlight();
         SetFlipVisuals(false);
 
+        carouselHoverUnit = null;
         currentAbility = null;
         currentCaster = null;
         currentAbilityName = "";
@@ -303,6 +304,12 @@ public class AbilityTargeting : MonoBehaviour
 
     private void UpdatePointAndClickTargeting(Vector2 pointerPos)
     {
+        if (carouselHoverUnit != null)
+        {
+            ProcessCarouselHoverUnit();
+            return;
+        }
+
         Ray ray = mainCamera.ScreenPointToRay(pointerPos);
 
         LayerMask targetMask = enemyLayer | propLayer;
@@ -402,6 +409,12 @@ public class AbilityTargeting : MonoBehaviour
     {
         if (currentCaster == null || coneVisualizer == null) return;
 
+        if (carouselHoverUnit != null)
+        {
+            ProcessCarouselHoverCone();
+            return;
+        }
+
         Ray ray = mainCamera.ScreenPointToRay(pointerPos);
         Vector3 casterPos = currentCaster.transform.position;
         Plane plane = new Plane(Vector3.up, casterPos);
@@ -438,6 +451,12 @@ public class AbilityTargeting : MonoBehaviour
         {
             currentAoeRoom = roomManager.CurrentRoom;
             aoeVisualizer.SetRoom(currentAoeRoom);
+        }
+
+        if (carouselHoverUnit != null)
+        {
+            ProcessCarouselHoverAOE();
+            return;
         }
 
         Ray ray = mainCamera.ScreenPointToRay(pointerPos);
@@ -498,7 +517,6 @@ public class AbilityTargeting : MonoBehaviour
     private void OnConfirmPerformed(InputAction.CallbackContext context)
     {
         if (!isTargeting || currentAbility == null) return;
-        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
 
         switch (currentAbility.targetingType)
         {
@@ -592,6 +610,7 @@ public class AbilityTargeting : MonoBehaviour
 
         string abilityName = currentAbilityName;
 
+        carouselHoverUnit = null;
         currentAbility = null;
         currentCaster = null;
         currentAbilityName = "";
@@ -610,6 +629,139 @@ public class AbilityTargeting : MonoBehaviour
         }
 
         OnTargetConfirmed?.Invoke(result);
+    }
+
+    public void SetCarouselHoverUnit(Unit unit)
+    {
+        if (!isTargeting || currentAbility == null) return;
+        carouselHoverUnit = unit;
+    }
+
+    public void ClearCarouselHoverUnit()
+    {
+        carouselHoverUnit = null;
+    }
+
+    /// <summary>
+    /// Runs the same range/LOS checks as UpdatePointAndClickTargeting but against carouselHoverUnit instead of a raycast result.
+    /// </summary>
+    private void ProcessCarouselHoverUnit()
+    {
+        Unit unit = carouselHoverUnit;
+
+        if (unit == null || IsUnitHiddenFromPlayer(unit) || !IsUnitInCurrentRoom(unit))
+        {
+            if (hoveredUnit != null) ClearHighlight();
+            return;
+        }
+
+        float distance = Vector3.Distance(currentCaster.transform.position, unit.transform.position);
+        bool inRange = distance <= currentAbilityRange;
+        bool hasLineOfSight = CheckLineOfSight(currentCaster.transform.position, unit.transform.position);
+
+        if (inRange && hasLineOfSight)
+        {
+            if (hoveredUnit != unit)
+            {
+                hoveredUnit = unit;
+                hoveredUnitInRange = true;
+                SetHighlight(unit);
+            }
+
+            Vector3 toUnit = unit.transform.position - currentCaster.transform.position;
+            toUnit.y = 0f;
+            if (toUnit.sqrMagnitude > 0.0001f)
+            {
+                RotateCasterToward(toUnit.normalized);
+            }
+        }
+        else
+        {
+            if (hoveredUnit != null) ClearHighlight();
+        }
+    }
+
+    /// <summary>
+    /// Aims the cone visualizer toward carouselHoverUnit when a carousel entry is hovered.
+    /// </summary>
+    private void ProcessCarouselHoverCone()
+    {
+        Unit unit = carouselHoverUnit;
+
+        if (unit == null || IsUnitHiddenFromPlayer(unit) || !IsUnitInCurrentRoom(unit))
+        {
+            ClearHighlight();
+            return;
+        }
+
+        Vector3 casterPos = currentCaster.transform.position;
+        Vector3 direction = unit.transform.position - casterPos;
+        direction.y = 0f;
+
+        if (direction.sqrMagnitude <= 0.0001f) return;
+
+        direction.Normalize();
+        coneVisualizer.UpdateDirection(casterPos, direction);
+        RotateCasterToward(direction);
+
+        List<Unit> targets = GetUnitsInCone(casterPos, direction, currentAbilityRange, currentAbilityConeAngle, currentAbilityAoeHeight);
+        SetHighlightsForUnits(targets);
+    }
+
+    /// <summary>
+    /// Places the AOE circle on carouselHoverUnit's position, clamped to ability range, when a carousel entry is hovered.
+    /// </summary>
+    private void ProcessCarouselHoverAOE()
+    {
+        Unit unit = carouselHoverUnit;
+
+        if (unit == null || IsUnitHiddenFromPlayer(unit) || !IsUnitInCurrentRoom(unit))
+        {
+            aoeVisualizer.Hide();
+            ClearHighlight();
+            return;
+        }
+
+        Vector3 casterPos = currentCaster.transform.position;
+        Vector3 targetPoint = unit.transform.position;
+
+        Vector3 offset = targetPoint - casterPos;
+        offset.y = 0f;
+        if (offset.magnitude > currentAbilityRange)
+        {
+            offset = offset.normalized * currentAbilityRange;
+            targetPoint = casterPos + offset;
+            targetPoint.y = unit.transform.position.y;
+        }
+
+        if (Physics.Raycast(targetPoint + Vector3.up * 10f, Vector3.down, out RaycastHit groundHit, 20f, groundLayer))
+        {
+            targetPoint = groundHit.point;
+        }
+
+        if (!IsPointInCurrentRoom(targetPoint))
+        {
+            aoeVisualizer.Hide();
+            ClearHighlight();
+            return;
+        }
+
+        if (!aoeVisualizer.IsVisible)
+        {
+            aoeVisualizer.Show(currentAbilityAoeRadius, currentAbilityRange);
+        }
+
+        aoeVisualizer.UpdatePosition(targetPoint);
+
+        Vector3 toTarget = targetPoint - casterPos;
+        toTarget.y = 0f;
+        if (toTarget.sqrMagnitude > 0.0001f)
+        {
+            RotateCasterToward(toTarget.normalized);
+        }
+
+        List<Unit> targets = GetUnitsInRadius(targetPoint, currentAbilityAoeRadius, currentAbilityAoeHeight);
+        SetHighlightsForUnits(targets);
     }
 
     public void SetFlipVisuals(bool enabled)

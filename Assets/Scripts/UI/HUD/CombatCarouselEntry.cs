@@ -12,6 +12,7 @@ public class CombatCarouselEntry : MonoBehaviour, IPointerEnterHandler, IPointer
 
     private Unit unit;
     private bool isHovering;
+    private AbilityTargeting abilityTargeting;
 
     private void Awake()
     {
@@ -25,6 +26,8 @@ public class CombatCarouselEntry : MonoBehaviour, IPointerEnterHandler, IPointer
         {
             healthUI = FindFirstObjectByType<HealthUI>();
         }
+
+        abilityTargeting = FindFirstObjectByType<AbilityTargeting>();
 
         SetTurnIndicatorActive(false);
     }
@@ -135,13 +138,19 @@ public class CombatCarouselEntry : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (healthUI == null || unit == null)
-        {
-            return;
-        }
+        if (unit == null) return;
 
         isHovering = true;
-        healthUI.SetExternalOverride(unit);
+
+        if (healthUI != null)
+        {
+            healthUI.SetExternalOverride(unit);
+        }
+
+        if (abilityTargeting != null && abilityTargeting.IsTargeting)
+        {
+            abilityTargeting.SetCarouselHoverUnit(unit);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -151,16 +160,18 @@ public class CombatCarouselEntry : MonoBehaviour, IPointerEnterHandler, IPointer
 
     private void ClearHoverOverride()
     {
-        if (!isHovering)
-        {
-            return;
-        }
+        if (!isHovering) return;
 
         isHovering = false;
 
         if (healthUI != null)
         {
             healthUI.ClearExternalOverride(unit);
+        }
+
+        if (abilityTargeting != null)
+        {
+            abilityTargeting.ClearCarouselHoverUnit();
         }
     }
 
