@@ -723,7 +723,7 @@ GameObject:
   - component: {fileID: 7570526498665467436}
   - component: {fileID: 2158758976325718172}
   - component: {fileID: 5047056579825138244}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: roomType4_1x1Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

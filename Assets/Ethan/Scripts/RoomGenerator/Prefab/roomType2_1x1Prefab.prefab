@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 3853440421755946794}
   - component: {fileID: 3593560954089431775}
   - component: {fileID: 1331338470132666121}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: roomType2_1x1Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

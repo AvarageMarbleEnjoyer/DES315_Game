@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 4023876818927459606}
   - component: {fileID: 1541547719094431496}
   - component: {fileID: 7689857543337814697}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: lobby1x1Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
