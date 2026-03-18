@@ -8714,7 +8714,7 @@ MonoBehaviour:
   moveSpeed: 8
   fastMoveMultiplier: 2
   rotateSpeed: 0.3
-  offsetVector: {x: 0, y: -6, z: 11}
+  offsetVector: {x: 0, y: -6, z: 12}
   player: {fileID: 1107796543}
   maxDistanceFromPlayer: 15
   playerController: {fileID: 0}
