@@ -114,6 +114,13 @@ public class PlayerAbilityManager : MonoBehaviour
             targetingSystem.OnTargetConfirmed += OnTargetConfirmed;
             targetingSystem.OnTargetingCancelled += OnTargetingCancelled;
         }
+
+    }
+
+    private void Start()
+    {
+        if (CombatManager.Instance != null)
+            CombatManager.Instance.OnTurnEnded += OnTurnEnded;
     }
 
     private void OnDisable()
@@ -137,6 +144,11 @@ public class PlayerAbilityManager : MonoBehaviour
             {
                 targetingSystem.CancelTargeting();
             }
+        }
+
+        if (CombatManager.Instance != null)
+        {
+            CombatManager.Instance.OnTurnEnded -= OnTurnEnded;
         }
         
         activeAbilitySlot = null;
@@ -407,6 +419,12 @@ public class PlayerAbilityManager : MonoBehaviour
                 ability.Execute(player, result.targetPoint, baseMultiplier);
                 break;
         }
+    }
+
+    private void OnTurnEnded(Unit unit)
+    {
+        if (activeAbilitySlot.HasValue)
+            CancelTargeting();
     }
 
     private void OnFlipPerformed(InputAction.CallbackContext context)
