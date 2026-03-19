@@ -80,6 +80,61 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="CardUI_Shuffle" ID="{7482BE4D-B7F8-442A-9ED0-CCB2F921C702}">
+					<ChildrenList>
+						<Action Name="" ID="{28AFC65E-6362-4384-912C-B28F48B97555}" ShortID="254543840">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Shuffle" ID="{B752449E-DEB2-4C74-B66E-37BB984202EE}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="CardUI_Pick" ID="{9E13AE7C-A9F9-4453-9461-304096ED4BEE}">
+					<ChildrenList>
+						<Action Name="" ID="{47EC9BC7-0240-4655-B45A-675113FD49D3}" ShortID="1035024486">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="CardPick" ID="{F1A95F8A-CC75-4E80-8B91-CEE20D7096E7}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="CardUI_End" ID="{E30A3ECC-5488-4647-A48C-D10B825A571B}">
+					<ChildrenList>
+						<Action Name="" ID="{5EFFCA0B-D558-446B-AC50-027E7421C6F0}" ShortID="866666821">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="CardEnd" ID="{744B9D75-E62C-454E-BB61-43D8501C43F8}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="CardUI_Confirm" ID="{4C97B26D-8DC6-431D-BC72-49FAA1F26973}">
+					<ChildrenList>
+						<Action Name="" ID="{2CF92517-7C63-4EC4-8418-1BF671D1291A}" ShortID="843244346">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="CardConfirmed" ID="{35C09245-5A51-4A23-8E84-7098E7510A8D}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="CardUI_Start" ID="{5AF2F706-DB23-4E9F-991E-85CDA7E4A508}">
+					<ChildrenList>
+						<Action Name="" ID="{05B33046-0F06-4A24-9CB3-5C2826DD0ED1}" ShortID="1044662460">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="CardDeck" ID="{74A2AC3D-B0D2-4090-87E8-E41F64D19838}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

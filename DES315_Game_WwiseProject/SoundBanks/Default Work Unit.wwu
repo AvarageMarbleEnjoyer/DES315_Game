@@ -5,7 +5,11 @@
 			<ChildrenList>
 				<SoundBank Name="Main" ID="{C41660A7-D1FB-4967-A63E-BF224C7E39E9}">
 					<ObjectInclusionList>
+						<ObjectRef Name="CardUI_Confirm" ID="{4C97B26D-8DC6-431D-BC72-49FAA1F26973}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="TorchBreak" ID="{8CA9EF57-14CF-43F3-A51E-29FA1E74CB7A}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="CardUI_Shuffle" ID="{7482BE4D-B7F8-442A-9ED0-CCB2F921C702}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="CardUI_Pick" ID="{9E13AE7C-A9F9-4453-9461-304096ED4BEE}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="CardUI_End" ID="{E30A3ECC-5488-4647-A48C-D10B825A571B}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Bloodstorm" ID="{8DB008DD-5B92-476C-8E08-1E32C11AFEE0}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UI_Open" ID="{E4067FE9-9991-4C40-94F1-F6CA3933372E}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UI_NextPage" ID="{1795DDDA-78B9-4CEC-B250-EF15D2D5A1A9}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
