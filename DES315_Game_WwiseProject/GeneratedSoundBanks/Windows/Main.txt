@@ -1,6 +1,7 @@
 Event	ID	Name			Wwise Object Path	Notes
 	717429066	TorchBreak			\Default Work Unit\TorchBreak	
 	1820443583	FireFlintlock			\Default Work Unit\FireFlintlock	
+	1823876641	UI_Book			\Default Work Unit\UI_Book	
 	2566684358	Bloodstorm			\Default Work Unit\Bloodstorm	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size

@@ -168,6 +168,388 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
+				<Folder Name="UI" ID="{CF83538C-ADCD-4FE0-9C07-4D047CE47071}" ShortID="39606760">
+					<ChildrenList>
+						<SwitchContainer Name="Cards" ID="{6E03DBC6-6501-4838-BB45-CEFE6A0D4AC9}" ShortID="406705196">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<GroupingInfo/>
+						</SwitchContainer>
+						<SwitchContainer Name="Book" ID="{CDFD6A26-C160-4AD3-8E5E-F17988314762}" ShortID="226539100">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<RandomSequenceContainer Name="Next Page" ID="{17905604-5840-4FC9-8FC1-AEFFE65E1A7F}" ShortID="609776840">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="NextPage-01" ID="{F37583C0-50EB-451A-B41F-AC9C29E6996C}" ShortID="52445899">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="NextPage-01" ID="{204A07EA-7BAC-4AAC-85A4-9DB8130ECE8A}">
+													<Language>SFX</Language>
+													<AudioFile>NextPage-01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="637354026"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="NextPage-01" ID="{204A07EA-7BAC-4AAC-85A4-9DB8130ECE8A}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="NextPage-02" ID="{220A3FFA-6F5F-4DE1-883F-0C6DBD30B562}" ShortID="211556744">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="NextPage-02" ID="{ECCECEE4-F0CD-4F81-BBFE-D2FB7DE5F15C}">
+													<Language>SFX</Language>
+													<AudioFile>NextPage-02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="505645022"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="NextPage-02" ID="{ECCECEE4-F0CD-4F81-BBFE-D2FB7DE5F15C}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="NextPage-03" ID="{686E8BBD-E92A-4763-A695-30C0957430FD}" ShortID="305799122">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="NextPage-03" ID="{810237A6-5666-459D-A987-BE2B93A50AC2}">
+													<Language>SFX</Language>
+													<AudioFile>NextPage-03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="330218231"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="NextPage-03" ID="{810237A6-5666-459D-A987-BE2B93A50AC2}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="NextPage-04" ID="{5FCA194B-F85E-4708-A831-AFDA8BE7053F}" ShortID="95661494">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>12</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="NextPage-04" ID="{8BEC05CF-2791-4A74-AB90-BCC41A1DB0E1}">
+													<Language>SFX</Language>
+													<AudioFile>NextPage-04.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1023360547"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="NextPage-04" ID="{8BEC05CF-2791-4A74-AB90-BCC41A1DB0E1}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="NextPage-05" ID="{921A47EF-F3F5-4BA4-885B-3E5A9B6C7A9F}" ShortID="993133275">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="NextPage-05" ID="{414DA524-0C9F-49C3-B773-F248DD1EE97B}">
+													<Language>SFX</Language>
+													<AudioFile>NextPage-05.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="754259102"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="NextPage-05" ID="{414DA524-0C9F-49C3-B773-F248DD1EE97B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="NextPage-06" ID="{20BBB1BB-FC15-4E98-933A-F06C8F403C98}" ShortID="883462938">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="NextPage-06" ID="{E9D5DF94-D425-4968-A8B1-A69560577639}">
+													<Language>SFX</Language>
+													<AudioFile>NextPage-06.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="519282052"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="NextPage-06" ID="{E9D5DF94-D425-4968-A8B1-A69560577639}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Previous Page" ID="{9C388E3B-7123-49D1-B728-243413479EC5}" ShortID="1013835079">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="PrevPage-01" ID="{A0641B7A-93CF-4F13-A173-A5553025BA5C}" ShortID="683993989">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="PrevPage-01" ID="{8FB480C1-4A45-4508-96F9-649A16DAD7FC}">
+													<Language>SFX</Language>
+													<AudioFile>PrevPage-01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="769009061"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="PrevPage-01" ID="{8FB480C1-4A45-4508-96F9-649A16DAD7FC}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="PrevPage-02" ID="{B919A246-8EBC-427D-A7B3-40BA2074616E}" ShortID="131076025">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="PrevPage-02" ID="{295D5E9B-8E99-4747-A5F6-EFD0EE004B06}">
+													<Language>SFX</Language>
+													<AudioFile>PrevPage-02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="534091470"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="PrevPage-02" ID="{295D5E9B-8E99-4747-A5F6-EFD0EE004B06}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="PrevPage-03" ID="{76CD341B-3825-4B3A-BA07-2C92ADBC99E1}" ShortID="725545028">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="PrevPage-03" ID="{2C956A0A-9C92-42DD-BED7-C15C402438F2}">
+													<Language>SFX</Language>
+													<AudioFile>PrevPage-03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="665672550"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="PrevPage-03" ID="{2C956A0A-9C92-42DD-BED7-C15C402438F2}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="PrevPage-04" ID="{35B855E8-FE70-495F-BE67-CD53761BA9E2}" ShortID="400459563">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="PrevPage-04" ID="{D27509CD-C4DC-4F79-AE0A-52C3D4ABDA7B}">
+													<Language>SFX</Language>
+													<AudioFile>PrevPage-04.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="288392327"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="PrevPage-04" ID="{D27509CD-C4DC-4F79-AE0A-52C3D4ABDA7B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="PrevPage-05" ID="{B3634E27-066E-49F2-B18E-27A7321B38B9}" ShortID="789017254">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="PrevPage-05" ID="{CEC0C2E5-7835-47B3-B80E-95EDC5562284}">
+													<Language>SFX</Language>
+													<AudioFile>PrevPage-05.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="22925414"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="PrevPage-05" ID="{CEC0C2E5-7835-47B3-B80E-95EDC5562284}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="PrevPage-06" ID="{03F9A8A4-7680-4D3D-B5D5-11AAB0071ABB}" ShortID="187319258">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="PrevPage-06" ID="{7569FD86-B0CC-4424-A990-B9C2D0150469}">
+													<Language>SFX</Language>
+													<AudioFile>PrevPage-06.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="273314778"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="PrevPage-06" ID="{7569FD86-B0CC-4424-A990-B9C2D0150469}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<Sound Name="BookClose" ID="{D1757E19-13F5-4C77-AAF3-E02708995251}" ShortID="873305910">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BookClose" ID="{78BCC3DB-BDF0-47EE-9072-5BECA26DFD39}">
+											<Language>SFX</Language>
+											<AudioFile>BookClose.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="929092099"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="BookClose" ID="{78BCC3DB-BDF0-47EE-9072-5BECA26DFD39}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="BookOpen" ID="{949B735A-A242-4553-BE9D-D666CA9803EA}" ShortID="283514837">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BookOpen" ID="{3598FF65-6C59-489E-8CB7-B9F878448E1F}">
+											<Language>SFX</Language>
+											<AudioFile>BookOpen.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="483124774"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="BookOpen" ID="{3598FF65-6C59-489E-8CB7-B9F878448E1F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<GroupingInfo>
+								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="Next Page" ID="{17905604-5840-4FC9-8FC1-AEFFE65E1A7F}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="BookClose" ID="{D1757E19-13F5-4C77-AAF3-E02708995251}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Previous Page" ID="{9C388E3B-7123-49D1-B728-243413479EC5}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="BookOpen" ID="{949B735A-A242-4553-BE9D-D666CA9803EA}"/>
+									</GroupingBehavior>
+								</GroupingBehaviorList>
+							</GroupingInfo>
+						</SwitchContainer>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

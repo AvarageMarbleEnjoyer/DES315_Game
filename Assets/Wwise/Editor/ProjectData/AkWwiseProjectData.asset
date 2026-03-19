@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: dcd16b5045f7b543aa1b29726e8d04c5
     GuidInternal: 
-    m_lastTime: -8584278461999036230
+    m_lastTime: -8584278438296860624
     List:
     - name: Main
       guid: a76016c4fbd16749a63ebf224c7e39e9
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: a9bc6e9a3eb20245be45984b119a8d05
     GuidInternal: 
-    m_lastTime: -8584278461998985875
+    m_lastTime: -8584278440121533234
     List:
     - name: Bloodstorm
       guid: dd08b08d925b6c478e081e32c11afee0
@@ -113,6 +113,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 7.3334374
       minDuration: 7.3334374
+    - name: FireFlintlock
+      guid: 633a08a300fbec4e8f283376cb136756
+      id: 1820443583
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: a9bc6e9a3eb20245be45984b119a8d05
+      - ElementName: FireFlintlock
+        ObjectType: 3
+        guid: 633a08a300fbec4e8f283376cb136756
+      Path: Events\Default Work Unit\FireFlintlock
+      maxAttenuation: 0
+      maxDuration: 4.9040833
+      minDuration: 4.9040833
     - name: TorchBreak
       guid: 57efa98ccf14f343a51e29fa1e74cb7a
       id: 717429066
