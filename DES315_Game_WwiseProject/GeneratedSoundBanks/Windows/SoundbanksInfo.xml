@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{DE1DE163-1BA7-58BA-2D61-83C20D83BC7B}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{5EE306D0-1112-E028-A3D2-F580986B4AC6}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -33,6 +33,10 @@
 				<File Id="61477259" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CardShuffle-17.wav</ShortName>
 					<CachePath>SFX/CardShuffle-17_10C4C929.wem</CachePath>
+				</File>
+				<File Id="72252010" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>PlayerCast-01.wav</ShortName>
+					<CachePath>SFX/PlayerCast-01_10C4C929.wem</CachePath>
 				</File>
 				<File Id="72637485" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CardShuffle-18.wav</ShortName>
@@ -58,9 +62,17 @@
 					<ShortName>CardEnd.wav</ShortName>
 					<CachePath>SFX/CardEnd_10C4C929.wem</CachePath>
 				</File>
+				<File Id="199066427" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>PlayerCast-04.wav</ShortName>
+					<CachePath>SFX/PlayerCast-04_10C4C929.wem</CachePath>
+				</File>
 				<File Id="239476672" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CardShuffle-21.wav</ShortName>
 					<CachePath>SFX/CardShuffle-21_10C4C929.wem</CachePath>
+				</File>
+				<File Id="249541702" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>PlayerCast-03.wav</ShortName>
+					<CachePath>SFX/PlayerCast-03_10C4C929.wem</CachePath>
 				</File>
 				<File Id="273314778" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>PrevPage-06.wav</ShortName>
@@ -138,9 +150,13 @@
 					<ShortName>Flintlock 2.wav</ShortName>
 					<CachePath>SFX/Flintlock 2_10C4C929.wem</CachePath>
 				</File>
-				<File Id="716432557" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>CardShuffle-07.wav</ShortName>
-					<CachePath>SFX/CardShuffle-07_10C4C929.wem</CachePath>
+				<File Id="708134248" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>PlayerCast-05.wav</ShortName>
+					<CachePath>SFX/PlayerCast-05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="747789225" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>PlayerCast-02.wav</ShortName>
+					<CachePath>SFX/PlayerCast-02_10C4C929.wem</CachePath>
 				</File>
 				<File Id="752791363" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CardShuffle-04.wav</ShortName>
@@ -173,6 +189,10 @@
 				<File Id="849152164" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Flintlock 3.wav</ShortName>
 					<CachePath>SFX/Flintlock 3_10C4C929.wem</CachePath>
+				</File>
+				<File Id="871082607" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>PlayerCast-06.wav</ShortName>
+					<CachePath>SFX/PlayerCast-06_10C4C929.wem</CachePath>
 				</File>
 				<File Id="902623111" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CardShuffle-12.wav</ShortName>
@@ -210,7 +230,13 @@
 			<Events>
 				<Event Id="2566684358" Name="Bloodstorm" DurationType="OneShot" DurationMin="7.3334374" DurationMax="7.3334374">
 					<MediaRefs>
+						<MediaRef Id="72252010"/>
+						<MediaRef Id="199066427"/>
+						<MediaRef Id="249541702"/>
 						<MediaRef Id="549072123"/>
+						<MediaRef Id="708134248"/>
+						<MediaRef Id="747789225"/>
+						<MediaRef Id="871082607"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="4049969704" Name="CardUI_Confirm" DurationType="OneShot" DurationMin="1.814" DurationMax="1.814">
@@ -240,7 +266,6 @@
 						<MediaRef Id="553643860"/>
 						<MediaRef Id="600842646"/>
 						<MediaRef Id="665544110"/>
-						<MediaRef Id="716432557"/>
 						<MediaRef Id="752791363"/>
 						<MediaRef Id="762166395"/>
 						<MediaRef Id="765601403"/>
@@ -304,5 +329,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{99EA2325-2BEC-DC98-B5F8-492ED46DB172}</FileHash>
+	<FileHash>{B31A8B58-3985-0C14-A823-88541BA1EAA9}</FileHash>
 </SoundBanksInfo>

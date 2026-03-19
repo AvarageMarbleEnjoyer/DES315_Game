@@ -12,6 +12,13 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{A7C903AA-7C19-40D7-BFF7-B5284ED64234}" ShortID="364528720">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Spell" ID="{7B2DD857-DFBF-46B9-8C10-FCA520C07294}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="TorchBreak" ID="{8CA9EF57-14CF-43F3-A51E-29FA1E74CB7A}">
