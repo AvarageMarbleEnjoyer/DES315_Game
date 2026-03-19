@@ -22,21 +22,61 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{1B15B919-9E0C-68D2-D5A3-37BFC8550C43}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{A4E48465-DB11-197E-C8E3-F90CFDAD51C7}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
+				<File Id="22925414" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>PrevPage-05.wav</ShortName>
+					<CachePath>SFX/PrevPage-05_10C4C929.wem</CachePath>
+				</File>
 				<File Id="143551498" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Flintlock.wav</ShortName>
 					<CachePath>SFX/Flintlock_10C4C929.wem</CachePath>
+				</File>
+				<File Id="273314778" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>PrevPage-06.wav</ShortName>
+					<CachePath>SFX/PrevPage-06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="288392327" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>PrevPage-04.wav</ShortName>
+					<CachePath>SFX/PrevPage-04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="330218231" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NextPage-03.wav</ShortName>
+					<CachePath>SFX/NextPage-03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="483124774" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BookOpen.wav</ShortName>
+					<CachePath>SFX/BookOpen_10C4C929.wem</CachePath>
+				</File>
+				<File Id="505645022" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NextPage-02.wav</ShortName>
+					<CachePath>SFX/NextPage-02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="519282052" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NextPage-06.wav</ShortName>
+					<CachePath>SFX/NextPage-06_10C4C929.wem</CachePath>
 				</File>
 				<File Id="529643543" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Flintlock 4.wav</ShortName>
 					<CachePath>SFX/Flintlock 4_10C4C929.wem</CachePath>
 				</File>
+				<File Id="534091470" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>PrevPage-02.wav</ShortName>
+					<CachePath>SFX/PrevPage-02_10C4C929.wem</CachePath>
+				</File>
 				<File Id="549072123" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Blood storm.wav</ShortName>
 					<CachePath>SFX/Blood storm_10C4C929.wem</CachePath>
+				</File>
+				<File Id="637354026" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NextPage-01.wav</ShortName>
+					<CachePath>SFX/NextPage-01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="665672550" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>PrevPage-03.wav</ShortName>
+					<CachePath>SFX/PrevPage-03_10C4C929.wem</CachePath>
 				</File>
 				<File Id="686190957" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TorchBreakShort.wav</ShortName>
@@ -46,9 +86,25 @@
 					<ShortName>Flintlock 2.wav</ShortName>
 					<CachePath>SFX/Flintlock 2_10C4C929.wem</CachePath>
 				</File>
+				<File Id="754259102" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NextPage-05.wav</ShortName>
+					<CachePath>SFX/NextPage-05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="769009061" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>PrevPage-01.wav</ShortName>
+					<CachePath>SFX/PrevPage-01_10C4C929.wem</CachePath>
+				</File>
 				<File Id="849152164" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Flintlock 3.wav</ShortName>
 					<CachePath>SFX/Flintlock 3_10C4C929.wem</CachePath>
+				</File>
+				<File Id="929092099" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BookClose.wav</ShortName>
+					<CachePath>SFX/BookClose_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1023360547" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NextPage-04.wav</ShortName>
+					<CachePath>SFX/NextPage-04_10C4C929.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
@@ -70,9 +126,38 @@
 						<MediaRef Id="686190957"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1823876641" Name="UI_Book" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="2519197294" Name="UI_Close" DurationType="OneShot" DurationMin="1.3931458" DurationMax="1.3931458">
+					<MediaRefs>
+						<MediaRef Id="929092099"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1855554456" Name="UI_NextPage" DurationType="OneShot" DurationMin="0.6733787" DurationMax="1.4156009">
+					<MediaRefs>
+						<MediaRef Id="330218231"/>
+						<MediaRef Id="505645022"/>
+						<MediaRef Id="519282052"/>
+						<MediaRef Id="637354026"/>
+						<MediaRef Id="754259102"/>
+						<MediaRef Id="1023360547"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3282376362" Name="UI_Open" DurationType="OneShot" DurationMin="1.7879364" DurationMax="1.7879364">
+					<MediaRefs>
+						<MediaRef Id="483124774"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="896450232" Name="UI_PrevPage" DurationType="OneShot" DurationMin="0.4556236" DurationMax="1.1715193">
+					<MediaRefs>
+						<MediaRef Id="22925414"/>
+						<MediaRef Id="273314778"/>
+						<MediaRef Id="288392327"/>
+						<MediaRef Id="534091470"/>
+						<MediaRef Id="665672550"/>
+						<MediaRef Id="769009061"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{5BC3F13A-D8F6-05AB-4E38-C625D7ADAD84}</FileHash>
+	<FileHash>{D1C9F21C-642C-7AA7-9AFE-2E7EB5734739}</FileHash>
 </SoundBanksInfo>

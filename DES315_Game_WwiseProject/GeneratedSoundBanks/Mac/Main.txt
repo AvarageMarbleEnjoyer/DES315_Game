@@ -1,14 +1,31 @@
 Event	ID	Name			Wwise Object Path	Notes
 	717429066	TorchBreak			\Default Work Unit\TorchBreak	
+	896450232	UI_PrevPage			\Default Work Unit\UI_PrevPage	
 	1820443583	FireFlintlock			\Default Work Unit\FireFlintlock	
-	1823876641	UI_Book			\Default Work Unit\UI_Book	
+	1855554456	UI_NextPage			\Default Work Unit\UI_NextPage	
+	2519197294	UI_Close			\Default Work Unit\UI_Close	
 	2566684358	Bloodstorm			\Default Work Unit\Bloodstorm	
+	3282376362	UI_Open			\Default Work Unit\UI_Open	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	22925414	PrevPage-05	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\PrevPage-05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Previous Page\PrevPage-05		110688
 	143551498	Flintlock	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\Flintlock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Flintlock\Flintlock		941680
+	273314778	PrevPage-06	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\PrevPage-06_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Previous Page\PrevPage-06		152672
+	288392327	PrevPage-04	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\PrevPage-04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Previous Page\PrevPage-04		206752
+	330218231	NextPage-03	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\NextPage-03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Next Page\NextPage-03		249808
+	483124774	BookOpen	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\BookOpen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\BookOpen		315488
+	505645022	NextPage-02	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\NextPage-02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Next Page\NextPage-02		185460
+	519282052	NextPage-06	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\NextPage-06_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Next Page\NextPage-06		213088
 	529643543	Flintlock 4	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\Flintlock 4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Flintlock\Flintlock 4		941680
+	534091470	PrevPage-02	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\PrevPage-02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Previous Page\PrevPage-02		92644
 	549072123	Blood storm	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\Blood storm_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Blood storm		1408116
+	637354026	NextPage-01	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\NextPage-01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Next Page\NextPage-01		198752
+	665672550	PrevPage-03	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\PrevPage-03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Previous Page\PrevPage-03		145008
 	686190957	TorchBreakShort	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\TorchBreakShort_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\TorchBreakShort		299072
 	695088713	Flintlock 2	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\Flintlock 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Flintlock\Flintlock 2		941680
+	754259102	NextPage-05	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\NextPage-05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Next Page\NextPage-05		118880
+	769009061	PrevPage-01	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\PrevPage-01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Previous Page\PrevPage-01		80468
 	849152164	Flintlock 3	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\Flintlock 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Flintlock\Flintlock 3		941680
+	929092099	BookClose	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\BookClose_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\BookClose		267580
+	1023360547	NextPage-04	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\NextPage-04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Next Page\NextPage-04		197044
 

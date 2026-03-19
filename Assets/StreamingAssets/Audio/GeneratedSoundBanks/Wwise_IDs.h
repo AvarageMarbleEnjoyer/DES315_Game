@@ -16,7 +16,10 @@ namespace AK
         static const AkUniqueID BLOODSTORM = 2566684358U;
         static const AkUniqueID FIREFLINTLOCK = 1820443583U;
         static const AkUniqueID TORCHBREAK = 717429066U;
-        static const AkUniqueID UI_BOOK = 1823876641U;
+        static const AkUniqueID UI_CLOSE = 2519197294U;
+        static const AkUniqueID UI_NEXTPAGE = 1855554456U;
+        static const AkUniqueID UI_OPEN = 3282376362U;
+        static const AkUniqueID UI_PREVPAGE = 896450232U;
     } // namespace EVENTS
 
     namespace BANKS

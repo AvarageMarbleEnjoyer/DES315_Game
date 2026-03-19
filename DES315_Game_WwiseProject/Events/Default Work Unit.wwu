@@ -36,6 +36,50 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="UI_NextPage" ID="{1795DDDA-78B9-4CEC-B250-EF15D2D5A1A9}">
+					<ChildrenList>
+						<Action Name="" ID="{46137A8E-EF88-40C4-8975-366216D58AD7}" ShortID="686513683">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Next Page" ID="{17905604-5840-4FC9-8FC1-AEFFE65E1A7F}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UI_PrevPage" ID="{C99BA61F-F20F-4E33-B459-3D7E3339E364}">
+					<ChildrenList>
+						<Action Name="" ID="{54DEA6DC-A227-4444-A0EF-FD21EEEA733D}" ShortID="108539426">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Previous Page" ID="{9C388E3B-7123-49D1-B728-243413479EC5}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UI_Open" ID="{E4067FE9-9991-4C40-94F1-F6CA3933372E}">
+					<ChildrenList>
+						<Action Name="" ID="{01F24F89-B3E6-4279-B287-D72A6BBC903A}" ShortID="1017187968">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BookOpen" ID="{949B735A-A242-4553-BE9D-D666CA9803EA}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UI_Close" ID="{9B4628CF-A818-4E73-AC20-688DEBC973B1}">
+					<ChildrenList>
+						<Action Name="" ID="{15BE9570-FEB5-4C40-8B0B-FE51AFBA0FA6}" ShortID="591660837">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BookClose" ID="{D1757E19-13F5-4C77-AAF3-E02708995251}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
