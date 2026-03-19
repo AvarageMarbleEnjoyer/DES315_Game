@@ -3130,6 +3130,7 @@ MonoBehaviour:
     m_Bits: 128
   lineWidth: 0.05
   lineHeightOffset: 0.02
+  minMoveDistance: 0.3
   outOfRangeText: {fileID: 1738874199}
   outOfRangeMessage: Movement out of range.
 --- !u!1 &589155983
@@ -11827,13 +11828,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8f3ccd3a16fe4408ff4838c6551dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorPrefab: {fileID: 919132149155446097, guid: 2a71e07404bc02143b4b3dd224254f38, type: 3}
+  doorPrefab: {fileID: 919132149155446097, guid: b0620274eb0a70c4983ebb721bd84ca8, type: 3}
   doorMarkerSize: 0.5
   roomBuilder: {fileID: 1829371481}
   doorsParent: {fileID: 0}
   inputActions: {fileID: 0}
-  showDebugLogs: 0
-  doorScale: {x: 125, y: 10, z: 400}
+  showDebugLogs: 1
+  doorScale: {x: 2.5, y: 2, z: 10}
 --- !u!114 &1829371483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13814,7 +13815,6 @@ MonoBehaviour:
     blockFlat: 0
     healFlat: 0
     baseCoinsFlat: 0
-    carryoverCoinsFlat: 0
     abilityDamagePercent: 0
     abilityRangePercent: 0
     aoeSizePercent: 0
@@ -13824,7 +13824,6 @@ MonoBehaviour:
     blockFlat: 0
     healFlat: 0
     baseCoinsFlat: 0
-    carryoverCoinsFlat: 0
     abilityDamagePercent: 0
     abilityRangePercent: 0
     aoeSizePercent: 0

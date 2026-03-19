@@ -166,29 +166,29 @@ public class DoorSpawner : MonoBehaviour
                     //West edge center: (0,0,0.9)//
 
                     //How far to pull door inward from wall edge//
-                    float doorInset = 1.5f;
+                    float doorInset = 1.0f;
 
                     if(dir == new Vector2Int(0,1)) //North//
                     {
-                        cp.doorPosition = cellAWorld + new Vector3(cellSize * 0.5f, 0.5f, cellSize - doorInset);
+                        cp.doorPosition = cellAWorld + new Vector3(cellSize * 0.5f, 0f, cellSize - doorInset);
                         cp.teleportOffsetA = new Vector3(0, 0, -5.5f); //Step back into roomA//
                         cp.teleportOffsetB = new Vector3(0, 0, 5.5f); //Step forward into roomB//
                     }
                     else if (dir == new Vector2Int(1, 0)) //East//
                     {
-                        cp.doorPosition = cellAWorld + new Vector3(cellSize - doorInset, 0.5f, cellSize * 0.5f);
+                        cp.doorPosition = cellAWorld + new Vector3(cellSize - doorInset, 0f, cellSize * 0.5f);
                         cp.teleportOffsetA = new Vector3(-5.5f, 0, 0f); //Step back into roomA//
                         cp.teleportOffsetB = new Vector3(5.5f, 0, 0); //Step forward into roomB//
                     }
                     else if (dir == new Vector2Int(0, -1)) //South//
                     {
-                        cp.doorPosition = cellAWorld + new Vector3(cellSize * 0.5f, 0.5f, doorInset);
+                        cp.doorPosition = cellAWorld + new Vector3(cellSize * 0.5f, 0f, doorInset);
                         cp.teleportOffsetA = new Vector3(0f, 0, 5.5f); //Step back into roomA//
                         cp.teleportOffsetB = new Vector3(0f, 0, -5.5f); //Step forward into roomB//
                     }
                     else //West//
                     {
-                        cp.doorPosition = cellAWorld + new Vector3(doorInset, 0.5f, cellSize * 0.5f);
+                        cp.doorPosition = cellAWorld + new Vector3(doorInset, 0f, cellSize * 0.5f);
                         cp.teleportOffsetA = new Vector3(-5.5f, 0, 0f); //Step back into roomA//
                         cp.teleportOffsetB = new Vector3(5.5f, 0, 0); //Step forward into roomB//
                     }
@@ -213,7 +213,7 @@ public class DoorSpawner : MonoBehaviour
             else if (connection.direction == new Vector2Int(0, -1)) yAngle = 180f; //South//
             else if (connection.direction == new Vector2Int(-1, 0)) yAngle = 270f; //West//
 
-            Quaternion doorRotation = Quaternion.Euler(270f, yAngle, 0f);
+            Quaternion doorRotation = Quaternion.Euler(0f, yAngle, 0f);
             doorObject = Instantiate(doorPrefab, connection.doorPosition, doorRotation, doorsParent);
             doorObject.transform.localScale = doorScale;
         }
