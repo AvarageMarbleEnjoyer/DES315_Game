@@ -266,55 +266,95 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, 100f, walkableMask))
         {
             Vector3 targetPoint = hit.point;
-            Vector3 toTarget = targetPoint - transform.position;
-            float requestedDistance = toTarget.magnitude;
 
-            // Check minimum distance
-            if (requestedDistance < minMoveDistance)
-            {
+            if (Vector3.Distance(transform.position, targetPoint) < minMoveDistance)
                 return;
-            }
+
+            RoomLA currentRoom = RoomManager.Instance?.CurrentRoom;
+            if (currentRoom != null && !currentRoom.Contains(targetPoint))
+                return;
 
             bool inCombat = CombatManager.Instance != null && CombatManager.Instance.InCombat;
 
             if (inCombat)
             {
-                // Combat movement rules
                 if (player == null) return;
 
-                // Check if player can move at all
                 if (!player.CanMove())
                 {
                     if (debugMode) Debug.Log("[PlayerController] Cannot move - no coins or distance exhausted");
                     return;
                 }
 
-                // Get remaining allowed distance
                 float remainingDistance = player.RemainingMoveDistance;
-                
+
                 if (remainingDistance <= 0.01f)
                 {
                     if (debugMode) Debug.Log("[PlayerController] No movement distance remaining this turn");
                     return;
                 }
 
-                // If clicking beyond remaining distance, ignore the click entirely
-                if (requestedDistance > remainingDistance)
+                NavMeshPath combatPath = new NavMeshPath();
+                NavMesh.CalculatePath(transform.position, targetPoint, NavMesh.AllAreas, combatPath);
+
+                if (combatPath.status != NavMeshPathStatus.PathInvalid && combatPath.corners.Length >= 2)
                 {
-                    if (debugMode) Debug.Log($"[PlayerController] Click too far! Requested: {requestedDistance:F2}, Remaining: {remainingDistance:F2}");
-                    return;
+                    float pathLength = 0f;
+                    for (int i = 0; i < combatPath.corners.Length - 1; i++)
+                        pathLength += Vector3.Distance(combatPath.corners[i], combatPath.corners[i + 1]);
+
+                    if (pathLength > remainingDistance)
+                        targetPoint = GetPointAlongPath(combatPath.corners, remainingDistance);
                 }
             }
 
-            // Validate NavMesh position
-            if (NavMesh.SamplePosition(targetPoint, out NavMeshHit navHit, navMeshSampleDistance, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(targetPoint, out NavMeshHit navHit2, navMeshSampleDistance, NavMesh.AllAreas))
             {
                 agent.isStopped = false;
-                agent.SetDestination(navHit.position);
+                agent.SetDestination(navHit2.position);
                 lowVelocityTimer = 0f;
-                ShowDestinationIndicator(navHit.position);
+                ShowDestinationIndicator(navHit2.position);
             }
         }
+    }
+
+    /// <summary>
+    /// Returns the NavMesh path length between two world points, or float.MaxValue if no path exists.
+    /// </summary>
+    public static float NavMeshPathLength(Vector3 from, Vector3 to)
+    {
+        NavMeshPath path = new NavMeshPath();
+        if (!NavMesh.CalculatePath(from, to, NavMesh.AllAreas, path))
+            return float.MaxValue;
+        if (path.status == NavMeshPathStatus.PathInvalid)
+            return float.MaxValue;
+
+        Vector3[] corners = path.corners;
+        float length = 0f;
+        for (int i = 0; i < corners.Length - 1; i++)
+            length += Vector3.Distance(corners[i], corners[i + 1]);
+        return length;
+    }
+
+    /// <summary>
+    /// Walks path corners and returns the world point exactly targetDist along them.
+    /// Returns the final corner if targetDist exceeds total path length.
+    /// </summary>
+    private static Vector3 GetPointAlongPath(Vector3[] corners, float targetDist)
+    {
+        float accumulated = 0f;
+        for (int i = 0; i < corners.Length - 1; i++)
+        {
+            float segLen = Vector3.Distance(corners[i], corners[i + 1]);
+            float nextAcc = accumulated + segLen;
+            if (nextAcc >= targetDist)
+            {
+                float t = (targetDist - accumulated) / segLen;
+                return Vector3.Lerp(corners[i], corners[i + 1], t);
+            }
+            accumulated = nextAcc;
+        }
+        return corners[corners.Length - 1];
     }
 
     /// <summary>
@@ -373,6 +413,7 @@ public class PlayerController : MonoBehaviour
         if (Time.unscaledTime < movementUnlockTime) return;
         if (!CanPlayerAct()) return;
         if (IsTargetingActive()) return;
+        if (CombatManager.Instance != null && CombatManager.Instance.InCombat) return;
 
         isHoldMoving = true;
         agent.speed = agentBaseSpeed;

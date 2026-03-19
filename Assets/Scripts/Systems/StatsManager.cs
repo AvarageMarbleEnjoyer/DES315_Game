@@ -11,7 +11,6 @@ public class StatsManager : MonoBehaviour
         public float blockFlat;
         public float healFlat;
         public int baseCoinsFlat;
-        public int carryoverCoinsFlat;
 
         [Header("Percent Mods")]
         public float abilityDamagePercent;
@@ -75,13 +74,6 @@ public class StatsManager : MonoBehaviour
         return Mathf.Max(0, baseValue + total.baseCoinsFlat);
     }
 
-    public int GetCarryoverCoins()
-    {
-        int baseValue = carryoverCoins;
-        StatModifiers total = Modifiers;
-        return Mathf.Max(0, baseValue + total.carryoverCoinsFlat);
-    }
-
     public float GetMaxCombatMoveDistance()
     {
         float baseValue = maxCombatMoveDistance;
@@ -128,7 +120,6 @@ public class StatsManager : MonoBehaviour
             blockFlat = a.blockFlat + b.blockFlat,
             healFlat = a.healFlat + b.healFlat,
             baseCoinsFlat = a.baseCoinsFlat + b.baseCoinsFlat,
-            carryoverCoinsFlat = a.carryoverCoinsFlat + b.carryoverCoinsFlat,
             abilityDamagePercent = a.abilityDamagePercent + b.abilityDamagePercent,
             abilityRangePercent = a.abilityRangePercent + b.abilityRangePercent,
             aoeSizePercent = a.aoeSizePercent + b.aoeSizePercent,

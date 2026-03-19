@@ -152,23 +152,10 @@ public class Player : Unit
 
     /// <summary>
     /// Called when player's turn ends
-    /// Checks if they have coins remaining for bonus next turn
     /// </summary>
     public void EndTurn()
     {
-        int carryoverCap = GetCarryoverCoins();
-        bonusCoinsNextTurn = Mathf.Clamp(currentCoins, 0, carryoverCap);
-        if (debugMode)
-        {
-            if (bonusCoinsNextTurn > 0)
-            {
-                Debug.Log($"[Player] Turn ended with {currentCoins} coins remaining. +{bonusCoinsNextTurn} bonus coins next turn (cap: {carryoverCap}).");
-            }
-            else
-            {
-                Debug.Log("[Player] Turn ended with no coins remaining. No bonus next turn.");
-            }
-        }
+
     }
 
     /// <summary>
@@ -388,16 +375,6 @@ public class Player : Unit
         }
 
         return StatsManager.Instance.GetBaseCoins();
-    }
-
-    private int GetCarryoverCoins()
-    {
-        if (StatsManager.Instance == null)
-        {
-            return baseCarryoverCoins;
-        }
-
-        return StatsManager.Instance.GetCarryoverCoins();
     }
 
     private float GetMaxCombatMoveDistance()
