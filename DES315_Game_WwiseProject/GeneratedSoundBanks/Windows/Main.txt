@@ -9,14 +9,17 @@ Event	ID	Name			Wwise Object Path	Notes
 	2566684358	Bloodstorm			\Default Work Unit\Bloodstorm	
 	2654324891	CardUI_Shuffle			\Default Work Unit\CardUI_Shuffle	
 	2669983563	CardUI_Pick			\Default Work Unit\CardUI_Pick	
+	3216143520	PlayerHeal			\Default Work Unit\PlayerHeal	
 	3282376362	UI_Open			\Default Work Unit\UI_Open	
 	4049969704	CardUI_Confirm			\Default Work Unit\CardUI_Confirm	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	22925414	PrevPage-05	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\PrevPage-05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Previous Page\PrevPage-05		110688
+	59993749	yeah	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\yeah_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Heal\yeah		168032
 	61477259	CardShuffle-17	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardShuffle-17_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\Shuffle\CardShuffle-17		47588
 	72252010	PlayerCast-01	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\PlayerCast-01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Spell\PlayerCast-01		97350
 	72637485	CardShuffle-18	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardShuffle-18_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\Shuffle\CardShuffle-18		113344
+	86937318	PlayerHeal-03	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\PlayerHeal-03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Heal\PlayerHeal-03		81998
 	141686110	CardShuffle-14	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardShuffle-14_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\Shuffle\CardShuffle-14		87772
 	143551498	Flintlock	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\Flintlock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Flintlock\Flintlock		941680
 	145472790	CardShuffle-13	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardShuffle-13_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\Shuffle\CardShuffle-13		123088
@@ -29,6 +32,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	288392327	PrevPage-04	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\PrevPage-04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Previous Page\PrevPage-04		206752
 	304598166	CardShuffle-11	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardShuffle-11_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\Shuffle\CardShuffle-11		37848
 	330218231	NextPage-03	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\NextPage-03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Next Page\NextPage-03		249808
+	376520905	PlayerHeal-04	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\PlayerHeal-04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Heal\PlayerHeal-04		119048
 	420762295	CardPick	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardPick_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\CardPick		175632
 	483124774	BookOpen	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\BookOpen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\BookOpen		315488
 	505645022	NextPage-02	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\NextPage-02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Next Page\NextPage-02		185460
@@ -37,6 +41,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	534091470	PrevPage-02	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\PrevPage-02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Previous Page\PrevPage-02		92644
 	549072123	Blood storm	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\Blood storm_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Blood storm		1408116
 	553643860	CardShuffle-20	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardShuffle-20_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\Shuffle\CardShuffle-20		236340
+	576505224	PlayerHeal-02	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\PlayerHeal-02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Heal\PlayerHeal-02		78098
 	600842646	CardShuffle-01	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardShuffle-01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\Shuffle\CardShuffle-01		151644
 	637354026	NextPage-01	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\NextPage-01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Next Page\NextPage-01		198752
 	657975644	CardDeck	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardDeck_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\CardDeck		386256
@@ -59,7 +64,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	929092099	BookClose	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\BookClose_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\BookClose		267580
 	970236375	CardShuffle-09	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardShuffle-09_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\Shuffle\CardShuffle-09		58192
 	997305365	CardShuffle-08	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardShuffle-08_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\Shuffle\CardShuffle-08		69504
+	1001497438	PlayerHeal-05	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\PlayerHeal-05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Heal\PlayerHeal-05		93698
 	1006239137	CardShuffle-03	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardShuffle-03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\Shuffle\CardShuffle-03		110312
+	1007198670	PlayerHeal-01	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\PlayerHeal-01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Heal\PlayerHeal-01		111248
 	1023360547	NextPage-04	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\NextPage-04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Next Page\NextPage-04		197044
 	1043673606	CardShuffle-19	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardShuffle-19_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\Shuffle\CardShuffle-19		182756
 	1066866432	CardShuffle-16	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardShuffle-16_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\Shuffle\CardShuffle-16		56112

@@ -20,6 +20,7 @@ namespace AK
         static const AkUniqueID CARDUI_SHUFFLE = 2654324891U;
         static const AkUniqueID CARDUI_START = 2185107916U;
         static const AkUniqueID FIREFLINTLOCK = 1820443583U;
+        static const AkUniqueID PLAYERHEAL = 3216143520U;
         static const AkUniqueID TORCHBREAK = 717429066U;
         static const AkUniqueID UI_CLOSE = 2519197294U;
         static const AkUniqueID UI_NEXTPAGE = 1855554456U;
