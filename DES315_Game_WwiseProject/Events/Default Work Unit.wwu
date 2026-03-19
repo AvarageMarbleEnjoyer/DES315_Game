@@ -112,6 +112,7 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="Coin" ID="{EB1325B9-4D09-4C43-BECA-0340C747F843}" ShortID="795257008"/>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Enemy" ID="{05F3DD2B-DE53-4F9E-BB10-37FE4DD10B02}" ShortID="337837427">
@@ -277,6 +278,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="TorchBreakShort" ID="{D5BDA56C-9FD6-4B24-BDC2-DD7253566E15}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="TorchLoop" ID="{37E2A7B9-18F1-42BF-8B04-47F10797D8F6}">
+							<ChildrenList>
+								<Action Name="" ID="{49E73046-999A-445E-A98F-C611F18B3B6B}" ShortID="705604880">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Fire SND8761 Compressed" ID="{624CC96B-6020-4074-9772-847DDB3983DA}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

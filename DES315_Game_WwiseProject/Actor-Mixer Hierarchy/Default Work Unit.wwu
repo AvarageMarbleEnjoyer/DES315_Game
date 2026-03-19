@@ -25,28 +25,6 @@
 						<ActiveSource Name="Blood storm" ID="{C57A5960-43D9-4A3E-8E7A-D647862CD978}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-				<Sound Name="TorchBreakShort" ID="{D5BDA56C-9FD6-4B24-BDC2-DD7253566E15}" ShortID="305527703">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="TorchBreakShort" ID="{C2A9758D-73C7-45EE-BAE8-4899C37DC927}">
-							<Language>SFX</Language>
-							<AudioFile>TorchBreakShort.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="686190957"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="TorchBreakShort" ID="{C2A9758D-73C7-45EE-BAE8-4899C37DC927}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
 				<Folder Name="UI" ID="{CF83538C-ADCD-4FE0-9C07-4D047CE47071}" ShortID="39606760">
 					<ChildrenList>
 						<Folder Name="Book" ID="{B6780AE7-BA55-4C47-9CDD-5A2F70335CFC}" ShortID="886617188">
@@ -983,6 +961,98 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="CardPick" ID="{D926910D-E518-443A-BFE7-D1D1CE46DAF5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Coin" ID="{1EBC6A34-4A49-4393-A209-4D4FAA222ED6}" ShortID="365547959">
+							<ChildrenList>
+								<Sound Name="CoinSpin" ID="{182F6A18-5F36-48CA-B4E4-ED1805FC58B3}" ShortID="81459388">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="CoinSpin" ID="{8280E57C-3002-48E0-893A-CC8E31962FF6}">
+											<Language>SFX</Language>
+											<AudioFile>CoinSpin.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="439767275"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="CoinSpin" ID="{8280E57C-3002-48E0-893A-CC8E31962FF6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="CoinToss" ID="{191C6E9A-ED1D-44A5-82D2-862D097443F1}" ShortID="279895104">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="CoinToss" ID="{212E51F4-01D1-49D7-988A-67B000D280F2}">
+											<Language>SFX</Language>
+											<AudioFile>CoinToss.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="412030350"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="CoinToss" ID="{212E51F4-01D1-49D7-988A-67B000D280F2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="CoinDrop" ID="{F07EC311-09A0-47E0-A297-02C374528F27}" ShortID="66495688">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="CoinDrop" ID="{6F947B68-BCA2-442F-A5DF-29AD0376C862}">
+											<Language>SFX</Language>
+											<AudioFile>CoinDrop.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="437784108"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="CoinDrop" ID="{6F947B68-BCA2-442F-A5DF-29AD0376C862}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="CoinSpend" ID="{B429C016-1A6E-43C6-85E7-0F3D8B9AF5B6}" ShortID="153215845">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="CoinSpend" ID="{0B07D4E5-DD01-4609-847D-E4D4AE453BFD}">
+											<Language>SFX</Language>
+											<AudioFile>CoinSpend.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="510667287"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="CoinSpend" ID="{0B07D4E5-DD01-4609-847D-E4D4AE453BFD}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -2829,6 +2899,58 @@
 						</Folder>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Environment" ID="{E677A64E-6F46-4310-AA3B-F097468ACEA0}" ShortID="115574426">
+					<ChildrenList>
+						<Sound Name="TorchBreakShort" ID="{D5BDA56C-9FD6-4B24-BDC2-DD7253566E15}" ShortID="305527703">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="TorchBreakShort" ID="{C2A9758D-73C7-45EE-BAE8-4899C37DC927}">
+									<Language>SFX</Language>
+									<AudioFile>TorchBreakShort.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="686190957"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="TorchBreakShort" ID="{C2A9758D-73C7-45EE-BAE8-4899C37DC927}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Fire SND8761 Compressed" ID="{624CC96B-6020-4074-9772-847DDB3983DA}" ShortID="516378879">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Fire SND8761 Compressed" ID="{11ADBA2D-A233-4805-8767-D15C1F01DFED}">
+									<Language>SFX</Language>
+									<AudioFile>Fire SND8761 Compressed.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="33000027"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Fire SND8761 Compressed" ID="{11ADBA2D-A233-4805-8767-D15C1F01DFED}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Ambience" ID="{4075EB79-4C26-4497-A092-55D63D6F5F1D}" ShortID="691712687"/>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
