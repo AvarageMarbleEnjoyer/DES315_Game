@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{E7D57E38-5962-3E2A-5AA3-EFCAA9F5C744}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B361B13A-6FE2-E192-4251-FC4A5E4B59C4}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -37,6 +37,10 @@
 				<File Id="22925414" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>PrevPage-05.wav</ShortName>
 					<CachePath>SFX/PrevPage-05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="33000027" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Fire SND8761 Compressed.wav</ShortName>
+					<CachePath>SFX/Fire SND8761 Compressed_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="55532829" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>EnemyMovePitched-13.wav</ShortName>
@@ -661,6 +665,11 @@
 						<MediaRef Id="686190957"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="4171534483" Name="TorchLoop" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="33000027"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2519197294" Name="UI_Close" DurationType="OneShot" DurationMin="1.3931458" DurationMax="1.3931458">
 					<MediaRefs>
 						<MediaRef Id="929092099"/>
@@ -694,5 +703,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{A2553C95-3632-D88D-B241-938CA69CB504}</FileHash>
+	<FileHash>{8378AED6-C8B0-2D90-7E74-B1C6318A0785}</FileHash>
 </SoundBanksInfo>

@@ -21,11 +21,13 @@ Event	ID	Name			Wwise Object Path	Notes
 	3282376362	UI_Open			\Default Work Unit\UI\Book\UI_Open	
 	3537581393	PlayerHurt			\Default Work Unit\Player\PlayerHurt	
 	4049969704	CardUI_Confirm			\Default Work Unit\UI\Card\CardUI_Confirm	
+	4171534483	TorchLoop			\Default Work Unit\Environment\TorchLoop	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	19904816	EnemyAttackPitched-02	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\EnemyAttackPitched-02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Enemy\Brute\Attack\EnemyAttackPitched-02		99806
 	20997532	EnemyBlockPitched-03	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\EnemyBlockPitched-03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Enemy\Brute\Block\EnemyBlockPitched-03		86582
 	22925414	PrevPage-05	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\PrevPage-05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Previous Page\PrevPage-05		110688
+	33000027	Fire SND8761 Compressed	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\Fire SND8761 Compressed_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Fire SND8761 Compressed		4811252
 	55532829	EnemyMovePitched-13	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\EnemyMovePitched-13_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Enemy\Brute\Move\EnemyMovePitched-13		75174
 	59993749	yeah	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\yeah_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Player\Heal\yeah		168032
 	61477259	CardShuffle-17	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\CardShuffle-17_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\Shuffle\CardShuffle-17		47588
@@ -94,7 +96,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	673919322	PlayerSwing-04	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\PlayerSwing-04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Player\Sword\PlayerSwing-04		118818
 	677645746	PlayerScream-03	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\PlayerScream-03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Player\Death\PlayerScream-03		136926
 	681916834	EnemyReliefPitched-02	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\EnemyReliefPitched-02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Enemy\Brute\Heal\EnemyReliefPitched-02		156610
-	686190957	TorchBreakShort	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\TorchBreakShort_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\TorchBreakShort		299072
+	686190957	TorchBreakShort	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\TorchBreakShort_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\TorchBreakShort		299072
 	690074395	EnemyPainPitched-07	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\EnemyPainPitched-07_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Enemy\Brute\Pain\EnemyPainPitched-07		107774
 	695088713	Flintlock 2	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\Flintlock 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Flintlock\Flintlock 2		941680
 	701991769	EnemyHealPitched-04	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\EnemyHealPitched-04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Enemy\Brute\Heal\EnemyHealPitched-04		95110
