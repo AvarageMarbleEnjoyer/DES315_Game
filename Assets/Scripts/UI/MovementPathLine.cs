@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 /// <summary>
 /// Draws a NavMesh-following path line from the player to the mouse cursor (or active destination
 /// while moving). Uses two separate LineRenderers so the white/red split is a hard material colour
-/// swap with no gradient blending — compatible with any shader. Only the tip fades to transparent.
+/// swap with no gradient blending.
 /// Active during the player's combat turn, or outside combat when ShowVisibilityFeatures is held.
 /// </summary>
 public class MovementPathLine : MonoBehaviour
@@ -44,6 +44,7 @@ public class MovementPathLine : MonoBehaviour
     private LineRenderer redRenderer;
     private NavMeshPath navPath;
     private InputAction showVisibilityAction;
+    private InputAction holdMoveAction;
 
     private void Awake()
     {
@@ -57,6 +58,7 @@ public class MovementPathLine : MonoBehaviour
         {
             var map = inputActions.FindActionMap("Player");
             showVisibilityAction = map?.FindAction("ShowVisibilityFeatures");
+            holdMoveAction       = map?.FindAction("HoldMove");
         }
 
         if (walkableMask.value == 0)
@@ -102,11 +104,13 @@ public class MovementPathLine : MonoBehaviour
     private void OnEnable()
     {
         showVisibilityAction?.Enable();
+        holdMoveAction?.Enable();
     }
 
     private void OnDisable()
     {
         showVisibilityAction?.Disable();
+        holdMoveAction?.Disable();
         HideAll();
     }
 
@@ -330,6 +334,7 @@ public class MovementPathLine : MonoBehaviour
     private bool ShouldShow()
     {
         if (player == null) return false;
+        if (holdMoveAction != null && holdMoveAction.IsPressed()) return false;
 
         if (CombatManager.Instance != null && CombatManager.Instance.InCombat)
         {
