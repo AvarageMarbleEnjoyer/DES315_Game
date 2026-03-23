@@ -9242,8 +9242,7 @@ MonoBehaviour:
   rotateSpeed: 0.3
   offsetVector: {x: 0, y: -6, z: 10}
   player: {fileID: 1107796543}
-  maxDistanceFromPlayer: 15
-  playerController: {fileID: 0}
+  playerController: {fileID: 1107796539}
   followLerpSpeed: 8
   roomManager: {fileID: 51621939}
   roomClampPadding: 1
