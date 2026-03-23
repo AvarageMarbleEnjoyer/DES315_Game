@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 /// while moving). Uses two separate LineRenderers so the white/red split is a hard material colour
 /// swap with no gradient blending.
 /// Active during the player's combat turn, or outside combat when ShowVisibilityFeatures is held.
+/// Hidden entirely while an ability is being targeted.
 /// </summary>
 public class MovementPathLine : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class MovementPathLine : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private InputActionAsset inputActions;
+    [SerializeField] private AbilityTargeting abilityTargeting;
 
     [Header("Floor Raycast")]
     [Tooltip("Match this to PlayerController's walkableMask")]
@@ -53,6 +55,7 @@ public class MovementPathLine : MonoBehaviour
         if (mainCamera == null) mainCamera = Camera.main;
         if (player == null)    player    = FindFirstObjectByType<Player>();
         if (agent == null)     agent     = player != null ? player.GetComponent<NavMeshAgent>() : null;
+        if (abilityTargeting == null) abilityTargeting = FindFirstObjectByType<AbilityTargeting>();
 
         if (inputActions != null)
         {
@@ -85,7 +88,6 @@ public class MovementPathLine : MonoBehaviour
         lr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         lr.receiveShadows  = false;
 
-        // Instance the material and set the colour directly — works with any shader
         if (lineMaterial != null)
         {
             lr.material         = new Material(lineMaterial);
@@ -278,7 +280,6 @@ public class MovementPathLine : MonoBehaviour
             return g;
         }
 
-        // Walk backwards by world distance to find the index-fraction for fade start
         float accumulated = 0f;
         float fadeStartT  = 0f;
         for (int i = points.Count - 1; i > 0; i--)
@@ -334,6 +335,7 @@ public class MovementPathLine : MonoBehaviour
     private bool ShouldShow()
     {
         if (player == null) return false;
+        if (abilityTargeting != null && abilityTargeting.IsTargeting) return false;
         if (holdMoveAction != null && holdMoveAction.IsPressed()) return false;
 
         if (CombatManager.Instance != null && CombatManager.Instance.InCombat)

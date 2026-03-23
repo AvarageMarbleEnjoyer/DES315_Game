@@ -94,6 +94,11 @@ public class AbilityTargeting : MonoBehaviour
 
     public bool IsTargeting => isTargeting;
 
+    // True for exactly one frame after a target is confirmed, allowing other systems
+    // to suppress same-frame input (e.g. movement) that share the same button binding.
+    public bool TargetJustConfirmed => targetJustConfirmed;
+    private bool targetJustConfirmed;
+
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -158,7 +163,6 @@ public class AbilityTargeting : MonoBehaviour
             pointerPositionAction.Disable();
         }
 
-        // Clean up targeting state if the component is disabled
         if (isTargeting)
         {
             CancelTargeting();
@@ -170,6 +174,12 @@ public class AbilityTargeting : MonoBehaviour
         if (!isTargeting) return;
 
         UpdateTargeting();
+    }
+
+    // Clears the one-frame confirmed flag after all Update callbacks have run.
+    private void LateUpdate()
+    {
+        targetJustConfirmed = false;
     }
 
     /// <summary>
@@ -207,7 +217,6 @@ public class AbilityTargeting : MonoBehaviour
 
         SetFlipVisuals(false);
 
-        // Show the appropriate visualizer based on targeting type
         switch (ability.targetingType)
         {
             case TargetingType.PointAndClick:
@@ -262,7 +271,6 @@ public class AbilityTargeting : MonoBehaviour
 
     private void UpdateTargeting()
     {
-        // Validate current ability exists
         if (currentAbility == null)
         {
             if (debugMode) Debug.LogWarning("[AbilityTargeting] Lost reference to current ability, cancelling");
@@ -270,7 +278,6 @@ public class AbilityTargeting : MonoBehaviour
             return;
         }
 
-        // Ensure we have a camera
         if (mainCamera == null)
         {
             mainCamera = Camera.main;
@@ -281,11 +288,9 @@ public class AbilityTargeting : MonoBehaviour
             }
         }
 
-        // Read pointer position
         if (pointerPositionAction == null) return;
         Vector2 pointerPos = pointerPositionAction.ReadValue<Vector2>();
 
-        // Route to appropriate targeting update
         switch (currentAbility.targetingType)
         {
             case TargetingType.PointAndClick:
@@ -314,40 +319,27 @@ public class AbilityTargeting : MonoBehaviour
 
         LayerMask targetMask = enemyLayer | propLayer;
 
-        // Raycast to find targets, but use targetBlockerLayer to allow blocking
         if (Physics.Raycast(ray, out RaycastHit hit, 100f, targetMask | targetBlockerLayer))
         {
-            // Check if we hit an enemy
             Unit unit = hit.collider.GetComponentInParent<Unit>();
 
             if (unit != null && unit.GetComponent<Player>() == null)
             {
                 if (!IsUnitInCurrentRoom(unit))
                 {
-                    if (hoveredUnit != null)
-                    {
-                        ClearHighlight();
-                    }
+                    if (hoveredUnit != null) ClearHighlight();
                     return;
                 }
 
                 if (IsUnitHiddenFromPlayer(unit))
                 {
-                    if (hoveredUnit != null)
-                    {
-                        ClearHighlight();
-                    }
+                    if (hoveredUnit != null) ClearHighlight();
                     return;
                 }
 
-                // Check if in range
                 float distance = Vector3.Distance(currentCaster.transform.position, unit.transform.position);
                 bool inRange = distance <= currentAbilityRange;
-
-                // Check line of sight
                 bool hasLineOfSight = CheckLineOfSight(currentCaster.transform.position, unit.transform.position);
-
-                // Only consider valid if both in range and has line of sight
                 bool isValidTarget = inRange && hasLineOfSight;
 
                 if (isValidTarget)
@@ -373,7 +365,6 @@ public class AbilityTargeting : MonoBehaviour
                 }
                 else
                 {
-                    // Out of range or no line of sight - clear highlight
                     if (hoveredUnit != null)
                     {
                         ClearHighlight();
@@ -388,20 +379,12 @@ public class AbilityTargeting : MonoBehaviour
             }
             else
             {
-                // Hit something that's not a unit - clear highlight
-                if (hoveredUnit != null)
-                {
-                    ClearHighlight();
-                }
+                if (hoveredUnit != null) ClearHighlight();
             }
         }
         else
         {
-            // Hit nothing - clear highlight
-            if (hoveredUnit != null)
-            {
-                ClearHighlight();
-            }
+            if (hoveredUnit != null) ClearHighlight();
         }
     }
 
@@ -461,24 +444,21 @@ public class AbilityTargeting : MonoBehaviour
 
         Ray ray = mainCamera.ScreenPointToRay(pointerPos);
 
-        // Raycast to find world point
         if (Physics.Raycast(ray, out RaycastHit hit, 100f, groundLayer))
         {
             Vector3 casterPos = currentCaster.transform.position;
             Vector3 targetPoint = hit.point;
 
-            // Clamp to ability range
             Vector3 offset = targetPoint - casterPos;
-            offset.y = 0; // Horizontal distance only
+            offset.y = 0;
 
             if (offset.magnitude > currentAbilityRange)
             {
                 offset = offset.normalized * currentAbilityRange;
                 targetPoint = casterPos + offset;
-                targetPoint.y = hit.point.y; // Maintain ground height
+                targetPoint.y = hit.point.y;
             }
 
-            // Snap to ground (find the actual ground position at the clamped point)
             if (Physics.Raycast(targetPoint + Vector3.up * 10f, Vector3.down, out RaycastHit groundHit, 20f, groundLayer))
             {
                 targetPoint = groundHit.point;
@@ -536,14 +516,9 @@ public class AbilityTargeting : MonoBehaviour
 
     private void ConfirmPointAndClick()
     {
-        // Validate we have a valid target
         if (hoveredUnit == null || !hoveredUnitInRange)
         {
-            if (debugMode)
-            {
-                Debug.Log("[AbilityTargeting] No valid target to confirm");
-            }
-            // Do nothing - don't cancel, just ignore the click
+            if (debugMode) Debug.Log("[AbilityTargeting] No valid target to confirm");
             return;
         }
 
@@ -615,6 +590,7 @@ public class AbilityTargeting : MonoBehaviour
         currentCaster = null;
         currentAbilityName = "";
         isTargeting = false;
+        targetJustConfirmed = true;
 
         if (debugMode)
         {
@@ -801,19 +777,15 @@ public class AbilityTargeting : MonoBehaviour
         Vector3 direction = to - from;
         float distance = direction.magnitude;
 
-        // Offset the start position slightly to avoid self-intersection
         Vector3 startPos = from + Vector3.up * 0.5f;
         Vector3 endPos = to + Vector3.up * 0.5f;
         direction = endPos - startPos;
 
-        // Raycast to check for blockers
         if (Physics.Raycast(startPos, direction.normalized, out RaycastHit hit, distance, targetBlockerLayer))
         {
-            // Check if we hit something that isn't the target
             Unit hitUnit = hit.collider.GetComponentInParent<Unit>();
             if (hitUnit == null)
             {
-                // Hit a blocker that's not the target - no line of sight
                 return false;
             }
         }
@@ -843,15 +815,8 @@ public class AbilityTargeting : MonoBehaviour
             if (seenUnits.Contains(unit)) continue;
             if (!IsUnitInCurrentRoom(unit)) continue;
 
-            if (!IsColliderWithinCone(col, origin, flatDirection, range, halfAngle, height))
-            {
-                continue;
-            }
-
-            if (!CheckLineOfSight(origin, unit.transform.position))
-            {
-                continue;
-            }
+            if (!IsColliderWithinCone(col, origin, flatDirection, range, halfAngle, height)) continue;
+            if (!CheckLineOfSight(origin, unit.transform.position)) continue;
 
             seenUnits.Add(unit);
             targets.Add(unit);
@@ -871,20 +836,9 @@ public class AbilityTargeting : MonoBehaviour
         foreach (Collider col in colliders)
         {
             Unit unit = col.GetComponentInParent<Unit>();
-            if (unit == null || unit.GetComponent<Player>() != null || seenUnits.Contains(unit))
-            {
-                continue;
-            }
-
-            if (!IsUnitInCurrentRoom(unit))
-            {
-                continue;
-            }
-
-            if (!IsColliderWithinRadius(col, center, radius, height))
-            {
-                continue;
-            }
+            if (unit == null || unit.GetComponent<Player>() != null || seenUnits.Contains(unit)) continue;
+            if (!IsUnitInCurrentRoom(unit)) continue;
+            if (!IsColliderWithinRadius(col, center, radius, height)) continue;
 
             seenUnits.Add(unit);
             targets.Add(unit);
@@ -903,10 +857,7 @@ public class AbilityTargeting : MonoBehaviour
 
     private void SetHighlightsForUnits(List<Unit> units)
     {
-        if (targetHighlighter == null)
-        {
-            return;
-        }
+        if (targetHighlighter == null) return;
 
         if (units == null || units.Count == 0)
         {
@@ -985,18 +936,12 @@ public class AbilityTargeting : MonoBehaviour
         Vector3 flatOffset = closestPoint - center;
         flatOffset.y = 0f;
 
-        if (flatOffset.magnitude > radius)
-        {
-            return false;
-        }
+        if (flatOffset.magnitude > radius) return false;
 
         if (height > 0f)
         {
             float verticalDistance = Mathf.Abs(closestPoint.y - center.y);
-            if (verticalDistance > height)
-            {
-                return false;
-            }
+            if (verticalDistance > height) return false;
         }
 
         return true;
@@ -1013,29 +958,16 @@ public class AbilityTargeting : MonoBehaviour
         Vector3 toPoint = closestPoint - origin;
         Vector3 toPointFlat = new Vector3(toPoint.x, 0f, toPoint.z);
 
-        if (toPointFlat.sqrMagnitude <= 0.0001f)
-        {
-            return true;
-        }
+        if (toPointFlat.sqrMagnitude <= 0.0001f) return true;
 
         float angleToPoint = Vector3.Angle(flatDirection, toPointFlat.normalized);
-        if (angleToPoint > halfAngle)
-        {
-            return false;
-        }
-
-        if (toPointFlat.magnitude > range)
-        {
-            return false;
-        }
+        if (angleToPoint > halfAngle) return false;
+        if (toPointFlat.magnitude > range) return false;
 
         if (height > 0f)
         {
             float verticalDistance = Mathf.Abs(closestPoint.y - origin.y);
-            if (verticalDistance > height)
-            {
-                return false;
-            }
+            if (verticalDistance > height) return false;
         }
 
         return true;

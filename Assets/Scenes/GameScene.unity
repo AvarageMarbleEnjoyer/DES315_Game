@@ -8093,10 +8093,10 @@ MonoBehaviour:
   scanPixelsPerUnit: 3
   scanHeightOffset: 3
   compositeSize: 256
-  worldUnitsVisible: 50
+  worldUnitsVisible: 80
   zoomStep: 10
-  minWorldUnits: 15
-  maxWorldUnits: 100
+  minWorldUnits: 20
+  maxWorldUnits: 130
   nonCurrentRoomTint: {r: 0.4, g: 0.4, b: 0.4, a: 1}
 --- !u!1 &1309648078
 GameObject:
@@ -14140,15 +14140,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3110991175930712216, guid: 2d018bfd1130fd743b80684c3d8d44cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 554.36725
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3110991175930712216, guid: 2d018bfd1130fd743b80684c3d8d44cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 210.19287
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3110991175930712216, guid: 2d018bfd1130fd743b80684c3d8d44cd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -540.5052
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3110991175930712216, guid: 2d018bfd1130fd743b80684c3d8d44cd, type: 3}
       propertyPath: m_LocalRotation.w
