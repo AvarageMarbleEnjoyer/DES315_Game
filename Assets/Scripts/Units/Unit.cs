@@ -13,6 +13,9 @@ public abstract class Unit : MonoBehaviour
     [Header("Block")]
     [SerializeField] protected float currentBlock = 0f;
 
+    [Header("Damage Numbers")]
+    [SerializeField] private Vector3 damageNumberCentreOffset = new Vector3(0f, 1f, 0f);
+
     [Header("Debug")]
     [SerializeField] protected bool debugMode = true;
 
@@ -67,6 +70,7 @@ public abstract class Unit : MonoBehaviour
 
             if (debugMode) Debug.Log($"[{GetType().Name}] {gameObject.name} took {remainingDamage} damage. Health: {currentHealth}/{maxHealth}");
             OnHealthChanged?.Invoke(currentHealth, maxHealth);
+            DamageNumberSpawner.Instance?.Spawn(remainingDamage, transform.position + damageNumberCentreOffset);
 
             if (currentHealth <= 0f)
             {
