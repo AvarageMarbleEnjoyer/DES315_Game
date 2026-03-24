@@ -3158,270 +3158,6 @@
 										<ActiveSource Name="LightGrass-05" ID="{BF096D6E-4A5C-463C-8DBA-F7EDA2B68EE2}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="LightGrass-06" ID="{7D0810F5-2510-43B7-AD9A-F2494296E041}" ShortID="978999906">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGrass-06" ID="{8C9D98D0-F1ED-4E86-933D-57832710AC4E}">
-											<Language>SFX</Language>
-											<AudioFile>LightGrass-06.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="688928798"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGrass-06" ID="{8C9D98D0-F1ED-4E86-933D-57832710AC4E}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGrass-07" ID="{4F2CC3F5-C198-4AB2-B4DD-6E283CF02CBC}" ShortID="497927970">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGrass-07" ID="{0E8E772A-DF2F-464E-8F99-B8A0C7B3B092}">
-											<Language>SFX</Language>
-											<AudioFile>LightGrass-07.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="489687633"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGrass-07" ID="{0E8E772A-DF2F-464E-8F99-B8A0C7B3B092}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGrass-08" ID="{A1ADC6D4-E4CE-454B-AD61-395B345DBBFB}" ShortID="465856648">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGrass-08" ID="{871B856B-4DC6-4D7F-9E42-4A67056C001F}">
-											<Language>SFX</Language>
-											<AudioFile>LightGrass-08.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="58374975"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGrass-08" ID="{871B856B-4DC6-4D7F-9E42-4A67056C001F}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGrass-09" ID="{E3069A28-E99F-46E3-8315-3EC22EF0EE2B}" ShortID="661670978">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGrass-09" ID="{646E43CA-29A2-4E1E-833C-47E1B2C2E451}">
-											<Language>SFX</Language>
-											<AudioFile>LightGrass-09.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="157291740"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGrass-09" ID="{646E43CA-29A2-4E1E-833C-47E1B2C2E451}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGrass-10" ID="{D48C55D0-5FE3-420C-A89A-0AB7DE5B4A84}" ShortID="376168839">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGrass-10" ID="{05EA2103-E239-41C4-8E9B-FD3D52B29F07}">
-											<Language>SFX</Language>
-											<AudioFile>LightGrass-10.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="602195025"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGrass-10" ID="{05EA2103-E239-41C4-8E9B-FD3D52B29F07}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGrass-11" ID="{AE486F9F-B3CF-4A44-A1C2-0CA5650EC227}" ShortID="363270857">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGrass-11" ID="{4428273D-DAAE-439A-A151-AA45A8ABBC23}">
-											<Language>SFX</Language>
-											<AudioFile>LightGrass-11.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="773185397"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGrass-11" ID="{4428273D-DAAE-439A-A151-AA45A8ABBC23}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGrass-12" ID="{8E40C3B3-B763-415F-AF52-F105B7EAB9B7}" ShortID="791551826">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGrass-12" ID="{E4A09689-F544-43A0-8D5E-5E2132C080F6}">
-											<Language>SFX</Language>
-											<AudioFile>LightGrass-12.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="941672154"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGrass-12" ID="{E4A09689-F544-43A0-8D5E-5E2132C080F6}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGrass-13" ID="{D632C47F-ABA7-4F34-9EDC-550AA1E667CE}" ShortID="261493258">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGrass-13" ID="{48F925FB-B474-4116-8C2F-CE18482519C6}">
-											<Language>SFX</Language>
-											<AudioFile>LightGrass-13.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="1015847131"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGrass-13" ID="{48F925FB-B474-4116-8C2F-CE18482519C6}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGrass-14" ID="{ACEFF145-1767-45A0-AB6C-64295B57E5C2}" ShortID="814660544">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGrass-14" ID="{55781A08-EDB8-42EC-B818-D5C28CFB9A04}">
-											<Language>SFX</Language>
-											<AudioFile>LightGrass-14.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="915319176"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGrass-14" ID="{55781A08-EDB8-42EC-B818-D5C28CFB9A04}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGrass-15" ID="{E3402795-1C9A-4795-9AF5-33B320DE739A}" ShortID="227816742">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGrass-15" ID="{3E0695F2-59BE-4FC2-A9D1-682608C2AFE5}">
-											<Language>SFX</Language>
-											<AudioFile>LightGrass-15.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="915749475"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGrass-15" ID="{3E0695F2-59BE-4FC2-A9D1-682608C2AFE5}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGrass-16" ID="{49A30FC4-286C-4A04-94F3-668D57FCD822}" ShortID="38881151">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGrass-16" ID="{752C4737-35E8-4A08-BB4B-3F0685017DDD}">
-											<Language>SFX</Language>
-											<AudioFile>LightGrass-16.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="181838597"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGrass-16" ID="{752C4737-35E8-4A08-BB4B-3F0685017DDD}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGrass-17" ID="{10D60B2F-BEEF-4DE1-AA45-7FB5A840EC8B}" ShortID="1072247526">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGrass-17" ID="{603DA009-B54F-4388-A7B2-351A39F49B56}">
-											<Language>SFX</Language>
-											<AudioFile>LightGrass-17.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="423432910"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGrass-17" ID="{603DA009-B54F-4388-A7B2-351A39F49B56}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="GrassHeavy" ID="{139C5704-CDE3-4B3C-ABC5-9904686CC582}" ShortID="332426284">
@@ -3542,182 +3278,6 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="HeavyGrass-05" ID="{CEF6F6B2-AF96-4D47-BF3E-90791B3871DF}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGrass-06" ID="{3200CA5F-4B8D-4957-AF35-AE50A46E1C13}" ShortID="952607284">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGrass-06" ID="{942A295B-3D2C-4657-8500-AD1F9C32F02D}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGrass-06.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="692295521"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGrass-06" ID="{942A295B-3D2C-4657-8500-AD1F9C32F02D}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGrass-07" ID="{147B2994-B5A5-4FA8-B19E-7DBB6663DECE}" ShortID="54172786">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGrass-07" ID="{0EE60214-C235-4555-8465-0023262D638D}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGrass-07.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="582862419"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGrass-07" ID="{0EE60214-C235-4555-8465-0023262D638D}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGrass-08" ID="{D8F3ED62-46FE-4C31-9B74-8B87C02535EE}" ShortID="501358033">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGrass-08" ID="{89FE48B3-6181-4DC6-B225-A9802D602858}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGrass-08.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="67620883"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGrass-08" ID="{89FE48B3-6181-4DC6-B225-A9802D602858}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGrass-09" ID="{645B4A2E-45B1-4282-BF4D-1BDCB7B1322A}" ShortID="179367800">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGrass-09" ID="{E99CC183-DD96-47FB-A164-D3778DBADECD}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGrass-09.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="567486840"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGrass-09" ID="{E99CC183-DD96-47FB-A164-D3778DBADECD}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGrass-10" ID="{9BABA4C6-0EFB-4BD3-98EE-157980B0BEB6}" ShortID="1031533753">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGrass-10" ID="{2175B256-6132-4262-892D-EE36E3062EDC}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGrass-10.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="318098460"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGrass-10" ID="{2175B256-6132-4262-892D-EE36E3062EDC}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGrass-11" ID="{C29E98BC-AAA3-434C-98C0-CA985F8ABFC4}" ShortID="576696241">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGrass-11" ID="{B7922B78-61DD-4608-B79F-FBED1A6A7923}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGrass-11.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="49695290"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGrass-11" ID="{B7922B78-61DD-4608-B79F-FBED1A6A7923}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGrass-12" ID="{FC2BB4F3-9FAE-40FF-BE4C-7A44923985BD}" ShortID="998911338">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGrass-12" ID="{20F84E8E-FAD0-40B8-AEE1-B5F86AED785B}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGrass-12.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="26739673"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGrass-12" ID="{20F84E8E-FAD0-40B8-AEE1-B5F86AED785B}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGrass-13" ID="{58D69649-8826-44DE-A228-D8CEA80767DD}" ShortID="415937950">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGrass-13" ID="{DBA4B8B1-3949-4521-9703-DF1DA143500E}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGrass-13.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="143895344"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGrass-13" ID="{DBA4B8B1-3949-4521-9703-DF1DA143500E}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -3842,358 +3402,6 @@
 										<ActiveSource Name="HeavyGravel-05" ID="{A11D8F68-AC1D-4734-BA8C-24EF6905C344}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="HeavyGravel-06" ID="{33B75CF7-B708-439C-9E57-7D97430B0176}" ShortID="913250827">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGravel-06" ID="{69ED0DF6-ADF0-4829-B252-ECA36E9E1EA6}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGravel-06.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="142005420"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGravel-06" ID="{69ED0DF6-ADF0-4829-B252-ECA36E9E1EA6}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGravel-07" ID="{DE7B22D0-22AE-4208-B7FC-FE5F792DD846}" ShortID="622479639">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGravel-07" ID="{07EEB05F-F80D-4024-B907-8AE3F7975A95}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGravel-07.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="56192805"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGravel-07" ID="{07EEB05F-F80D-4024-B907-8AE3F7975A95}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGravel-08" ID="{16C20B74-332A-4990-9DC9-527D57EC42FC}" ShortID="787676392">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGravel-08" ID="{57FE104C-5760-4F16-B610-D41841D8275F}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGravel-08.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="472157485"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGravel-08" ID="{57FE104C-5760-4F16-B610-D41841D8275F}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGravel-09" ID="{7BBB185E-7F0A-49D7-A388-1AA5EAEB00F2}" ShortID="43395396">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGravel-09" ID="{6E2ECBF8-F0A4-416C-B8C0-DDF12A253F59}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGravel-09.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="841115448"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGravel-09" ID="{6E2ECBF8-F0A4-416C-B8C0-DDF12A253F59}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGravel-10" ID="{D6D96430-AB37-4D6B-8737-AC7A5BE1B542}" ShortID="999868905">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGravel-10" ID="{E6819FA5-53E6-4B17-B38F-9450AE1E42CE}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGravel-10.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="709129356"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGravel-10" ID="{E6819FA5-53E6-4B17-B38F-9450AE1E42CE}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGravel-11" ID="{41851FF9-9DF8-4267-9942-FDD93DD00A90}" ShortID="934667760">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGravel-11" ID="{A574BBD0-3F35-4E09-9915-4D6810F2E416}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGravel-11.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="959216700"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGravel-11" ID="{A574BBD0-3F35-4E09-9915-4D6810F2E416}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGravel-12" ID="{83649337-00EC-42CD-932E-1D6F7B1FAB53}" ShortID="352771789">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGravel-12" ID="{7EDFA65A-E4B2-45F7-A86B-C18535B973E6}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGravel-12.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="933211508"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGravel-12" ID="{7EDFA65A-E4B2-45F7-A86B-C18535B973E6}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGravel-13" ID="{AC5D7037-4224-4321-A0E7-A6C9DBEEEC42}" ShortID="712735645">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGravel-13" ID="{289FAEAB-C683-4949-AA2F-642FAF172D79}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGravel-13.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="632882137"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGravel-13" ID="{289FAEAB-C683-4949-AA2F-642FAF172D79}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGravel-14" ID="{80F6845D-9E6C-4EE5-9DCA-C2CAB3A13477}" ShortID="290616747">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGravel-14" ID="{01121014-193F-48F1-B7EA-468BBAF75701}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGravel-14.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="626866373"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGravel-14" ID="{01121014-193F-48F1-B7EA-468BBAF75701}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGravel-15" ID="{EA8158E4-BD73-405E-800B-57B8F4367478}" ShortID="48672944">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGravel-15" ID="{BA42EE9C-6EFB-4E62-974B-0E4E43006AF7}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGravel-15.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="843900237"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGravel-15" ID="{BA42EE9C-6EFB-4E62-974B-0E4E43006AF7}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGravel-16" ID="{655AAC0B-0ACD-4667-9DD1-AD372991FA83}" ShortID="130392714">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGravel-16" ID="{8491442F-44A7-4493-A3DC-F4C71B3FDA36}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGravel-16.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="849141981"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGravel-16" ID="{8491442F-44A7-4493-A3DC-F4C71B3FDA36}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGravel-17" ID="{2F1400CB-C16C-449F-B249-E5F6F4B340A6}" ShortID="306940878">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGravel-17" ID="{555D0BFC-C77F-49B0-A0DD-0C3C1EFBA271}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGravel-17.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="770046754"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGravel-17" ID="{555D0BFC-C77F-49B0-A0DD-0C3C1EFBA271}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGravel-18" ID="{E11AFAE7-9E6F-450E-A248-913E3428B792}" ShortID="305755115">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGravel-18" ID="{AD83A37F-FF54-4EA7-883C-3C261EF9F5F0}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGravel-18.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="174427552"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGravel-18" ID="{AD83A37F-FF54-4EA7-883C-3C261EF9F5F0}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGravel-19" ID="{79E84BD1-2EF4-416E-93B4-98A05B2C04B6}" ShortID="718893537">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGravel-19" ID="{EF0E0DCA-A15C-4840-992D-747E8C57A73C}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGravel-19.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="941141769"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGravel-19" ID="{EF0E0DCA-A15C-4840-992D-747E8C57A73C}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGravel-20" ID="{95A8F140-2208-4C12-A6E4-235B2D2D9DBA}" ShortID="890030298">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGravel-20" ID="{D86BE39B-DD4E-4BF4-8F90-E1A9DC19CC11}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGravel-20.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="102927112"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGravel-20" ID="{D86BE39B-DD4E-4BF4-8F90-E1A9DC19CC11}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyGravel-21" ID="{BDA92F02-BD64-40B3-B22A-92AA85F89087}" ShortID="1061015300">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyGravel-21" ID="{2248B966-A09D-4DC8-A246-E0FCD3659A7B}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyGravel-21.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="650915395"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyGravel-21" ID="{2248B966-A09D-4DC8-A246-E0FCD3659A7B}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="GravelLight" ID="{A32C82A4-C1B1-4349-BAF4-6DE18822A098}" ShortID="191196606">
@@ -4314,204 +3522,6 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="LightGravel-05" ID="{72934DD8-06A1-4891-ABFB-0656F844B452}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGravel-06" ID="{EFFE401E-E8B3-4846-B125-FF71A875F906}" ShortID="124587103">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGravel-06" ID="{A12788AA-9A7A-4561-8816-2CD92E34D1DE}">
-											<Language>SFX</Language>
-											<AudioFile>LightGravel-06.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="744477370"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGravel-06" ID="{A12788AA-9A7A-4561-8816-2CD92E34D1DE}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGravel-07" ID="{D87737D2-7B11-48FA-BCA5-26A3CA2ED0C2}" ShortID="860737276">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGravel-07" ID="{570727F9-98FA-4427-93FD-232ADEF513C9}">
-											<Language>SFX</Language>
-											<AudioFile>LightGravel-07.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="105457136"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGravel-07" ID="{570727F9-98FA-4427-93FD-232ADEF513C9}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGravel-08" ID="{21229358-BF96-4324-854E-C242A5E9E0C4}" ShortID="447421797">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGravel-08" ID="{FAF40AE1-A2D1-4DE8-A8F2-D8826E0A0CBA}">
-											<Language>SFX</Language>
-											<AudioFile>LightGravel-08.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="446581674"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGravel-08" ID="{FAF40AE1-A2D1-4DE8-A8F2-D8826E0A0CBA}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGravel-09" ID="{A7F34342-15F9-4D53-BFD0-6BF9F9801857}" ShortID="1068422763">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGravel-09" ID="{81036DD1-B855-412D-A65A-4FB299684618}">
-											<Language>SFX</Language>
-											<AudioFile>LightGravel-09.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="333949996"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGravel-09" ID="{81036DD1-B855-412D-A65A-4FB299684618}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGravel-10" ID="{6E2DF2F7-F59B-4299-B283-787B1DAEE5DF}" ShortID="1008192869">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGravel-10" ID="{1A3F5900-696D-45A9-953F-B75BD7DA1939}">
-											<Language>SFX</Language>
-											<AudioFile>LightGravel-10.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="918579268"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGravel-10" ID="{1A3F5900-696D-45A9-953F-B75BD7DA1939}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGravel-11" ID="{0787F2FA-D19D-4949-AC9F-5EE4167962B7}" ShortID="603460741">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGravel-11" ID="{BB41F849-4DFD-4982-8288-D3B61563274F}">
-											<Language>SFX</Language>
-											<AudioFile>LightGravel-11.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="90648247"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGravel-11" ID="{BB41F849-4DFD-4982-8288-D3B61563274F}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGravel-12" ID="{E63D94D6-08B4-4309-A0C0-8AE6378D4738}" ShortID="545085633">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGravel-12" ID="{F9F2DCA7-BA40-40DD-AD74-A64962905A78}">
-											<Language>SFX</Language>
-											<AudioFile>LightGravel-12.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="408904218"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGravel-12" ID="{F9F2DCA7-BA40-40DD-AD74-A64962905A78}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGravel-13" ID="{5B1B7FC7-25B0-4486-823D-E70F3C22445D}" ShortID="745380388">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGravel-13" ID="{9C2F130B-7691-49F6-A554-89166EEFDE0D}">
-											<Language>SFX</Language>
-											<AudioFile>LightGravel-13.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="255224076"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGravel-13" ID="{9C2F130B-7691-49F6-A554-89166EEFDE0D}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightGravel-14" ID="{73829497-6C1D-4A29-905D-FDB901D23FEB}" ShortID="868726448">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightGravel-14" ID="{CCE127E3-2BA5-4C97-A8F7-873A8369E559}">
-											<Language>SFX</Language>
-											<AudioFile>LightGravel-14.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="47197990"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightGravel-14" ID="{CCE127E3-2BA5-4C97-A8F7-873A8369E559}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -4636,160 +3646,6 @@
 										<ActiveSource Name="HeavyStone-05" ID="{29AC683D-C16F-48F3-A85F-085D266B6542}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="HeavyStone-06" ID="{FBF6F202-370D-40A6-A49F-17DDDE025356}" ShortID="846138523">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyStone-06" ID="{FDFEA34C-59B8-49BD-9E32-4E71E3E1188A}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyStone-06.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="230752018"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyStone-06" ID="{FDFEA34C-59B8-49BD-9E32-4E71E3E1188A}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyStone-07" ID="{4D7598E1-366F-4C4C-8206-D37D8515C217}" ShortID="677916172">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyStone-07" ID="{ADA42EDE-0929-4B28-A136-DB996EDA1DED}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyStone-07.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="292681620"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyStone-07" ID="{ADA42EDE-0929-4B28-A136-DB996EDA1DED}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyStone-08" ID="{B97EAE5E-C2C5-4D49-AF14-D6F3BC520CC7}" ShortID="618965098">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyStone-08" ID="{B618D16F-E6AF-4E17-8A66-6898EC7F9635}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyStone-08.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="694719802"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyStone-08" ID="{B618D16F-E6AF-4E17-8A66-6898EC7F9635}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyStone-09" ID="{73A4C27C-51E5-4D5D-BE78-944B65122EAC}" ShortID="97292318">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyStone-09" ID="{F043A011-BB3F-42EF-9D6B-99159D026A94}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyStone-09.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="954319608"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyStone-09" ID="{F043A011-BB3F-42EF-9D6B-99159D026A94}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyStone-10" ID="{E38FEE29-9299-46B0-AFF1-F228B411A08D}" ShortID="757465636">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyStone-10" ID="{64C73816-91B4-407B-865F-46B1E346EF51}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyStone-10.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="923549177"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyStone-10" ID="{64C73816-91B4-407B-865F-46B1E346EF51}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyStone-11" ID="{DF9EE0F8-82E5-4E93-A039-A0B09509E660}" ShortID="15760270">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyStone-11" ID="{FC6BD06F-3AB5-4C95-83E2-82DD8F711915}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyStone-11.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="963600404"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyStone-11" ID="{FC6BD06F-3AB5-4C95-83E2-82DD8F711915}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyStone-12" ID="{1BB65FA3-C4FE-4F21-9A0D-90F589DE9678}" ShortID="824162164">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyStone-12" ID="{F415AEB4-FF10-415C-9565-DFAB87561E33}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyStone-12.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="67923975"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyStone-12" ID="{F415AEB4-FF10-415C-9565-DFAB87561E33}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="StoneLight" ID="{F8B59B56-1F99-47B8-B7DC-9F9C1E8E0D17}" ShortID="422841184">
@@ -4910,138 +3766,6 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="LightStone-05" ID="{8A34E333-B9EC-4596-A6A3-2CC1634AE4F4}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightStone-06" ID="{09DE284A-2D1B-473D-8598-88A6652A5562}" ShortID="715807195">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightStone-06" ID="{FA23FFF5-6C22-4968-916B-1F83D8AFC1A9}">
-											<Language>SFX</Language>
-											<AudioFile>LightStone-06.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="70120709"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightStone-06" ID="{FA23FFF5-6C22-4968-916B-1F83D8AFC1A9}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightStone-07" ID="{2427225B-60B1-4A29-A10C-F80208ABDF3D}" ShortID="444740230">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightStone-07" ID="{675A4BCD-F7BF-443D-A39F-5DC2D2C541F5}">
-											<Language>SFX</Language>
-											<AudioFile>LightStone-07.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="633963444"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightStone-07" ID="{675A4BCD-F7BF-443D-A39F-5DC2D2C541F5}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightStone-08" ID="{C59CF63C-C3B7-4889-9288-BA9D17DA3E69}" ShortID="247660151">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightStone-08" ID="{5F5E11C8-13E2-48C6-8307-AAC2388A4249}">
-											<Language>SFX</Language>
-											<AudioFile>LightStone-08.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="808296136"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightStone-08" ID="{5F5E11C8-13E2-48C6-8307-AAC2388A4249}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightStone-09" ID="{EF41B850-6887-4B68-8B4F-F84EFD2F7A31}" ShortID="29095918">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightStone-09" ID="{D60B092B-CD4D-4EE7-981A-0284F0705455}">
-											<Language>SFX</Language>
-											<AudioFile>LightStone-09.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="138009976"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightStone-09" ID="{D60B092B-CD4D-4EE7-981A-0284F0705455}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightStone-10" ID="{5F61DC0D-56DF-45ED-B193-3734ABCF673B}" ShortID="238629730">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightStone-10" ID="{81A01AAA-5D29-41D8-BEE1-773234BA7572}">
-											<Language>SFX</Language>
-											<AudioFile>LightStone-10.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="155468228"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightStone-10" ID="{81A01AAA-5D29-41D8-BEE1-773234BA7572}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightStone-11" ID="{7DDCD2E0-F76E-4582-BC8F-3D52FD782C8A}" ShortID="586897204">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightStone-11" ID="{88DE2250-08E8-4835-ABD8-4003D2C856E2}">
-											<Language>SFX</Language>
-											<AudioFile>LightStone-11.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="651924272"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightStone-11" ID="{88DE2250-08E8-4835-ABD8-4003D2C856E2}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -5166,358 +3890,6 @@
 										<ActiveSource Name="HeavyWood-05" ID="{773B0832-9945-4029-96DC-9DC167B6348B}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="HeavyWood-06" ID="{90243949-FD29-454C-AB0D-46B98EC33D79}" ShortID="716509576">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyWood-06" ID="{5432A632-FE6D-4656-8F76-89C5895080AA}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyWood-06.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="239978494"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyWood-06" ID="{5432A632-FE6D-4656-8F76-89C5895080AA}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyWood-07" ID="{78CDBB19-12CB-431A-9131-0D1C46983FB4}" ShortID="1008931050">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyWood-07" ID="{820F40F3-F3DC-4E8B-B8CE-616F5043FFB1}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyWood-07.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="965258415"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyWood-07" ID="{820F40F3-F3DC-4E8B-B8CE-616F5043FFB1}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyWood-08" ID="{D53E9DBA-1ABE-4CC5-9938-0043256563A3}" ShortID="561985325">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyWood-08" ID="{D8AFA7CD-FBB9-4BB5-9677-77F113293E05}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyWood-08.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="670411082"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyWood-08" ID="{D8AFA7CD-FBB9-4BB5-9677-77F113293E05}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyWood-09" ID="{1592036B-D9A2-4813-AED8-FC0EF852C52D}" ShortID="794705673">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyWood-09" ID="{D209FEA1-88DF-4997-9F65-3F5EA7061A0A}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyWood-09.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="832997685"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyWood-09" ID="{D209FEA1-88DF-4997-9F65-3F5EA7061A0A}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyWood-10" ID="{937F3124-88FF-438F-A161-DBB70BC67694}" ShortID="483215648">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyWood-10" ID="{55C0344C-5FBA-448F-9A04-02036170B0C1}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyWood-10.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="1002344751"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyWood-10" ID="{55C0344C-5FBA-448F-9A04-02036170B0C1}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyWood-11" ID="{45F757F8-BF71-425A-82EE-116E13768E38}" ShortID="701970458">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyWood-11" ID="{C6B0DE44-A6AF-4040-99F9-C17F7F0DC7D6}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyWood-11.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="1045894282"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyWood-11" ID="{C6B0DE44-A6AF-4040-99F9-C17F7F0DC7D6}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyWood-12" ID="{ABA01F9C-74F2-4826-8AE0-02990E061BFA}" ShortID="673855361">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyWood-12" ID="{1E106747-472B-4E07-8151-32F2F2B96A50}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyWood-12.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="404524640"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyWood-12" ID="{1E106747-472B-4E07-8151-32F2F2B96A50}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyWood-13" ID="{71870C1C-1755-4B5A-92F8-3CCBBD3E6648}" ShortID="1061066552">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyWood-13" ID="{FCED3C00-9FF4-425F-9659-6A231D204A2D}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyWood-13.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="934887930"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyWood-13" ID="{FCED3C00-9FF4-425F-9659-6A231D204A2D}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyWood-14" ID="{22955E8A-E5BF-4AD1-9E9E-6086FEA0978C}" ShortID="754637329">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyWood-14" ID="{9A450F0D-2478-4E8B-BAE3-09DAEE9C3A8F}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyWood-14.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="425367265"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyWood-14" ID="{9A450F0D-2478-4E8B-BAE3-09DAEE9C3A8F}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyWood-15" ID="{348CE1B8-3850-48C8-92C3-98737785954A}" ShortID="884569022">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyWood-15" ID="{6E0DFB6C-E087-41BD-8F7E-71553F2C81D2}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyWood-15.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="645301859"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyWood-15" ID="{6E0DFB6C-E087-41BD-8F7E-71553F2C81D2}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyWood-16" ID="{014876B7-D942-45C7-889F-65F90FE5575E}" ShortID="469671012">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyWood-16" ID="{B29A59D3-41E7-4C1F-ABFA-9E570C8C2813}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyWood-16.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="176019681"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyWood-16" ID="{B29A59D3-41E7-4C1F-ABFA-9E570C8C2813}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyWood-17" ID="{3C1637A6-DC8E-4C0A-A9B3-0033BD0503DD}" ShortID="145470423">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyWood-17" ID="{B97C5F28-DA4B-46FF-8667-B7701BB00547}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyWood-17.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="947650666"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyWood-17" ID="{B97C5F28-DA4B-46FF-8667-B7701BB00547}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyWood-18" ID="{39E9FF98-D845-4478-848A-CB39C22A4837}" ShortID="557633950">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyWood-18" ID="{14CF9485-0390-464C-B1BE-169A36237FEB}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyWood-18.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="55640477"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyWood-18" ID="{14CF9485-0390-464C-B1BE-169A36237FEB}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyWood-19" ID="{3B6CF8FD-02A9-4B60-A314-EF2E4BA55BEF}" ShortID="457900233">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyWood-19" ID="{9B230046-24F4-497F-848D-F4652CFE6955}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyWood-19.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="704648884"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyWood-19" ID="{9B230046-24F4-497F-848D-F4652CFE6955}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyWood-20" ID="{A147EFAC-97EB-45A5-8DF1-4E00A02619BD}" ShortID="260920677">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyWood-20" ID="{F40E0D19-EF81-4C21-B49F-9ED39A3084D4}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyWood-20.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="955950766"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyWood-20" ID="{F40E0D19-EF81-4C21-B49F-9ED39A3084D4}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="HeavyWood-21" ID="{046BA8D3-F7FB-4F9B-8879-C33CBD3AEA87}" ShortID="9244785">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="HeavyWood-21" ID="{0BBFC959-409D-46C8-837E-8A5418F9D748}">
-											<Language>SFX</Language>
-											<AudioFile>HeavyWood-21.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="865428681"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="HeavyWood-21" ID="{0BBFC959-409D-46C8-837E-8A5418F9D748}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="WoodLight" ID="{1C79EE04-C8FA-4AFA-8A93-8BC4E8C39CA5}" ShortID="548312751">
@@ -5640,248 +4012,6 @@
 										<ActiveSource Name="LightWood-05" ID="{443171C6-4EA9-4F61-9AC9-DBAF3F1543DF}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="LightWood-06" ID="{F09FA6DD-E24A-420F-BEF7-E31BC054D875}" ShortID="688709160">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightWood-06" ID="{0A574450-CEDA-4B6D-B769-CC1A3F2A7B5F}">
-											<Language>SFX</Language>
-											<AudioFile>LightWood-06.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="676495519"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightWood-06" ID="{0A574450-CEDA-4B6D-B769-CC1A3F2A7B5F}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightWood-07" ID="{742A77CE-CA85-439C-A375-3EB9F8EDB394}" ShortID="39624675">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightWood-07" ID="{96A48FBD-9D70-4A6F-8075-ADD8FA11BE9F}">
-											<Language>SFX</Language>
-											<AudioFile>LightWood-07.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="28851314"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightWood-07" ID="{96A48FBD-9D70-4A6F-8075-ADD8FA11BE9F}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightWood-08" ID="{32604B81-9589-4F4C-96CC-873CC5B33D4B}" ShortID="348235299">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightWood-08" ID="{3715FABC-8546-411C-ACEC-A2FDEB7318E1}">
-											<Language>SFX</Language>
-											<AudioFile>LightWood-08.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="988277148"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightWood-08" ID="{3715FABC-8546-411C-ACEC-A2FDEB7318E1}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightWood-09" ID="{1447B40E-94F1-425E-A0BB-2C35C3BB4976}" ShortID="853335707">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightWood-09" ID="{D116C8F1-357C-400B-9FBF-4BDA37BF1740}">
-											<Language>SFX</Language>
-											<AudioFile>LightWood-09.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="52194798"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightWood-09" ID="{D116C8F1-357C-400B-9FBF-4BDA37BF1740}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightWood-10" ID="{72C09D92-D348-4CC0-B92A-030D3E47603F}" ShortID="1050622887">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightWood-10" ID="{5E0BB64E-99A9-49D6-B505-25294E91A393}">
-											<Language>SFX</Language>
-											<AudioFile>LightWood-10.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="170157162"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightWood-10" ID="{5E0BB64E-99A9-49D6-B505-25294E91A393}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightWood-11" ID="{917CD183-907B-4B8E-B7A8-58BE62819A4C}" ShortID="6594381">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightWood-11" ID="{CBCECB16-F5C2-4CEB-A5FA-BBF9DFC1BDDE}">
-											<Language>SFX</Language>
-											<AudioFile>LightWood-11.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="33185859"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightWood-11" ID="{CBCECB16-F5C2-4CEB-A5FA-BBF9DFC1BDDE}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightWood-12" ID="{1F167EFF-EA4D-4AE2-8EAF-E4C1DE272393}" ShortID="995236474">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightWood-12" ID="{FC6D98E3-6424-463A-A5A1-B16E9025A8DE}">
-											<Language>SFX</Language>
-											<AudioFile>LightWood-12.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="496898422"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightWood-12" ID="{FC6D98E3-6424-463A-A5A1-B16E9025A8DE}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightWood-13" ID="{4F049F08-AA84-4BED-BE35-BFCF3179FF06}" ShortID="505776910">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightWood-13" ID="{312B9FF2-C6FD-4862-ACFD-DB2F22940465}">
-											<Language>SFX</Language>
-											<AudioFile>LightWood-13.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="687652072"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightWood-13" ID="{312B9FF2-C6FD-4862-ACFD-DB2F22940465}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightWood-14" ID="{01AA74F2-B3AE-4214-B386-A9013A468EB9}" ShortID="189600476">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightWood-14" ID="{B425765C-9FEF-4FA5-A0F3-47936FE875F5}">
-											<Language>SFX</Language>
-											<AudioFile>LightWood-14.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="66192937"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightWood-14" ID="{B425765C-9FEF-4FA5-A0F3-47936FE875F5}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightWood-15" ID="{9F37704C-8303-4E97-AC0E-64ED0170327A}" ShortID="703899756">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightWood-15" ID="{39D3554A-0B09-4739-9C3A-5C846BFE34E2}">
-											<Language>SFX</Language>
-											<AudioFile>LightWood-15.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="404445125"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightWood-15" ID="{39D3554A-0B09-4739-9C3A-5C846BFE34E2}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="LightWood-16" ID="{6CBB5BC6-C5E0-4DF4-9A35-CCEC170B7678}" ShortID="404282765">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="LightWood-16" ID="{EEDF7258-AD19-4C8F-B84C-CED4E3AF4B0A}">
-											<Language>SFX</Language>
-											<AudioFile>LightWood-16.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="26037973"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="LightWood-16" ID="{EEDF7258-AD19-4C8F-B84C-CED4E3AF4B0A}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 					</ChildrenList>
@@ -5964,6 +4094,370 @@
 						</GroupingList>
 					</GroupingInfo>
 				</SwitchContainer>
+				<RandomSequenceContainer Name="Swing" ID="{C71F6D7B-8D77-4870-8652-0F9141A2F267}" ShortID="231043403">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="SwordSwing-01" ID="{F2C7F0B6-C3F4-4879-B25C-5F911D6353DD}" ShortID="361480550">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SwordSwing-01" ID="{074B8656-9EDD-4AD3-9A39-1448C624325B}">
+									<Language>SFX</Language>
+									<AudioFile>SwordSwing-01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="785817419"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SwordSwing-01" ID="{074B8656-9EDD-4AD3-9A39-1448C624325B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SwordSwing-02" ID="{C815D108-0538-4BE6-A922-CDF49262251A}" ShortID="599791841">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SwordSwing-02" ID="{EA1274C2-4085-4172-9595-167DC23DA362}">
+									<Language>SFX</Language>
+									<AudioFile>SwordSwing-02.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1041528994"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SwordSwing-02" ID="{EA1274C2-4085-4172-9595-167DC23DA362}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SwordSwing-03" ID="{D514E25C-739D-4A5E-B659-532547A847A5}" ShortID="60396209">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SwordSwing-03" ID="{91C90A7A-04E0-4273-B967-D500079CDAB7}">
+									<Language>SFX</Language>
+									<AudioFile>SwordSwing-03.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="157051879"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SwordSwing-03" ID="{91C90A7A-04E0-4273-B967-D500079CDAB7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SwordSwing-04" ID="{263A2056-C114-4438-9A24-DBDE5E7C41D9}" ShortID="125995901">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SwordSwing-04" ID="{6D7CC52C-F864-4AAA-BEF1-A36EFAB523D0}">
+									<Language>SFX</Language>
+									<AudioFile>SwordSwing-04.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="880489828"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SwordSwing-04" ID="{6D7CC52C-F864-4AAA-BEF1-A36EFAB523D0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SwordSwing-05" ID="{73DE2E31-92C6-4F18-89F3-43534CD11EA2}" ShortID="439228318">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SwordSwing-05" ID="{0F5CBA3C-3ABC-4440-8FC3-9E5234098882}">
+									<Language>SFX</Language>
+									<AudioFile>SwordSwing-05.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1004620782"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SwordSwing-05" ID="{0F5CBA3C-3ABC-4440-8FC3-9E5234098882}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SwordSwing-06" ID="{5784B363-8D66-45A7-B2EC-CA471FA3D35A}" ShortID="170824916">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SwordSwing-06" ID="{FBF8F5EC-D5BA-4863-97C6-18EC5D74221A}">
+									<Language>SFX</Language>
+									<AudioFile>SwordSwing-06.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="711281976"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SwordSwing-06" ID="{FBF8F5EC-D5BA-4863-97C6-18EC5D74221A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SwordSwing-07" ID="{1DBA1B38-E80A-4CA2-9F91-2D2299C530D9}" ShortID="616657314">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SwordSwing-07" ID="{D0E2DF40-32BF-4D5E-9BC6-636FDB2BC72D}">
+									<Language>SFX</Language>
+									<AudioFile>SwordSwing-07.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="827287611"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SwordSwing-07" ID="{D0E2DF40-32BF-4D5E-9BC6-636FDB2BC72D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SwordSwing-08" ID="{A9A03FB4-4C3B-4D16-A448-8EC6EE5BEA61}" ShortID="190458748">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SwordSwing-08" ID="{03C0B7D6-A8C4-44F3-A7FF-618967ED5054}">
+									<Language>SFX</Language>
+									<AudioFile>SwordSwing-08.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="700366924"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SwordSwing-08" ID="{03C0B7D6-A8C4-44F3-A7FF-618967ED5054}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SwordSwing-09" ID="{6C54A25E-6511-4D77-86C3-10F5EB340867}" ShortID="456909248">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SwordSwing-09" ID="{EDA0AF96-8F0B-478A-9416-67CC81B1960B}">
+									<Language>SFX</Language>
+									<AudioFile>SwordSwing-09.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="266374827"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SwordSwing-09" ID="{EDA0AF96-8F0B-478A-9416-67CC81B1960B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SwordSwing-10" ID="{A70E0A37-C557-4570-A289-B7A0172F24D7}" ShortID="106226716">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SwordSwing-10" ID="{3E7F83D7-953B-4049-B3ED-AD150248CA58}">
+									<Language>SFX</Language>
+									<AudioFile>SwordSwing-10.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="310257819"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SwordSwing-10" ID="{3E7F83D7-953B-4049-B3ED-AD150248CA58}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SwordSwing-11" ID="{BBD85315-E717-4EE8-A057-FD231D9361F2}" ShortID="491392062">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SwordSwing-11" ID="{DA111A93-4B2C-4C46-821F-FE5E03D7120C}">
+									<Language>SFX</Language>
+									<AudioFile>SwordSwing-11.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1012071332"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SwordSwing-11" ID="{DA111A93-4B2C-4C46-821F-FE5E03D7120C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SwordSwing-12" ID="{9CFCDEB7-7C2B-42B4-8B30-CEDBBEDA1B66}" ShortID="353232808">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SwordSwing-12" ID="{34AAA1EB-9ED7-4A02-A4C8-B2580BE53DE3}">
+									<Language>SFX</Language>
+									<AudioFile>SwordSwing-12.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="217847425"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SwordSwing-12" ID="{34AAA1EB-9ED7-4A02-A4C8-B2580BE53DE3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SwordSwing-13" ID="{F237E6D4-5CAE-4C40-9FB6-8874EF6A4312}" ShortID="616648580">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SwordSwing-13" ID="{AD8D4763-1AEB-41A7-BF91-D52EA2021790}">
+									<Language>SFX</Language>
+									<AudioFile>SwordSwing-13.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="991199934"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SwordSwing-13" ID="{AD8D4763-1AEB-41A7-BF91-D52EA2021790}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SwordSwing-14" ID="{B5803D97-6943-4126-BF26-C297841CC1E6}" ShortID="848061365">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SwordSwing-14" ID="{45C86543-7C5B-4A6F-BCBE-7E4EB8A15DD7}">
+									<Language>SFX</Language>
+									<AudioFile>SwordSwing-14.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="333227023"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SwordSwing-14" ID="{45C86543-7C5B-4A6F-BCBE-7E4EB8A15DD7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SwordSwing-15" ID="{EF87869C-F0D4-43AD-A333-58DC0CFAA196}" ShortID="644560453">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SwordSwing-15" ID="{7D13D931-B461-44DE-B344-B9C94DE9C619}">
+									<Language>SFX</Language>
+									<AudioFile>SwordSwing-15.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="626088333"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SwordSwing-15" ID="{7D13D931-B461-44DE-B344-B9C94DE9C619}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SwordSwing-16" ID="{32C9EE62-1676-462B-82B0-45A4DA241AFE}" ShortID="361430914">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SwordSwing-16" ID="{A25DA4DE-98C9-4C6E-A24D-1DC6A2626191}">
+									<Language>SFX</Language>
+									<AudioFile>SwordSwing-16.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="104101598"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SwordSwing-16" ID="{A25DA4DE-98C9-4C6E-A24D-1DC6A2626191}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

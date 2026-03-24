@@ -31,6 +31,7 @@ namespace AK
         static const AkUniqueID COINTOSS = 767552063U;
         static const AkUniqueID DOOROPEN = 1404805401U;
         static const AkUniqueID FIREFLINTLOCK = 1820443583U;
+        static const AkUniqueID FOOTSTEPS = 2385628198U;
         static const AkUniqueID GAMEOVER = 4158285989U;
         static const AkUniqueID PLAYERDEATH = 1656947812U;
         static const AkUniqueID PLAYERHEAL = 3216143520U;
@@ -44,6 +45,27 @@ namespace AK
         static const AkUniqueID UI_OPEN = 3282376362U;
         static const AkUniqueID UI_PREVPAGE = 896450232U;
     } // namespace EVENTS
+
+    namespace SWITCHES
+    {
+        namespace FOOTSTEP_TYPE
+        {
+            static const AkUniqueID GROUP = 2615620554U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID GRASSHEAVY = 2525268562U;
+                static const AkUniqueID GRASSLIGHT = 2677407975U;
+                static const AkUniqueID GRAVELHEAVY = 2097603749U;
+                static const AkUniqueID GRAVELLIGHT = 2548727596U;
+                static const AkUniqueID STONEHEAVY = 3929807209U;
+                static const AkUniqueID STONELIGHT = 4103883880U;
+                static const AkUniqueID WOODHEAVY = 1697108119U;
+                static const AkUniqueID WOODLIGHT = 3912760598U;
+            } // namespace SWITCH
+        } // namespace FOOTSTEP_TYPE
+
+    } // namespace SWITCHES
 
     namespace BANKS
     {

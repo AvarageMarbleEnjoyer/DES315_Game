@@ -258,6 +258,13 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{B53F3394-BA32-477C-9CAE-FB46DC3B4AE7}" ShortID="681600089">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Swing" ID="{C71F6D7B-8D77-4870-8652-0F9141A2F267}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="PlayerHurt" ID="{C9E5376F-693F-426D-944B-3352332959A6}">
