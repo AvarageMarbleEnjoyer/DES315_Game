@@ -3686,45 +3686,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1205365639446947225}
     m_Modifications:
-    - target: {fileID: 104069360502810461, guid: a670e0b6e91e3054f853ea546c25b00f, type: 3}
-      propertyPath: detectionRange
-      value: 5.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 104069360502810461, guid: a670e0b6e91e3054f853ea546c25b00f, type: 3}
-      propertyPath: detectionRangeInset
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 104069360502810461, guid: a670e0b6e91e3054f853ea546c25b00f, type: 3}
-      propertyPath: detectionRangeExtension
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2603038295803077821, guid: a670e0b6e91e3054f853ea546c25b00f, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4401718184209166499, guid: a670e0b6e91e3054f853ea546c25b00f, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4943244796617271678, guid: a670e0b6e91e3054f853ea546c25b00f, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059133683681047559, guid: a670e0b6e91e3054f853ea546c25b00f, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6651889019466742930, guid: a670e0b6e91e3054f853ea546c25b00f, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 7226901905096168807, guid: a670e0b6e91e3054f853ea546c25b00f, type: 3}
       propertyPath: m_Name
       value: Torch
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048366823633787759, guid: a670e0b6e91e3054f853ea546c25b00f, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8501543876178029580, guid: a670e0b6e91e3054f853ea546c25b00f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3765,10 +3729,6 @@ PrefabInstance:
     - target: {fileID: 8501543876178029580, guid: a670e0b6e91e3054f853ea546c25b00f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8895196716257243835, guid: a670e0b6e91e3054f853ea546c25b00f, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
