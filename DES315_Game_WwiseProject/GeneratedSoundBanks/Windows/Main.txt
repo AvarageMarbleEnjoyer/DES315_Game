@@ -6,6 +6,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1044338672	ChestClose			\Default Work Unit\Environment\Chest\ChestClose	
 	1138653966	CoinMiss			\Default Work Unit\UI\Coin\CoinMiss	
 	1185467356	BruteHurt			\Default Work Unit\Enemy\Brute\BruteHurt	
+	1404805401	DoorOpen			\Default Work Unit\Environment\Door\DoorOpen	
 	1406895930	CoinSpend			\Default Work Unit\UI\Coin\CoinSpend	
 	1416938370	BruteBlock			\Default Work Unit\Enemy\Brute\BruteBlock	
 	1506802029	BruteHeal			\Default Work Unit\Enemy\Brute\BruteHeal	
@@ -100,6 +101,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	655791488	PlayerPain-06	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\PlayerPain-06_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Player\Pain\PlayerPain-06		147044
 	657464613	EnemyMovePitched-07	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\EnemyMovePitched-07_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Enemy\Brute\Move\EnemyMovePitched-07		51004
 	657975644	CardDeck	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardDeck_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\CardDeck		386256
+	659426776	DoorCreak	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\DoorCreak_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\DoorCreak		362360
 	663322846	EnemyPainPitched-01	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\EnemyPainPitched-01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Enemy\Brute\Pain\EnemyPainPitched-01		100448
 	665544110	CardShuffle-10	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardShuffle-10_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\Shuffle\CardShuffle-10		154748
 	665672550	PrevPage-03	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\PrevPage-03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Previous Page\PrevPage-03		145008

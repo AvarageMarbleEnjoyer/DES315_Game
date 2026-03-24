@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{DB8E208D-7F80-29E6-6562-26DDD2D7C95E}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{34979773-A61B-FABC-4D9B-F75817D8125B}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -305,6 +305,10 @@
 				<File Id="657975644" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CardDeck.wav</ShortName>
 					<CachePath>SFX/CardDeck_10C4C929.wem</CachePath>
+				</File>
+				<File Id="659426776" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DoorCreak.wav</ShortName>
+					<CachePath>SFX/DoorCreak_10C4C929.wem</CachePath>
 				</File>
 				<File Id="663322846" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>EnemyPainPitched-01.wav</ShortName>
@@ -655,6 +659,11 @@
 						<MediaRef Id="412030350"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1404805401" Name="DoorOpen" DurationType="OneShot" DurationMin="2.0536509" DurationMax="2.0536509">
+					<MediaRefs>
+						<MediaRef Id="659426776"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1820443583" Name="FireFlintlock" DurationType="OneShot" DurationMin="4.9040833" DurationMax="4.9040833">
 					<MediaRefs>
 						<MediaRef Id="143551498"/>
@@ -757,5 +766,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{BC8C62EC-7922-7A06-EC66-1B56A87FBF5F}</FileHash>
+	<FileHash>{7BF50E26-8D0D-BF85-E635-A7DC68AA9941}</FileHash>
 </SoundBanksInfo>

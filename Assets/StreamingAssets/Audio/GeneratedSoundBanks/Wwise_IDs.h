@@ -29,6 +29,7 @@ namespace AK
         static const AkUniqueID COINMISS = 1138653966U;
         static const AkUniqueID COINSPEND = 1406895930U;
         static const AkUniqueID COINTOSS = 767552063U;
+        static const AkUniqueID DOOROPEN = 1404805401U;
         static const AkUniqueID FIREFLINTLOCK = 1820443583U;
         static const AkUniqueID GAMEOVER = 4158285989U;
         static const AkUniqueID PLAYERDEATH = 1656947812U;
