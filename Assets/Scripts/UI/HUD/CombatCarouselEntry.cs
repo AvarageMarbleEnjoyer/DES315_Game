@@ -148,6 +148,11 @@ public class CombatCarouselEntry : MonoBehaviour, IPointerEnterHandler, IPointer
         }
 
         transform.localScale = isActive ? activeTurnScale : DefaultScale;
+
+        if (transform.parent != null)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(transform.parent as RectTransform);
+        }
     }
 
     public void SetCompletedState(bool completed)
