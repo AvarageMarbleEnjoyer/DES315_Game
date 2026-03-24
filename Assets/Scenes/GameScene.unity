@@ -6866,7 +6866,7 @@ MonoBehaviour:
     m_Bits: 8
   minMoveDistance: 0.67
   holdMoveLookAhead: 1.5
-  holdMoveMinSpeedDistance: 0.25
+  holdMoveMinSpeedDistance: 0.67
   holdMoveMaxSpeedDistance: 3
   holdMoveMinSpeedFraction: 0.15
   inputActions: {fileID: -944628639613478452, guid: 102f2d70ec95fd1498234180cf7b19b5, type: 3}
@@ -9202,7 +9202,7 @@ MonoBehaviour:
   moveSpeed: 8
   fastMoveMultiplier: 2
   rotateSpeed: 0.3
-  offsetVector: {x: 0, y: -6, z: 10}
+  offsetVector: {x: 0, y: -6, z: 11}
   player: {fileID: 1107796543}
   playerController: {fileID: 1107796539}
   followLerpSpeed: 8

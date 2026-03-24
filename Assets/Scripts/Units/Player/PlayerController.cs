@@ -322,7 +322,6 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void UpdateHoldMovement()
     {
-        if (isPointerOverUI) return;
         if (mainCamera == null) return;
         if (pointerPositionAction == null) return;
 
@@ -340,6 +339,14 @@ public class PlayerController : MonoBehaviour
         Vector3 toTarget = targetPoint - transform.position;
         toTarget.y = 0f;
         float cursorDistance = toTarget.magnitude;
+
+        if (cursorDistance < minMoveDistance)
+        {
+            agent.isStopped = true;
+            agent.ResetPath();
+            agent.speed = agentBaseSpeed;
+            return;
+        }
 
         float t = Mathf.InverseLerp(holdMoveMinSpeedDistance, holdMoveMaxSpeedDistance, cursorDistance);
         agent.speed = Mathf.Lerp(agentBaseSpeed * holdMoveMinSpeedFraction, agentBaseSpeed, t);
