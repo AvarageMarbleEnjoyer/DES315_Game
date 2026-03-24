@@ -36,6 +36,9 @@ public class DungeonGenerator : MonoBehaviour
     public bool generateOnStart = true;
     public bool showDebugLogs = true;
 
+    public static bool HasPendingSeed = false;
+    public static int PendingSeed = 0;
+
     //Grid Data//
     private CellData[,] grid;
     private List<Room> rooms = new List<Room>();
@@ -56,7 +59,13 @@ public class DungeonGenerator : MonoBehaviour
     public void GenerateDungeon()
     {
         //Seed setup//
-        if(useRandomSeed)
+        if (HasPendingSeed)
+        {
+            useRandomSeed = false;
+            seed = PendingSeed;
+            HasPendingSeed = false;
+        }
+        else if(useRandomSeed)
         {
             //Random seed based on time//
             seed = System.Environment.TickCount;

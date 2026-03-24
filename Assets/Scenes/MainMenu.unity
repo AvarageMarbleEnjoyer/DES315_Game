@@ -1546,7 +1546,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -90, y: -20}
+  m_AnchoredPosition: {x: -90, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1272170925
@@ -1961,7 +1961,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 13158600
+    rgba: 4291348680
   m_fontColor: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2842,6 +2842,7 @@ MonoBehaviour:
   menuAnimator: {fileID: 2011529240}
   animationTriggerName: Start
   playTriggerName: Play
+  seedInputField: {fileID: 901999064}
   titleClip: {fileID: 0}
   startGameClip: {fileID: 8300000, guid: 76cf177c33a5ce44cb486c6c3db7ff74, type: 3}
   backgroundMusicAudioSource: {fileID: 1511697162}
