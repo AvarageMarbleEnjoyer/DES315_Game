@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B361B13A-6FE2-E192-4251-FC4A5E4B59C4}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{42BD26FD-BD4D-A1BA-BAC3-54F682D645F2}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -206,9 +206,21 @@
 					<ShortName>PlayerHeal-04.wav</ShortName>
 					<CachePath>SFX/PlayerHeal-04_10C4C929.wem</CachePath>
 				</File>
+				<File Id="412030350" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>CoinToss.wav</ShortName>
+					<CachePath>SFX/CoinToss_10C4C929.wem</CachePath>
+				</File>
 				<File Id="420762295" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CardPick.wav</ShortName>
 					<CachePath>SFX/CardPick_10C4C929.wem</CachePath>
+				</File>
+				<File Id="437784108" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>CoinDrop.wav</ShortName>
+					<CachePath>SFX/CoinDrop_10C4C929.wem</CachePath>
+				</File>
+				<File Id="439767275" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>CoinSpin.wav</ShortName>
+					<CachePath>SFX/CoinSpin_10C4C929.wem</CachePath>
 				</File>
 				<File Id="462432207" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>laugh.wav</ShortName>
@@ -225,6 +237,10 @@
 				<File Id="505645022" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NextPage-02.wav</ShortName>
 					<CachePath>SFX/NextPage-02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="510667287" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>CoinSpend.wav</ShortName>
+					<CachePath>SFX/CoinSpend_10C4C929.wem</CachePath>
 				</File>
 				<File Id="519282052" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NextPage-06.wav</ShortName>
@@ -606,12 +622,32 @@
 						<MediaRef Id="657975644"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1138653966" Name="CoinMiss" DurationType="OneShot" DurationMin="1.1760209" DurationMax="1.1760209">
+					<MediaRefs>
+						<MediaRef Id="437784108"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1406895930" Name="CoinSpend" DurationType="OneShot" DurationMin="0.9872083" DurationMax="0.9872083">
+					<MediaRefs>
+						<MediaRef Id="510667287"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="767552063" Name="CoinToss" DurationType="OneShot" DurationMin="1.3749167" DurationMax="1.3749167">
+					<MediaRefs>
+						<MediaRef Id="412030350"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1820443583" Name="FireFlintlock" DurationType="OneShot" DurationMin="4.9040833" DurationMax="4.9040833">
 					<MediaRefs>
 						<MediaRef Id="143551498"/>
 						<MediaRef Id="529643543"/>
 						<MediaRef Id="695088713"/>
 						<MediaRef Id="849152164"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4158285989" Name="GameOver" DurationType="OneShot" DurationMin="6.403479" DurationMax="6.403479">
+					<MediaRefs>
+						<MediaRef Id="439767275"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1656947812" Name="PlayerDeath" DurationType="OneShot" DurationMin="1.297375" DurationMax="3.0626667">
@@ -703,5 +739,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{8378AED6-C8B0-2D90-7E74-B1C6318A0785}</FileHash>
+	<FileHash>{1B28F51D-B304-78AF-9216-48FDD9A1A26E}</FileHash>
 </SoundBanksInfo>

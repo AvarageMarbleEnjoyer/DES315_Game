@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: dcd16b5045f7b543aa1b29726e8d04c5
     GuidInternal: 
-    m_lastTime: -8584276648705446370
+    m_lastTime: -8584276643926055604
     List:
     - name: Main
       guid: a76016c4fbd16749a63ebf224c7e39e9
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: a9bc6e9a3eb20245be45984b119a8d05
     GuidInternal: 
-    m_lastTime: -8584276648705543452
+    m_lastTime: -8584276643686728938
     List:
     - name: Ability
       guid: 39a7dd393af0e54f992b46e11d1ac476
@@ -423,6 +423,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.01125
       minDuration: 2.01125
+    - name: Coin
+      guid: b92513eb094d434cbeca0340c747f843
+      id: 3603273110
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: a9bc6e9a3eb20245be45984b119a8d05
+      - ElementName: UI
+        ObjectType: 4
+        guid: 83240d1471b36247a77f2530d088d24c
+      - ElementName: Coin
+        ObjectType: 4
+        guid: b92513eb094d434cbeca0340c747f843
+      Path: Events\Default Work Unit\UI\Coin
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Enemy
       guid: 2bddf30553de9e4fbb1037fe4dd10b02
       id: 2299321487
@@ -614,6 +634,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.6948752
       minDuration: 1.6948752
+    - name: TorchLoop
+      guid: b9a7e237f118bf428b0447f10797d8f6
+      id: 4171534483
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: a9bc6e9a3eb20245be45984b119a8d05
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 3ceee5d65a895d41a1802f5bc4aba646
+      - ElementName: TorchLoop
+        ObjectType: 3
+        guid: b9a7e237f118bf428b0447f10797d8f6
+      Path: Events\Default Work Unit\Environment\TorchLoop
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: UI
       guid: 83240d1471b36247a77f2530d088d24c
       id: 1551306167

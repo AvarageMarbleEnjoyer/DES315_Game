@@ -112,7 +112,54 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
-						<Folder Name="Coin" ID="{EB1325B9-4D09-4C43-BECA-0340C747F843}" ShortID="795257008"/>
+						<Folder Name="Coin" ID="{EB1325B9-4D09-4C43-BECA-0340C747F843}" ShortID="795257008">
+							<ChildrenList>
+								<Event Name="GameOver" ID="{39246F61-98FA-4EF6-A9DF-BB0569DD52D4}">
+									<ChildrenList>
+										<Action Name="" ID="{1AF0A91C-23C5-4B5A-AE5D-7F0A07767AF1}" ShortID="128055835">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="CoinSpin" ID="{182F6A18-5F36-48CA-B4E4-ED1805FC58B3}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="CoinToss" ID="{90787D80-C0E5-49FA-AE42-41AD69316D83}">
+									<ChildrenList>
+										<Action Name="" ID="{C0DDF30C-F0B9-428C-877D-FE1341F7DE28}" ShortID="111096869">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="CoinToss" ID="{191C6E9A-ED1D-44A5-82D2-862D097443F1}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="CoinSpend" ID="{9AEF2D0A-E029-453B-BDC0-3B4C2D3155F6}">
+									<ChildrenList>
+										<Action Name="" ID="{2F57E8BB-1FC2-4A1B-B65C-C46583EA3435}" ShortID="173232570">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="CoinSpend" ID="{B429C016-1A6E-43C6-85E7-0F3D8B9AF5B6}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="CoinMiss" ID="{ABA88992-47B1-4C2E-B706-F8204CA4CD30}">
+									<ChildrenList>
+										<Action Name="" ID="{DC7B81E3-DC16-41BE-AE22-C7DDBEE576C6}" ShortID="715922270">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="CoinDrop" ID="{F07EC311-09A0-47E0-A297-02C374528F27}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Enemy" ID="{05F3DD2B-DE53-4F9E-BB10-37FE4DD10B02}" ShortID="337837427">

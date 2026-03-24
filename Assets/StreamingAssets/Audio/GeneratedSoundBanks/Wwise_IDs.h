@@ -24,7 +24,11 @@ namespace AK
         static const AkUniqueID CARDUI_PICK = 2669983563U;
         static const AkUniqueID CARDUI_SHUFFLE = 2654324891U;
         static const AkUniqueID CARDUI_START = 2185107916U;
+        static const AkUniqueID COINMISS = 1138653966U;
+        static const AkUniqueID COINSPEND = 1406895930U;
+        static const AkUniqueID COINTOSS = 767552063U;
         static const AkUniqueID FIREFLINTLOCK = 1820443583U;
+        static const AkUniqueID GAMEOVER = 4158285989U;
         static const AkUniqueID PLAYERDEATH = 1656947812U;
         static const AkUniqueID PLAYERHEAL = 3216143520U;
         static const AkUniqueID PLAYERHURT = 3537581393U;

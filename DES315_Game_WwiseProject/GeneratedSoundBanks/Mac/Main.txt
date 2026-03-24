@@ -1,8 +1,11 @@
 Event	ID	Name			Wwise Object Path	Notes
 	717429066	TorchBreak			\Default Work Unit\Environment\TorchBreak	
+	767552063	CoinToss			\Default Work Unit\UI\Coin\CoinToss	
 	896450232	UI_PrevPage			\Default Work Unit\UI\Book\UI_PrevPage	
 	982717551	CardUI_End			\Default Work Unit\UI\Card\CardUI_End	
+	1138653966	CoinMiss			\Default Work Unit\UI\Coin\CoinMiss	
 	1185467356	BruteHurt			\Default Work Unit\Enemy\Brute\BruteHurt	
+	1406895930	CoinSpend			\Default Work Unit\UI\Coin\CoinSpend	
 	1416938370	BruteBlock			\Default Work Unit\Enemy\Brute\BruteBlock	
 	1506802029	BruteHeal			\Default Work Unit\Enemy\Brute\BruteHeal	
 	1580047315	BruteAttack			\Default Work Unit\Enemy\Brute\BruteAttack	
@@ -21,6 +24,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3282376362	UI_Open			\Default Work Unit\UI\Book\UI_Open	
 	3537581393	PlayerHurt			\Default Work Unit\Player\PlayerHurt	
 	4049969704	CardUI_Confirm			\Default Work Unit\UI\Card\CardUI_Confirm	
+	4158285989	GameOver			\Default Work Unit\UI\Coin\GameOver	
 	4171534483	TorchLoop			\Default Work Unit\Environment\TorchLoop	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
@@ -69,11 +73,15 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	330218231	NextPage-03	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\NextPage-03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Next Page\NextPage-03		249808
 	330687773	EnemyReliefPitched-03	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\EnemyReliefPitched-03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Enemy\Brute\Heal\EnemyReliefPitched-03		151480
 	376520905	PlayerHeal-04	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\PlayerHeal-04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Player\Heal\PlayerHeal-04		119048
+	412030350	CoinToss	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\CoinToss_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Coin\CoinToss		264080
 	420762295	CardPick	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\CardPick_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\CardPick		175632
+	437784108	CoinDrop	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\CoinDrop_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Coin\CoinDrop		225892
+	439767275	CoinSpin	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\CoinSpin_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Coin\CoinSpin		1229564
 	462432207	laugh	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\laugh_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Player\laugh		289726
 	475601476	PlayerDeath-03	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\PlayerDeath-03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Player\Death\PlayerDeath-03		124644
 	483124774	BookOpen	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\BookOpen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\BookOpen		315488
 	505645022	NextPage-02	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\NextPage-02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Next Page\NextPage-02		185460
+	510667287	CoinSpend	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\CoinSpend_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Coin\CoinSpend		189640
 	519282052	NextPage-06	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\NextPage-06_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Next Page\NextPage-06		213088
 	529643543	Flintlock 4	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\Flintlock 4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Flintlock\Flintlock 4		941680
 	534091470	PrevPage-02	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Mac\SFX\PrevPage-02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Previous Page\PrevPage-02		92644
