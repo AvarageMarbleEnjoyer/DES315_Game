@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{42BD26FD-BD4D-A1BA-BAC3-54F682D645F2}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{DB8E208D-7F80-29E6-6562-26DDD2D7C95E}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -322,6 +322,10 @@
 					<ShortName>PlayerSwing-04.wav</ShortName>
 					<CachePath>SFX/PlayerSwing-04_10C4C929.wem</CachePath>
 				</File>
+				<File Id="676851213" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Small chest close.wav</ShortName>
+					<CachePath>SFX/Small chest close_10C4C929.wem</CachePath>
+				</File>
 				<File Id="677645746" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>PlayerScream-03.wav</ShortName>
 					<CachePath>SFX/PlayerScream-03_10C4C929.wem</CachePath>
@@ -409,6 +413,10 @@
 				<File Id="838580558" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>EnemyMovePitched-10.wav</ShortName>
 					<CachePath>SFX/EnemyMovePitched-10_10C4C929.wem</CachePath>
+				</File>
+				<File Id="841292470" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Small chest open.wav</ShortName>
+					<CachePath>SFX/Small chest open_10C4C929.wem</CachePath>
 				</File>
 				<File Id="841672711" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>PlayerDeath-01.wav</ShortName>
@@ -622,6 +630,16 @@
 						<MediaRef Id="657975644"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1044338672" Name="ChestClose" DurationType="OneShot" DurationMin="1.6163125" DurationMax="1.6163125">
+					<MediaRefs>
+						<MediaRef Id="676851213"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2892697348" Name="ChestOpen" DurationType="OneShot" DurationMin="1.775669" DurationMax="1.775669">
+					<MediaRefs>
+						<MediaRef Id="841292470"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1138653966" Name="CoinMiss" DurationType="OneShot" DurationMin="1.1760209" DurationMax="1.1760209">
 					<MediaRefs>
 						<MediaRef Id="437784108"/>
@@ -739,5 +757,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{1B28F51D-B304-78AF-9216-48FDD9A1A26E}</FileHash>
+	<FileHash>{B95B2A1C-62DA-2E2D-C45F-444E56677E10}</FileHash>
 </SoundBanksInfo>

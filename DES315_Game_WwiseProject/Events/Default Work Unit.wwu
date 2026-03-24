@@ -319,28 +319,58 @@
 				</Folder>
 				<Folder Name="Environment" ID="{D6E5EE3C-895A-415D-A180-2F5BC4ABA646}" ShortID="931648211">
 					<ChildrenList>
-						<Event Name="TorchBreak" ID="{8CA9EF57-14CF-43F3-A51E-29FA1E74CB7A}">
+						<Folder Name="Torch" ID="{1717C68A-6827-4B4C-9AFB-4B6C73410531}" ShortID="348673050">
 							<ChildrenList>
-								<Action Name="" ID="{5CA2F28E-EEC6-484A-BA1F-6975DEC78F4E}" ShortID="649112430">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="TorchBreakShort" ID="{D5BDA56C-9FD6-4B24-BDC2-DD7253566E15}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
+								<Event Name="TorchBreak" ID="{8CA9EF57-14CF-43F3-A51E-29FA1E74CB7A}">
+									<ChildrenList>
+										<Action Name="" ID="{5CA2F28E-EEC6-484A-BA1F-6975DEC78F4E}" ShortID="649112430">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="TorchBreakShort" ID="{D5BDA56C-9FD6-4B24-BDC2-DD7253566E15}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="TorchLoop" ID="{37E2A7B9-18F1-42BF-8B04-47F10797D8F6}">
+									<ChildrenList>
+										<Action Name="" ID="{49E73046-999A-445E-A98F-C611F18B3B6B}" ShortID="705604880">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Fire SND8761 Compressed" ID="{624CC96B-6020-4074-9772-847DDB3983DA}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
-						</Event>
-						<Event Name="TorchLoop" ID="{37E2A7B9-18F1-42BF-8B04-47F10797D8F6}">
+						</Folder>
+						<Folder Name="Chest" ID="{4DC420E5-8721-4748-B057-B50BD0ADEF24}" ShortID="687515647">
 							<ChildrenList>
-								<Action Name="" ID="{49E73046-999A-445E-A98F-C611F18B3B6B}" ShortID="705604880">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Fire SND8761 Compressed" ID="{624CC96B-6020-4074-9772-847DDB3983DA}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
+								<Event Name="ChestOpen" ID="{77C0B971-9ACE-4617-BD43-4C055F2F5B0A}">
+									<ChildrenList>
+										<Action Name="" ID="{9F4DBB07-B640-489C-B5A3-2EF6439D96C5}" ShortID="463468636">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Small chest open" ID="{5CC6221E-BB94-46EF-8AAE-8A0428121D0A}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="ChestClose" ID="{6EBBF05A-218F-4591-A6C7-E5603911F8FF}">
+									<ChildrenList>
+										<Action Name="" ID="{2E8D3327-25D5-4D94-9A1B-1B122FFBF341}" ShortID="949054068">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Small chest close" ID="{D521E91B-C9D4-45F6-98BB-9B37798C123E}" WorkUnitID="{7959C9E0-BA15-4686-B24C-87E196EF1927}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
-						</Event>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

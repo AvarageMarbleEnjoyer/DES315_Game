@@ -24,6 +24,8 @@ namespace AK
         static const AkUniqueID CARDUI_PICK = 2669983563U;
         static const AkUniqueID CARDUI_SHUFFLE = 2654324891U;
         static const AkUniqueID CARDUI_START = 2185107916U;
+        static const AkUniqueID CHESTCLOSE = 1044338672U;
+        static const AkUniqueID CHESTOPEN = 2892697348U;
         static const AkUniqueID COINMISS = 1138653966U;
         static const AkUniqueID COINSPEND = 1406895930U;
         static const AkUniqueID COINTOSS = 767552063U;

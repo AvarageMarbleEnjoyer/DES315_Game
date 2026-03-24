@@ -1,8 +1,9 @@
 Event	ID	Name			Wwise Object Path	Notes
-	717429066	TorchBreak			\Default Work Unit\Environment\TorchBreak	
+	717429066	TorchBreak			\Default Work Unit\Environment\Torch\TorchBreak	
 	767552063	CoinToss			\Default Work Unit\UI\Coin\CoinToss	
 	896450232	UI_PrevPage			\Default Work Unit\UI\Book\UI_PrevPage	
 	982717551	CardUI_End			\Default Work Unit\UI\Card\CardUI_End	
+	1044338672	ChestClose			\Default Work Unit\Environment\Chest\ChestClose	
 	1138653966	CoinMiss			\Default Work Unit\UI\Coin\CoinMiss	
 	1185467356	BruteHurt			\Default Work Unit\Enemy\Brute\BruteHurt	
 	1406895930	CoinSpend			\Default Work Unit\UI\Coin\CoinSpend	
@@ -20,12 +21,13 @@ Event	ID	Name			Wwise Object Path	Notes
 	2566684358	Bloodstorm			\Default Work Unit\Ability\Bloodstorm	
 	2654324891	CardUI_Shuffle			\Default Work Unit\UI\Card\CardUI_Shuffle	
 	2669983563	CardUI_Pick			\Default Work Unit\UI\Card\CardUI_Pick	
+	2892697348	ChestOpen			\Default Work Unit\Environment\Chest\ChestOpen	
 	3216143520	PlayerHeal			\Default Work Unit\Player\PlayerHeal	
 	3282376362	UI_Open			\Default Work Unit\UI\Book\UI_Open	
 	3537581393	PlayerHurt			\Default Work Unit\Player\PlayerHurt	
 	4049969704	CardUI_Confirm			\Default Work Unit\UI\Card\CardUI_Confirm	
 	4158285989	GameOver			\Default Work Unit\UI\Coin\GameOver	
-	4171534483	TorchLoop			\Default Work Unit\Environment\TorchLoop	
+	4171534483	TorchLoop			\Default Work Unit\Environment\Torch\TorchLoop	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	19904816	EnemyAttackPitched-02	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\EnemyAttackPitched-02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Enemy\Brute\Attack\EnemyAttackPitched-02		99806
@@ -102,6 +104,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	665544110	CardShuffle-10	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardShuffle-10_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\Shuffle\CardShuffle-10		154748
 	665672550	PrevPage-03	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\PrevPage-03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Book\Previous Page\PrevPage-03		145008
 	673919322	PlayerSwing-04	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\PlayerSwing-04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Player\Sword\PlayerSwing-04		118818
+	676851213	Small chest close	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\Small chest close_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Treasure_Chest\Small chest close		155262
 	677645746	PlayerScream-03	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\PlayerScream-03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Player\Death\PlayerScream-03		136926
 	681916834	EnemyReliefPitched-02	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\EnemyReliefPitched-02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Enemy\Brute\Heal\EnemyReliefPitched-02		156610
 	686190957	TorchBreakShort	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\TorchBreakShort_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\TorchBreakShort		299072
@@ -124,6 +127,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	801224307	EnemyPainPitched-06	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\EnemyPainPitched-06_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Enemy\Brute\Pain\EnemyPainPitched-06		95350
 	823887887	PlayerDeath-04	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\PlayerDeath-04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Player\Death\PlayerDeath-04		294112
 	838580558	EnemyMovePitched-10	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\EnemyMovePitched-10_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Enemy\Brute\Move\EnemyMovePitched-10		94000
+	841292470	Small chest open	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\Small chest open_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Treasure_Chest\Small chest open		313324
 	841672711	PlayerDeath-01	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\PlayerDeath-01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Vocals\Player\Death\PlayerDeath-01		222650
 	848642799	CardShuffle-02	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\CardShuffle-02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Cards\Shuffle\CardShuffle-02		137868
 	849152164	Flintlock 3	C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\.cache\Windows\SFX\Flintlock 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Flintlock\Flintlock 3		941680

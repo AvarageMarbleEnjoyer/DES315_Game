@@ -14,7 +14,9 @@
 						<ObjectRef Name="CardUI_Shuffle" ID="{7482BE4D-B7F8-442A-9ED0-CCB2F921C702}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="CardUI_Pick" ID="{9E13AE7C-A9F9-4453-9461-304096ED4BEE}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="CoinSpend" ID="{9AEF2D0A-E029-453B-BDC0-3B4C2D3155F6}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="ChestClose" ID="{6EBBF05A-218F-4591-A6C7-E5603911F8FF}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerMeleeAttack" ID="{DF4F44C0-FA44-45F8-A677-E6AFF8116AB1}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="ChestOpen" ID="{77C0B971-9ACE-4617-BD43-4C055F2F5B0A}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="CardUI_End" ID="{E30A3ECC-5488-4647-A48C-D10B825A571B}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Bloodstorm" ID="{8DB008DD-5B92-476C-8E08-1E32C11AFEE0}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="BruteMove" ID="{B43324FD-5453-48A8-8CC0-C561BCE73EB5}" WorkUnitID="{9A6EBCA9-B23E-4502-BE45-984B119A8D05}" Origin="Manual" Filter="7"/>

@@ -2951,6 +2951,54 @@
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Ambience" ID="{4075EB79-4C26-4497-A092-55D63D6F5F1D}" ShortID="691712687"/>
+				<Folder Name="Treasure_Chest" ID="{2ECC48DC-DFCF-4529-9A39-74D23B0CCAD4}" ShortID="359233844">
+					<ChildrenList>
+						<Sound Name="Small chest close" ID="{D521E91B-C9D4-45F6-98BB-9B37798C123E}" ShortID="226157660">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Small chest close" ID="{92D02269-354F-488F-B362-FF50FCFE34D4}">
+									<Language>SFX</Language>
+									<AudioFile>Small chest close.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="676851213"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Small chest close" ID="{92D02269-354F-488F-B362-FF50FCFE34D4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Small chest open" ID="{5CC6221E-BB94-46EF-8AAE-8A0428121D0A}" ShortID="134511865">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1E5F7964-3D42-4373-8FF8-4F5B1C06A694}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{DBF2826D-0721-461C-B147-4A3F1A74FED0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Small chest open" ID="{34FFE85D-C0E3-4D8F-9EB9-016F8F2B38BA}">
+									<Language>SFX</Language>
+									<AudioFile>Small chest open.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="841292470"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Small chest open" ID="{34FFE85D-C0E3-4D8F-9EB9-016F8F2B38BA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
