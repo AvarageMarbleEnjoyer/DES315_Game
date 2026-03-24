@@ -330,6 +330,7 @@ MonoBehaviour:
   revealDistance: 3.14159
   visibilityCheckInterval: 0.1
   hiddenMaterial: {fileID: 0}
+  proximityDetectDistance: 1
   farHideDistance: 20
 --- !u!114 &8568050635138050564
 MonoBehaviour:

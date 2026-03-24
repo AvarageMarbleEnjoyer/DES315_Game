@@ -22,6 +22,10 @@ public class Enemy : Unit
     [Tooltip("Material applied to all renderers while the enemy is hidden in shadow.")]
     [SerializeField] private Material hiddenMaterial;
 
+    [Header("Proximity Detection")]
+    [Tooltip("If the player gets within this distance the enemy instantly detects them, regardless of line of sight or light. Set to 0 to disable.")]
+    [SerializeField] private float proximityDetectDistance = 2f;
+
     [Header("Distance Hiding")]
     [Tooltip("Enemies beyond this distance from the player will have their model hidden. Set to 0 to disable.")]
     [SerializeField] private float farHideDistance = 20f;
@@ -32,6 +36,7 @@ public class Enemy : Unit
     private bool hasBeenRevealed;
     private bool hiddenMaterialApplied;
     private bool isHiddenByDistance;
+    private bool proximityDetected;
     private float visibilityTimer;
 
     public bool IsHiddenFromPlayer => hiddenMaterialApplied;
@@ -93,6 +98,7 @@ public class Enemy : Unit
 
         UpdateVisibility();
         UpdateDistanceVisibility();
+        UpdateProximityDetection();
     }
 
     private void UpdateVisibility()
@@ -109,6 +115,20 @@ public class Enemy : Unit
         {
             ApplyHiddenMaterial();
         }
+    }
+
+    /// <summary>
+    /// Instantly detects the player when they enter proximityDetectDistance, bypassing LoS and light checks.
+    /// </summary>
+    private void UpdateProximityDetection()
+    {
+        if (proximityDetected || proximityDetectDistance <= 0f || playerController == null) return;
+
+        float distSqr = (transform.position - playerController.transform.position).sqrMagnitude;
+        if (distSqr > proximityDetectDistance * proximityDetectDistance) return;
+
+        proximityDetected = true;
+        OnPlayerEnteredVisionCone();
     }
 
     /// <summary>
