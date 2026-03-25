@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: dcd16b5045f7b543aa1b29726e8d04c5
     GuidInternal: 
-    m_lastTime: -8584276643926055604
+    m_lastTime: -8584272457193113518
     List:
     - name: Main
       guid: a76016c4fbd16749a63ebf224c7e39e9
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: a9bc6e9a3eb20245be45984b119a8d05
     GuidInternal: 
-    m_lastTime: -8584276643686728938
+    m_lastTime: -8584272432215610024
     List:
     - name: Ability
       guid: 39a7dd393af0e54f992b46e11d1ac476
@@ -423,6 +423,72 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.01125
       minDuration: 2.01125
+    - name: Chest
+      guid: e520c44d21874847b057b50bd0adef24
+      id: 14239492
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: a9bc6e9a3eb20245be45984b119a8d05
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 3ceee5d65a895d41a1802f5bc4aba646
+      - ElementName: Chest
+        ObjectType: 4
+        guid: e520c44d21874847b057b50bd0adef24
+      Path: Events\Default Work Unit\Environment\Chest
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: ChestClose
+      guid: 5af0bb6e8f219145a6c7e5603911f8ff
+      id: 1044338672
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: a9bc6e9a3eb20245be45984b119a8d05
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 3ceee5d65a895d41a1802f5bc4aba646
+      - ElementName: Chest
+        ObjectType: 4
+        guid: e520c44d21874847b057b50bd0adef24
+      - ElementName: ChestClose
+        ObjectType: 3
+        guid: 5af0bb6e8f219145a6c7e5603911f8ff
+      Path: Events\Default Work Unit\Environment\Chest\ChestClose
+      maxAttenuation: 0
+      maxDuration: 1.6163125
+      minDuration: 1.6163125
+    - name: ChestOpen
+      guid: 71b9c077ce9a1746bd434c055f2f5b0a
+      id: 2892697348
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: a9bc6e9a3eb20245be45984b119a8d05
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 3ceee5d65a895d41a1802f5bc4aba646
+      - ElementName: Chest
+        ObjectType: 4
+        guid: e520c44d21874847b057b50bd0adef24
+      - ElementName: ChestOpen
+        ObjectType: 3
+        guid: 71b9c077ce9a1746bd434c055f2f5b0a
+      Path: Events\Default Work Unit\Environment\Chest\ChestOpen
+      maxAttenuation: 0
+      maxDuration: 1.775669
+      minDuration: 1.775669
     - name: Coin
       guid: b92513eb094d434cbeca0340c747f843
       id: 3603273110
@@ -443,6 +509,118 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: CoinMiss
+      guid: 9289a8abb1472e4cb706f8204ca4cd30
+      id: 1138653966
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: a9bc6e9a3eb20245be45984b119a8d05
+      - ElementName: UI
+        ObjectType: 4
+        guid: 83240d1471b36247a77f2530d088d24c
+      - ElementName: Coin
+        ObjectType: 4
+        guid: b92513eb094d434cbeca0340c747f843
+      - ElementName: CoinMiss
+        ObjectType: 3
+        guid: 9289a8abb1472e4cb706f8204ca4cd30
+      Path: Events\Default Work Unit\UI\Coin\CoinMiss
+      maxAttenuation: 0
+      maxDuration: 1.1760209
+      minDuration: 1.1760209
+    - name: CoinSpend
+      guid: 0a2def9a29e03b45bdc03b4c2d3155f6
+      id: 1406895930
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: a9bc6e9a3eb20245be45984b119a8d05
+      - ElementName: UI
+        ObjectType: 4
+        guid: 83240d1471b36247a77f2530d088d24c
+      - ElementName: Coin
+        ObjectType: 4
+        guid: b92513eb094d434cbeca0340c747f843
+      - ElementName: CoinSpend
+        ObjectType: 3
+        guid: 0a2def9a29e03b45bdc03b4c2d3155f6
+      Path: Events\Default Work Unit\UI\Coin\CoinSpend
+      maxAttenuation: 0
+      maxDuration: 0.9872083
+      minDuration: 0.9872083
+    - name: CoinToss
+      guid: 807d7890e5c0fa49ae4241ad69316d83
+      id: 767552063
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: a9bc6e9a3eb20245be45984b119a8d05
+      - ElementName: UI
+        ObjectType: 4
+        guid: 83240d1471b36247a77f2530d088d24c
+      - ElementName: Coin
+        ObjectType: 4
+        guid: b92513eb094d434cbeca0340c747f843
+      - ElementName: CoinToss
+        ObjectType: 3
+        guid: 807d7890e5c0fa49ae4241ad69316d83
+      Path: Events\Default Work Unit\UI\Coin\CoinToss
+      maxAttenuation: 0
+      maxDuration: 1.3749167
+      minDuration: 1.3749167
+    - name: Door
+      guid: a2f96bb5215a4646af9ee3d9c2a5c1c2
+      id: 1877847629
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: a9bc6e9a3eb20245be45984b119a8d05
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 3ceee5d65a895d41a1802f5bc4aba646
+      - ElementName: Door
+        ObjectType: 4
+        guid: a2f96bb5215a4646af9ee3d9c2a5c1c2
+      Path: Events\Default Work Unit\Environment\Door
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: DoorOpen
+      guid: ac3dfefac955144db177da81c4ae59e0
+      id: 1404805401
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: a9bc6e9a3eb20245be45984b119a8d05
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 3ceee5d65a895d41a1802f5bc4aba646
+      - ElementName: Door
+        ObjectType: 4
+        guid: a2f96bb5215a4646af9ee3d9c2a5c1c2
+      - ElementName: DoorOpen
+        ObjectType: 3
+        guid: ac3dfefac955144db177da81c4ae59e0
+      Path: Events\Default Work Unit\Environment\Door\DoorOpen
+      maxAttenuation: 0
+      maxDuration: 2.0536509
+      minDuration: 2.0536509
     - name: Enemy
       guid: 2bddf30553de9e4fbb1037fe4dd10b02
       id: 2299321487
@@ -497,6 +675,66 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 4.9040833
       minDuration: 4.9040833
+    - name: Footsteps
+      guid: a5364ce454f8e24caa32cb1a05ad7942
+      id: 2385628198
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: a9bc6e9a3eb20245be45984b119a8d05
+      - ElementName: Footsteps
+        ObjectType: 4
+        guid: c0ccbc20d01e254c871c0504e3cb85b8
+      - ElementName: Footsteps
+        ObjectType: 3
+        guid: a5364ce454f8e24caa32cb1a05ad7942
+      Path: Events\Default Work Unit\Footsteps\Footsteps
+      maxAttenuation: 0
+      maxDuration: 0.8596042
+      minDuration: 0.30627084
+    - name: Footsteps
+      guid: c0ccbc20d01e254c871c0504e3cb85b8
+      id: 2385628198
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: a9bc6e9a3eb20245be45984b119a8d05
+      - ElementName: Footsteps
+        ObjectType: 4
+        guid: c0ccbc20d01e254c871c0504e3cb85b8
+      Path: Events\Default Work Unit\Footsteps
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: GameOver
+      guid: 616f2439fa98f64ea9dfbb0569dd52d4
+      id: 4158285989
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: a9bc6e9a3eb20245be45984b119a8d05
+      - ElementName: UI
+        ObjectType: 4
+        guid: 83240d1471b36247a77f2530d088d24c
+      - ElementName: Coin
+        ObjectType: 4
+        guid: b92513eb094d434cbeca0340c747f843
+      - ElementName: GameOver
+        ObjectType: 3
+        guid: 616f2439fa98f64ea9dfbb0569dd52d4
+      Path: Events\Default Work Unit\UI\Coin\GameOver
+      maxAttenuation: 0
+      maxDuration: 6.403479
+      minDuration: 6.403479
     - name: Player
       guid: b85b50d7b8a23343b8ec3a43307aa2dc
       id: 1069431850
@@ -612,8 +850,28 @@ MonoBehaviour:
         guid: c0444fdf44faf845a677e6aff8116ab1
       Path: Events\Default Work Unit\Player\PlayerMeleeAttack
       maxAttenuation: 0
-      maxDuration: 1.2366875
+      maxDuration: 1.329
       minDuration: 0.901125
+    - name: Torch
+      guid: 8ac6171727684c4b9afb4b6c73410531
+      id: 1904864137
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: a9bc6e9a3eb20245be45984b119a8d05
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 3ceee5d65a895d41a1802f5bc4aba646
+      - ElementName: Torch
+        ObjectType: 4
+        guid: 8ac6171727684c4b9afb4b6c73410531
+      Path: Events\Default Work Unit\Environment\Torch
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: TorchBreak
       guid: 57efa98ccf14f343a51e29fa1e74cb7a
       id: 717429066
@@ -627,10 +885,13 @@ MonoBehaviour:
       - ElementName: Environment
         ObjectType: 4
         guid: 3ceee5d65a895d41a1802f5bc4aba646
+      - ElementName: Torch
+        ObjectType: 4
+        guid: 8ac6171727684c4b9afb4b6c73410531
       - ElementName: TorchBreak
         ObjectType: 3
         guid: 57efa98ccf14f343a51e29fa1e74cb7a
-      Path: Events\Default Work Unit\Environment\TorchBreak
+      Path: Events\Default Work Unit\Environment\Torch\TorchBreak
       maxAttenuation: 0
       maxDuration: 1.6948752
       minDuration: 1.6948752
@@ -647,10 +908,13 @@ MonoBehaviour:
       - ElementName: Environment
         ObjectType: 4
         guid: 3ceee5d65a895d41a1802f5bc4aba646
+      - ElementName: Torch
+        ObjectType: 4
+        guid: 8ac6171727684c4b9afb4b6c73410531
       - ElementName: TorchLoop
         ObjectType: 3
         guid: b9a7e237f118bf428b0447f10797d8f6
-      Path: Events\Default Work Unit\Environment\TorchLoop
+      Path: Events\Default Work Unit\Environment\Torch\TorchLoop
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -803,8 +1067,154 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: f3bf30519a12b24597aad37322469310
     GuidInternal: 
-    m_lastTime: -8584278479001211485
-    List: []
+    m_lastTime: -8584272458570321175
+    List:
+    - name: Footstep_Type
+      guid: 45a853876e70c24a8e0eb1a54a46ea6a
+      id: 2615620554
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f3bf30519a12b24597aad37322469310
+      - ElementName: Footstep_Type
+        ObjectType: 11
+        guid: 45a853876e70c24a8e0eb1a54a46ea6a
+      Path: Switches\Default Work Unit\Footstep_Type
+      values:
+      - name: GrassHeavy
+        guid: 48441d619b8bd24cb1c6a845771fcbfd
+        id: 2525268562
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: f3bf30519a12b24597aad37322469310
+        - ElementName: Footstep_Type
+          ObjectType: 11
+          guid: 45a853876e70c24a8e0eb1a54a46ea6a
+        - ElementName: GrassHeavy
+          ObjectType: 10
+          guid: 48441d619b8bd24cb1c6a845771fcbfd
+      - name: GrassLight
+        guid: fa751540fc8fc740a42b4d8a76194da1
+        id: 2677407975
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: f3bf30519a12b24597aad37322469310
+        - ElementName: Footstep_Type
+          ObjectType: 11
+          guid: 45a853876e70c24a8e0eb1a54a46ea6a
+        - ElementName: GrassLight
+          ObjectType: 10
+          guid: fa751540fc8fc740a42b4d8a76194da1
+      - name: GravelHeavy
+        guid: f0f4eefba6eea6428c71d649295c1fd2
+        id: 2097603749
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: f3bf30519a12b24597aad37322469310
+        - ElementName: Footstep_Type
+          ObjectType: 11
+          guid: 45a853876e70c24a8e0eb1a54a46ea6a
+        - ElementName: GravelHeavy
+          ObjectType: 10
+          guid: f0f4eefba6eea6428c71d649295c1fd2
+      - name: GravelLight
+        guid: f5b38c92968a664aa5383991a4a511b8
+        id: 2548727596
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: f3bf30519a12b24597aad37322469310
+        - ElementName: Footstep_Type
+          ObjectType: 11
+          guid: 45a853876e70c24a8e0eb1a54a46ea6a
+        - ElementName: GravelLight
+          ObjectType: 10
+          guid: f5b38c92968a664aa5383991a4a511b8
+      - name: StoneHeavy
+        guid: c2a1c45feb18794e8b392790e899f06f
+        id: 3929807209
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: f3bf30519a12b24597aad37322469310
+        - ElementName: Footstep_Type
+          ObjectType: 11
+          guid: 45a853876e70c24a8e0eb1a54a46ea6a
+        - ElementName: StoneHeavy
+          ObjectType: 10
+          guid: c2a1c45feb18794e8b392790e899f06f
+      - name: StoneLight
+        guid: 20a27fae07dbb04a9bc7c52a05c59826
+        id: 4103883880
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: f3bf30519a12b24597aad37322469310
+        - ElementName: Footstep_Type
+          ObjectType: 11
+          guid: 45a853876e70c24a8e0eb1a54a46ea6a
+        - ElementName: StoneLight
+          ObjectType: 10
+          guid: 20a27fae07dbb04a9bc7c52a05c59826
+      - name: WoodHeavy
+        guid: 8b8e6b49c3916c49a1dddbb16f423d77
+        id: 1697108119
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: f3bf30519a12b24597aad37322469310
+        - ElementName: Footstep_Type
+          ObjectType: 11
+          guid: 45a853876e70c24a8e0eb1a54a46ea6a
+        - ElementName: WoodHeavy
+          ObjectType: 10
+          guid: 8b8e6b49c3916c49a1dddbb16f423d77
+      - name: WoodLight
+        guid: 2ccc88e931d2234988ef9000565d0451
+        id: 3912760598
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: f3bf30519a12b24597aad37322469310
+        - ElementName: Footstep_Type
+          ObjectType: 11
+          guid: 45a853876e70c24a8e0eb1a54a46ea6a
+        - ElementName: WoodLight
+          ObjectType: 10
+          guid: 2ccc88e931d2234988ef9000565d0451
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     PathAndIcons:

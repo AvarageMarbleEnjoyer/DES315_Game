@@ -245,11 +245,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fc7d426c72d8a47adae205b8ecb44c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: f7e1664c
+  triggerList: 958ca0ea
   useOtherObject: 0
   actionOnEventType: 3
   curveInterpolation: 4
-  enableActionOnEvent: 1
+  enableActionOnEvent: 0
   data:
     idInternal: 0
     valueGuidInternal: 
