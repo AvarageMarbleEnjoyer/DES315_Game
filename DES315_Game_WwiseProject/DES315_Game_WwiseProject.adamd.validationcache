@@ -2,10 +2,10 @@
 <ValidationCache Version="1" SchemaVersion="110">
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Virtual Acoustics\Default Work Unit.wwu" DateLow="1773758985" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Triggers\Default Work Unit.wwu" DateLow="1773758985" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Switches\Default Work Unit.wwu" DateLow="1773758985" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Switches\Default Work Unit.wwu" DateLow="1774361028" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\States\Default Work Unit.wwu" DateLow="1773758985" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1773758985" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="1773942492" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="1774361166" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Queries\Factory Queries.wwu" DateLow="1773758985" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Queries\Default Work Unit.wwu" DateLow="1773758985" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Presets\Factory Spatial Audio.wwu" DateLow="1773758985" DateHigh="0"/>
@@ -16,16 +16,16 @@
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1773758985" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1773758985" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Game Parameters\Default Work Unit.wwu" DateLow="1773758985" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Events\Default Work Unit.wwu" DateLow="1773942516" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Events\Default Work Unit.wwu" DateLow="1774363663" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Effects\Factory Effects.wwu" DateLow="1773758985" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Effects\Default Work Unit.wwu" DateLow="1773758985" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1773758985" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\DES315_Game_WwiseProject.wproj" DateLow="1773759483" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\DES315_Game_WwiseProject.adamd.wsettings" DateLow="1773942921" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\DES315_Game_WwiseProject.adamd.wsettings" DateLow="1774367795" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1773758985" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Conversion Settings\Default Work Unit.wwu" DateLow="1773758985" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="1773759483" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="1773758985" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="1773758985" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1773942902" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\adamd\Documents\GitHub\DES315_Game\DES315_Game_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1774364021" DateHigh="0"/>
 </ValidationCache>
