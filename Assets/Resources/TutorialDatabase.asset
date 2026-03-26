@@ -21,38 +21,35 @@ MonoBehaviour:
       stand in your way and find the goblet, and your mission is complete.\n<b>Left-click</b>
       anywhere to move.
   - triggerKey: first_move
-    message: You're on the move!\nOutside of combat you can move freely but in combat
-      you can only move so far on your turn. Want to investigate the room without
-      moving? Use <b>WASD</b> to move the camera, and hold <b>right-click</b> to
-      pivot it.
+    message: You're on the move!\nMove Freely out of combat, but in combat only a
+      set amount. Want to investigate the room without moving? Use <b>WASD</b> to
+      move the camera, and hold <b>right-click</b> to pivot it.
   - triggerKey: first_ability_selected
-    message: Abilities are your main tools in combat. Press <b>1, 2, or 3, or click
+    message: 'Abilities are your main tools in combat. Press <b>1, 2, or 3, or click
       the buttons</b> at the bottom to select one, then click a target/area to cast
-      it. Hover over the ability buttons to learn each ability's details. To cancel
-      targeting, press the same ability key again or switch to a different one.
+      it. Hover over the ability buttons to learn their details. To cancel , press
+      the same key again '
   - triggerKey: first_attack
-    message: Good job, you got them!\nBefore confirming a target during combat, you
-      can press <b>Space</b> to <i>gamble</i> a coin flip. Success boosts the ability's
-      damage by 50%, but failure halves it. You can see enemy health by hovering
-      over them, or at the top of the screen in combat.
+    message: Good job, you got them!\nBefore confirming a target, you can press <b>Space</b>
+      to <i>gamble</i> a coin flip. Success increases damage by 50%, but failure
+      halves it. You can see enemy health by hovering over them, or at the top of
+      the screen in combat.
   - triggerKey: first_spotted
-    message: You've been spotted!\nThe enemy is on their way to destroy you. Next
-      time try staying in the shadows to slip past undetected, or strike first before
-      they see you to get the drop on them.
+    message: You've been spotted!\nThe enemy is on their way. Try staying in the
+      shadows to slip past, or strike first before they see you.
   - triggerKey: first_combat
-    message: Combat has begun!\nThe coins at the bottom right are your Action Points
-      - spend them to use your abilities. You can see how far you can move each turn
-      based of the line from you to your mouse.
+    message: Combat has begun!\nThe coins are your Action Points - spend them to
+      use your abilities. You can see how far you can move each turn based of the
+      line from you to your mouse.
   - triggerKey: first_damage_taken
     message: You took a hit!\nKeep an eye on your health in the bottom left. If it
       reaches zero, your quest is over, that's a complete reset back to the very
       beginning.
   - triggerKey: first_chest_open
     message: You found some items!\nSelect one of 3 options to take with you. After,
-      press <b>Tab</b> or click the bag icon in the bottom right to open your inventory,
-      where you can click items to equip or unequip them. You can only have 5 items
-      equipped at a time.
+      press <b>Tab</b> or click the bag icon to open your inventory and click items
+      to equip or unequip them. You can only have 5 items equipped at a time.
   - triggerKey: first_combat_win
     message: Victory!\nKeep exploring, somewhere in these ruins lies a powerful artifact,
-      and it won't find itself. If things get too dangerous, try stealthing through
-      the shadows to slip past enemies undetected. Good luck on your quest!
+      it won't find itself. If things get too dangerous, try stealthing through the
+      shadows to slip past enemies undetected. Good luck on your quest!
