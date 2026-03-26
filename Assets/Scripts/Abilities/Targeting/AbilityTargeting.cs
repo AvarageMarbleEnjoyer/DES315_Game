@@ -94,10 +94,9 @@ public class AbilityTargeting : MonoBehaviour
 
     public bool IsTargeting => isTargeting;
 
-    // True for exactly one frame after a target is confirmed, allowing other systems
-    // to suppress same-frame input (e.g. movement) that share the same button binding.
-    public bool TargetJustConfirmed => targetJustConfirmed;
-    private bool targetJustConfirmed;
+    private float targetConfirmedBlockTimer = 0f;
+    private const float TARGET_CONFIRM_BLOCK_DURATION = 0.15f;
+    public bool TargetJustConfirmed => targetConfirmedBlockTimer > 0f;
 
     private void Awake()
     {
@@ -171,15 +170,12 @@ public class AbilityTargeting : MonoBehaviour
 
     private void Update()
     {
+        if (targetConfirmedBlockTimer > 0f)
+            targetConfirmedBlockTimer -= Time.unscaledDeltaTime;
+
         if (!isTargeting) return;
 
         UpdateTargeting();
-    }
-
-    // Clears the one-frame confirmed flag after all Update callbacks have run.
-    private void LateUpdate()
-    {
-        targetJustConfirmed = false;
     }
 
     /// <summary>
@@ -590,7 +586,7 @@ public class AbilityTargeting : MonoBehaviour
         currentCaster = null;
         currentAbilityName = "";
         isTargeting = false;
-        targetJustConfirmed = true;
+        targetConfirmedBlockTimer = TARGET_CONFIRM_BLOCK_DURATION;
 
         if (debugMode)
         {
