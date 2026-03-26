@@ -105,6 +105,12 @@ public class CheatManager : MonoBehaviour
     {
         if (ignoreEnemies == value) return;
         ignoreEnemies = value;
+
+        if (ignoreEnemies && CombatManager.Instance != null && CombatManager.Instance.InCombat)
+        {
+            CombatManager.Instance.ForceEndCombat(CombatManager.CombatOutcome.Draw);
+        }
+
         OnIgnoreEnemiesChanged?.Invoke(ignoreEnemies);
     }
 }
