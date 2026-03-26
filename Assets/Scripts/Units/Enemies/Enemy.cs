@@ -201,6 +201,7 @@ public class Enemy : Unit
     {
         Reveal();
         if (debugMode) Debug.Log($"[Enemy] {gameObject.name} detected the player!");
+        if (CheatManager.Instance != null && CheatManager.Instance.IgnoreEnemies) return;
         CombatManager.Instance?.StartCombatFromEnemy(this);
     }
 

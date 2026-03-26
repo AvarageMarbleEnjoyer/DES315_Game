@@ -1,13 +1,12 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-[RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(MeshRenderer))]
 public class HideOnCameraEnter : MonoBehaviour
 {
     [SerializeField] private float entryMargin = 2f;
 
-    private Collider col;
+    private Collider[] colliders;
     private MeshRenderer meshRenderer;
     private Material instanceMaterial;
     private Color originalColor;
@@ -15,7 +14,7 @@ public class HideOnCameraEnter : MonoBehaviour
 
     private void Awake()
     {
-        col = GetComponent<Collider>();
+        colliders = GetComponents<Collider>();
         meshRenderer = GetComponent<MeshRenderer>();
         instanceMaterial = meshRenderer.material;
         originalColor = instanceMaterial.GetColor("_BaseColor");
@@ -58,14 +57,21 @@ public class HideOnCameraEnter : MonoBehaviour
     }
 
     /// <summary>
-    /// ClosestPoint returns the query point unchanged when inside the collider, giving distance 0.
-    /// When outside it returns the nearest surface point, giving the true distance to the surface.
+    /// Returns the minimum distance from the point to any collider's surface.
+    /// ClosestPoint returns the query point unchanged when inside a collider, giving distance 0.
     /// Only reliable for convex colliders (Box, Sphere, Capsule, convex MeshCollider).
     /// </summary>
     private float DistanceToSurface(Vector3 point)
     {
-        Vector3 closest = col.ClosestPoint(point);
-        return (closest - point).magnitude;
+        float minDistance = float.MaxValue;
+        foreach (Collider col in colliders)
+        {
+            Vector3 closest = col.ClosestPoint(point);
+            float dist = (closest - point).magnitude;
+            if (dist < minDistance)
+                minDistance = dist;
+        }
+        return minDistance;
     }
 
     private static void SetTransparent(Material mat)
