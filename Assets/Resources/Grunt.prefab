@@ -318,6 +318,7 @@ MonoBehaviour:
   rangeTolerance: 0.2
   failBonus: 10
   successPenalty: 5
+  turnSpeed: 360
   debugMode: 0
   lastFlipResult: 0
   currentFlipChance: 60

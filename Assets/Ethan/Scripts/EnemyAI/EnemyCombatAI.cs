@@ -75,6 +75,9 @@ public class EnemyCombatAI : MonoBehaviour
     [Tooltip("How much the flip chance falls after a hit")]
     public float successPenalty = 5f;
 
+    [Tooltip("Degrees per second the enemy rotates to face the player before attacking")]
+    public float turnSpeed = 180f;
+
     [Header("Debug")]
     [SerializeField] private bool debugMode = true;
     [SerializeField] private bool lastFlipResult = false;
@@ -202,6 +205,7 @@ public class EnemyCombatAI : MonoBehaviour
         }
 
         //Step 4: Attack//
+        yield return FacePlayer(player);
         bool success = PerformFlip(effectiveFlipChance);
         lastFlipResult = success;
         gruntAnimController?.TriggerAttack(); // -EM//
@@ -268,6 +272,7 @@ public class EnemyCombatAI : MonoBehaviour
             }
 
             agent.isStopped = true;
+            agent.velocity = Vector3.zero;
             agent.ResetPath();
             agent.stoppingDistance = originalStoppingDistance;
         }
@@ -287,6 +292,7 @@ public class EnemyCombatAI : MonoBehaviour
 
         bool success = PerformFlip(currentFlipChance);
         lastFlipResult = success;
+        yield return FacePlayer(player);
         bruteAnimController?.TriggerAttack(); // -EM//
 
         if (success)
@@ -385,8 +391,25 @@ public class EnemyCombatAI : MonoBehaviour
         }
 
         agent.isStopped = true;
+        agent.velocity = Vector3.zero;
         agent.ResetPath();
         agent.stoppingDistance = originalStoppingDistance;
+    }
+
+    private IEnumerator FacePlayer(Player player)
+    {
+        if (player == null) yield break;
+        Vector3 dir = player.transform.position - transform.position;
+        dir.y = 0f;
+        if (dir.sqrMagnitude <= 0.0001f) yield break;
+
+        Quaternion target = Quaternion.LookRotation(dir);
+        while (Quaternion.Angle(transform.rotation, target) > 0.5f)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, target, turnSpeed * Time.deltaTime);
+            yield return null;
+        }
+        transform.rotation = target;
     }
 
     private void StopMovement()
