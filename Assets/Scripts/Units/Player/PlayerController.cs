@@ -300,8 +300,8 @@ public class PlayerController : MonoBehaviour
 
                 if (requestedDistance > remainingDistance)
                 {
-                    if (debugMode) Debug.Log($"[PlayerController] Click too far! Requested: {requestedDistance:F2}, Remaining: {remainingDistance:F2}");
-                    return;
+                    if (debugMode) Debug.Log($"[PlayerController] Click too far, clamping to {remainingDistance:F2} units");
+                    targetPoint = transform.position + toTarget.normalized * remainingDistance;
                 }
             }
 
