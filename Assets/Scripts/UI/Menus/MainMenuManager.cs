@@ -76,11 +76,6 @@ public class MainMenuManager : MonoBehaviour
         backgroundMusicAudioSource.volume = 0f;
     }
 
-    public void OpenSettings()
-    {
-
-    }
-
     public void QuitGame()
     {
         #if UNITY_EDITOR

@@ -5837,10 +5837,10 @@ MonoBehaviour:
 
     Enemies Killed: 0
 
-    Damage Taken:
-    0
+    Damage Taken: 0
 
-    Rooms Explored: 0
+    Rooms
+    Explored: 0
 
     Chests Opened: 0'
   m_isRightToLeft: 0
@@ -14486,7 +14486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  baseCoins: 30
+  baseCoins: 3
   maxCombatMoveDistance: 5
   modifiers:
     maxHealthFlat: 0

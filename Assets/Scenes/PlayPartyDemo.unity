@@ -1027,6 +1027,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
+--- !u!4 &161732508 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4463043584731008226, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
+  m_PrefabInstance: {fileID: 161732507}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &171332768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,6 +1537,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
+--- !u!4 &359565848 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4463043584731008226, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
+  m_PrefabInstance: {fileID: 359565847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &379808606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,6 +1958,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   currentBlock: 0
+  damageNumberCentreOffset: {x: 0, y: 1, z: 0}
   debugMode: 0
 --- !u!114 &484913833
 MonoBehaviour:
@@ -1961,19 +1972,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86753977960205f4391b943820a3d3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightPoint: {fileID: 0}
   strength: 6
+  detectionRangeExtension: 0.6
   occluderMask:
     serializedVersion: 2
     m_Bits: 8
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  shadowRangeMultiplier: 1.2
-  shadowLightType: 2
-  shadowResolutionTier: 0
-  shadowSpotAngle: 170
-  shadowInnerSpotAngle: 120
-  castShadows: 1
   drawDebugRays: 0
 --- !u!1 &485661017
 GameObject:
@@ -2010,11 +2014,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!4 &496077726 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4891497393395036189, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
-  m_PrefabInstance: {fileID: 1723837080}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &500495492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4941142002293631894, guid: 314c5a4177764d04d97fd486a3cd5f60, type: 3}
@@ -3011,19 +3010,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86753977960205f4391b943820a3d3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightPoint: {fileID: 0}
   strength: 6
+  detectionRangeExtension: 0.6
   occluderMask:
     serializedVersion: 2
     m_Bits: 8
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  shadowRangeMultiplier: 1.2
-  shadowLightType: 2
-  shadowResolutionTier: 0
-  shadowSpotAngle: 170
-  shadowInnerSpotAngle: 120
-  castShadows: 1
   drawDebugRays: 0
 --- !u!114 &651229400
 MonoBehaviour:
@@ -3040,6 +3032,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   currentBlock: 0
+  damageNumberCentreOffset: {x: 0, y: 1, z: 0}
   debugMode: 0
 --- !u!1 &662890037
 GameObject:
@@ -3093,8 +3086,11 @@ MonoBehaviour:
   root: {fileID: 1356188301}
   contentRoot: {fileID: 1567831215}
   itemPrefab: {fileID: 1482560410135912450, guid: c8674ceca78084a41b280353c0fce0a7, type: 3}
+  inventoryButton: {fileID: 0}
   inputActions: {fileID: -944628639613478452, guid: 102f2d70ec95fd1498234180cf7b19b5, type: 3}
   itemManager: {fileID: 467200676}
+  abilityManager: {fileID: 0}
+  abilitySlotUI: {fileID: 0}
 --- !u!1 &669265866
 GameObject:
   m_ObjectHideFlags: 0
@@ -3398,6 +3394,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
+--- !u!4 &694483047 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4463043584731008226, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
+  m_PrefabInstance: {fileID: 694483046}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &707689481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3634,9 +3635,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1261944033}
-  - {fileID: 1435500085}
-  - {fileID: 2065788747}
+  - {fileID: 1575934168}
+  - {fileID: 1320859512}
+  - {fileID: 359565848}
   m_Father: {fileID: 612506018}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &734515353
@@ -5233,6 +5234,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   currentBlock: 0
+  damageNumberCentreOffset: {x: 0, y: 1, z: 0}
   debugMode: 0
 --- !u!114 &948348879
 MonoBehaviour:
@@ -5246,19 +5248,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86753977960205f4391b943820a3d3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightPoint: {fileID: 0}
   strength: 12
+  detectionRangeExtension: 0.6
   occluderMask:
     serializedVersion: 2
     m_Bits: 8
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  shadowRangeMultiplier: 1.2
-  shadowLightType: 2
-  shadowResolutionTier: 0
-  shadowSpotAngle: 170
-  shadowInnerSpotAngle: 120
-  castShadows: 1
   drawDebugRays: 0
 --- !u!1 &948659411
 GameObject:
@@ -6160,19 +6155,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86753977960205f4391b943820a3d3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightPoint: {fileID: 0}
   strength: 6
+  detectionRangeExtension: 0.6
   occluderMask:
     serializedVersion: 2
     m_Bits: 8
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  shadowRangeMultiplier: 1.2
-  shadowLightType: 2
-  shadowResolutionTier: 0
-  shadowSpotAngle: 170
-  shadowInnerSpotAngle: 120
-  castShadows: 1
   drawDebugRays: 0
 --- !u!114 &1069802739
 MonoBehaviour:
@@ -6189,6 +6177,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   currentBlock: 0
+  damageNumberCentreOffset: {x: 0, y: 1, z: 0}
   debugMode: 0
 --- !u!1 &1073592759
 GameObject:
@@ -6446,6 +6435,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infiniteHealth: 0
   infiniteCoins: 0
+  showFinalRoom: 0
+  ignoreEnemies: 0
+  finalRoomArrow: {fileID: 0}
 --- !u!1 &1102639678
 GameObject:
   m_ObjectHideFlags: 0
@@ -6495,6 +6487,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   currentBlock: 0
+  damageNumberCentreOffset: {x: 0, y: 1, z: 0}
   debugMode: 0
 --- !u!114 &1102639681
 MonoBehaviour:
@@ -6508,19 +6501,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86753977960205f4391b943820a3d3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightPoint: {fileID: 0}
   strength: 6
+  detectionRangeExtension: 0.6
   occluderMask:
     serializedVersion: 2
     m_Bits: 8
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  shadowRangeMultiplier: 1.2
-  shadowLightType: 2
-  shadowResolutionTier: 0
-  shadowSpotAngle: 170
-  shadowInnerSpotAngle: 120
-  castShadows: 1
   drawDebugRays: 0
 --- !u!1 &1107680629
 GameObject:
@@ -6574,7 +6560,6 @@ MonoBehaviour:
   coinPrefab: {fileID: 8230219826058003220, guid: fcdfbb6fa84427f4fbaa54ed2b7f32a5, type: 3}
   coinParent: {fileID: 1107680630}
   player: {fileID: 0}
-  outOfCoinsText: {fileID: 619121690}
   destroyDelay: 1
   fillStepDelay: 0.05
 --- !u!114 &1107680632
@@ -6941,19 +6926,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86753977960205f4391b943820a3d3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightPoint: {fileID: 0}
   strength: 6
+  detectionRangeExtension: 0.6
   occluderMask:
     serializedVersion: 2
     m_Bits: 8
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  shadowRangeMultiplier: 1.2
-  shadowLightType: 2
-  shadowResolutionTier: 0
-  shadowSpotAngle: 170
-  shadowInnerSpotAngle: 120
-  castShadows: 1
   drawDebugRays: 0
 --- !u!114 &1148747257
 MonoBehaviour:
@@ -6970,6 +6948,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   currentBlock: 0
+  damageNumberCentreOffset: {x: 0, y: 1, z: 0}
   debugMode: 0
 --- !u!1 &1161798747
 GameObject:
@@ -7296,6 +7275,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   currentBlock: 0
+  damageNumberCentreOffset: {x: 0, y: 1, z: 0}
   debugMode: 0
 --- !u!114 &1219719085
 MonoBehaviour:
@@ -7309,25 +7289,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86753977960205f4391b943820a3d3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightPoint: {fileID: 0}
   strength: 6
+  detectionRangeExtension: 0.6
   occluderMask:
     serializedVersion: 2
     m_Bits: 8
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  shadowRangeMultiplier: 1.2
-  shadowLightType: 2
-  shadowResolutionTier: 0
-  shadowSpotAngle: 170
-  shadowInnerSpotAngle: 120
-  castShadows: 1
   drawDebugRays: 0
---- !u!4 &1261944033 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4891497393395036189, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
-  m_PrefabInstance: {fileID: 359565847}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1273541498
 GameObject:
   m_ObjectHideFlags: 0
@@ -7824,6 +7792,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1546749477}
+  resumeButton: {fileID: 0}
+  restartRunButton: {fileID: 0}
+  settingsButton: {fileID: 0}
+  mainMenuButton: {fileID: 0}
+  quitButton: {fileID: 0}
   inputActions: {fileID: -944628639613478452, guid: 102f2d70ec95fd1498234180cf7b19b5, type: 3}
   pauseActionName: TogglePauseMenu
   mainMenuSceneName: MainMenu
@@ -7886,6 +7859,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
+--- !u!4 &1320859512 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4463043584731008226, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
+  m_PrefabInstance: {fileID: 1320859511}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1336363953
 GameObject:
   m_ObjectHideFlags: 0
@@ -8582,11 +8560,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422119278}
   m_CullTransparentMesh: 1
---- !u!4 &1435500085 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4891497393395036189, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
-  m_PrefabInstance: {fileID: 1575934167}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1438292108
 GameObject:
   m_ObjectHideFlags: 0
@@ -8936,6 +8909,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
+--- !u!4 &1478776618 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4463043584731008226, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
+  m_PrefabInstance: {fileID: 1478776617}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1481242181
 GameObject:
   m_ObjectHideFlags: 0
@@ -9328,11 +9306,6 @@ Transform:
   - {fileID: 1968184179}
   m_Father: {fileID: 612506018}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1500955460 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4891497393395036189, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
-  m_PrefabInstance: {fileID: 694483046}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1504184126
 GameObject:
   m_ObjectHideFlags: 0
@@ -10166,6 +10139,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
+--- !u!4 &1575934168 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4463043584731008226, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
+  m_PrefabInstance: {fileID: 1575934167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1576034296
 GameObject:
   m_ObjectHideFlags: 0
@@ -10682,6 +10660,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   currentBlock: 0
+  damageNumberCentreOffset: {x: 0, y: 1, z: 0}
   debugMode: 0
 --- !u!114 &1650501991
 MonoBehaviour:
@@ -10695,19 +10674,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86753977960205f4391b943820a3d3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightPoint: {fileID: 0}
   strength: 6
+  detectionRangeExtension: 0.6
   occluderMask:
     serializedVersion: 2
     m_Bits: 8
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  shadowRangeMultiplier: 1.2
-  shadowLightType: 2
-  shadowResolutionTier: 0
-  shadowSpotAngle: 170
-  shadowInnerSpotAngle: 120
-  castShadows: 1
   drawDebugRays: 0
 --- !u!1 &1659617548
 GameObject:
@@ -11191,6 +11163,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
+--- !u!4 &1723837081 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4463043584731008226, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
+  m_PrefabInstance: {fileID: 1723837080}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1739118553
 GameObject:
   m_ObjectHideFlags: 0
@@ -11252,7 +11229,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.1
+  m_VoxelSize: 0.06666667
   m_MinRegionArea: 1
   m_NavMeshData: {fileID: 23800000, guid: 719696a8dbf540e488a5e18cf1b79ca8, type: 2}
   m_BuildHeightMesh: 0
@@ -11574,14 +11551,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   baseCoins: 5
-  carryoverCoins: 1
   maxCombatMoveDistance: 5
   modifiers:
     maxHealthFlat: 0
     blockFlat: 0
     healFlat: 0
     baseCoinsFlat: 0
-    carryoverCoinsFlat: 0
     abilityDamagePercent: 0
     abilityRangePercent: 0
     aoeSizePercent: 0
@@ -11591,7 +11566,6 @@ MonoBehaviour:
     blockFlat: 0
     healFlat: 0
     baseCoinsFlat: 0
-    carryoverCoinsFlat: 0
     abilityDamagePercent: 0
     abilityRangePercent: 0
     aoeSizePercent: 0
@@ -12329,6 +12303,7 @@ MonoBehaviour:
   uiRoot: {fileID: 1273541498}
   cardContainer: {fileID: 1740750207}
   cardPrefab: {fileID: 7496308736789289923, guid: 2169d626a610b8b42909658b5da503b0, type: 3}
+  replacePromptLabel: {fileID: 0}
   cardSpawnDelay: 0.15
   debugMode: 1
 --- !u!1 &1894862559
@@ -12488,6 +12463,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   currentBlock: 0
+  damageNumberCentreOffset: {x: 0, y: 1, z: 0}
   debugMode: 0
 --- !u!114 &1903935843
 MonoBehaviour:
@@ -12501,19 +12477,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86753977960205f4391b943820a3d3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightPoint: {fileID: 0}
   strength: 12
+  detectionRangeExtension: 0.6
   occluderMask:
     serializedVersion: 2
     m_Bits: 8
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  shadowRangeMultiplier: 1.2
-  shadowLightType: 2
-  shadowResolutionTier: 0
-  shadowSpotAngle: 170
-  shadowInnerSpotAngle: 120
-  castShadows: 1
   drawDebugRays: 0
 --- !u!1 &1918365869
 GameObject:
@@ -12544,10 +12513,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 496077726}
-  - {fileID: 1983615324}
-  - {fileID: 1500955460}
-  - {fileID: 1936269189}
+  - {fileID: 1478776618}
+  - {fileID: 694483047}
+  - {fileID: 161732508}
+  - {fileID: 1723837081}
   m_Father: {fileID: 1336363954}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1918736395
@@ -12658,6 +12627,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918736395}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1922653552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1922653554}
+  - component: {fileID: 1922653553}
+  m_Layer: 0
+  m_Name: WwiseGlobal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1922653553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922653552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7312abfc1bb0f74babeb8bd8558251a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationSettings: {fileID: 11400000, guid: 9e33c4840bca47a42a84615748a2508d, type: 2}
+  basePath: 
+  language: 
+  defaultPoolSize: 0
+  lowerPoolSize: 0
+  streamingPoolSize: 0
+  memoryCutoffThreshold: 0
+  monitorPoolSize: 0
+  monitorQueuePoolSize: 0
+  callbackManagerBufferSize: 0
+  spatialAudioPoolSize: 0
+  maxSoundPropagationDepth: 0
+  engineLogging: 0
+--- !u!4 &1922653554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922653552}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1931962509
 GameObject:
   m_ObjectHideFlags: 0
@@ -12713,14 +12739,13 @@ MonoBehaviour:
   slot1Button: {fileID: 122863262}
   slot2Button: {fileID: 1988908375}
   slot3Button: {fileID: 1422119280}
-  slot1Label: {fileID: 1297108731}
-  slot2Label: {fileID: 892872510}
-  slot3Label: {fileID: 590551713}
---- !u!4 &1936269189 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4891497393395036189, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
-  m_PrefabInstance: {fileID: 161732507}
-  m_PrefabAsset: {fileID: 0}
+  slot1Icon: {fileID: 0}
+  slot2Icon: {fileID: 0}
+  slot3Icon: {fileID: 0}
+  descriptionText: {fileID: 0}
+  activeColor: {r: 1, g: 0.8, b: 0, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  background: {fileID: 0}
 --- !u!1 &1952369996
 GameObject:
   m_ObjectHideFlags: 0
@@ -12903,6 +12928,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   currentBlock: 0
+  damageNumberCentreOffset: {x: 0, y: 1, z: 0}
   debugMode: 0
 --- !u!114 &1968184181
 MonoBehaviour:
@@ -12916,19 +12942,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86753977960205f4391b943820a3d3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightPoint: {fileID: 0}
   strength: 6
+  detectionRangeExtension: 0.6
   occluderMask:
     serializedVersion: 2
     m_Bits: 8
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  shadowRangeMultiplier: 1.2
-  shadowLightType: 2
-  shadowResolutionTier: 0
-  shadowSpotAngle: 170
-  shadowInnerSpotAngle: 120
-  castShadows: 1
   drawDebugRays: 0
 --- !u!1 &1971579044
 GameObject:
@@ -12975,15 +12994,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  statusText: {fileID: 1189424919}
-  statusIndicator: {fileID: 1139398466}
   shadowOverlay: {fileID: 38154857}
-  lightColor: {r: 1, g: 0.9, b: 0.5, a: 1}
-  shadowColor: {r: 0.2, g: 0.2, b: 0.4, a: 1}
-  colorTransitionSpeed: 5
+  shadowBorder: {fileID: 0}
+  lightStatusText: {fileID: 0}
   overlayTransitionSpeed: 2
-  maxShadowAlpha: 0.55
-  initialOverlayFadeDuration: 3
+  maxOverlayAlpha: 0.7
+  overlayLightScale: 2
+  borderTransitionSpeed: 3
+  maxBorderAlpha: 1
+  cameraController: {fileID: 0}
+  distanceFadeStart: 15
+  distanceFadeEnd: 25
 --- !u!1 &1979967337
 GameObject:
   m_ObjectHideFlags: 0
@@ -13157,11 +13178,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 612506018}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1983615324 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4891497393395036189, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
-  m_PrefabInstance: {fileID: 1478776617}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1988908373
 GameObject:
   m_ObjectHideFlags: 0
@@ -13607,19 +13623,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86753977960205f4391b943820a3d3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightPoint: {fileID: 0}
   strength: 6
+  detectionRangeExtension: 0.6
   occluderMask:
     serializedVersion: 2
     m_Bits: 8
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  shadowRangeMultiplier: 1.2
-  shadowLightType: 2
-  shadowResolutionTier: 0
-  shadowSpotAngle: 170
-  shadowInnerSpotAngle: 120
-  castShadows: 1
   drawDebugRays: 0
 --- !u!114 &2013824185
 MonoBehaviour:
@@ -13636,6 +13645,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   currentBlock: 0
+  damageNumberCentreOffset: {x: 0, y: 1, z: 0}
   debugMode: 0
 --- !u!1 &2029237217
 GameObject:
@@ -14015,11 +14025,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050631979}
   m_CullTransparentMesh: 1
---- !u!4 &2065788747 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4891497393395036189, guid: 0f81b1227b2e5d74b972d3bff3f0c910, type: 3}
-  m_PrefabInstance: {fileID: 1320859511}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2067293429
 GameObject:
   m_ObjectHideFlags: 0
@@ -14117,9 +14122,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2074997423}
   - component: {fileID: 2074997422}
-  - component: {fileID: 2074997421}
   - component: {fileID: 2074997420}
   - component: {fileID: 2074997419}
+  - component: {fileID: 2074997425}
+  - component: {fileID: 2074997424}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -14142,11 +14148,14 @@ MonoBehaviour:
   moveSpeed: 8
   fastMoveMultiplier: 2
   rotateSpeed: 0.3
+  offsetVector: {x: 0, y: -6, z: 5}
   player: {fileID: 0}
-  maxDistanceFromPlayer: 15
+  playerController: {fileID: 0}
+  followLerpSpeed: 8
   roomManager: {fileID: 524290716}
   roomClampPadding: 0.75
   inputActions: {fileID: -944628639613478452, guid: 102f2d70ec95fd1498234180cf7b19b5, type: 3}
+  carouselPanSpeed: 8
 --- !u!114 &2074997420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14191,14 +14200,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &2074997421
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074997418}
-  m_Enabled: 1
 --- !u!20 &2074997422
 Camera:
   m_ObjectHideFlags: 0
@@ -14265,6 +14266,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 40, y: -180, z: 0}
+--- !u!114 &2074997424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074997418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d29ad5c2a903414fbb2b9c839f65f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 1
+  listenerId: 0
+--- !u!114 &2074997425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074997418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a62b75398863341868ec694927b4a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!1 &2077275190
 GameObject:
   m_ObjectHideFlags: 0
@@ -14455,19 +14492,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86753977960205f4391b943820a3d3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightPoint: {fileID: 0}
   strength: 6
+  detectionRangeExtension: 0.6
   occluderMask:
     serializedVersion: 2
     m_Bits: 8
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  shadowRangeMultiplier: 1.2
-  shadowLightType: 2
-  shadowResolutionTier: 0
-  shadowSpotAngle: 170
-  shadowInnerSpotAngle: 120
-  castShadows: 1
   drawDebugRays: 0
 --- !u!114 &2100575289
 MonoBehaviour:
@@ -14484,6 +14514,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   currentBlock: 0
+  damageNumberCentreOffset: {x: 0, y: 1, z: 0}
   debugMode: 0
 --- !u!1001 &2628610011801407108
 PrefabInstance:
@@ -14553,3 +14584,4 @@ SceneRoots:
   - {fileID: 2037879271}
   - {fileID: 239797039}
   - {fileID: 2628610011801407108}
+  - {fileID: 1922653554}
