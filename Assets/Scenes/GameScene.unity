@@ -11820,11 +11820,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellSize: 18
-  showGrid: 0
-  showRooms: 0
-  showConnections: 0
-  showRoomTypes: 0
-  showRoomBorders: 0
+  showGrid: 1
+  showRooms: 1
+  showConnections: 1
+  showRoomTypes: 1
+  showRoomBorders: 1
   gridColor: {r: 0.3, g: 0.3, b: 0.3, a: 0.5}
   emptyColor: {r: 0.1, g: 0.1, b: 0.1, a: 0.3}
   lobbyColor: {r: 0, g: 1, b: 0, a: 1}
@@ -11926,7 +11926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8f3ccd3a16fe4408ff4838c6551dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorPrefab: {fileID: 919132149155446097, guid: b0620274eb0a70c4983ebb721bd84ca8, type: 3}
+  doorPrefab: {fileID: 3404754827190325785, guid: bcacc692f6bd00445844932774d3ec3b, type: 3}
   doorMarkerSize: 0.5
   roomBuilder: {fileID: 1829371481}
   doorsParent: {fileID: 0}

@@ -215,7 +215,7 @@ public class DoorSpawner : MonoBehaviour
 
             Quaternion doorRotation = Quaternion.Euler(0f, yAngle, 0f);
             doorObject = Instantiate(doorPrefab, connection.doorPosition, doorRotation, doorsParent);
-            doorObject.transform.localScale = doorScale;
+            //doorObject.transform.localScale = doorScale;
         }
         else
         {
@@ -228,8 +228,8 @@ public class DoorSpawner : MonoBehaviour
             renderer.material = new Material(Shader.Find("Standard"));
             renderer.material.color = Color.yellow;
 
-            //Scale it//
-            doorObject.transform.localScale = Vector3.one * doorMarkerSize;
+            ////Scale it//
+            //doorObject.transform.localScale = Vector3.one * doorMarkerSize;
         }
 
         doorObject.name = $"Door_{roomA.GetHashCode()}_{roomB.GetHashCode()}";
