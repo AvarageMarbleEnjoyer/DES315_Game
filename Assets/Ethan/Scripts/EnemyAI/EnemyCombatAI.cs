@@ -185,7 +185,7 @@ public class EnemyCombatAI : MonoBehaviour
         if (distToPlayer > gruntMaxRange + rangeTolerance)
         {
             if (debugMode) Debug.LogWarning($"[EnemyCombatAI] {gameObject.name} Grunt could not reach attack range");
-            MessageUI.Instance?.EnqueueMessage($"{gameObject.name} couldn't get into position!");
+            //MessageUI.Instance?.EnqueueMessage($"{gameObject.name} couldn't get into position!");
             yield break;
         }
 
