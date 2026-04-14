@@ -340,8 +340,10 @@ public class Player : Unit
         }
         float healthBefore = currentHealth;
         base.TakeDamage(amount);
-        if (currentHealth < healthBefore)
+        float actualDamage = healthBefore - currentHealth;
+        if (actualDamage > 0f)
         {
+            RunScoreManager.Instance?.RegisterDamageTaken(actualDamage);
             TutorialManager.Instance?.Trigger("first_damage_taken");
         }
     }

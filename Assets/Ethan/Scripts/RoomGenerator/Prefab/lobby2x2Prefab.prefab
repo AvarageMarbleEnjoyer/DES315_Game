@@ -402,8 +402,7 @@ MonoBehaviour:
   interactionRange: 3
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
-  winSceneName: 
+    m_Bits: 64
   winScreenPanel: {fileID: 0}
   interactPrompt: {fileID: 4380063397717251305}
   inputActions: {fileID: 0}
@@ -695,7 +694,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  winSceneName: 
   winScreenPanel: {fileID: 0}
   interactPrompt: {fileID: 5049945136160162019, guid: bc6c47929cba2fb45828dc6b810a8397, type: 3}
   inputActions: {fileID: -944628639613478452, guid: 102f2d70ec95fd1498234180cf7b19b5, type: 3}

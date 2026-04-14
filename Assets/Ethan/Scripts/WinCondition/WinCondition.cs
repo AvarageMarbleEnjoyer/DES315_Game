@@ -1,22 +1,20 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 //Place this on the win condition prefab in the final room//
-//Player clicks the object to trigger the win screen -EM//
+//Player presses Interact when in range to trigger the win screen -EM//
 public class WinCondition : MonoBehaviour
 {
     [Header("Interaction")]
-    [Tooltip("How close the player must be to click and win")]
+    [Tooltip("How close the player must be to interact and win")]
     public float interactionRange = 3f;
     public LayerMask playerLayer;
 
     [Header("Win Screen")]
-    public string winSceneName = "";
     public GameObject winScreenPanel;
 
     [Header("UI")]
-    [Tooltip("Drage the Canvas child here - shows/hide based on proximity")]
+    [Tooltip("Drag the Canvas child here - shows/hides based on proximity")]
     public GameObject interactPrompt;
 
     [Header("Input")]
@@ -32,35 +30,40 @@ public class WinCondition : MonoBehaviour
 
     private void Awake()
     {
-        //Get the interaction action from the Player map//
-        if(inputActions != null)
+        if (inputActions != null)
         {
             var playerMap = inputActions.FindActionMap("Player");
             interactionAction = playerMap?.FindAction("Interact");
         }
+
+        if (winScreenPanel == null)
+        {
+            WinScreenUI ui = FindFirstObjectByType<WinScreenUI>(FindObjectsInactive.Include);
+            if (ui != null)
+                winScreenPanel = ui.gameObject;
+        }
     }
+
     private void Start()
     {
-        //Find player//
         PlayerController pc = FindFirstObjectByType<PlayerController>();
         if (pc != null) playerTransform = pc.transform;
 
-        //Hide prompt on start//
         if (interactPrompt != null) interactPrompt.SetActive(false);
     }
 
     private void OnEnable()
     {
-        if(interactionAction != null)
+        if (interactionAction != null)
         {
             interactionAction.performed += OnInteract;
-            interactionAction.Disable();
+            interactionAction.Enable();
         }
     }
 
     private void OnDisable()
     {
-        if(interactionAction != null)
+        if (interactionAction != null)
         {
             interactionAction.performed -= OnInteract;
             interactionAction.Disable();
@@ -71,23 +74,19 @@ public class WinCondition : MonoBehaviour
     {
         if (gameWon) return;
 
-        //Show or hide ineract prompt based on player proximity//
         bool wasInRange = playerInRange;
         playerInRange = playerTransform != null && Vector3.Distance(transform.position, playerTransform.position) <= interactionRange;
 
-        //Only update the Canvas when the state actually changes//
-        if(playerInRange != wasInRange && interactPrompt != null)
-        { 
+        if (playerInRange != wasInRange && interactPrompt != null)
+        {
             interactPrompt.SetActive(playerInRange);
             if (debugMode) Debug.Log($"[WinCondition] Player {(playerInRange ? "entered" : "left")} interaction range");
         }
     }
 
-    //Called when the playert presses E//
     private void OnInteract(InputAction.CallbackContext context)
     {
         if (gameWon || !playerInRange) return;
-        
         TriggerWin();
     }
 
@@ -100,20 +99,18 @@ public class WinCondition : MonoBehaviour
 
         MessageUI.Instance?.EnqueueMessage("You escaped the dungeon! You Win");
 
-        if(!string.IsNullOrEmpty(winSceneName))
+        if (winScreenPanel != null)
         {
-            SceneManager.LoadScene(winSceneName);
-        }
-        else if (winScreenPanel != null) 
-        {
+            RunScoreManager.Instance?.FinalizeTime();
             winScreenPanel.SetActive(true);
             Time.timeScale = 0f;
         }
         else
         {
-            Debug.LogWarning("[WinCondition] No win scene or panel set! Add one in the Inspector.");
+            Debug.LogWarning("[WinCondition] No win screen panel set! Add one in the Inspector.");
         }
     }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

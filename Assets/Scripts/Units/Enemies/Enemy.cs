@@ -208,6 +208,7 @@ public class Enemy : Unit
     protected override void Die()
     {
         base.Die();
+        RunScoreManager.Instance?.RegisterEnemyKilled();
         Destroy(gameObject);
     }
 
