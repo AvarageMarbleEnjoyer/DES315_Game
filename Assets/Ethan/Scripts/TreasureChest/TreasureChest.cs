@@ -169,6 +169,8 @@ public class TreasureChest : MonoBehaviour
         if (debugMode) Debug.Log("[TreasureChest] Opening Chest!");
         
         TutorialManager.Instance?.Trigger("first_chest_open");
+        
+        Time.timeScale = 0f;
 
         //Hide interaction prompt//
         if(interactionPrompt != null)
@@ -286,6 +288,8 @@ public class TreasureChest : MonoBehaviour
 
             isOpen = false;
         }
+        
+        Time.timeScale = 1f;
     }
 
     //Force open the chest (for testing) -EM//
