@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class LightStatusUI : MonoBehaviour
@@ -7,6 +8,7 @@ public class LightStatusUI : MonoBehaviour
     public PlayerController player;
     public Image shadowOverlay;
     public Image shadowBorder;
+    public TextMeshProUGUI lightStatusText;
 
     [Header("Overlay")]
     public float overlayTransitionSpeed = 3f;
@@ -24,6 +26,8 @@ public class LightStatusUI : MonoBehaviour
     public float distanceFadeStart = 15f;
     [Tooltip("Camera pivot distance from player at which darkening is fully dark")]
     public float distanceFadeEnd = 25f;
+
+    private bool lastLightState;
 
     private void Start()
     {
@@ -44,6 +48,25 @@ public class LightStatusUI : MonoBehaviour
             Color c = shadowBorder.color;
             shadowBorder.color = new Color(c.r, c.g, c.b, 0f);
         }
+
+        if (player != null)
+        {
+            lastLightState = player.IsInLight;
+            UpdateStatusText(lastLightState);
+            player.OnLightStateChanged += UpdateStatusText;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (player != null)
+            player.OnLightStateChanged -= UpdateStatusText;
+    }
+
+    private void UpdateStatusText(bool inLight)
+    {
+        if (lightStatusText == null) return;
+        lightStatusText.text = inLight ? "In Light" : "In Shadow";
     }
 
     private void Update()
