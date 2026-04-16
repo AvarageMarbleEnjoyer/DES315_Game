@@ -18,6 +18,7 @@ public class PlayerAbilityManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private Player player;
     [SerializeField] private AbilityTargeting targetingSystem;
+    [SerializeField] private PlayerController playerController;
     [SerializeField] private CoinUI coinUI;
 
     [Header("Audio")]
@@ -39,6 +40,11 @@ public class PlayerAbilityManager : MonoBehaviour
     private InputAction cancelAction;
     private InputAction flipAction;
 
+    private System.Action<InputAction.CallbackContext> onAbility1;
+    private System.Action<InputAction.CallbackContext> onAbility2;
+    private System.Action<InputAction.CallbackContext> onAbility3;
+    private System.Action<InputAction.CallbackContext> onCancelAbility;
+
     private int? _activeAbilitySlot = null;
     private int? activeAbilitySlot
     {
@@ -57,6 +63,9 @@ public class PlayerAbilityManager : MonoBehaviour
 
         if (targetingSystem == null)
             targetingSystem = GetComponent<AbilityTargeting>();
+
+        if (playerController == null)
+            playerController = GetComponent<PlayerController>();
         
         if (coinUI == null)
             coinUI = FindFirstObjectByType<CoinUI>();
@@ -79,27 +88,32 @@ public class PlayerAbilityManager : MonoBehaviour
 
     private void OnEnable()
     {
+        onAbility1 = ctx => TryStartAbility(0);
+        onAbility2 = ctx => TryStartAbility(1);
+        onAbility3 = ctx => TryStartAbility(2);
+        onCancelAbility = ctx => CancelTargeting();
+
         if (ability1Action != null)
         {
-            ability1Action.performed += ctx => TryStartAbility(0);
+            ability1Action.performed += onAbility1;
             ability1Action.Enable();
         }
 
         if (ability2Action != null)
         {
-            ability2Action.performed += ctx => TryStartAbility(1);
+            ability2Action.performed += onAbility2;
             ability2Action.Enable();
         }
 
         if (ability3Action != null)
         {
-            ability3Action.performed += ctx => TryStartAbility(2);
+            ability3Action.performed += onAbility3;
             ability3Action.Enable();
         }
 
         if (cancelAction != null)
         {
-            cancelAction.performed += ctx => CancelTargeting();
+            cancelAction.performed += onCancelAbility;
             cancelAction.Enable();
         }
 
@@ -114,14 +128,21 @@ public class PlayerAbilityManager : MonoBehaviour
             targetingSystem.OnTargetConfirmed += OnTargetConfirmed;
             targetingSystem.OnTargetingCancelled += OnTargetingCancelled;
         }
+
+    }
+
+    private void Start()
+    {
+        if (CombatManager.Instance != null)
+            CombatManager.Instance.OnTurnEnded += OnTurnEnded;
     }
 
     private void OnDisable()
     {
-        if (ability1Action != null) ability1Action.Disable();
-        if (ability2Action != null) ability2Action.Disable();
-        if (ability3Action != null) ability3Action.Disable();
-        if (cancelAction != null) cancelAction.Disable();
+        if (ability1Action != null) { ability1Action.performed -= onAbility1; ability1Action.Disable(); }
+        if (ability2Action != null) { ability2Action.performed -= onAbility2; ability2Action.Disable(); }
+        if (ability3Action != null) { ability3Action.performed -= onAbility3; ability3Action.Disable(); }
+        if (cancelAction != null) { cancelAction.performed -= onCancelAbility; cancelAction.Disable(); }
         if (flipAction != null)
         {
             flipAction.performed -= OnFlipPerformed;
@@ -138,9 +159,15 @@ public class PlayerAbilityManager : MonoBehaviour
                 targetingSystem.CancelTargeting();
             }
         }
+
+        if (CombatManager.Instance != null)
+        {
+            CombatManager.Instance.OnTurnEnded -= OnTurnEnded;
+        }
         
         activeAbilitySlot = null;
         SetCoinSpendingCount(0);
+        coinUI?.SetIsFlipping(false);
     }
 
     private void Update()
@@ -246,6 +273,8 @@ public class PlayerAbilityManager : MonoBehaviour
         {
             targetingSystem.SetFlipVisuals(false);
         }
+        if (playerController != null)
+            playerController.ForceStopMovement();
         targetingSystem.StartTargeting(ability, player);
         if (ability.IsOnlySelfTargeting())
         {
@@ -278,6 +307,7 @@ public class PlayerAbilityManager : MonoBehaviour
         activeAbilitySlot = null;
         flipSelected = false;
         targetingSystem.SetFlipVisuals(false);
+        coinUI?.SetIsFlipping(false);
         SetCoinSpendingCount(0);
         if (debugMode)
             Debug.Log("[AbilityManager] Targeting cancelled");
@@ -312,6 +342,7 @@ public class PlayerAbilityManager : MonoBehaviour
         activeAbilitySlot = null;
         flipSelected = false;
         targetingSystem.SetFlipVisuals(false);
+        coinUI?.SetIsFlipping(false);
         SetCoinSpendingCount(0);
     }
 
@@ -326,6 +357,7 @@ public class PlayerAbilityManager : MonoBehaviour
         {
             targetingSystem.SetFlipVisuals(false);
         }
+        coinUI?.SetIsFlipping(false);
         SetCoinSpendingCount(0);
     }
 
@@ -409,6 +441,12 @@ public class PlayerAbilityManager : MonoBehaviour
         }
     }
 
+    private void OnTurnEnded(Unit unit)
+    {
+        if (activeAbilitySlot.HasValue)
+            CancelTargeting();
+    }
+
     private void OnFlipPerformed(InputAction.CallbackContext context)
     {
         if (!activeAbilitySlot.HasValue || targetingSystem == null || !targetingSystem.IsTargeting)
@@ -423,6 +461,7 @@ public class PlayerAbilityManager : MonoBehaviour
 
         flipSelected = !flipSelected;
         targetingSystem.SetFlipVisuals(flipSelected);
+        coinUI?.SetIsFlipping(flipSelected);
     }
 
     private void PlayAbilityCastSound(Ability ability)

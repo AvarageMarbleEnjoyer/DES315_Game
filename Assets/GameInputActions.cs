@@ -97,16 +97,16 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""id"": ""b806dfac-dde5-437d-b7f8-268ece5e8b1a"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""StopMovement"",
+                    ""name"": ""HoldMove"",
                     ""type"": ""Button"",
-                    ""id"": ""a635fa50-7ac9-4dfc-85bd-b871f01df7f8"",
+                    ""id"": ""90993881-b309-4809-82e6-3d36abe0cf7e"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -152,6 +152,15 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CancelAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""9a30d5f7-de60-434d-ace5-4591009ef9c5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Tap"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -209,17 +218,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c3c39914-3f50-4a95-8682-3932a168a850"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""StopMovement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -330,6 +328,28 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""FlipCoinForAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd318ab7-4070-4a5c-9456-0f728ba74676"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CancelAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""51ced9cb-0bd1-46a5-94f8-46a03f451097"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HoldMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -501,12 +521,13 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_StopMovement = m_Player.FindAction("StopMovement", throwIfNotFound: true);
+        m_Player_HoldMove = m_Player.FindAction("HoldMove", throwIfNotFound: true);
         m_Player_PointerPosition = m_Player.FindAction("PointerPosition", throwIfNotFound: true);
         m_Player_ShowVisibilityFeatures = m_Player.FindAction("ShowVisibilityFeatures", throwIfNotFound: true);
         m_Player_Ability1 = m_Player.FindAction("Ability1", throwIfNotFound: true);
         m_Player_Ability2 = m_Player.FindAction("Ability2", throwIfNotFound: true);
         m_Player_Ability3 = m_Player.FindAction("Ability3", throwIfNotFound: true);
+        m_Player_CancelAbility = m_Player.FindAction("CancelAbility", throwIfNotFound: true);
         m_Player_ConfirmTarget = m_Player.FindAction("ConfirmTarget", throwIfNotFound: true);
         m_Player_EndTurn = m_Player.FindAction("EndTurn", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
@@ -604,12 +625,13 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_StopMovement;
+    private readonly InputAction m_Player_HoldMove;
     private readonly InputAction m_Player_PointerPosition;
     private readonly InputAction m_Player_ShowVisibilityFeatures;
     private readonly InputAction m_Player_Ability1;
     private readonly InputAction m_Player_Ability2;
     private readonly InputAction m_Player_Ability3;
+    private readonly InputAction m_Player_CancelAbility;
     private readonly InputAction m_Player_ConfirmTarget;
     private readonly InputAction m_Player_EndTurn;
     private readonly InputAction m_Player_Inventory;
@@ -631,9 +653,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Move => m_Wrapper.m_Player_Move;
         /// <summary>
-        /// Provides access to the underlying input action "Player/StopMovement".
+        /// Provides access to the underlying input action "Player/HoldMove".
         /// </summary>
-        public InputAction @StopMovement => m_Wrapper.m_Player_StopMovement;
+        public InputAction @HoldMove => m_Wrapper.m_Player_HoldMove;
         /// <summary>
         /// Provides access to the underlying input action "Player/PointerPosition".
         /// </summary>
@@ -654,6 +676,10 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Ability3".
         /// </summary>
         public InputAction @Ability3 => m_Wrapper.m_Player_Ability3;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/CancelAbility".
+        /// </summary>
+        public InputAction @CancelAbility => m_Wrapper.m_Player_CancelAbility;
         /// <summary>
         /// Provides access to the underlying input action "Player/ConfirmTarget".
         /// </summary>
@@ -703,9 +729,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @StopMovement.started += instance.OnStopMovement;
-            @StopMovement.performed += instance.OnStopMovement;
-            @StopMovement.canceled += instance.OnStopMovement;
+            @HoldMove.started += instance.OnHoldMove;
+            @HoldMove.performed += instance.OnHoldMove;
+            @HoldMove.canceled += instance.OnHoldMove;
             @PointerPosition.started += instance.OnPointerPosition;
             @PointerPosition.performed += instance.OnPointerPosition;
             @PointerPosition.canceled += instance.OnPointerPosition;
@@ -721,6 +747,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @Ability3.started += instance.OnAbility3;
             @Ability3.performed += instance.OnAbility3;
             @Ability3.canceled += instance.OnAbility3;
+            @CancelAbility.started += instance.OnCancelAbility;
+            @CancelAbility.performed += instance.OnCancelAbility;
+            @CancelAbility.canceled += instance.OnCancelAbility;
             @ConfirmTarget.started += instance.OnConfirmTarget;
             @ConfirmTarget.performed += instance.OnConfirmTarget;
             @ConfirmTarget.canceled += instance.OnConfirmTarget;
@@ -750,9 +779,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @StopMovement.started -= instance.OnStopMovement;
-            @StopMovement.performed -= instance.OnStopMovement;
-            @StopMovement.canceled -= instance.OnStopMovement;
+            @HoldMove.started -= instance.OnHoldMove;
+            @HoldMove.performed -= instance.OnHoldMove;
+            @HoldMove.canceled -= instance.OnHoldMove;
             @PointerPosition.started -= instance.OnPointerPosition;
             @PointerPosition.performed -= instance.OnPointerPosition;
             @PointerPosition.canceled -= instance.OnPointerPosition;
@@ -768,6 +797,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @Ability3.started -= instance.OnAbility3;
             @Ability3.performed -= instance.OnAbility3;
             @Ability3.canceled -= instance.OnAbility3;
+            @CancelAbility.started -= instance.OnCancelAbility;
+            @CancelAbility.performed -= instance.OnCancelAbility;
+            @CancelAbility.canceled -= instance.OnCancelAbility;
             @ConfirmTarget.started -= instance.OnConfirmTarget;
             @ConfirmTarget.performed -= instance.OnConfirmTarget;
             @ConfirmTarget.canceled -= instance.OnConfirmTarget;
@@ -1056,12 +1088,12 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "StopMovement" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "HoldMove" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnStopMovement(InputAction.CallbackContext context);
+        void OnHoldMove(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "PointerPosition" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -1097,6 +1129,13 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAbility3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CancelAbility" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCancelAbility(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "ConfirmTarget" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

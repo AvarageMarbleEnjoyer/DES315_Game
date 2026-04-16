@@ -349,6 +349,11 @@ public class EnemyAI : MonoBehaviour
         //Close enough to engage combat//
         if (Vector3.Distance(transform.position, playerTransform.position) <= combatEngageRange)
         {
+            if (CheatManager.Instance != null && CheatManager.Instance.IgnoreEnemies)
+            {
+                SetAlerted();
+                return;
+            }
             if (debugMode) Debug.Log($"{gameObject.name}: Engaging combat!");
             CombatManager.Instance?.StartCombatFromEnemy(enemy);
             return;
@@ -456,8 +461,8 @@ public class EnemyAI : MonoBehaviour
     {
         if(currentState == AIState.Chasing) return;
         if (CombatManager.Instance != null && CombatManager.Instance.InCombat) return;
+        if (CheatManager.Instance != null && CheatManager.Instance.IgnoreEnemies) return;
 
-        //Find the player transform via the vision cone's cached referecne//
         Player p = FindAnyObjectByType<Player>();
         if (p != null) playerTransform = p.transform;
 

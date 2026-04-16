@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CombatCarouselEntry : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class CombatCarouselEntry : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [Header("UI")]
     [SerializeField] private Image unitIconImage;
@@ -10,8 +10,21 @@ public class CombatCarouselEntry : MonoBehaviour, IPointerEnterHandler, IPointer
     [SerializeField] private GameObject currentTurnIndicator;
     [SerializeField] private HealthUI healthUI;
 
+    private CameraController cameraController;
+
+    [Header("Active Turn")]
+    [SerializeField] private Vector3 activeTurnScale = new Vector3(1.3f, 1.3f, 1f);
+
+    [Header("Completed Turn")]
+    [SerializeField] private Color completedTintColor = new Color(0.45f, 0.45f, 0.45f, 1f);
+
+    private static readonly Vector3 DefaultScale = new Vector3(0.8f, 0.8f, 1f);
+
+    private static readonly string ArrowObjectName = "TargetArrow";
+
     private Unit unit;
     private bool isHovering;
+    private GameObject hoverArrow;
 
     private void Awake()
     {
@@ -24,6 +37,18 @@ public class CombatCarouselEntry : MonoBehaviour, IPointerEnterHandler, IPointer
         if (healthUI == null)
         {
             healthUI = FindFirstObjectByType<HealthUI>();
+        }
+
+        if (cameraController == null)
+        {
+            cameraController = FindFirstObjectByType<CameraController>();
+        }
+
+        // Pivot at top-centre so scaling expands downward, away from the screen edge
+        RectTransform rt = GetComponent<RectTransform>();
+        if (rt != null)
+        {
+            rt.pivot = new Vector2(0.5f, 1f);
         }
 
         SetTurnIndicatorActive(false);
@@ -57,12 +82,23 @@ public class CombatCarouselEntry : MonoBehaviour, IPointerEnterHandler, IPointer
 
         Unsubscribe();
         unit = targetUnit;
+        hoverArrow = null;
 
         if (unit == null)
         {
             UpdateUI(0f, 1f);
             return;
         }
+
+        Transform arrowTransform = unit.transform.Find(ArrowObjectName);
+        if (arrowTransform == null)
+        {
+            foreach (Transform child in unit.GetComponentsInChildren<Transform>(true))
+            {
+                if (child.name == ArrowObjectName) { arrowTransform = child; break; }
+            }
+        }
+        hoverArrow = arrowTransform != null ? arrowTransform.gameObject : null;
 
         Subscribe();
         UpdateUI(unit.CurrentHealth, unit.MaxHealth);
@@ -131,22 +167,45 @@ public class CombatCarouselEntry : MonoBehaviour, IPointerEnterHandler, IPointer
         {
             currentTurnIndicator.SetActive(isActive);
         }
+
+        transform.localScale = isActive ? activeTurnScale : DefaultScale;
+
+        if (transform.parent != null)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(transform.parent as RectTransform);
+        }
+    }
+
+    public void SetCompletedState(bool completed)
+    {
+        if (unitIconImage != null)
+        {
+            unitIconImage.color = completed ? completedTintColor : Color.white;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (healthUI == null || unit == null)
-        {
-            return;
-        }
+        if (unit == null) return;
 
         isHovering = true;
-        healthUI.SetExternalOverride(unit);
+
+        if (healthUI != null)
+            healthUI.SetExternalOverride(unit);
+
+        if (hoverArrow != null)
+            hoverArrow.SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         ClearHoverOverride();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (unit == null || cameraController == null) return;
+        cameraController.PanToPosition(unit.transform.position);
     }
 
     private void ClearHoverOverride()
@@ -157,6 +216,9 @@ public class CombatCarouselEntry : MonoBehaviour, IPointerEnterHandler, IPointer
         }
 
         isHovering = false;
+
+        if (hoverArrow != null)
+            hoverArrow.SetActive(false);
 
         if (healthUI != null)
         {

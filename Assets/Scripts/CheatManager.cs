@@ -15,6 +15,7 @@ public class CheatManager : MonoBehaviour
     [SerializeField] private bool infiniteHealth = false;
     [SerializeField] private bool infiniteCoins = false;
     [SerializeField] private bool showFinalRoom = false;
+    [SerializeField] private bool ignoreEnemies = false;
 
     [Header("Final Room Arrow")]
     [Tooltip("Assign the FinalRoomArrow component in the scene")]
@@ -25,11 +26,13 @@ public class CheatManager : MonoBehaviour
     public event System.Action<bool> OnInfiniteHealthChanged;
     public event System.Action<bool> OnInfiniteCoinsChanged;
     public event System.Action<bool> OnShowFinalRoomChanged;
+    public event System.Action<bool> OnIgnoreEnemiesChanged;
 
     // Properties
     public bool InfiniteHealth => infiniteHealth;
     public bool InfiniteCoins => infiniteCoins;
     public bool ShowFinalRoom => showFinalRoom;
+    public bool IgnoreEnemies => ignoreEnemies;
 
     private GameObject activeMarker;
 
@@ -92,4 +95,22 @@ public class CheatManager : MonoBehaviour
 
         OnShowFinalRoomChanged?.Invoke(showFinalRoom);
     }
-} 
+
+    public void ToggleIgnoreEnemies()
+    {
+        SetIgnoreEnemies(!ignoreEnemies);
+    }
+
+    public void SetIgnoreEnemies(bool value)
+    {
+        if (ignoreEnemies == value) return;
+        ignoreEnemies = value;
+
+        if (ignoreEnemies && CombatManager.Instance != null && CombatManager.Instance.InCombat)
+        {
+            CombatManager.Instance.ForceEndCombat(CombatManager.CombatOutcome.Draw);
+        }
+
+        OnIgnoreEnemiesChanged?.Invoke(ignoreEnemies);
+    }
+}

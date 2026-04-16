@@ -141,8 +141,16 @@ public class TreasureChest : MonoBehaviour
 
     private void OnInteract(InputAction.CallbackContext context)
     {
+
         if (!playerInRange || hasBeenOpened || isOpen) return;
 
+        //Don't open chest if palyer is also in range of a door//
+        Collider[] doorCheck = Physics.OverlapSphere(transform.position, interactionRange);
+        foreach(Collider col in doorCheck)
+        {
+            if (col.GetComponent<DungeonDoor>() != null) return;
+        }
+        
         OpenChest();
     }
 
@@ -161,6 +169,8 @@ public class TreasureChest : MonoBehaviour
         if (debugMode) Debug.Log("[TreasureChest] Opening Chest!");
         
         TutorialManager.Instance?.Trigger("first_chest_open");
+        
+        Time.timeScale = 0f;
 
         //Hide interaction prompt//
         if(interactionPrompt != null)
@@ -278,6 +288,8 @@ public class TreasureChest : MonoBehaviour
 
             isOpen = false;
         }
+        
+        Time.timeScale = 1f;
     }
 
     //Force open the chest (for testing) -EM//

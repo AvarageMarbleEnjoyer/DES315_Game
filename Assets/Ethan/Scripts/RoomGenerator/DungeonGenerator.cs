@@ -30,16 +30,22 @@ public class DungeonGenerator : MonoBehaviour
     [Tooltip("Chance (0-1) a new cell inherits a neighbour's type instead of rolling randomly - higher values cluster same-type cells together producing more 2x2 merges")]
     [Range(0f, 1f)]
     //0.0 fully random, 0.65 default increase in 2x2, 0.85 heavy clustering, 1.0 every cell inherits a neighbour//
-    public float typeClusterChance = 0.65f;
+    public float typeClusterChance = 0.82f;
 
     [Header("Debug")]
     public bool generateOnStart = true;
     public bool showDebugLogs = true;
 
+    public static bool HasPendingSeed = false;
+    public static int PendingSeed = 0;
+
     //Grid Data//
     private CellData[,] grid;
     private List<Room> rooms = new List<Room>();
     private Vector2Int startPosition;
+
+    //Quota tracking - types seen so far during growth, used to guarantee all types appear//
+    private HashSet<int> seenTypes = new HashSet<int>();
 
     void Start()
     {
@@ -53,7 +59,13 @@ public class DungeonGenerator : MonoBehaviour
     public void GenerateDungeon()
     {
         //Seed setup//
-        if(useRandomSeed)
+        if (HasPendingSeed)
+        {
+            useRandomSeed = false;
+            seed = PendingSeed;
+            HasPendingSeed = false;
+        }
+        else if(useRandomSeed)
         {
             //Random seed based on time//
             seed = System.Environment.TickCount;
@@ -107,6 +119,9 @@ public class DungeonGenerator : MonoBehaviour
         //Start with lobby room//
         int currentCells = 1;
 
+        //Reset the quota tracker so all types must appear at least once this run//
+        seenTypes.Clear();
+
         HashSet<Vector2Int> frontier = new HashSet<Vector2Int>();
 
         //Add initial neighbours of lobby to frontier//
@@ -133,6 +148,7 @@ public class DungeonGenerator : MonoBehaviour
             //Occupy this cell with a random room type (1 - 4, 0 reserved for starting room/lobby)//
             grid[cell.x, cell.y].isOccupied = true;
             grid[cell.x, cell.y].roomType = PickRoomType(cell);
+            seenTypes.Add(grid[cell.x, cell.y].roomType);
             currentCells++;
 
             //Add this cell's neighbour to frontier//
@@ -172,9 +188,24 @@ public class DungeonGenerator : MonoBehaviour
     }
 
     //Pick a room type for a newly occupied cell -EM//
+    //Quota check first, if any types haven't appeared yet, force one of those -EM//
     //Rolls against typeClusterChance to inherit a neighbour's type, otherwise picks randomly -EM//
     private int PickRoomType(Vector2Int cell)
     {
+        //Build list of types not yet seen this run//
+        List<int> missingTypes = new List<int>();
+        for(int t = 1; t <= roomTypeCount; t++)
+        {
+            if(!seenTypes.Contains(t)) missingTypes.Add(t);
+        }
+
+        //if any types are still missing force one of them to guarantee variety//
+        if(missingTypes.Count > 0)
+        {
+            return missingTypes[Random.Range(0, missingTypes.Count)];
+        }
+
+        //All types seen - use normal cluster logic from here on//
         if(Random.value < typeClusterChance)
         {
             Vector2Int[] directions = new Vector2Int[]
@@ -212,7 +243,80 @@ public class DungeonGenerator : MonoBehaviour
     {
         bool[,] proccessed = new bool[gridSize, gridSize];
 
-        //Pass 1: find and claim all valid 2x2 merges//
+        //Pass 0: guarantee at least one 2x2 per room type//
+        //Tracks which types have already been guaranteed a 2x2 this pass//
+        HashSet<int> guaranteedTypes = new HashSet<int>();
+
+        for (int type = 1; type <= roomTypeCount; type++)
+        {
+            //Scan the entire grid looking for the first valid 2x2 of this type//
+            bool found = false;
+            for (int x = 0; x < gridSize && !found; x++)
+            {
+                for (int y = 0; y < gridSize && !found; y++)
+                {
+                    if (!grid[x, y].isOccupied || proccessed[x, y]) continue;
+                    if (grid[x, y].roomType != type) continue;
+                    if (grid[x, y].isFinalRoom) continue; //Dont let pass 0 claim final room cells//
+
+                    if (CanMerge(x, y, 2, 2, type, proccessed))
+                    {
+                        List<Vector2Int> cells = new List<Vector2Int>
+                    {
+                        new Vector2Int(x, y),
+                        new Vector2Int(x + 1, y),
+                        new Vector2Int(x, y + 1),
+                        new Vector2Int(x + 1, y + 1)
+                    };
+
+                        foreach (Vector2Int cell in cells)
+                            proccessed[cell.x, cell.y] = true;
+
+                        rooms.Add(new Room(cells, type, false, false));
+                        guaranteedTypes.Add(type);
+                        found = true;
+
+                        if (showDebugLogs)
+                            Debug.Log($"[DungeonGenerator] Pass 0: Guaranteed 2x2 for type {type} at ({x},{y})");
+                    }
+                }
+            }
+
+            //Warn if a type had no valid 2x2 available on this seed//
+            if (!found && showDebugLogs)
+                Debug.LogWarning($"[DungeonGenerator] Pass 0: Could not guarantee a 2x2 for type {type} - not enough clustered cells. Consider raising typeClusterChance or gridSize.");
+        }
+
+        //Pass 0.5: claim the reserved final room as a single guaranteed 2x2//
+        for (int x = 0; x < gridSize - 1; x++)
+        {
+            for (int y = 0; y < gridSize - 1; y++)
+            {
+                if (!grid[x, y].isFinalRoom || proccessed[x, y]) continue;
+                if (!grid[x + 1, y].isFinalRoom || proccessed[x + 1, y]) continue;
+                if (!grid[x, y + 1].isFinalRoom || proccessed[x, y + 1]) continue;
+                if (!grid[x + 1, y + 1].isFinalRoom || proccessed[x + 1, y + 1]) continue;
+
+                List<Vector2Int> cells = new List<Vector2Int>
+            {
+                new Vector2Int(x, y),
+                new Vector2Int(x + 1, y),
+                new Vector2Int(x, y + 1),
+                new Vector2Int(x + 1, y + 1)
+            };
+
+                foreach (Vector2Int cell in cells)
+                    proccessed[cell.x, cell.y] = true;
+
+                rooms.Add(new Room(cells, grid[x, y].roomType, false, true)); 
+
+                if (showDebugLogs) Debug.Log($"[DungeonGenerator] Pass 0.5: Claimed FinalRoom 2x2 at ({x},{y})");
+                goto finalRoomClaimed; //Only one final room, exit both loops//
+            }
+        }
+    finalRoomClaimed:;
+
+        //Pass 1: greedily claim any remaining valid 2x2 merges//
         for (int x = 0; x < gridSize; x++)
         {
             for (int y = 0; y < gridSize; y++)
@@ -221,34 +325,33 @@ public class DungeonGenerator : MonoBehaviour
 
                 int roomType = grid[x, y].roomType;
 
-                //Only try 2x2 - skip lobbies, the stay 1x1//
-                if (!grid[x,y].isLobby && CanMerge(x,y,2,2,roomType, proccessed))
+                //Only try 2x2 - skip lobbies and final room cells, they stay 1x1//
+                if (!grid[x, y].isLobby && !grid[x, y].isFinalRoom && CanMerge(x, y, 2, 2, roomType, proccessed))
                 {
                     List<Vector2Int> cells = new List<Vector2Int>
-                    {
-                        new Vector2Int(x,y),
-                        new Vector2Int(x+1,y),
-                        new Vector2Int(x,y+1),
-                        new Vector2Int(x+1,y+1)
-                    };
+                {
+                    new Vector2Int(x, y),
+                    new Vector2Int(x + 1, y),
+                    new Vector2Int(x, y + 1),
+                    new Vector2Int(x + 1, y + 1)
+                };
 
-                    foreach(Vector2Int cell in cells)
+                    foreach (Vector2Int cell in cells)
                     {
                         proccessed[cell.x, cell.y] = true;
                     }
 
-                    bool isFinal = grid[x, y].isFinalRoom;
-                    rooms.Add(new Room(cells, roomType, false, isFinal));
+                    rooms.Add(new Room(cells, roomType, false, false));
                 }
             }
         }
 
         //Pass 2: any cell not yet claimed becomes a 1x1//
-        for(int x = 0; x < gridSize; x++)
+        for (int x = 0; x < gridSize; x++)
         {
-            for(int y = 0;y < gridSize; y++)
+            for (int y = 0; y < gridSize; y++)
             {
-                if (!grid[x,y].isOccupied || proccessed[x,y]) continue;
+                if (!grid[x, y].isOccupied || proccessed[x, y]) continue;
 
                 proccessed[x, y] = true;
                 rooms.Add(new Room(new List<Vector2Int> { new Vector2Int(x, y) }, grid[x, y].roomType, grid[x, y].isLobby, grid[x, y].isFinalRoom));
@@ -265,7 +368,7 @@ public class DungeonGenerator : MonoBehaviour
                 if (r.gridCells.Count == 1) count1x1++;
                 else if (r.gridCells.Count == 4) count2x2++;
             }
-        Debug.Log($"[DungeonGenerator ]Room merging complete: {rooms.Count} rooms ({count2x2} x 2x2, {count1x1} x 1x1)");
+            Debug.Log($"[DungeonGenerator] Room merging complete: {rooms.Count} rooms ({count2x2} x 2x2, {count1x1} x 1x1) | Guaranteed types: {string.Join(", ", guaranteedTypes)}"); 
         }
     }
 
@@ -342,6 +445,9 @@ public class DungeonGenerator : MonoBehaviour
                 {
                     return false;
                 }
+
+                //Protect final room//
+                if (grid[checkX, checkY].isFinalRoom) return false;
             }
         }
         return true;

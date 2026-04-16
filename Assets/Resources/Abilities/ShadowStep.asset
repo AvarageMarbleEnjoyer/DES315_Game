@@ -15,7 +15,8 @@ MonoBehaviour:
   abilityName: Shadow Step
   description: 'Name: Shadow Step   Cost: 1
 
-    Teleport to the shadows.'
+    Teleport to a randomly selected
+    point in the shadows.'
   icon: {fileID: 21300000, guid: c058e408d6675814ca6cbfd183d535a5, type: 3}
   coinCost: 1
   targetingType: 2

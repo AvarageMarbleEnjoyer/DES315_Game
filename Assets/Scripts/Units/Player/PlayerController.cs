@@ -11,15 +11,17 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Objects on these layers block movement clicks — clicks landing on them are ignored")]
     public LayerMask occluderMask;
 
-    [Header("Light Detection")]
-    public Vector3 lightCheckOffset = new Vector3(0f, 1f, 0f);
-    [Tooltip("Radius around the light check point used to avoid tiny false shadow checks")]
-    public float lightCheckRadius = 0.3f;
-
     [Header("Movement Range")]
     public float minMoveDistance = 0.3f;
+    [Tooltip("Extra distance added in the cursor direction while hold-moving, so the player walks through the cursor rather than stopping at it")]
+    public float holdMoveLookAhead = 1.5f;
+    [Tooltip("Cursor distance at which hold-move speed reaches minimum")]
+    public float holdMoveMinSpeedDistance = 1f;
+    [Tooltip("Cursor distance at which hold-move speed reaches full agent speed")]
+    public float holdMoveMaxSpeedDistance = 6f;
+    [Tooltip("Minimum speed fraction when cursor is very close (0–1)")]
+    [Range(0f, 1f)] public float holdMoveMinSpeedFraction = 0.15f;
 
-    //Input system updated - EM//
     [Header("Input Actions")]
     public InputActionAsset inputActions;
 
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Player player;
+    [SerializeField] private LightDetectable lightDetectable;
 
     [Header("Destination Indicator")]
     [Tooltip("Prefab to spawn at the destination point")]
@@ -55,18 +58,19 @@ public class PlayerController : MonoBehaviour
     public bool debugMode = true;
 
     [Header("Current State (Read Only)")]
-    [SerializeField] private bool isInLight;
-    [SerializeField] private float currentLightLevel;
     [SerializeField] private bool isMoving;
 
     private NavMeshAgent agent;
     private Camera mainCamera;
 
-    //Input Actions - EM//
     private InputAction moveAction;
+    private InputAction holdMoveAction;
     private InputAction stopMovementAction;
     private InputAction pointerPositionAction;
     private InputAction endTurnAction;
+
+    private bool isHoldMoving;
+    private float agentBaseSpeed;
 
     private GameObject destinationIndicatorInstance;
 
@@ -81,8 +85,8 @@ public class PlayerController : MonoBehaviour
     public delegate void MovementStateChanged(bool moving);
     public event MovementStateChanged OnMovementStateChanged;
 
-    public bool IsInLight => isInLight;
-    public float CurrentLightLevel => currentLightLevel;
+    public bool IsInLight => lightDetectable != null && lightDetectable.IsInLight;
+    public float CurrentLightLevel => lightDetectable != null ? lightDetectable.LightLevel : 0f;
     public bool IsMoving => isMoving;
 
     private void Awake()
@@ -98,11 +102,21 @@ public class PlayerController : MonoBehaviour
             player = GetComponent<Player>();
         }
 
-        //Setup input action - EM//
+        if (lightDetectable == null)
+        {
+            lightDetectable = GetComponent<LightDetectable>();
+        }
+
+        if (lightDetectable != null)
+        {
+            lightDetectable.OnLightStateChanged += OnLightDetectableStateChanged;
+        }
+
         if (inputActions != null)
         {
             var playerMap = inputActions.FindActionMap("Player");
             moveAction = playerMap.FindAction("Move");
+            holdMoveAction = playerMap.FindAction("HoldMove");
             stopMovementAction = playerMap.FindAction("StopMovement");
             pointerPositionAction = playerMap.FindAction("PointerPosition");
             endTurnAction = playerMap.FindAction("EndTurn");
@@ -115,13 +129,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //Movement System on Enable - EM//
     private void OnEnable()
     {
         if (moveAction != null)
         {
             moveAction.performed += OnMovePerformed;
             moveAction.Enable();
+        }
+
+        if (holdMoveAction != null)
+        {
+            holdMoveAction.performed += OnHoldMoveStarted;
+            holdMoveAction.canceled += OnHoldMoveCanceled;
+            holdMoveAction.Enable();
         }
 
         if (stopMovementAction != null)
@@ -140,15 +160,26 @@ public class PlayerController : MonoBehaviour
             endTurnAction.performed += OnEndTurn;
             endTurnAction.Enable();
         }
+
+        if (targetingSystem != null)
+        {
+            targetingSystem.OnTargetConfirmed += OnAbilityTargetConfirmed;
+        }
     }
 
-    //Movement System on Disable- EM//
     private void OnDisable()
     {
         if (moveAction != null)
         {
             moveAction.performed -= OnMovePerformed;
             moveAction.Disable();
+        }
+
+        if (holdMoveAction != null)
+        {
+            holdMoveAction.performed -= OnHoldMoveStarted;
+            holdMoveAction.canceled -= OnHoldMoveCanceled;
+            holdMoveAction.Disable();
         }
 
         if (stopMovementAction != null)
@@ -167,51 +198,63 @@ public class PlayerController : MonoBehaviour
             endTurnAction.performed -= OnEndTurn;
             endTurnAction.Disable();
         }
+
+        if (targetingSystem != null)
+        {
+            targetingSystem.OnTargetConfirmed -= OnAbilityTargetConfirmed;
+        }
     }
 
     private void Start()
     {
-        UpdateLightState();
         lastFramePosition = transform.position;
         movementUnlockTime = Time.unscaledTime + movementLockSeconds;
+        agentBaseSpeed = agent.speed;
     }
 
     private void Update()
     {
         UpdatePointerOverUI();
-        if (IsTargetingActive() && agent.hasPath)
+
+        if (IsTargetingActive())
         {
-            StopMovement();
+            HideDestinationIndicator();
+            if (agent.hasPath) StopMovement();
         }
+
         if (!CanPlayerAct() && agent.hasPath)
         {
             StopMovement();
         }
+
+        if (isHoldMoving)
+        {
+            if (IsTargetingActive() || !CanPlayerAct() || Time.unscaledTime < movementUnlockTime)
+                isHoldMoving = false;
+            else
+                UpdateHoldMovement();
+        }
         
-        // Track movement distance in combat
         if (CombatManager.Instance != null && CombatManager.Instance.InCombat && isMoving)
         {
             TrackMovementDistance();
         }
         
         UpdateMovingState();
-        UpdateLightState();
         UpdateDestinationIndicator();
         
         lastFramePosition = transform.position;
     }
 
-    //Input system on move performed- EM//
+    private void OnLightDetectableStateChanged(bool inLight)
+    {
+        OnLightStateChanged?.Invoke(inLight);
+    }
+
     private void OnMovePerformed(InputAction.CallbackContext context)
     {
-        if (isPointerOverUI)
-        {
-            return;
-        }
-        if (Time.unscaledTime < movementUnlockTime)
-        {
-            return;
-        }
+        if (isPointerOverUI) return;
+        if (Time.unscaledTime < movementUnlockTime) return;
         if (!CanPlayerAct()) return;
         if (IsTargetingActive()) return;
         if (mainCamera == null) return;
@@ -233,27 +276,20 @@ public class PlayerController : MonoBehaviour
             Vector3 toTarget = targetPoint - transform.position;
             float requestedDistance = toTarget.magnitude;
 
-            // Check minimum distance
-            if (requestedDistance < minMoveDistance)
-            {
-                return;
-            }
+            if (requestedDistance < minMoveDistance) return;
 
             bool inCombat = CombatManager.Instance != null && CombatManager.Instance.InCombat;
 
             if (inCombat)
             {
-                // Combat movement rules
                 if (player == null) return;
 
-                // Check if player can move at all
                 if (!player.CanMove())
                 {
                     if (debugMode) Debug.Log("[PlayerController] Cannot move - no coins or distance exhausted");
                     return;
                 }
 
-                // Get remaining allowed distance
                 float remainingDistance = player.RemainingMoveDistance;
                 
                 if (remainingDistance <= 0.01f)
@@ -262,29 +298,102 @@ public class PlayerController : MonoBehaviour
                     return;
                 }
 
-                // If clicking beyond remaining distance, ignore the click entirely
                 if (requestedDistance > remainingDistance)
                 {
-                    if (debugMode) Debug.Log($"[PlayerController] Click too far! Requested: {requestedDistance:F2}, Remaining: {remainingDistance:F2}");
-                    return;
+                    if (debugMode) Debug.Log($"[PlayerController] Click too far, clamping to {remainingDistance:F2} units");
+                    targetPoint = transform.position + toTarget.normalized * remainingDistance;
                 }
             }
 
-            // Validate NavMesh position
             if (NavMesh.SamplePosition(targetPoint, out NavMeshHit navHit, navMeshSampleDistance, NavMesh.AllAreas))
             {
                 agent.isStopped = false;
                 agent.SetDestination(navHit.position);
                 lowVelocityTimer = 0f;
                 ShowDestinationIndicator(navHit.position);
-                TutorialManager.Instance?.Trigger("first_move");
             }
         }
     }
 
     /// <summary>
-    /// Track movement distance during combat
+    /// Continuously moves the player toward the cursor position each frame while the button is held.
+    /// Speed and look-ahead both scale with cursor distance so the player decelerates as the cursor gets close.
+    /// Occluders are intentionally ignored — hold-move reads the ground directly beneath the cursor.
     /// </summary>
+    private void UpdateHoldMovement()
+    {
+        if (mainCamera == null) return;
+        if (pointerPositionAction == null) return;
+
+        Vector2 pointerPos = pointerPositionAction.ReadValue<Vector2>();
+        Ray ray = mainCamera.ScreenPointToRay(pointerPos);
+
+        if (!Physics.Raycast(ray, out RaycastHit hit, 100f, walkableMask))
+        {
+            agent.speed = agentBaseSpeed;
+            return;
+        }
+
+        Vector3 targetPoint = hit.point;
+
+        Vector3 toTarget = targetPoint - transform.position;
+        toTarget.y = 0f;
+        float cursorDistance = toTarget.magnitude;
+
+        if (cursorDistance < minMoveDistance)
+        {
+            agent.isStopped = true;
+            agent.ResetPath();
+            agent.speed = agentBaseSpeed;
+            return;
+        }
+
+        float t = Mathf.InverseLerp(holdMoveMinSpeedDistance, holdMoveMaxSpeedDistance, cursorDistance);
+        agent.speed = Mathf.Lerp(agentBaseSpeed * holdMoveMinSpeedFraction, agentBaseSpeed, t);
+
+        if (cursorDistance > 0.001f)
+            targetPoint += (toTarget / cursorDistance) * (holdMoveLookAhead * t);
+
+        bool inCombat = CombatManager.Instance != null && CombatManager.Instance.InCombat;
+        if (inCombat)
+        {
+            if (player == null || !player.CanMove()) return;
+            float remainingDistance = player.RemainingMoveDistance;
+            if (remainingDistance <= 0.01f) return;
+            float requestedDistance = Vector3.Distance(transform.position, targetPoint);
+            if (requestedDistance > remainingDistance) return;
+        }
+
+        if (NavMesh.SamplePosition(targetPoint, out NavMeshHit navHit, navMeshSampleDistance, NavMesh.AllAreas))
+        {
+            agent.isStopped = false;
+            agent.SetDestination(navHit.position);
+            lowVelocityTimer = 0f;
+        }
+    }
+
+    private void OnHoldMoveStarted(InputAction.CallbackContext context)
+    {
+        if (isPointerOverUI) return;
+        if (Time.unscaledTime < movementUnlockTime) return;
+        if (!CanPlayerAct()) return;
+        if (IsTargetingActive()) return;
+
+        isHoldMoving = true;
+        agent.speed = agentBaseSpeed;
+        HideDestinationIndicator();
+        agent.isStopped = true;
+        agent.ResetPath();
+    }
+
+    private void OnHoldMoveCanceled(InputAction.CallbackContext context)
+    {
+        if (!isHoldMoving) return;
+        isHoldMoving = false;
+        agent.speed = agentBaseSpeed;
+        StopMovement();
+    }
+
     private void TrackMovementDistance()
     {
         if (player == null) return;
@@ -295,23 +404,19 @@ public class PlayerController : MonoBehaviour
 
         if (deltaDistance > 0.001f)
         {
-            // Check if this movement would exceed the limit
             float newTotal = player.DistanceMovedThisTurn + deltaDistance;
             
             if (newTotal > player.MaxCombatMoveDistance)
             {
-                // Stop movement, we've hit the limit
                 Debug.Log($"[PlayerController] Movement limit reached! Stopping at {player.DistanceMovedThisTurn:F2} units");
                 StopMovement();
                 return;
             }
 
-            // Record the movement
             player.AddMovementDistance(deltaDistance);
         }
     }
 
-    //Input System On stop movement - EM//
     private void OnStopMovement(InputAction.CallbackContext context)
     {
         StopMovement();
@@ -344,9 +449,18 @@ public class PlayerController : MonoBehaviour
         return CombatManager.Instance.IsPlayerTurn;
     }
 
+    // Immediately cancels any pending movement when a targeting confirm fires,
+    // covering the case where the Move and ConfirmTarget actions share the same button.
+    private void OnAbilityTargetConfirmed(TargetingResult result)
+    {
+        StopMovement();
+    }
+
+    // Returns true while targeting is active OR on the frame a target was just confirmed,
+    // preventing a same-frame movement click from slipping through.
     private bool IsTargetingActive()
     {
-        return targetingSystem != null && targetingSystem.IsTargeting;
+        return targetingSystem != null && (targetingSystem.IsTargeting || targetingSystem.TargetJustConfirmed);
     }
 
     private void ShowDestinationIndicator(Vector3 position)
@@ -376,11 +490,8 @@ public class PlayerController : MonoBehaviour
 
     private bool HasArrivedAtDestination()
     {
-        if (!agent.hasPath)
-            return true;
-
-        if (agent.remainingDistance <= arrivalThreshold)
-            return true;
+        if (!agent.hasPath) return true;
+        if (agent.remainingDistance <= arrivalThreshold) return true;
 
         if (agent.velocity.magnitude < stuckVelocityThreshold)
         {
@@ -398,7 +509,8 @@ public class PlayerController : MonoBehaviour
 
         return false;
     }
-        private void UpdatePointerOverUI()
+
+    private void UpdatePointerOverUI()
     {
         if (EventSystem.current == null)
         {
@@ -420,6 +532,7 @@ public class PlayerController : MonoBehaviour
 
         isPointerOverUI = false;
     }
+
     private void UpdateMovingState()
     {
         bool wasMoving = isMoving;
@@ -433,35 +546,16 @@ public class PlayerController : MonoBehaviour
             if (!isMoving)
             {
                 HideDestinationIndicator();
+                TutorialManager.Instance?.Trigger("first_move");
             }
         }
     }
 
-    private void UpdateLightState()
-    {
-        if (LightDetectionManager.Instance == null) return;
-
-        Vector3 checkPoint = transform.position + lightCheckOffset;
-        LightCheckResult result = LightDetectionManager.Instance.CheckLightAtPoint(checkPoint, lightCheckRadius);
-
-        bool previousState = isInLight;
-
-        isInLight = result.isInLight;
-        currentLightLevel = result.totalLightContribution;
-
-        if (previousState != isInLight)
-        {
-            OnLightStateChanged?.Invoke(isInLight);
-        }
-    }
-
-    public Vector3 GetLightCheckPoint()
-    {
-        return transform.position + lightCheckOffset;
-    }
-
     private void OnDestroy()
     {
+        if (lightDetectable != null)
+            lightDetectable.OnLightStateChanged -= OnLightDetectableStateChanged;
+
         if (destinationIndicatorInstance != null)
         {
             Destroy(destinationIndicatorInstance);
@@ -470,10 +564,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Vector3 checkPoint = transform.position + lightCheckOffset;
-        Gizmos.color = isInLight ? Color.yellow : Color.blue;
-        Gizmos.DrawWireSphere(checkPoint, Mathf.Max(0.01f, lightCheckRadius));
-
         if (agent != null && agent.hasPath)
         {
             Gizmos.color = Color.green;
@@ -487,7 +577,6 @@ public class PlayerController : MonoBehaviour
             Gizmos.DrawWireSphere(agent.destination, arrivalThreshold);
         }
 
-        // Draw combat movement range
         if (Application.isPlaying && CombatManager.Instance != null && CombatManager.Instance.InCombat && player != null)
         {
             Gizmos.color = new Color(0f, 1f, 0f, 0.3f);

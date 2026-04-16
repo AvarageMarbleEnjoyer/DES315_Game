@@ -9,16 +9,13 @@ public class CameraController : MonoBehaviour
 
     [Header("Rotation Settings")]
     public float rotateSpeed = 0.3f;
+    
     [Tooltip("Pivot offset in camera local space (forward = +Z, down = -Y)")]
     public Vector3 offsetVector = new Vector3(0f, -6f, 5f);
 
-    [Header("Player Tether")]
-    [Tooltip("The player transform to stay near")]
-    public Transform player;
-    [Tooltip("Maximum distance camera can be from player")]
-    public float maxDistanceFromPlayer = 25f;
-
     [Header("Player Follow")]
+    [Tooltip("The player transform to follow")]
+    public Transform player;
     [Tooltip("PlayerController to subscribe to for movement events")]
     public PlayerController playerController;
     [Tooltip("How fast the camera lerps to the player when they start moving")]
@@ -39,7 +36,11 @@ public class CameraController : MonoBehaviour
     private InputAction rotateAction;
     private InputAction rotateDeltaAction;
 
+    public Vector3 PivotPoint => pivotPoint;
     private bool isRotating;
+    [Header("Carousel Pan")]
+    [SerializeField] private float carouselPanSpeed = 8f;
+
     private bool isFollowingPlayer;
     private bool isFastMoving;
     private Vector3 desiredMoveDirection;
@@ -48,6 +49,8 @@ public class CameraController : MonoBehaviour
     private Vector3 pivotPoint;
     private float cameraPitch;
     private float currentYaw;
+    private Vector3? lerpPanTarget;
+    
 
     //Input actions awake -EM//
     private void Awake()
@@ -151,6 +154,7 @@ public class CameraController : MonoBehaviour
         CachePanInput();
         CacheRotationInput();
         ApplyPlayerFollow();
+        ApplyLerpPan();
         ApplyPan();
         ApplyRotation();
         ApplyCameraTransform();
@@ -197,6 +201,8 @@ public class CameraController : MonoBehaviour
             return;
         }
 
+        lerpPanTarget = null;
+
         Vector3 forward = transform.forward;
         forward.y = 0f;
         forward.Normalize();
@@ -221,21 +227,7 @@ public class CameraController : MonoBehaviour
         if (desiredMoveDirection == Vector3.zero || desiredMoveSpeed <= 0f) return;
 
         Vector3 delta = desiredMoveDirection * desiredMoveSpeed * Time.deltaTime;
-        Vector3 newPivot = pivotPoint + delta;
-
-        if (player != null)
-        {
-            Vector3 tetherOffset = newPivot - player.position;
-            tetherOffset.y = 0f;
-
-            if (tetherOffset.magnitude > maxDistanceFromPlayer)
-            {
-                tetherOffset = tetherOffset.normalized * maxDistanceFromPlayer;
-                newPivot = new Vector3(player.position.x + tetherOffset.x, pivotPoint.y, player.position.z + tetherOffset.z);
-            }
-        }
-
-        pivotPoint = newPivot;
+        pivotPoint += delta;
     }
 
     //Handle rotation update -EM//
@@ -433,11 +425,30 @@ public class CameraController : MonoBehaviour
     }
 
     //Instantly snap the camera to be centred over the player -EM//
+    private void ApplyLerpPan()
+    {
+        if (lerpPanTarget == null) return;
+
+        Vector3 target = new Vector3(lerpPanTarget.Value.x, pivotPoint.y, lerpPanTarget.Value.z);
+        pivotPoint = Vector3.Lerp(pivotPoint, target, carouselPanSpeed * Time.deltaTime);
+
+        if (Vector3.Distance(new Vector3(pivotPoint.x, 0f, pivotPoint.z), new Vector3(target.x, 0f, target.z)) < 0.01f)
+        {
+            pivotPoint = target;
+            lerpPanTarget = null;
+        }
+    }
+
     public void SnapToPlayer()
     {
         if (player == null) return;
 
         pivotPoint = new Vector3(player.position.x, pivotPoint.y, player.position.z);
         ApplyCameraTransform();
+    }
+
+    public void PanToPosition(Vector3 worldPosition)
+    {
+        lerpPanTarget = worldPosition;
     }
 }

@@ -75,6 +75,9 @@ public class EnemyCombatAI : MonoBehaviour
     [Tooltip("How much the flip chance falls after a hit")]
     public float successPenalty = 5f;
 
+    [Tooltip("Degrees per second the enemy rotates to face the player before attacking")]
+    public float turnSpeed = 180f;
+
     [Header("Debug")]
     [SerializeField] private bool debugMode = true;
     [SerializeField] private bool lastFlipResult = false;
@@ -87,19 +90,21 @@ public class EnemyCombatAI : MonoBehaviour
     private NavMeshAgent agent;
     private bool isTakingTurn = false;
     private float originalStoppingDistance;
-    private Brute_AnimController animController;
+    private Brute_AnimController bruteAnimController; // -EM//
+    private Grunt_AnimController gruntAnimController; // -EM//
 
     //Lifecycle -EM//
 
     private void Awake()
     {
-       enemy = GetComponent<Enemy>();
-       agent = GetComponent<NavMeshAgent>();
-        animController = GetComponentInChildren<Brute_AnimController>();
+        enemy = GetComponent<Enemy>();
+        agent = GetComponent<NavMeshAgent>();
+        bruteAnimController = GetComponentInChildren<Brute_AnimController>(); // -EM//
+        gruntAnimController = GetComponentInChildren<Grunt_AnimController>(); // -EM//
         if (agent != null)
-       {
-           originalStoppingDistance = agent.stoppingDistance;
-       }
+        {
+            originalStoppingDistance = agent.stoppingDistance;
+        }
     }
 
     private void Start()
@@ -111,7 +116,7 @@ public class EnemyCombatAI : MonoBehaviour
     //SetMaxHealth(newMax, flase) so we can manually reset current health to full//
     private void ApplyTypeStats()
     {
-        switch(enemyType)
+        switch (enemyType)
         {
             case EnemyType.Grunt:
                 enemy.SetMaxHealth(gruntMaxHealth, false);
@@ -126,7 +131,7 @@ public class EnemyCombatAI : MonoBehaviour
                 break;
         }
 
-        if(debugMode)
+        if (debugMode)
         {
             Debug.Log($"[EnemyCombatAI] {gameObject.name} initialised as {enemyType} " + $"(hp:{enemy.MaxHealth}, flip:{currentFlipChance:F0}%");
         }
@@ -138,7 +143,7 @@ public class EnemyCombatAI : MonoBehaviour
     //Returns false if the component can't act (CombatManager will end the turn immediately in that case as a safety net)//
     public bool TakeTurn(Player player)
     {
-        if(isTakingTurn)
+        if (isTakingTurn)
         {
             if (debugMode) Debug.LogWarning($"[EnemyCombatAI] {gameObject.name}: TakeTurn called while already taking a turn!");
             return false;
@@ -177,10 +182,10 @@ public class EnemyCombatAI : MonoBehaviour
 
         //Step 2: Check we are within attack range after repositioning//
         float distToPlayer = Vector3.Distance(transform.position, player.transform.position);
-        if(distToPlayer > gruntMaxRange + rangeTolerance)
+        if (distToPlayer > gruntMaxRange + rangeTolerance)
         {
             if (debugMode) Debug.LogWarning($"[EnemyCombatAI] {gameObject.name} Grunt could not reach attack range");
-            MessageUI.Instance?.EnqueueMessage($"{gameObject.name} couldn't get into position!");
+            //MessageUI.Instance?.EnqueueMessage($"{gameObject.name} couldn't get into position!");
             yield break;
         }
 
@@ -188,7 +193,7 @@ public class EnemyCombatAI : MonoBehaviour
         bool isInLight = LightDetectionManager.Instance != null && LightDetectionManager.Instance.IsPointInLight(transform.position);
 
         float effectiveFlipChance = currentFlipChance;
-        if(isInLight)
+        if (isInLight)
         {
             effectiveFlipChance = Mathf.Max(MIN_FLIP, currentFlipChance - gruntLightPenalty);
             if (debugMode) Debug.Log($"[EnemyCombatAI] {gameObject.name} in LIGHT - flip {currentFlipChance:F0}% -> {effectiveFlipChance:F0}%");
@@ -200,10 +205,12 @@ public class EnemyCombatAI : MonoBehaviour
         }
 
         //Step 4: Attack//
+        yield return FacePlayer(player);
         bool success = PerformFlip(effectiveFlipChance);
         lastFlipResult = success;
+        gruntAnimController?.TriggerAttack(); // -EM//
 
-        if(success)
+        if (success)
         {
             player.TakeDamage(gruntAttackDamage);
             MessageUI.Instance?.EnqueueMessage($"{gameObject.name} used Strike and dealth {gruntAttackDamage:0} damage!");
@@ -220,12 +227,12 @@ public class EnemyCombatAI : MonoBehaviour
     //Too close: retreat away from player. Too far: advance toward player. in band: stay put//
     private IEnumerator RepositionGrunt(Player player)
     {
-        if(agent == null || !agent.isOnNavMesh || !agent.isActiveAndEnabled) yield break;
+        if (agent == null || !agent.isOnNavMesh || !agent.isActiveAndEnabled) yield break;
 
         float dist = Vector3.Distance(transform.position, player.transform.position);
 
         //Already in preffered badn - no movement needed//
-        if(dist >= gruntMinRange && dist <= gruntMaxRange)
+        if (dist >= gruntMinRange && dist <= gruntMaxRange)
         {
             if (debugMode) Debug.Log($"[EnemyCombatAI] {gameObject.name} Grunt already in range band ({dist:F1})");
             yield break;
@@ -233,7 +240,7 @@ public class EnemyCombatAI : MonoBehaviour
 
         Vector3 targetPos;
 
-        if(dist < gruntRetreatRange)
+        if (dist < gruntRetreatRange)
         {
             //Too close - retreat directly away from the player//
             Vector3 awayDir = (transform.position - player.transform.position).normalized;
@@ -250,14 +257,14 @@ public class EnemyCombatAI : MonoBehaviour
         }
 
         //Snap target to NavMesh//
-        if(NavMesh.SamplePosition(targetPos, out NavMeshHit hit, 3f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(targetPos, out NavMeshHit hit, 3f, NavMesh.AllAreas))
         {
             agent.isStopped = false;
             agent.stoppingDistance = 0.1f;
             agent.SetDestination(hit.position);
 
             float timer = 0f;
-            while(timer < maxMoveTime)
+            while (timer < maxMoveTime)
             {
                 if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance + rangeTolerance) break;
                 timer += Time.deltaTime;
@@ -265,6 +272,7 @@ public class EnemyCombatAI : MonoBehaviour
             }
 
             agent.isStopped = true;
+            agent.velocity = Vector3.zero;
             agent.ResetPath();
             agent.stoppingDistance = originalStoppingDistance;
         }
@@ -273,9 +281,9 @@ public class EnemyCombatAI : MonoBehaviour
     //Brute turn: close in and slam -EM//
     private IEnumerator ExecuteBruteTurn(Player player)
     {
-        if(!IsInRange(player, bruteAttackRange)) yield return MoveIntoRange(player, bruteAttackRange);
+        if (!IsInRange(player, bruteAttackRange)) yield return MoveIntoRange(player, bruteAttackRange);
 
-        if(!IsInRange(player, bruteAttackRange))
+        if (!IsInRange(player, bruteAttackRange))
         {
             if (debugMode) Debug.LogWarning($"[EnemyCombatAI] {gameObject.name} Brute could not reach the player.");
             MessageUI.Instance?.EnqueueMessage($"{gameObject.name} couldn't reach you!");
@@ -284,7 +292,8 @@ public class EnemyCombatAI : MonoBehaviour
 
         bool success = PerformFlip(currentFlipChance);
         lastFlipResult = success;
-        animController?.TriggerAttack();
+        yield return FacePlayer(player);
+        bruteAnimController?.TriggerAttack(); // -EM//
 
         if (success)
         {
@@ -303,7 +312,7 @@ public class EnemyCombatAI : MonoBehaviour
 
     private bool PerformFlip(float chance)
     {
-   
+
         float roll = Random.Range(0f, 100f);
         float chanceUsed = chance;
         bool success = roll < chance;
@@ -313,7 +322,7 @@ public class EnemyCombatAI : MonoBehaviour
         if (success)
         {
             //Coming off a fail streak: rest; otherwise decrease;
-            
+
             if (currentFlipChance > startingChance)
             {
                 currentFlipChance = startingChance;
@@ -382,8 +391,25 @@ public class EnemyCombatAI : MonoBehaviour
         }
 
         agent.isStopped = true;
+        agent.velocity = Vector3.zero;
         agent.ResetPath();
         agent.stoppingDistance = originalStoppingDistance;
+    }
+
+    private IEnumerator FacePlayer(Player player)
+    {
+        if (player == null) yield break;
+        Vector3 dir = player.transform.position - transform.position;
+        dir.y = 0f;
+        if (dir.sqrMagnitude <= 0.0001f) yield break;
+
+        Quaternion target = Quaternion.LookRotation(dir);
+        while (Quaternion.Angle(transform.rotation, target) > 0.5f)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, target, turnSpeed * Time.deltaTime);
+            yield return null;
+        }
+        transform.rotation = target;
     }
 
     private void StopMovement()

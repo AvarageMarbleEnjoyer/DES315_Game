@@ -11,16 +11,16 @@
                     "id": "b806dfac-dde5-437d-b7f8-268ece5e8b1a",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "StopMovement",
+                    "name": "HoldMove",
                     "type": "Button",
-                    "id": "a635fa50-7ac9-4dfc-85bd-b871f01df7f8",
+                    "id": "90993881-b309-4809-82e6-3d36abe0cf7e",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "initialStateCheck": false
                 },
                 {
@@ -66,6 +66,15 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CancelAbility",
+                    "type": "Button",
+                    "id": "9a30d5f7-de60-434d-ace5-4591009ef9c5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Tap",
                     "initialStateCheck": false
                 },
                 {
@@ -123,17 +132,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c3c39914-3f50-4a95-8682-3932a168a850",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "StopMovement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -244,6 +242,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "FlipCoinForAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bd318ab7-4070-4a5c-9456-0f728ba74676",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CancelAbility",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "51ced9cb-0bd1-46a5-94f8-46a03f451097",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldMove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
